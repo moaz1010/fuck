@@ -1,9 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=6 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://jveenyjsh6mq" path="res://Scenes/player.tscn" id="1_76nyf"]
+[ext_resource type="Texture2D" uid="uid://b5t3r2l2l2atu" path="res://assests/tilemapunfinished.png" id="2_54hnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lc6hp"]
 size = Vector2(244, 10)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ogtb2"]
+texture = ExtResource("2_54hnl")
+6:0/size_in_atlas = Vector2i(2, 2)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.94454, 8, -3.35876, 8, 8, -2.2981, 8)
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.7331, -15.026, 15.026, -16.0867, 15.3796, 15.7331, -15.026, 16.0867)
+2:1/size_in_atlas = Vector2i(2, 1)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.2912, -2.91682, 13.7002, -3.09359, 14.0537, 6.8059, -17.059, 7.33623)
+0:1/0 = 0
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.91682, 8, -3.44715, 8, 6.45235, -8, 6.45235)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.2912, -2.91682, 13.7002, -3.09359, 14.0537, 6.8059, -17.059, 7.33623)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17.1473, -3.35876, 16.7938, -3.35876, 15.7331, 7.6014, -17.059, 7.33623)
+
+[sub_resource type="TileSet" id="TileSet_unvoo"]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/1 = SubResource("TileSetAtlasSource_ogtb2")
 
 [node name="Main" type="Node2D"]
 position = Vector2(116, 117)
@@ -17,6 +44,9 @@ position = Vector2(2, 47)
 shape = SubResource("RectangleShape2D_lc6hp")
 
 [node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_unvoo")
 format = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AAD5/wIAAQAAAAEAAAD6/wIAAQABAAEAAAD7/wIAAQACAAEAAAD9/wIAAQACAAEAAAD//wIAAQACAAEAAAABAAIAAQACAAEAAAADAAIAAQACAAEAAAAFAAIAAQACAAEAAAAGAAIAAQAEAAEAAAAHAAIAAQAFAAEAAAAIAAEAAQAGAAAAAAAIAAAAAQAGAAAAAAAIAP//AQAGAAAAAAAIAP7/AQAGAAAAAAAIAP3/AQAGAAAAAAAIAPz/AQAGAAAAAAD5/wEAAQAGAAAAAAD5/wAAAQAGAAAAAAD5////AQAGAAAAAAD5//7/AQAGAAAAAAD5//3/AQAGAAAAAAD5//z/AQAGAAAAAAD6//v/AQAGAAAAAAA=")
+tile_set = SubResource("TileSet_unvoo")

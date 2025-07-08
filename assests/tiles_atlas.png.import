@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tnjvdc7yj80e"
-path="res://.godot/imported/Finn run.png-8b48545c73ce1d2a43650ab06524f972.ctex"
+uid="uid://lftotrfcgqqu"
+path="res://.godot/imported/tiles_atlas.png-81031fae6314d1010dbbf1277c7bf470.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/Finn run.png"
-dest_files=["res://.godot/imported/Finn run.png-8b48545c73ce1d2a43650ab06524f972.ctex"]
+source_file="res://assests/tiles_atlas.png"
+dest_files=["res://.godot/imported/tiles_atlas.png-81031fae6314d1010dbbf1277c7bf470.ctex"]
 
 [params]
 

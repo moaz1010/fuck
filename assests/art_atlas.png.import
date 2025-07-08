@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp4w6184b6ofu"
-path="res://.godot/imported/Finn die.png-f5a7d320c5d3c71a51359d0cdbf66e82.ctex"
+uid="uid://bwk5inh1kf5t8"
+path="res://.godot/imported/art_atlas.png-d2410ee4ba552255dfcd4365c769f88a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/Finn die.png"
-dest_files=["res://.godot/imported/Finn die.png-f5a7d320c5d3c71a51359d0cdbf66e82.ctex"]
+source_file="res://assests/art_atlas.png"
+dest_files=["res://.godot/imported/art_atlas.png-d2410ee4ba552255dfcd4365c769f88a.ctex"]
 
 [params]
 
