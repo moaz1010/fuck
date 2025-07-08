@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://jveenyjsh6mq"]
+[gd_scene load_steps=5 format=3 uid="uid://jveenyjsh6mq"]
 
 [ext_resource type="Texture2D" uid="uid://cfh4ccr2udnev" path="res://assests/player.png" id="1_5yo5e"]
+[ext_resource type="Script" path="res://player.gd" id="1_50v5o"]
+[ext_resource type="PackedScene" uid="uid://bav15wkkjdn8d" path="res://Scenes/flashlight.tscn" id="3_cgn65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc3tc"]
 size = Vector2(9, 16)
@@ -8,6 +10,7 @@ size = Vector2(9, 16)
 [node name="Player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_50v5o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0.5, 0)
@@ -17,3 +20,5 @@ shape = SubResource("RectangleShape2D_bc3tc")
 position = Vector2(1.5, -2)
 scale = Vector2(0.989583, 1)
 texture = ExtResource("1_5yo5e")
+
+[node name="flashlight" parent="CharacterBody2D" instance=ExtResource("3_cgn65")]

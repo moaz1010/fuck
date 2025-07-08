@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=3 format=3 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://jveenyjsh6mq" path="res://Scenes/player.tscn" id="1_76nyf"]
-[ext_resource type="PackedScene" uid="uid://bav15wkkjdn8d" path="res://Scenes/flashlight.tscn" id="2_ugqw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lc6hp"]
 size = Vector2(244, 10)
@@ -10,9 +9,6 @@ size = Vector2(244, 10)
 position = Vector2(116, 117)
 
 [node name="Player" parent="." instance=ExtResource("1_76nyf")]
-
-[node name="flashlight" parent="." instance=ExtResource("2_ugqw5")]
-position = Vector2(12, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
