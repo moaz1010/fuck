@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://jveenyjsh6mq"]
+[gd_scene load_steps=7 format=3 uid="uid://jveenyjsh6mq"]
 
-[ext_resource type="Texture2D" uid="uid://cfh4ccr2udnev" path="res://assests/player.png" id="1_5yo5e"]
 [ext_resource type="Script" path="res://player.gd" id="1_50v5o"]
-[ext_resource type="PackedScene" uid="uid://bav15wkkjdn8d" path="res://Scenes/flashlight.tscn" id="3_cgn65"]
+[ext_resource type="Script" path="res://Scenes/followcam.gd" id="2_j3bxu"]
+[ext_resource type="Resource" uid="uid://cfbdfyx82sk5l" path="res://Inventory/PlayerInv.tres" id="2_qr2im"]
+[ext_resource type="Texture2D" uid="uid://cjxp1hh8fkfmo" path="res://assests/player (1).png" id="3_ucass"]
+[ext_resource type="PackedScene" uid="uid://bhop55xpoms5g" path="res://Inventory/inv_ui.tscn" id="5_dstu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc3tc"]
 size = Vector2(9, 16)
@@ -11,14 +13,33 @@ size = Vector2(9, 16)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_50v5o")
+inv = ExtResource("2_qr2im")
+
+[node name="followcam" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(3, 3)
+limit_left = -10000
+limit_top = -10000
+limit_right = 10000
+limit_bottom = 10000
+position_smoothing_enabled = true
+script = ExtResource("2_j3bxu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_bc3tc")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(1.5, -2)
-scale = Vector2(0.989583, 1)
-texture = ExtResource("1_5yo5e")
+position = Vector2(1, -1)
+texture = ExtResource("3_ucass")
 
-[node name="flashlight" parent="CharacterBody2D" instance=ExtResource("3_cgn65")]
+[node name="InvUI" parent="CharacterBody2D" instance=ExtResource("5_dstu7")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -69.0
+offset_right = 88.0
+offset_bottom = -13.0
+grow_horizontal = 1
+grow_vertical = 0

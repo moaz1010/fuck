@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://chjnepda8tha3"]
 
 [ext_resource type="FontFile" uid="uid://x1gh4gra8jox" path="res://ByteBounce.ttf" id="1_je41u"]
-[ext_resource type="Texture2D" uid="uid://bhvu4sqb5c1k3" path="res://assests/Tutorialbutton.png" id="2_07lpg"]
+[ext_resource type="Texture2D" path="res://assests/Tutorialbutton.png" id="2_07lpg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjx0q"]
 bg_color = Color(0, 0, 0, 1)

@@ -1,11 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bav15wkkjdn8d"]
 
 [ext_resource type="Script" path="res://flashlight.gd" id="1_iw2o0"]
-[ext_resource type="Texture2D" uid="uid://d4dht6vufjmjk" path="res://assests/flashlight.png" id="2_ev8h4"]
+[ext_resource type="Texture2D" uid="uid://or0jyty5v8tk" path="res://assests/flashlight (1).png" id="2_bl8yu"]
 
 [node name="flashlight" type="Node2D"]
 script = ExtResource("1_iw2o0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(12, 0)
-texture = ExtResource("2_ev8h4")
+texture = ExtResource("2_bl8yu")
