@@ -1,6 +1,7 @@
 extends Camera2D
 
-@onready var tilemap = get_parent().get_node("res://Scens/tiles")
+@onready var tilemap = get_parent().get_node("TileMapLayer")
+
 
 
 
@@ -8,11 +9,11 @@ extends Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if tilemap == null:
+	if tilemap == null:	
 		print("not found :pensive:")
 		return
 	var mapRect = tilemap.get_used_rect()
-	var tileSize = tilemap.cell_quadrant_size
+	var tileSize = Vector2(tilemap.tile_set.tile_size)
 	var worldSizeInPixels = mapRect.size * tileSize
 	limit_right = worldSizeInPixels.x
 	limit_bottom = worldSizeInPixels.y
