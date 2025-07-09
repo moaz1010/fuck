@@ -70,11 +70,11 @@ layout_mode = 2
 size_flags_vertical = 8
 
 [node name="AbstractItem" parent="." instance=ExtResource("6_a0otd")]
-position = Vector2(784, 631)
+position = Vector2(750, 608)
 stats = ExtResource("9_ldjde")
 skill = ExtResource("10_7vpdu")
 
 [node name="AbstractItem2" parent="." instance=ExtResource("6_a0otd")]
-position = Vector2(784, 631)
+position = Vector2(784, 625)
 stats = ExtResource("6_wndun")
 skill = ExtResource("7_jf3c4")
