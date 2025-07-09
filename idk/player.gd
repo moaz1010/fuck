@@ -1,17 +1,17 @@
-extends CharacterBody2D
+extends MovingEntity
 
-const SPEED = 200
 @onready var fx: AnimatedSprite2D = $FX
 @onready var hotbar: HBoxContainer = $UI/Hotbar
 
 
 
-func _physics_process(_delta):
+func _process(delta: float):
 	
-	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-
-	velocity = direction.normalized() * SPEED
-	move_and_slide()
+	
+	direction = Input.get_axis("move_left", "move_right")
+	
+	if Input.is_action_just_pressed("move_up") and is_on_floor():
+		jump()
 
 
 
