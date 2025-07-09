@@ -1,8 +1,7 @@
 extends Camera2D
 
-@onready var tilemap = get_parent().get_node("res://Scens/tiles")
 
-
+@export var tilemap : TileMapLayer
 
 
 

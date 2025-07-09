@@ -19,6 +19,7 @@ config/icon="res://Scenes/icon.svg"
 
 window/size/viewport_width=948
 window/size/viewport_height=640
+window/stretch/scale=2.0
 
 [input]
 
