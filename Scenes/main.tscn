@@ -1,15 +1,10 @@
-[gd_scene load_steps=14 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=9 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://jveenyjsh6mq" path="res://Scenes/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://Scenes/tiles.tscn" id="1_yx00i"]
 [ext_resource type="Texture2D" uid="uid://bwk5inh1kf5t8" path="res://assests/art_atlas.png" id="3_ljoy8"]
 [ext_resource type="PackedScene" uid="uid://c2nvlqgiheq0d" path="res://Scenes/slot.tscn" id="5_anfn7"]
 [ext_resource type="Script" path="res://Scenes/Hotbar.gd" id="5_en5wd"]
-[ext_resource type="PackedScene" uid="uid://dk72f5fho25b4" path="res://Scenes/abstract_item.tscn" id="6_a0otd"]
-[ext_resource type="Resource" uid="uid://bqc6ft23m85v5" path="res://Recources/Items/Gun.tres" id="6_wndun"]
-[ext_resource type="Resource" uid="uid://c3gg8s5yvcyym" path="res://Recources/Skills/fire.tres" id="7_jf3c4"]
-[ext_resource type="Resource" uid="uid://cxuc4bbfbvxqf" path="res://Recources/Items/Flashlight.tres" id="9_ldjde"]
-[ext_resource type="Resource" uid="uid://deqotoxlr18rd" path="res://Recources/Skills/energy.tres" id="10_7vpdu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fj0tp"]
 texture = ExtResource("3_ljoy8")
@@ -68,13 +63,3 @@ size_flags_vertical = 8
 [node name="slot4" parent="UI/Hotbar" instance=ExtResource("5_anfn7")]
 layout_mode = 2
 size_flags_vertical = 8
-
-[node name="AbstractItem" parent="." instance=ExtResource("6_a0otd")]
-position = Vector2(784, 631)
-stats = ExtResource("9_ldjde")
-skill = ExtResource("10_7vpdu")
-
-[node name="AbstractItem2" parent="." instance=ExtResource("6_a0otd")]
-position = Vector2(784, 631)
-stats = ExtResource("6_wndun")
-skill = ExtResource("7_jf3c4")
