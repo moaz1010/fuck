@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://chjnepda8tha3"]
 
-[ext_resource type="FontFile" uid="uid://x1gh4gra8jox" path="res://ByteBounce.ttf" id="1_je41u"]
+[ext_resource type="FontFile" uid="uid://x1gh4gra8jox" path="res://idk/ByteBounce.ttf" id="1_je41u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjx0q"]
 bg_color = Color(0, 0, 0, 1)
@@ -21,10 +21,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -117.5
-offset_top = -65.0
-offset_right = 117.5
-offset_bottom = 65.0
+offset_left = -117.0
+offset_top = -107.0
+offset_right = 169.0
+offset_bottom = 69.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -42,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -106.0
-offset_top = -43.5
-offset_right = 106.0
-offset_bottom = 43.5
+offset_left = -131.0
+offset_top = -149.0
+offset_right = 125.0
+offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
 

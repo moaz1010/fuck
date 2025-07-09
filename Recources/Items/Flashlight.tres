@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cxuc4bbfbvxqf"]
+
+[ext_resource type="Texture2D" uid="uid://or0jyty5v8tk" path="res://assests/flashlight (1).png" id="1_gxiu8"]
+[ext_resource type="Script" path="res://idk/Item.gd" id="2_vmol0"]
+
+[resource]
+script = ExtResource("2_vmol0")
+icon = ExtResource("1_gxiu8")
+name = "Flashlight"
+type = "Weapon"
+description = "Disinigrate your enemies with theee power of light ;D"
