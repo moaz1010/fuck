@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://chjnepda8tha3"]
+[gd_scene load_steps=3 format=3 uid="uid://chjnepda8tha3"]
 
-[ext_resource type="FontFile" uid="uid://x1gh4gra8jox" path="res://ByteBounce.ttf" id="1_je41u"]
-[ext_resource type="Texture2D" path="res://assests/Tutorialbutton.png" id="2_07lpg"]
+[ext_resource type="FontFile" uid="uid://x1gh4gra8jox" path="res://idk/ByteBounce.ttf" id="1_je41u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjx0q"]
 bg_color = Color(0, 0, 0, 1)
@@ -49,7 +48,6 @@ offset_right = 125.0
 offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_07lpg")
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2

@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dil1jenjppn13"]
+
+[ext_resource type="Script" path="res://UI/hotbar.gd" id="1_mlkbj"]
+[ext_resource type="Texture2D" uid="uid://or0jyty5v8tk" path="res://assests/flashlight (1).png" id="1_u2cx2"]
+[ext_resource type="Texture2D" uid="uid://43ed4aohw6yx" path="res://assests/Gun (2).png" id="2_811hb"]
+[ext_resource type="Script" path="res://UI/item_button.gd" id="3_674bf"]
+
+[node name="hotbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mlkbj")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 4
+
+[node name="slot" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+focus_mode = 1
+icon = ExtResource("1_u2cx2")
+expand_icon = true
+script = ExtResource("3_674bf")
+
+[node name="ItemButton2" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("2_811hb")
+
+[node name="ItemButton3" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("1_u2cx2")
