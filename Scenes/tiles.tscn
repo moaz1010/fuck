@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0x01ew66hs6e"]
+[gd_scene load_steps=6 format=3 uid="uid://b0x01ew66hs6e"]
 
 [ext_resource type="Texture2D" uid="uid://lftotrfcgqqu" path="res://assests/tiles_atlas.png" id="1_q3t2o"]
+[ext_resource type="Texture2D" uid="uid://dlax476o1ugtj" path="res://assests/background.png" id="2_80uyi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lhp6"]
 texture = ExtResource("1_q3t2o")
@@ -381,12 +382,31 @@ texture = ExtResource("1_q3t2o")
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:4/0/terrains_peering_bit/right_side = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23fth"]
+texture = ExtResource("2_80uyi")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/terrain_set = 1
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+
 [sub_resource type="TileSet" id="TileSet_0tkjv"]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_1/mode = 0
+terrain_set_1/terrain_0/name = "background"
+terrain_set_1/terrain_0/color = Color(0.420239, 0.00184668, 0.953021, 1)
 sources/0 = SubResource("TileSetAtlasSource_2lhp6")
+sources/1 = SubResource("TileSetAtlasSource_23fth")
 
 [node name="TileMapLayer" type="TileMapLayer"]
 texture_filter = 1
