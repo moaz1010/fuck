@@ -1,12 +1,23 @@
 extends CharacterBody2D
 class_name MovingEntity
 
+@export var SECONDS_TO_MAX_SPEED := 0.9 
+@export var SECONDS_TO_STOP_COMPLETELY := 0.4
 
-@export var SPEED := 300.0
-@export var JUMP_VELOCITY := -400.0
+@export var MAX_SPEED := 500.0
+@export var JUMP_VELOCITY := 400.0
 
 var direction : float = 0
+var ACCELERATION : float
+var FRICTION : float
 
+func _ready() -> void:
+	
+	ACCELERATION = MAX_SPEED / SECONDS_TO_MAX_SPEED
+	FRICTION = MAX_SPEED / SECONDS_TO_STOP_COMPLETELY
+	
+	#Adjusting acceleration, since friction is applied even when moving.
+	ACCELERATION += FRICTION
 
 
 func _physics_process(delta: float) -> void:
@@ -15,15 +26,24 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	
+		
+		
+	#Handle acceleration.
 	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x += direction * ACCELERATION * delta
+		
+		
+	#Handle friction.
+	var friciton_direction : int = -(sign(velocity.x))
+	velocity.x += FRICTION * friciton_direction * delta
+	
+	if friciton_direction == sign(velocity.x):
+		velocity.x = 0
+		
+		
+	velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED) #Clamping speed.
+		
 	move_and_slide()
 
 func jump():
-	velocity.y = JUMP_VELOCITY
+	velocity.y = -JUMP_VELOCITY
