@@ -22,13 +22,13 @@ func set_focus():
 	index.emit(current_index)
  
 func _input(event):
-	if event.is_action_pressed("scroll_down"):
+	if event.is_action_pressed("ui_text_scroll_down"):
 		if current_index == get_child_count() - 1:
 			current_index = 0
 		else:
 			current_index += 1
  
-	if event.is_action_pressed("scroll_up"):
+	if event.is_action_pressed("ui_text_scroll_up"):
 		if current_index == 0:
 			current_index = get_child_count() - 1
 		else:

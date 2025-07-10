@@ -17,7 +17,7 @@ func _ready():
 	set_process_input(false)
  
 func _input(event):
-	if event.is_action_pressed("use"):
+	if event.is_action_pressed("ui_accept"):
 		use_item()
 
 func use_item():
