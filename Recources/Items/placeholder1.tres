@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dp6ux3w4wp821"]
 
-[ext_resource type="Script" path="res://idk/Item.gd" id="1_ih5oe"]
+[ext_resource type="Script" path="res://Recources/Item.gd" id="1_dnw3o"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j5f73"]
 size = Vector2(32, 32)
 
 [resource]
-script = ExtResource("1_ih5oe")
+script = ExtResource("1_dnw3o")
 icon = SubResource("PlaceholderTexture2D_j5f73")
 name = "Place holder"
 type = "Weapon"
