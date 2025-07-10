@@ -1,15 +1,15 @@
 [gd_scene load_steps=57 format=3 uid="uid://dsm02n73ad3fq"]
 
-[ext_resource type="Script" path="res://idk/player.gd" id="1_4vkt4"]
+[ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Texture2D" uid="uid://cjxp1hh8fkfmo" path="res://assests/player (1).png" id="2_1nmeq"]
-[ext_resource type="PackedScene" uid="uid://bamvfl60rrb3j" path="res://Scenes/inventory_ui.tscn" id="3_qjecq"]
+[ext_resource type="PackedScene" uid="uid://bamvfl60rrb3j" path="res://scenes/ui_scenes/InventoryUI/inventory_ui.tscn" id="3_qjecq"]
 [ext_resource type="Texture2D" uid="uid://dvfok5b6i64cw" path="res://assests/Super Package Retro Pixel Effects 32x32 pack 2 Free/11.png" id="4_ew4m5"]
 [ext_resource type="Texture2D" uid="uid://cgqoe7w5yx2ki" path="res://assests/Super Package Retro Pixel Effects 32x32 pack 2 Free/03.png" id="5_xxa5p"]
 [ext_resource type="Texture2D" uid="uid://cosrartsxcyi4" path="res://assests/Super Package Retro Pixel Effects 32x32 pack 2 Free/31.png" id="6_npx0s"]
 [ext_resource type="Texture2D" uid="uid://c4t5mw7r201pt" path="res://assests/Super Package Retro Pixel Effects 32x32 pack 2 Free/29.png" id="7_ui7wx"]
-[ext_resource type="Script" path="res://Scenes/Weapons.gd" id="8_frnkk"]
-[ext_resource type="Script" path="res://Scenes/Hotbar.gd" id="9_4qsrf"]
-[ext_resource type="PackedScene" uid="uid://c2nvlqgiheq0d" path="res://Scenes/slot.tscn" id="10_sylbs"]
+[ext_resource type="Script" path="res://idk/Weapons.gd" id="8_frnkk"]
+[ext_resource type="Script" path="res://scenes/ui_scenes/Hotbar/hotbar.gd" id="9_4qsrf"]
+[ext_resource type="PackedScene" uid="uid://c2nvlqgiheq0d" path="res://scenes/ui_scenes/Slot/slot.tscn" id="10_sylbs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc3tc"]
 size = Vector2(9, 16)

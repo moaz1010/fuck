@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=4 uid="uid://jkw7jqno36fx"]
 
-[ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://Scenes/player.tscn" id="1_76nyf"]
-[ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://Scenes/tiles.tscn" id="1_yx00i"]
-[ext_resource type="PackedScene" uid="uid://c2nvlqgiheq0d" path="res://Scenes/slot.tscn" id="5_anfn7"]
-[ext_resource type="Script" path="res://Scenes/Hotbar.gd" id="5_en5wd"]
+[ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
+[ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://scenes/tilemaps/tiles.tscn" id="1_yx00i"]
+[ext_resource type="PackedScene" uid="uid://c2nvlqgiheq0d" path="res://scenes/ui_scenes/Slot/slot.tscn" id="5_anfn7"]
+[ext_resource type="Script" path="res://scenes/ui_scenes/Hotbar/hotbar.gd" id="5_en5wd"]
 
 [node name="Main" type="Node"]
 
