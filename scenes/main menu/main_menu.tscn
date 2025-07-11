@@ -46,6 +46,10 @@ layout_mode = 2
 texture_normal = ExtResource("6_wn4pu")
 texture_pressed = ExtResource("7_757um")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(471, 317)
+zoom = Vector2(3, 3)
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
