@@ -1,13 +1,14 @@
 extends CharacterBody2D
 class_name MovingEntity
 
+@export var params : MovingEntityStats
 
-@export var SECONDS_TO_MAX_SPEED := .9 
-@export var SECONDS_TO_STOP_COMPLETELY := .4
-@export var HANG_TIME := .5
+var SECONDS_TO_MAX_SPEED := .9 
+var SECONDS_TO_STOP_COMPLETELY := .4
+var HANG_TIME := .5
 
-@export var MAX_SPEED := 500.0
-@export var FALL_GRAVITY_MULTIPLIER := 2.2
+var MAX_SPEED := 300.0
+var FALL_GRAVITY_MULTIPLIER := 2.2
 
 
 var speed_jump_multiplier : float = 1
@@ -16,11 +17,20 @@ var ACCELERATION : float
 var FRICTION : float
 var GRAVITY : float = 200
 #TODO: CHANGE THESE TO BE RELATIVE TO CHARACTER HEIGHT
-@export var MAX_SPEED_JUMP_INCREASE := .1
-@export var JUMP_VELOCITY := 400.0
+var MAX_SPEED_JUMP_INCREASE := .1
+var JUMP_VELOCITY := 400.0
 
 
-func _init() -> void:
+func _ready() -> void:
+	
+	if params != null:
+		SECONDS_TO_MAX_SPEED = params.SECONDS_TO_MAX_SPEED
+		SECONDS_TO_STOP_COMPLETELY = params.SECONDS_TO_STOP_COMPLETELY
+		HANG_TIME = params.HANG_TIME
+		MAX_SPEED = params.MAX_SPEED
+		FALL_GRAVITY_MULTIPLIER = params.FALL_GRAVITY_MULTIPLIER
+		MAX_SPEED_JUMP_INCREASE = params.MAX_SPEED_JUMP_INCREASE
+		JUMP_VELOCITY = params.JUMP_VELOCITY
 
 	ACCELERATION = MAX_SPEED / SECONDS_TO_MAX_SPEED
 	FRICTION = MAX_SPEED / SECONDS_TO_STOP_COMPLETELY

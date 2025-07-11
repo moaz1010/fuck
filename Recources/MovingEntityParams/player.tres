@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MovingEntityStats" load_steps=2 format=3 uid="uid://hl3piymcr4vy"]
+
+[ext_resource type="Script" path="res://Recources/moving_entity_params.gd" id="1_pii0e"]
+
+[resource]
+script = ExtResource("1_pii0e")
+SECONDS_TO_MAX_SPEED = 0.1
+SECONDS_TO_STOP_COMPLETELY = 0.05
+HANG_TIME = 0.25
+MAX_SPEED = 300.0
+FALL_GRAVITY_MULTIPLIER = 1.5
+MAX_SPEED_JUMP_INCREASE = 0.2
+JUMP_VELOCITY = 400.0

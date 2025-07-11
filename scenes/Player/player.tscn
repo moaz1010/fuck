@@ -1,7 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene load_steps=58 format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Texture2D" uid="uid://cjxp1hh8fkfmo" path="res://assests/player (1).png" id="2_1nmeq"]
+[ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_vfhjs"]
 [ext_resource type="PackedScene" uid="uid://bamvfl60rrb3j" path="res://scenes/ui_scenes/InventoryUI/inventory_ui.tscn" id="3_qjecq"]
 [ext_resource type="Texture2D" uid="uid://dvfok5b6i64cw" path="res://assests/Super Package Retro Pixel Effects 32x32 pack 2 Free/11.png" id="4_ew4m5"]
 [ext_resource type="Texture2D" uid="uid://cgqoe7w5yx2ki" path="res://assests/Super Package Retro Pixel Effects 32x32 pack 2 Free/03.png" id="5_xxa5p"]
@@ -347,7 +348,7 @@ animations = [{
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_4vkt4")
-MAX_SPEED = 300.0
+params = ExtResource("2_vfhjs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
