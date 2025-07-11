@@ -1,17 +1,20 @@
 extends CharacterBody2D
 class_name MovingEntity
 
-@export var SECONDS_TO_MAX_SPEED := 0.9 
-@export var SECONDS_TO_STOP_COMPLETELY := 0.4
+@export var SECONDS_TO_MAX_SPEED := .9 
+@export var SECONDS_TO_STOP_COMPLETELY := .4
 
 @export var MAX_SPEED := 500.0
 @export var JUMP_VELOCITY := 400.0
 
+@export var MAX_SPEED_JUMP_INCREASE := .1
+
+var speed_jump_multiplier : float = 1
 var direction : float = 0
 var ACCELERATION : float
 var FRICTION : float
 
-func _ready() -> void:
+func _init() -> void:
 	
 	ACCELERATION = MAX_SPEED / SECONDS_TO_MAX_SPEED
 	FRICTION = MAX_SPEED / SECONDS_TO_STOP_COMPLETELY
@@ -42,8 +45,12 @@ func _physics_process(delta: float) -> void:
 		
 		
 	velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED) #Clamping speed.
+	
+	
+	speed_jump_multiplier = ((abs(velocity.x) / MAX_SPEED) * MAX_SPEED_JUMP_INCREASE) + 1
+	
 		
 	move_and_slide()
 
 func jump():
-	velocity.y = -JUMP_VELOCITY
+	velocity.y = -JUMP_VELOCITY * speed_jump_multiplier
