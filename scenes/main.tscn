@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=15 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://scenes/tilemaps/tiles.tscn" id="1_yx00i"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://lftotrfcgqqu" path="res://assests/World tiles/tiles_atlas.png" id="3_godeq"]
 [ext_resource type="PackedScene" uid="uid://c2nvlqgiheq0d" path="res://scenes/ui_scenes/Slot/slot.tscn" id="5_anfn7"]
 [ext_resource type="Script" path="res://scenes/ui_scenes/Hotbar/hotbar.gd" id="5_en5wd"]
+[ext_resource type="PackedScene" uid="uid://dk72f5fho25b4" path="res://scenes/AbstractItem/abstract_item.tscn" id="5_obu5w"]
+[ext_resource type="Texture2D" uid="uid://43ed4aohw6yx" path="res://assests/weapons/Gun (2).png" id="6_psmjt"]
+[ext_resource type="Resource" uid="uid://bqc6ft23m85v5" path="res://Recources/Items/Gun.tres" id="7_igddj"]
+[ext_resource type="Resource" uid="uid://c3gg8s5yvcyym" path="res://Recources/Skills/fire.tres" id="8_0g3ny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsyfl"]
 texture = ExtResource("2_25x5a")
@@ -418,6 +422,12 @@ z_index = -1
 remote_path = NodePath("../../Camera2D")
 update_rotation = false
 update_scale = false
+
+[node name="AbstractItem" parent="World" instance=ExtResource("5_obu5w")]
+position = Vector2(272, 46)
+texture = ExtResource("6_psmjt")
+stats = ExtResource("7_igddj")
+skill = ExtResource("8_0g3ny")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

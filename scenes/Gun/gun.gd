@@ -12,8 +12,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if GUN ==null: return
-
+	if GUN == null: 
+		return
 
 
 	
