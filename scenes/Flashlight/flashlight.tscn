@@ -1,23 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://bav15wkkjdn8d"]
+[gd_scene load_steps=5 format=3 uid="uid://bav15wkkjdn8d"]
 
 [ext_resource type="Script" path="res://scenes/Flashlight/flashlight.gd" id="1_0bi7u"]
 [ext_resource type="Texture2D" uid="uid://or0jyty5v8tk" path="res://assests/weapons/flashlight (1).png" id="2_bl8yu"]
+[ext_resource type="Shader" path="res://shaders/flashlight.gdshader" id="3_14lfk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgl0u"]
+shader = ExtResource("3_14lfk")
 
 [node name="flashlight" type="Node2D"]
 script = ExtResource("1_0bi7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
 texture = ExtResource("2_bl8yu")
 
 [node name="Area2D" type="Area2D" parent="."]
-z_index = -1
+visible = false
+z_index = 2
 monitoring = false
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
 position = Vector2(53.0668, 0)
 scale = Vector2(3.14949, 2.3125)
 polygon = PackedVector2Array(-17.1668, 0, 10, -10, 10, 10)
 
 [node name="Polygon2D" type="Polygon2D" parent="Area2D"]
+material = SubResource("ShaderMaterial_xgl0u")
+color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-1, 0, 85, -23, 85, 23)

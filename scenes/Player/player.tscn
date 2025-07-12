@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene load_steps=10 format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_vfhjs"]
 [ext_resource type="PackedScene" uid="uid://bamvfl60rrb3j" path="res://scenes/ui_scenes/InventoryUI/inventory_ui.tscn" id="3_qjecq"]
 [ext_resource type="Texture2D" uid="uid://cjxp1hh8fkfmo" path="res://assests/Player stuff/player (1).png" id="3_uklsp"]
 [ext_resource type="Script" path="res://idk/Weapons.gd" id="8_frnkk"]
+[ext_resource type="PackedScene" uid="uid://bav15wkkjdn8d" path="res://scenes/Flashlight/flashlight.tscn" id="8_lt378"]
 [ext_resource type="Script" path="res://scenes/ui_scenes/Hotbar/hotbar.gd" id="9_4qsrf"]
 [ext_resource type="PackedScene" uid="uid://c2nvlqgiheq0d" path="res://scenes/ui_scenes/Slot/slot.tscn" id="10_sylbs"]
 
@@ -50,6 +51,8 @@ size_flags_vertical = 8
 [node name="slot4" parent="UI/Hotbar" instance=ExtResource("10_sylbs")]
 layout_mode = 2
 size_flags_vertical = 8
+
+[node name="flashlight" parent="." instance=ExtResource("8_lt378")]
 
 [connection signal="child_entered_tree" from="Weapons" to="Weapons" method="_on_child_entered_tree"]
 [connection signal="index" from="UI/Hotbar" to="Weapons" method="_on_index"]
