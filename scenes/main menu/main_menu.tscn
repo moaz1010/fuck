@@ -8,48 +8,51 @@
 [ext_resource type="Texture2D" uid="uid://p0kbp1oamofn" path="res://assests/quitbutton.png" id="6_wn4pu"]
 [ext_resource type="Texture2D" uid="uid://dwty0cknm6yij" path="res://assests/quitbuttonpressed.png" id="7_757um"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_s7te6")
+metadata/_edit_horizontal_guides_ = [393.0]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(471, 317)
+zoom = Vector2(3, 3)
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_s7te6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -16.0
 offset_top = -52.0
-offset_right = 12.0
+offset_right = 16.0
 offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" type="TextureButton" parent="VBoxContainer"]
+[node name="Play" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_tv666")
 texture_pressed = ExtResource("3_nhymf")
 
-[node name="Options" type="TextureButton" parent="VBoxContainer"]
+[node name="Options" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_jamf8")
 texture_pressed = ExtResource("5_atla6")
 
-[node name="Quit" type="TextureButton" parent="VBoxContainer"]
+[node name="Quit" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_wn4pu")
 texture_pressed = ExtResource("7_757um")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(471, 317)
-zoom = Vector2(3, 3)
-
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
