@@ -16,6 +16,7 @@ func _process(_delta):
 
 	
 	if Input.is_action_just_pressed("fire"):
+		print("akjfhdkf")
 		light.visible = !light.visible
 		light.monitoring = !light.monitoring
 

@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cluhf5gby2umq"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_qpkw3"]
+[ext_resource type="Texture2D" uid="uid://bwk5inh1kf5t8" path="res://assests/World tiles/art_atlas.png" id="2_0eyyq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecae"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iipeq"]
+size = Vector2(11, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cad3a"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_apexg"]
+radius = 70.0
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_qpkw3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7ecae")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0eyyq")
+region_enabled = true
+region_rect = Rect2(0, 0, 15.992, 16.1444)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_iipeq")
+
+[node name="enter_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enter_area"]
+shape = SubResource("CircleShape2D_cad3a")
+
+[node name="exit_area" type="Area2D" parent="enter_area"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enter_area/exit_area"]
+shape = SubResource("CircleShape2D_apexg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]
+[connection signal="body_entered" from="enter_area/exit_area" to="." method="_on_exit_area_body_entered"]
