@@ -1,6 +1,6 @@
 extends MovingEntity
 
-@onready var fx: AnimatedSprite2D = $FX
+
 @onready var hotbar: HBoxContainer = $UI/Hotbar
 
 
@@ -16,9 +16,7 @@ func _process(delta: float):
 
 
 
-func play_FX(skill):
-	fx.play(skill.name)
-	
+
 
 func add_item(stats,skill):
 	hotbar.add_item(stats,skill)

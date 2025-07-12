@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm4sekntentip"]
+[gd_scene load_steps=5 format=3 uid="uid://dm4sekntentip"]
 
 [ext_resource type="Script" path="res://scenes/main menu/options.gd" id="1_v56yq"]
-[ext_resource type="Texture2D" uid="uid://cs3kfb4ma64ri" path="res://assests/playbutton.png" id="2_l3btr"]
-[ext_resource type="Texture2D" uid="uid://bbkmymtc12761" path="res://assests/playbuttonpressed.png" id="3_sils2"]
-[ext_resource type="Texture2D" uid="uid://p0kbp1oamofn" path="res://assests/quitbutton.png" id="4_4cdjk"]
-[ext_resource type="Texture2D" uid="uid://dwty0cknm6yij" path="res://assests/quitbuttonpressed.png" id="5_15exx"]
+[ext_resource type="Texture2D" uid="uid://36g5ytiupemq" path="res://assests/UI stuff/Buttons/Options_button.png" id="2_44rg1"]
+[ext_resource type="Texture2D" uid="uid://e2yr0otf23wp" path="res://assests/UI stuff/Buttons/backbutton.png" id="4_c7doo"]
+[ext_resource type="Texture2D" uid="uid://c1ricdhskc8mr" path="res://assests/UI stuff/Buttons/backbuttonpressed.png" id="5_kyapg"]
 
 [node name="options" type="Control"]
 layout_mode = 3
@@ -31,13 +30,12 @@ grow_vertical = 2
 
 [node name="IDK" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_l3btr")
-texture_pressed = ExtResource("3_sils2")
+texture_normal = ExtResource("2_44rg1")
 
 [node name="back" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_4cdjk")
-texture_pressed = ExtResource("5_15exx")
+texture_normal = ExtResource("4_c7doo")
+texture_pressed = ExtResource("5_kyapg")
 
 [connection signal="pressed" from="VBoxContainer/IDK" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/back" to="." method="_on_quit_pressed"]

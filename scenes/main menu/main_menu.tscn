@@ -1,51 +1,60 @@
 [gd_scene load_steps=8 format=3 uid="uid://m7eeverxv5hn"]
 
 [ext_resource type="Script" path="res://scenes/main menu/main_menu.gd" id="1_s7te6"]
-[ext_resource type="Texture2D" uid="uid://cs3kfb4ma64ri" path="res://assests/playbutton.png" id="2_tv666"]
-[ext_resource type="Texture2D" uid="uid://bbkmymtc12761" path="res://assests/playbuttonpressed.png" id="3_nhymf"]
-[ext_resource type="Texture2D" uid="uid://db0ow1vhxes3n" path="res://assests/optionsbutton.png" id="4_jamf8"]
-[ext_resource type="Texture2D" uid="uid://c6s2rcharu2ow" path="res://assests/optionsbuttonpressed.png" id="5_atla6"]
-[ext_resource type="Texture2D" uid="uid://p0kbp1oamofn" path="res://assests/quitbutton.png" id="6_wn4pu"]
-[ext_resource type="Texture2D" uid="uid://dwty0cknm6yij" path="res://assests/quitbuttonpressed.png" id="7_757um"]
+[ext_resource type="Texture2D" uid="uid://d1jxjuqiowdhj" path="res://assests/UI stuff/Buttons/Playbutton (1).png" id="2_x2s52"]
+[ext_resource type="Texture2D" uid="uid://drrlkuqe5lb4l" path="res://assests/UI stuff/Buttons/Play_button_pressed.png" id="3_lb2fs"]
+[ext_resource type="Texture2D" uid="uid://36g5ytiupemq" path="res://assests/UI stuff/Buttons/Options_button.png" id="4_x55ei"]
+[ext_resource type="Texture2D" uid="uid://bf0ngenrwwd1o" path="res://assests/UI stuff/Buttons/Options_button_pressed.png" id="5_jd8p4"]
+[ext_resource type="Texture2D" uid="uid://6gxnphk8wu0q" path="res://assests/UI stuff/Buttons/Quit_button.png" id="6_2xh6d"]
+[ext_resource type="Texture2D" uid="uid://cjtywymf5him" path="res://assests/UI stuff/Buttons/Quit_button_pressed.png" id="7_h52n7"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_s7te6")
+metadata/_edit_horizontal_guides_ = [393.0]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(471, 317)
+zoom = Vector2(3, 3)
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_s7te6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -52.0
-offset_right = 12.0
-offset_bottom = 52.0
+offset_left = -16.0
+offset_top = -22.0
+offset_right = 16.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" type="TextureButton" parent="VBoxContainer"]
+[node name="Play" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_tv666")
-texture_pressed = ExtResource("3_nhymf")
+texture_normal = ExtResource("2_x2s52")
+texture_pressed = ExtResource("3_lb2fs")
 
-[node name="Options" type="TextureButton" parent="VBoxContainer"]
+[node name="Options" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_jamf8")
-texture_pressed = ExtResource("5_atla6")
+texture_normal = ExtResource("4_x55ei")
+texture_pressed = ExtResource("5_jd8p4")
 
-[node name="Quit" type="TextureButton" parent="VBoxContainer"]
+[node name="Quit" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("6_wn4pu")
-texture_pressed = ExtResource("7_757um")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_2xh6d")
+texture_pressed = ExtResource("7_h52n7")
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
