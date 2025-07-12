@@ -445,7 +445,7 @@ size_flags_vertical = 8
 [node name="labels" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="labels"]
-offset_left = -72.0
-offset_top = -58.0
+offset_left = -215.0
+offset_top = -127.0
 offset_right = -32.0
 offset_bottom = -35.0

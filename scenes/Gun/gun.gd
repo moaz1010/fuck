@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var muzzle: Marker2D = $Marker2D
 
-
+const GUN = preload("res://Recources/Items/Gun.tres")
 @export var BULLET : PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +12,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if GUN ==null: return
+
+
+
+	
 	look_at(get_global_mouse_position())
 	
 	rotation_degrees = wrap(rotation_degrees, 0 ,360)
