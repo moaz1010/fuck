@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-
-@onready var player_node: CharacterBody2D = get_parent().get_node("player")
+@export var player_node : MovingEntity
 
 var speed := 65.0
 var should_chase := false 
@@ -9,7 +8,8 @@ var should_chase := false
 
 func _physics_process(delta: float) -> void:
 	if should_chase:
-		var direction = (player_node.global_position-global_position).normalized()
+		var direction : Vector2
+		if player_node: direction = (player_node.global_position-global_position).normalized()
 		velocity = lerp(velocity, direction * speed, 8.5 * delta )
 		move_and_slide()
 		
@@ -29,6 +29,11 @@ func _on_enter_area_body_entered(body: Node2D) -> void:
 		should_chase = true
 
 
-func _on_exit_area_body_entered(body: Node2D) -> void:
+#func _on_exit_area_body_entered(body: Node2D) -> void:
+	#if body == player_node:
+		#should_chase = false
+
+
+func _on_exit_area_body_exited(body: Node2D) -> void:
 	if body == player_node:
 		should_chase = false
