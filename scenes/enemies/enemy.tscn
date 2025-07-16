@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cluhf5gby2umq"]
+[gd_scene load_steps=7 format=3 uid="uid://cluhf5gby2umq"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_qpkw3"]
 [ext_resource type="Texture2D" uid="uid://bwk5inh1kf5t8" path="res://assests/World tiles/art_atlas.png" id="2_0eyyq"]
+[ext_resource type="Script" path="res://components/health_component.gd" id="3_tt18s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecae"]
 
@@ -36,6 +37,11 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit_area"]
 shape = SubResource("CircleShape2D_apexg")
 
+[node name="HealthComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_tt18s")
+
 [connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]
 [connection signal="body_exited" from="enter_area" to="." method="_on_enter_area_body_exited"]
 [connection signal="body_exited" from="exit_area" to="." method="_on_exit_area_body_exited"]
+[connection signal="died" from="HealthComponent" to="." method="_on_death"]

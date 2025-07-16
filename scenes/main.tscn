@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=17 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://scenes/tilemaps/tiles.tscn" id="1_yx00i"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://bqc6ft23m85v5" path="res://Recources/Items/Gun.tres" id="7_igddj"]
 [ext_resource type="Resource" uid="uid://c3gg8s5yvcyym" path="res://Recources/Skills/fire.tres" id="8_0g3ny"]
 [ext_resource type="PackedScene" uid="uid://cluhf5gby2umq" path="res://scenes/enemies/enemy.tscn" id="9_cohwm"]
+[ext_resource type="PackedScene" uid="uid://bau7qqu6a6rxi" path="res://scenes/Gun/gun.tscn" id="9_l8pkp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsyfl"]
 texture = ExtResource("2_25x5a")
@@ -430,6 +431,9 @@ position = Vector2(272, 46)
 texture = ExtResource("6_psmjt")
 stats = ExtResource("7_igddj")
 skill = ExtResource("8_0g3ny")
+
+[node name="Gun" parent="World" instance=ExtResource("9_l8pkp")]
+position = Vector2(202, 37)
 
 [node name="enemy" parent="World" instance=ExtResource("9_cohwm")]
 position = Vector2(358, 74)
