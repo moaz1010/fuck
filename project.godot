@@ -66,6 +66,7 @@ fire={
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="friendly_bullet"
 2d_physics/layer_4="enemy_bullet"
+2d_physics/layer_5="environment"
 
 [rendering]
 

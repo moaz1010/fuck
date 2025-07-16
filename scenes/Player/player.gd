@@ -5,7 +5,7 @@ extends MovingEntity
 
 
 
-func _process(delta: float):
+func _input(_event: InputEvent) -> void:
 	
 	
 	direction = Input.get_axis("move_left", "move_right")

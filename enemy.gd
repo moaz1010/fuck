@@ -1,32 +1,25 @@
 extends CharacterBody2D
 
-@export var player_node : MovingEntity
+var to_be_followed : Array[Node2D]
 
-var speed := 65.0
-var should_chase := false 
-
+var speed := 65.0 
+var direction : Vector2
 
 func _physics_process(delta: float) -> void:
-	if should_chase:
-		var direction : Vector2
-		if player_node: direction = (player_node.global_position-global_position).normalized()
-		velocity = lerp(velocity, direction * speed, 8.5 * delta )
-		move_and_slide()
+	if not to_be_followed.is_empty(): 
+		direction = (to_be_followed[0].global_position-global_position).normalized()
+	else: direction = Vector2.ZERO
+	velocity = lerp(velocity, direction * speed, 8.5 * delta )
+	move_and_slide()
 		
-		if direction.x > 0:
-			$Sprite2D.flip_h = false
-		elif direction.x < 0:
-			$Sprite2D.flip_h = true
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == player_node:
-		get_tree().call_deferred("reload_current_scene")
+	if direction.x > 0:
+		$Sprite2D.flip_h = false
+	elif direction.x < 0:
+		$Sprite2D.flip_h = true
 
 
 func _on_enter_area_body_entered(body: Node2D) -> void:
-	if body == player_node:
-		should_chase = true
+	to_be_followed.append(body)
 
 
 #func _on_exit_area_body_entered(body: Node2D) -> void:
@@ -35,5 +28,5 @@ func _on_enter_area_body_entered(body: Node2D) -> void:
 
 
 func _on_exit_area_body_exited(body: Node2D) -> void:
-	if body == player_node:
-		should_chase = false
+	var index = to_be_followed.find(body)
+	if index >= 0: to_be_followed.remove_at(index)

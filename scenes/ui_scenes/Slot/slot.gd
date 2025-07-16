@@ -21,8 +21,11 @@ func _input(event):
 		use_item()
 
 func use_item():
+	return #this is here cuz the code below is lksdh f;kshfk;shdf;
 	if stats == null:
 		return
+	#yo i have no idea what this is supposed 
+	#to do so plz fix it :pleading_face:
 	player.play_FX(skill)
 
   
