@@ -1,15 +1,18 @@
 shader_type canvas_item;
 
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+uniform bool is_on = false;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
 void fragment() {
-	vec4 pixel = texture(SCREEN_TEXTURE, SCREEN_UV);
-	COLOR.rgb = vec3(1, 1, 1) - pixel.rgb;
-	COLOR.a = 1.0;
+	
+	if(is_on) {
+		vec4 pixel = texture(TEXTURE, UV);
+		COLOR.rgb = vec3(1, 1, 1) - pixel.rgb;
+	}
+	
 }
 
 //void light() {

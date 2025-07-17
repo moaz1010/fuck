@@ -1,26 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://cluhf5gby2umq"]
+[gd_scene load_steps=11 format=3 uid="uid://cluhf5gby2umq"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_qpkw3"]
 [ext_resource type="Texture2D" uid="uid://bwk5inh1kf5t8" path="res://assests/World tiles/art_atlas.png" id="2_0eyyq"]
+[ext_resource type="Script" path="res://Recources/moving_entity_params.gd" id="2_p0f6a"]
+[ext_resource type="Shader" path="res://shaders/flash.gdshader" id="2_p4q80"]
 [ext_resource type="Script" path="res://components/health_component.gd" id="3_tt18s"]
 
+[sub_resource type="Resource" id="Resource_b6ihv"]
+script = ExtResource("2_p0f6a")
+SECONDS_TO_MAX_SPEED = 0.5
+SECONDS_TO_STOP_COMPLETELY = 0.5
+HANG_TIME = 0.5
+MAX_SPEED = 80.0
+FALL_GRAVITY_MULTIPLIER = 1.0
+MAX_SPEED_JUMP_INCREASE = 0.0
+JUMP_VELOCITY = 200.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecae"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i60lk"]
+shader = ExtResource("2_p4q80")
+shader_parameter/is_on = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cad3a"]
 radius = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_apexg"]
-radius = 70.0
+radius = 153.082
 
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 21
 script = ExtResource("1_qpkw3")
+params = SubResource("Resource_b6ihv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7ecae")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_i60lk")
 texture = ExtResource("2_0eyyq")
 region_enabled = true
 region_rect = Rect2(0, 0, 15.992, 16.1444)
@@ -42,6 +60,5 @@ unique_name_in_owner = true
 script = ExtResource("3_tt18s")
 
 [connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]
-[connection signal="body_exited" from="enter_area" to="." method="_on_enter_area_body_exited"]
 [connection signal="body_exited" from="exit_area" to="." method="_on_exit_area_body_exited"]
 [connection signal="died" from="HealthComponent" to="." method="_on_death"]

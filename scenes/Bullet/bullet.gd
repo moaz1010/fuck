@@ -15,4 +15,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
+	if body.has_method("push"):
+		var direction: float = sign(body.global_position.x - global_position.x)
+		body.push(Vector2.RIGHT * direction, (SPEED / 3))
 	queue_free()

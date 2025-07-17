@@ -436,7 +436,7 @@ skill = ExtResource("8_0g3ny")
 position = Vector2(202, 37)
 
 [node name="enemy" parent="World" instance=ExtResource("9_cohwm")]
-position = Vector2(358, 74)
+position = Vector2(357, 69)
 
 [node name="UI" type="CanvasLayer" parent="."]
 

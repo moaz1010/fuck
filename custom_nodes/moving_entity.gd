@@ -52,7 +52,16 @@ func _physics_process(delta: float) -> void:
 
 	#Handle acceleration.
 	if direction:
-		velocity.x += direction * ACCELERATION * delta
+		var increase := ACCELERATION * delta
+		
+		#To make sure the character doesn't go beyond 
+		#max speed while allowing external forces
+		#to push it beyond max speed.
+		if abs(velocity.x + increase*direction) > MAX_SPEED:
+			increase = (MAX_SPEED - abs(velocity.x) + (FRICTION * delta))
+		increase = max(increase, 0)
+		
+		velocity.x += increase * direction
 
 
 	#Handle friction.
@@ -61,9 +70,6 @@ func _physics_process(delta: float) -> void:
 	
 	if friciton_direction == sign(velocity.x):
 		velocity.x = 0
-
-
-	velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED) #Clamping speed.
 
 
 	speed_jump_multiplier = ((abs(velocity.x) / MAX_SPEED) * MAX_SPEED_JUMP_INCREASE) + 1
