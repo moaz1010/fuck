@@ -7,12 +7,12 @@ void vertex() {
 }
 
 void fragment() {
-	
+
 	if(is_on) {
 		vec4 pixel = texture(TEXTURE, UV);
 		COLOR.rgb = vec3(1, 1, 1) - pixel.rgb;
 	}
-	
+
 }
 
 //void light() {
