@@ -6,53 +6,59 @@ class_name MovingEntity
 var SECONDS_TO_MAX_SPEED := .9 
 var SECONDS_TO_STOP_COMPLETELY := .4
 var HANG_TIME := .5
+var FALL_TIME := .25
+var JUMP_HEIGHT := 160
 
 var MAX_SPEED := 300.0
-var FALL_GRAVITY_MULTIPLIER := 2.2
 
-
-var speed_jump_multiplier : float = 1
 var direction : float = 0
 var ACCELERATION : float
 var FRICTION : float
 var GRAVITY : float = 200
-#TODO: CHANGE THESE TO BE RELATIVE TO CHARACTER HEIGHT
+var FALL_GRAVITY : float = 300
 var MAX_SPEED_JUMP_INCREASE := .1
 var JUMP_VELOCITY := 400.0
+var MAX_JUMP_VELOCITY := 600.0
 
 
 func _ready() -> void:
-	
+
+
 	if params != null:
 		SECONDS_TO_MAX_SPEED = params.SECONDS_TO_MAX_SPEED
 		SECONDS_TO_STOP_COMPLETELY = params.SECONDS_TO_STOP_COMPLETELY
 		HANG_TIME = params.HANG_TIME
+		FALL_TIME = params.FALL_TIME
 		MAX_SPEED = params.MAX_SPEED
-		FALL_GRAVITY_MULTIPLIER = params.FALL_GRAVITY_MULTIPLIER
 		MAX_SPEED_JUMP_INCREASE = params.MAX_SPEED_JUMP_INCREASE
-		JUMP_VELOCITY = params.JUMP_VELOCITY
+		JUMP_HEIGHT = params.JUMP_HEIGHT
 
 	ACCELERATION = MAX_SPEED / SECONDS_TO_MAX_SPEED
 	FRICTION = MAX_SPEED / SECONDS_TO_STOP_COMPLETELY
 
+	JUMP_VELOCITY = (2 * JUMP_HEIGHT) / HANG_TIME
+	MAX_JUMP_VELOCITY = (2 * (JUMP_HEIGHT + MAX_SPEED_JUMP_INCREASE)) / HANG_TIME
+
 	GRAVITY = JUMP_VELOCITY / HANG_TIME
-	#Adjusting acceleration, since friction is applied even when moving.
-	ACCELERATION += FRICTION
+	FALL_GRAVITY = (8 * JUMP_HEIGHT) / FALL_TIME
+
+
+	print(GRAVITY," falkdf ",FALL_GRAVITY)
 
 
 func _physics_process(delta: float) -> void:
 
 
 	# Add the gravity.
-	if velocity.y >= 0:
-		velocity.y += GRAVITY * FALL_GRAVITY_MULTIPLIER * delta
+	if velocity.y > 0:
+		velocity.y += FALL_GRAVITY * delta
 	else:
 		velocity.y += GRAVITY * delta
 
 
 	#Handle acceleration.
 	if direction:
-		var increase := ACCELERATION * delta
+		var increase := (ACCELERATION + FRICTION) * delta
 		
 		#To make sure the character doesn't go beyond 
 		#max speed while allowing external forces
@@ -72,10 +78,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 
 
-	speed_jump_multiplier = ((abs(velocity.x) / MAX_SPEED) * MAX_SPEED_JUMP_INCREASE) + 1
-
-
 	move_and_slide()
 
 func jump():
-	velocity.y = -JUMP_VELOCITY * speed_jump_multiplier
+	var percentage = min(abs(velocity.x) / MAX_SPEED, 1)
+	velocity.y = -lerp(JUMP_VELOCITY, MAX_JUMP_VELOCITY, percentage)

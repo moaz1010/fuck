@@ -17,13 +17,13 @@ collision_mask = 26
 script = ExtResource("1_4vkt4")
 params = ExtResource("2_vfhjs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_bc3tc")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -1)
 texture = ExtResource("3_uklsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_bc3tc")
 
 [node name="InventoryUI" parent="." instance=ExtResource("3_qjecq")]
 

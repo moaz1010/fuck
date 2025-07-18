@@ -11,10 +11,10 @@ script = ExtResource("2_p0f6a")
 SECONDS_TO_MAX_SPEED = 0.5
 SECONDS_TO_STOP_COMPLETELY = 0.5
 HANG_TIME = 0.5
+FALL_TIME = 0.4
 MAX_SPEED = 80.0
-FALL_GRAVITY_MULTIPLIER = 1.0
 MAX_SPEED_JUMP_INCREASE = 0.0
-JUMP_VELOCITY = 200.0
+JUMP_HEIGHT = 160.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecae"]
 

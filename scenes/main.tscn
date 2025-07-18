@@ -407,6 +407,7 @@ sources/0 = SubResource("TileSetAtlasSource_4xsyv")
 [node name="World" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2(-27, 55)
 position_smoothing_enabled = true
 
 [node name="bg" parent="World" instance=ExtResource("1_yx00i")]
@@ -420,6 +421,7 @@ tile_set = SubResource("TileSet_df013")
 
 [node name="player" parent="World" instance=ExtResource("1_76nyf")]
 z_index = -1
+position = Vector2(-27, 55)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="World/player"]
 remote_path = NodePath("../../Camera2D")
