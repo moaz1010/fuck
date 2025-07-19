@@ -1,10 +1,6 @@
 extends MovingEntity
 
 
-@onready var hotbar: HBoxContainer = $UI/Hotbar
-
-
-
 func _input(_event: InputEvent) -> void:
 
 	direction = Input.get_axis("move_left", "move_right")
