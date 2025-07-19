@@ -17,4 +17,4 @@ func _on_quit_pressed() -> void:
 
 
 func _on_survive_pressed() -> void:
-	pass # Replace with function body.
+	pass # put the code youll need to execute here :penguin:
