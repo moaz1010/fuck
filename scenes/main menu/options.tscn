@@ -38,5 +38,5 @@ texture_normal = ExtResource("4_c7doo")
 texture_pressed = ExtResource("5_kyapg")
 
 [connection signal="pressed" from="VBoxContainer/IDK" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/back" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/back" to="." method="_on_quit_pressed"]

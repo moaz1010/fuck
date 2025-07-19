@@ -17,16 +17,17 @@ MAX_SPEED_JUMP_INCREASE = 0.0
 JUMP_HEIGHT = 160.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecae"]
+size = Vector2(11, 12)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i60lk"]
 shader = ExtResource("2_p4q80")
 shader_parameter/is_on = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cad3a"]
-radius = 50.0
+radius = 80.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_apexg"]
-radius = 153.082
+radius = 150.0
 
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -35,6 +36,7 @@ script = ExtResource("1_qpkw3")
 params = SubResource("Resource_b6ihv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_7ecae")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
