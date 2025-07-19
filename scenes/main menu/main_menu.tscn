@@ -57,7 +57,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("6_2xh6d")
 texture_pressed = ExtResource("7_h52n7")
 
-[node name="TextureButton" type="TextureButton" parent="Control/VBoxContainer"]
+[node name="Survive" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("8_2ejqk")
 texture_pressed = ExtResource("9_haqui")
@@ -65,3 +65,4 @@ texture_pressed = ExtResource("9_haqui")
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Survive" to="." method="_on_survive_pressed"]
