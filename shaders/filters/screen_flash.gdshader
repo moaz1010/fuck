@@ -7,8 +7,9 @@ void vertex() {
 }
 
 void fragment() {
+	vec3 sum = vec3(281.0 / 256.0, 277.0 / 256.0, 261.0 / 256.0);
 	vec4 pixel = texture(SCREEN_TEXTURE, SCREEN_UV);
-	COLOR.rgb = vec3(1, 1, 1) - pixel.rgb;
+	COLOR.rgb = min(vec3(1, 1, 1), sum - pixel.rgb);
 }
 
 //void light() {
