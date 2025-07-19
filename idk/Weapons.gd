@@ -18,5 +18,5 @@ func _on_index(i = current_index):
 	current_index = i
  
  
-func _on_child_entered_tree(node: Node) -> void:
+func _on_child_entered_tree(_node: Node) -> void:
 	_on_index()

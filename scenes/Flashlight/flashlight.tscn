@@ -17,6 +17,8 @@ texture = ExtResource("2_bl8yu")
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
 z_index = 2
+collision_layer = 4
+collision_mask = 2
 monitoring = false
 monitorable = false
 
@@ -29,3 +31,6 @@ polygon = PackedVector2Array(-17.1668, 0, 10, -10, 10, 10)
 [node name="Polygon2D" type="Polygon2D" parent="Area2D"]
 material = SubResource("ShaderMaterial_xgl0u")
 polygon = PackedVector2Array(-1, 0, 85, -23, 85, 23)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

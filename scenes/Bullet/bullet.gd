@@ -1,7 +1,7 @@
 extends Area2D
 
-const SPEED: int = 300
-const damage := 4.0
+var SPEED: int = 300
+var damage := 1.0
 
 
 func _process(delta: float) -> void:
@@ -17,5 +17,5 @@ func _on_body_entered(body: Node2D) -> void:
 		body.take_damage(damage)
 	if body.has_method("push"):
 		var direction: float = sign(body.global_position.x - global_position.x)
-		body.push(Vector2.RIGHT * direction, (SPEED / 3))
+		body.push(Vector2.RIGHT * direction, (SPEED / 3.0))
 	queue_free()
