@@ -1,11 +1,9 @@
-[gd_scene load_steps=17 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=15 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://scenes/tilemaps/tiles.tscn" id="1_yx00i"]
 [ext_resource type="Texture2D" uid="uid://dlax476o1ugtj" path="res://assests/World tiles/background.png" id="2_25x5a"]
 [ext_resource type="Texture2D" uid="uid://lftotrfcgqqu" path="res://assests/World tiles/tiles_atlas.png" id="3_godeq"]
-[ext_resource type="PackedScene" uid="uid://c2nvlqgiheq0d" path="res://scenes/ui_scenes/Slot/slot.tscn" id="5_anfn7"]
-[ext_resource type="Script" path="res://scenes/ui_scenes/Hotbar/hotbar.gd" id="5_en5wd"]
 [ext_resource type="PackedScene" uid="uid://dk72f5fho25b4" path="res://scenes/AbstractItem/abstract_item.tscn" id="5_obu5w"]
 [ext_resource type="Texture2D" uid="uid://43ed4aohw6yx" path="res://assests/weapons/Gun (2).png" id="6_psmjt"]
 [ext_resource type="Resource" uid="uid://bqc6ft23m85v5" path="res://Recources/Items/Gun.tres" id="7_igddj"]
@@ -439,26 +437,3 @@ position = Vector2(202, 37)
 
 [node name="enemy" parent="World" instance=ExtResource("9_cohwm")]
 position = Vector2(357, 69)
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Hotbar" type="HBoxContainer" parent="UI"]
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_en5wd")
-
-[node name="slot" parent="UI/Hotbar" instance=ExtResource("5_anfn7")]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="slot2" parent="UI/Hotbar" instance=ExtResource("5_anfn7")]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="slot3" parent="UI/Hotbar" instance=ExtResource("5_anfn7")]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="slot4" parent="UI/Hotbar" instance=ExtResource("5_anfn7")]
-layout_mode = 2
-size_flags_vertical = 8
