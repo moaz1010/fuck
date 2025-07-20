@@ -51,5 +51,7 @@ func _on_death() -> void:
 
 
 func _on_health_changed(new_health: float) -> void:
-	modulate.b = max(0, new_health / health_component.max_health)
-	modulate.g = max(0, new_health / health_component.max_health)
+	var offset: float = health_component.max_health * .5
+	var value = (new_health+offset) / (health_component.max_health+offset)
+	modulate.b = clamp(value,0 , 1)
+	modulate.g = clamp(value, 0, 1)
