@@ -60,7 +60,9 @@ shape = SubResource("CircleShape2D_apexg")
 [node name="HealthComponent" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_tt18s")
+idle_healing = 1.0
 
 [connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]
 [connection signal="body_exited" from="exit_area" to="." method="_on_exit_area_body_exited"]
 [connection signal="died" from="HealthComponent" to="." method="_on_death"]
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_changed"]

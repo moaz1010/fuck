@@ -4,7 +4,7 @@ var to_be_followed : Array[Node2D]
 
 var player_direction : Vector2
 
-@onready var HealthComponent := %HealthComponent
+@onready var health_component := %HealthComponent
 
 func _get_direction(body: Node2D) -> Vector2:
 	return (body.global_position-global_position).normalized()
@@ -25,10 +25,9 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 
 func take_damage(damage: float):
-	HealthComponent.health -= damage
-	print(HealthComponent.health)
-func push(direction: Vector2, power: float = 1):
-	velocity += direction * power
+	health_component.health -= damage
+func push(push_direction: Vector2, power: float = 1):
+	velocity += push_direction * power
 
 func _on_enter_area_body_entered(body: Node2D) -> void:
 	if to_be_followed.is_empty():
@@ -49,3 +48,10 @@ func _on_exit_area_body_exited(body: Node2D) -> void:
 
 func _on_death() -> void:
 	queue_free()
+
+
+func _on_health_changed(new_health: float) -> void:
+	var offset: float = health_component.max_health * .5
+	var value = (new_health+offset) / (health_component.max_health+offset)
+	modulate.b = clamp(value,0 , 1)
+	modulate.g = clamp(value, 0, 1)

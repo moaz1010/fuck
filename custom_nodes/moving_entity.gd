@@ -7,7 +7,7 @@ var SECONDS_TO_MAX_SPEED := .9
 var SECONDS_TO_STOP_COMPLETELY := .4
 var HANG_TIME := .5
 var FALL_TIME := .25
-var JUMP_HEIGHT := 160
+var JUMP_HEIGHT := 160.0
 
 var MAX_SPEED := 300.0
 
@@ -42,8 +42,6 @@ func _ready() -> void:
 	GRAVITY = JUMP_VELOCITY / HANG_TIME
 	FALL_GRAVITY = (2 * JUMP_HEIGHT) / pow(FALL_TIME, 2)
 
-
-	print(GRAVITY," falkdf ",FALL_GRAVITY)
 
 
 func _physics_process(delta: float) -> void:
