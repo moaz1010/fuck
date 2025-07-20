@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dlax476o1ugtj" path="res://assests/World tiles/background.png" id="2_25x5a"]
 [ext_resource type="Texture2D" uid="uid://lftotrfcgqqu" path="res://assests/World tiles/tiles_atlas.png" id="3_godeq"]
 [ext_resource type="PackedScene" uid="uid://dk72f5fho25b4" path="res://scenes/AbstractItem/abstract_item.tscn" id="5_obu5w"]
-[ext_resource type="Texture2D" uid="uid://43ed4aohw6yx" path="res://assests/weapons/Gun (2).png" id="6_psmjt"]
+[ext_resource type="Resource" uid="uid://cwrt2v03kuyoc" path="res://Recources/InvWeapons/gun.tres" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://cluhf5gby2umq" path="res://scenes/enemies/enemy.tscn" id="9_cohwm"]
 [ext_resource type="PackedScene" uid="uid://bau7qqu6a6rxi" path="res://scenes/Gun/gun.tscn" id="9_l8pkp"]
 
@@ -426,7 +426,7 @@ update_scale = false
 
 [node name="AbstractItem" parent="World" instance=ExtResource("5_obu5w")]
 position = Vector2(272, 46)
-texture = ExtResource("6_psmjt")
+weapon = ExtResource("6_tipki")
 
 [node name="Gun" parent="World" instance=ExtResource("9_l8pkp")]
 position = Vector2(202, 37)
