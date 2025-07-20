@@ -4,11 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://scenes/tilemaps/tiles.tscn" id="1_yx00i"]
 [ext_resource type="Texture2D" uid="uid://dlax476o1ugtj" path="res://assests/World tiles/background.png" id="2_25x5a"]
 [ext_resource type="Texture2D" uid="uid://lftotrfcgqqu" path="res://assests/World tiles/tiles_atlas.png" id="3_godeq"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://c2nvlqgiheq0d" path="res://scenes/ui_scenes/Slot/slot.tscn" id="5_anfn7"]
-[ext_resource type="Script" uid="uid://di58hxobc6g5x" path="res://scenes/ui_scenes/Hotbar/hotbar.gd" id="5_en5wd"]
-=======
->>>>>>> c42c1207fe1f01c1116304beac7e0e36ae194520
 [ext_resource type="PackedScene" uid="uid://dk72f5fho25b4" path="res://scenes/AbstractItem/abstract_item.tscn" id="5_obu5w"]
 [ext_resource type="Texture2D" uid="uid://43ed4aohw6yx" path="res://assests/weapons/Gun (2).png" id="6_psmjt"]
 [ext_resource type="Resource" uid="uid://bqc6ft23m85v5" path="res://Recources/Items/Gun.tres" id="7_igddj"]
