@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://dsm02n73ad3fq"]
 
-[ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_4vkt4"]
+[ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_vfhjs"]
 [ext_resource type="PackedScene" uid="uid://bamvfl60rrb3j" path="res://scenes/ui_scenes/InventoryUI/inventory_ui.tscn" id="3_qjecq"]
 [ext_resource type="Texture2D" uid="uid://cjxp1hh8fkfmo" path="res://assests/Player stuff/player (1).png" id="3_uklsp"]
-[ext_resource type="Script" path="res://idk/Weapons.gd" id="8_frnkk"]
+[ext_resource type="Script" uid="uid://qv40eyiboqjs" path="res://idk/Weapons.gd" id="8_frnkk"]
 [ext_resource type="PackedScene" uid="uid://bav15wkkjdn8d" path="res://scenes/Flashlight/flashlight.tscn" id="8_lt378"]
-[ext_resource type="Script" path="res://scenes/ui_scenes/Hotbar/hotbar.gd" id="9_4qsrf"]
+[ext_resource type="Script" uid="uid://di58hxobc6g5x" path="res://scenes/ui_scenes/Hotbar/hotbar.gd" id="9_4qsrf"]
 [ext_resource type="PackedScene" uid="uid://c2nvlqgiheq0d" path="res://scenes/ui_scenes/Slot/slot.tscn" id="10_sylbs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc3tc"]

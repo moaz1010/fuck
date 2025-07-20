@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MovingEntityStats" load_steps=2 format=3 uid="uid://hl3piymcr4vy"]
 
-[ext_resource type="Script" path="res://Recources/moving_entity_params.gd" id="1_pii0e"]
+[ext_resource type="Script" uid="uid://k08spd0lvwti" path="res://Recources/moving_entity_params.gd" id="1_pii0e"]
 
 [resource]
 script = ExtResource("1_pii0e")

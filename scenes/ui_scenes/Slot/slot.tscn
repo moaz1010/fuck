@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c2nvlqgiheq0d"]
 
-[ext_resource type="Script" path="res://scenes/ui_scenes/Slot/slot.gd" id="1_vs7dh"]
+[ext_resource type="Script" uid="uid://cym77xxexpbpv" path="res://scenes/ui_scenes/Slot/slot.gd" id="1_vs7dh"]
 
 [node name="slot" type="Button"]
 anchors_preset = 7
