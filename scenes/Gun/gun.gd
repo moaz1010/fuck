@@ -4,7 +4,6 @@ extends Node2D
 @onready var muzzle: Marker2D = $Marker2D
 @onready var cool_down_timer : Timer = %CooldownTimer
 const BULLET = preload("res://scenes/Bullet/bullet.tscn")
-const GUN = preload("res://Recources/Items/Gun.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,11 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if GUN == null: 
-		return
 
-
-	
 	look_at(get_global_mouse_position())
 	
 	rotation_degrees = wrap(rotation_degrees, 0 ,360)
