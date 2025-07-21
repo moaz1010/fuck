@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene load_steps=8 format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_vfhjs"]
 [ext_resource type="Texture2D" uid="uid://cjxp1hh8fkfmo" path="res://assests/Player stuff/player (1).png" id="3_uklsp"]
+[ext_resource type="PackedScene" uid="uid://yh4p6e0hjg0q" path="res://scenes/in_game_ui.tscn" id="6_hvfru"]
 [ext_resource type="Script" uid="uid://qv40eyiboqjs" path="res://idk/Weapons.gd" id="8_frnkk"]
 [ext_resource type="PackedScene" uid="uid://bav15wkkjdn8d" path="res://scenes/Flashlight/flashlight.tscn" id="8_lt378"]
 
@@ -36,5 +37,12 @@ one_shot = true
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
+
+[node name="inGameUI" parent="." instance=ExtResource("6_hvfru")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+grow_vertical = 0
 
 [connection signal="child_entered_tree" from="Weapons" to="Weapons" method="_on_child_entered_tree"]

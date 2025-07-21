@@ -1,19 +1,19 @@
 [gd_scene load_steps=20 format=3 uid="uid://yh4p6e0hjg0q"]
 
-[ext_resource type="Script" path="res://scenes/pop_up_menu.gd" id="1_fqvwy"]
+[ext_resource type="Script" uid="uid://dxj6eylx01bxd" path="res://scenes/pop_up_menu.gd" id="1_fqvwy"]
 [ext_resource type="Texture2D" uid="uid://y5n2tipwp4q4" path="res://assests/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_kplmn"]
 [ext_resource type="Texture2D" uid="uid://c04sm3iih0vxu" path="res://assests/UI stuff/Buttons/buttons_spritesheet.png" id="3_6qwj3"]
-[ext_resource type="Script" path="res://scenes/stat_display.gd" id="3_ria60"]
+[ext_resource type="Script" uid="uid://bkslvhvidnju0" path="res://scenes/stat_display.gd" id="3_ria60"]
 [ext_resource type="FontFile" uid="uid://cnycavhulrjxr" path="res://assests/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="4_6qwj3"]
 [ext_resource type="Texture2D" uid="uid://c046mmn1shdha" path="res://assests/UI stuff/Buttons/slot_hover_select.png" id="4_276nr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qinws"]
 texture = ExtResource("1_kplmn")
-expand_margin_left = 5.0
-expand_margin_top = 5.0
-expand_margin_right = 5.0
-expand_margin_bottom = 5.0
-region_rect = Rect2(626, 294, 12, 4)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(627, 294, 10, 4)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_276nr"]
 texture = ExtResource("3_6qwj3")
@@ -81,6 +81,7 @@ menu_screen = NodePath("baseMenuScreenContainer")
 open_menu_screen = NodePath("baseMenuOpenButtonContainer")
 
 [node name="baseMenuScreenContainer" type="VBoxContainer" parent="PopUpMenu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -99,7 +100,6 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(100, 4)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/hover = SubResource("StyleBoxTexture_qinws")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qinws")
 theme_override_styles/normal = SubResource("StyleBoxTexture_qinws")
@@ -243,7 +243,6 @@ text = "SCORE :"
 layout_mode = 2
 
 [node name="baseMenuOpenButtonContainer" type="VBoxContainer" parent="PopUpMenu"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
