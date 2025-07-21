@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://yh4p6e0hjg0q"]
+[gd_scene load_steps=19 format=3 uid="uid://yh4p6e0hjg0q"]
 
 [ext_resource type="Script" uid="uid://dxj6eylx01bxd" path="res://scenes/pop_up_menu.gd" id="1_fqvwy"]
 [ext_resource type="Texture2D" uid="uid://y5n2tipwp4q4" path="res://assests/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_kplmn"]
+[ext_resource type="Texture2D" uid="uid://c04sm3iih0vxu" path="res://assests/UI stuff/Buttons/buttons_spritesheet.png" id="3_6qwj3"]
 [ext_resource type="Script" uid="uid://bkslvhvidnju0" path="res://scenes/stat_display.gd" id="3_ria60"]
 [ext_resource type="FontFile" uid="uid://cnycavhulrjxr" path="res://assests/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="4_6qwj3"]
+[ext_resource type="Texture2D" uid="uid://c046mmn1shdha" path="res://assests/UI stuff/Buttons/slot_hover_select.png" id="4_276nr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qinws"]
 texture = ExtResource("1_kplmn")
@@ -13,37 +15,48 @@ expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 region_rect = Rect2(626, 294, 12, 4)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kplmn"]
-texture = ExtResource("1_kplmn")
-region_rect = Rect2(741, 198, 22, 22)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fnge6"]
-texture = ExtResource("1_kplmn")
-region_rect = Rect2(709, 196, 22, 24)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a45jx"]
-texture = ExtResource("1_kplmn")
-region_rect = Rect2(741, 166, 22, 22)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fqvwy"]
-texture = ExtResource("1_kplmn")
-region_rect = Rect2(709, 164, 22, 24)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ria60"]
-texture = ExtResource("1_kplmn")
-region_rect = Rect2(869, 230, 22, 22)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qwj3"]
-texture = ExtResource("1_kplmn")
-region_rect = Rect2(837, 228, 22, 24)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_276nr"]
-texture = ExtResource("1_kplmn")
-region_rect = Rect2(805, 102, 22, 22)
+texture = ExtResource("3_6qwj3")
+region_rect = Rect2(65, 161, 30, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04xgm"]
-texture = ExtResource("1_kplmn")
-region_rect = Rect2(773, 100, 22, 24)
+texture = ExtResource("3_6qwj3")
+region_rect = Rect2(33, 162, 30, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jlb72"]
+texture = ExtResource("3_6qwj3")
+region_rect = Rect2(1, 161, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_huati"]
+texture = ExtResource("3_6qwj3")
+region_rect = Rect2(65, 97, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yjjyl"]
+texture = ExtResource("3_6qwj3")
+region_rect = Rect2(33, 98, 30, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ve7rr"]
+texture = ExtResource("3_6qwj3")
+region_rect = Rect2(1, 97, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_luu0w"]
+texture = ExtResource("3_6qwj3")
+region_rect = Rect2(65, 129, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxplc"]
+texture = ExtResource("3_6qwj3")
+region_rect = Rect2(33, 130, 30, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mv4mu"]
+texture = ExtResource("3_6qwj3")
+region_rect = Rect2(1, 129, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y1m1a"]
+texture = ExtResource("4_276nr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5gssk"]
+texture = ExtResource("3_6qwj3")
+region_rect = Rect2(32, 224, 32, 32)
 
 [node name="inGameUI" type="Control"]
 layout_mode = 3
@@ -91,8 +104,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_qinws")
 [node name="NinePatchRect" type="NinePatchRect" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer"]
 custom_minimum_size = Vector2(400, 150)
 layout_mode = 2
-texture = ExtResource("1_kplmn")
-region_rect = Rect2(742, 39, 18, 18)
+texture = ExtResource("3_6qwj3")
+region_rect = Rect2(0, 223, 32, 33)
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
@@ -105,59 +118,87 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
 
 [node name="buttonContainer" type="VBoxContainer" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 4
+size_flags_vertical = 0
 theme_override_constants/separation = 10
 
 [node name="topButtonContainer" type="HBoxContainer" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="helpButton" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/topButtonContainer"]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_kplmn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_kplmn")
-theme_override_styles/normal = SubResource("StyleBoxTexture_fnge6")
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 5
 
 [node name="pauseButton" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/topButtonContainer"]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_a45jx")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_a45jx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_fqvwy")
-
-[node name="bottomButtonContainer" type="HBoxContainer" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="optionsButton" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/bottomButtonContainer"]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_ria60")
-theme_override_styles/normal = SubResource("StyleBoxTexture_6qwj3")
-
-[node name="homeButton" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/bottomButtonContainer"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/hover = SubResource("StyleBoxTexture_276nr")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_276nr")
-theme_override_styles/normal = SubResource("StyleBoxTexture_04xgm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_04xgm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jlb72")
+
+[node name="optionsButton" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/topButtonContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_huati")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yjjyl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ve7rr")
+
+[node name="homeButton" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/topButtonContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_luu0w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gxplc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mv4mu")
+
+[node name="itemButtonContainer" type="HBoxContainer" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer"]
+layout_mode = 2
+
+[node name="slot1" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/itemButtonContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_y1m1a")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_y1m1a")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5gssk")
+
+[node name="slot2" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/itemButtonContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_y1m1a")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_y1m1a")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5gssk")
+
+[node name="slot3" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/itemButtonContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_y1m1a")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_y1m1a")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5gssk")
+
+[node name="slot4" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/itemButtonContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_y1m1a")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_y1m1a")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5gssk")
+
+[node name="slot5" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/itemButtonContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_y1m1a")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_y1m1a")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5gssk")
 
 [node name="statDisplay" type="VBoxContainer" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer"]
 layout_mode = 2
@@ -168,8 +209,8 @@ script = ExtResource("3_ria60")
 
 [node name="coinDisplay" type="Label" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/statDisplay"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.952941, 0.898039, 0.760784, 1)
-theme_override_colors/font_outline_color = Color(0.564706, 0.384314, 0.364706, 1)
+theme_override_colors/font_color = Color(0.921569, 0.898039, 0.807843, 1)
+theme_override_colors/font_outline_color = Color(0.180392, 0.188235, 0.215686, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_6qwj3")
 theme_override_font_sizes/font_size = 30
@@ -177,8 +218,8 @@ text = "COINS :"
 
 [node name="scoreDisplay" type="Label" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/statDisplay"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.952941, 0.898039, 0.760784, 1)
-theme_override_colors/font_outline_color = Color(0.564706, 0.384314, 0.364706, 1)
+theme_override_colors/font_color = Color(0.921569, 0.898039, 0.807843, 1)
+theme_override_colors/font_outline_color = Color(0.180392, 0.188235, 0.215686, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_6qwj3")
 theme_override_font_sizes/font_size = 30
