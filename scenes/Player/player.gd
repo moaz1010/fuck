@@ -42,4 +42,5 @@ func _process(_delta: float) -> void:
 func change_weapon(scene: PackedScene):
 	var instance := scene.instantiate()
 	instance.get_child(0).position.x += 11
+	for child in weapon_shell.get_children(): child.queue_free()
 	weapon_shell.add_child(instance)
