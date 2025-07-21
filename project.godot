@@ -17,7 +17,7 @@ config/icon="res://scenes/icon.svg"
 
 [autoload]
 
-GlobalSignals="*res://autoloads/global_signals.gd"
+Inventory="*res://autoloads/inventory.gd"
 
 [display]
 

@@ -23,7 +23,9 @@ texture = ExtResource("3_uklsp")
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_bc3tc")
 
-[node name="Weapons" type="Node2D" parent="."]
+[node name="WeaponShell" type="Node2D" parent="."]
+unique_name_in_owner = true
+z_index = 6
 script = ExtResource("8_frnkk")
 
 [node name="flashlight" parent="." instance=ExtResource("8_lt378")]
@@ -42,5 +44,3 @@ one_shot = true
 
 [node name="inGameUI" parent="CanvasLayer" instance=ExtResource("6_hvfru")]
 z_index = 6
-
-[connection signal="child_entered_tree" from="Weapons" to="Weapons" method="_on_child_entered_tree"]

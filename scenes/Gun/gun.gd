@@ -13,17 +13,10 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 
-	look_at(get_global_mouse_position()) #to make the gun look at the mouse
-	
-	rotation_degrees = wrap(rotation_degrees, 0 ,360)
-	if rotation_degrees > 90 and rotation_degrees < 270:   # to invert sprite if looking opposite direction
-		scale.y = -1 
-	else:
-		scale.y = 1
-		
+
 	if Input.is_action_pressed("fire") and cool_down_timer.is_stopped():  # to shoot
 		cool_down_timer.start()
 		var bullet_instance = BULLET.instantiate()
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.global_position = muzzle.global_position
-		bullet_instance.rotation = rotation
+		bullet_instance.global_rotation = global_rotation
