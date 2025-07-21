@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tomus6473e50"
-path="res://.godot/imported/enemybobmove.png-edb0b1e72900483003d997cb76c8d056.ctex"
+path="res://.godot/imported/enemybobmove.png-73c223784509606829fe49e9ab6c1fcd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/enemybobmove.png"
-dest_files=["res://.godot/imported/enemybobmove.png-edb0b1e72900483003d997cb76c8d056.ctex"]
+source_file="res://assests/Enemy/enemybobmove.png"
+dest_files=["res://.godot/imported/enemybobmove.png-73c223784509606829fe49e9ab6c1fcd.ctex"]
 
 [params]
 

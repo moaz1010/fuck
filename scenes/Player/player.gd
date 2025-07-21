@@ -1,4 +1,4 @@
-extends MovingEntity
+extends MovingEntity   #yo can we like add comments next shit we add so that i can better understand the logic :pleading face:
 
 @onready var coyote_timer := %CoyoteTimer
 @onready var jump_buffer := %JumpBuffer

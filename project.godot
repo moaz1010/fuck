@@ -23,6 +23,8 @@ GlobalSignals="*res://autoloads/global_signals.gd"
 
 window/size/viewport_width=948
 window/size/viewport_height=640
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/stretch/scale=2.0
 
 [input]

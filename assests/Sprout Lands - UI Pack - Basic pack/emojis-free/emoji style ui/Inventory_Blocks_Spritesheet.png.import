@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://d3kbhpgim6avd"
+path="res://.godot/imported/Inventory_Blocks_Spritesheet.png-4c385f52dd48ba4eab1b4ef1a9f2c97b.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assests/Sprout Lands - UI Pack - Basic pack/emojis-free/emoji style ui/Inventory_Blocks_Spritesheet.png"
+dest_files=["res://.godot/imported/Inventory_Blocks_Spritesheet.png-4c385f52dd48ba4eab1b4ef1a9f2c97b.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
