@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://yh4p6e0hjg0q"]
+[gd_scene load_steps=20 format=3 uid="uid://yh4p6e0hjg0q"]
 
 [ext_resource type="Script" uid="uid://dxj6eylx01bxd" path="res://scenes/pop_up_menu.gd" id="1_fqvwy"]
 [ext_resource type="Texture2D" uid="uid://y5n2tipwp4q4" path="res://assests/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_kplmn"]
@@ -57,6 +57,9 @@ texture = ExtResource("4_276nr")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5gssk"]
 texture = ExtResource("3_6qwj3")
 region_rect = Rect2(32, 224, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qwj3"]
+texture = ExtResource("4_276nr")
 
 [node name="inGameUI" type="Control"]
 layout_mode = 3
@@ -200,6 +203,17 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_y1m1a")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_y1m1a")
 theme_override_styles/normal = SubResource("StyleBoxTexture_5gssk")
 
+[node name="selectedItemButtonContainer" type="HBoxContainer" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="selectedItem" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/selectedItemButtonContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_6qwj3")
+
 [node name="statDisplay" type="VBoxContainer" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -229,6 +243,7 @@ text = "SCORE :"
 layout_mode = 2
 
 [node name="baseMenuOpenButtonContainer" type="VBoxContainer" parent="PopUpMenu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
