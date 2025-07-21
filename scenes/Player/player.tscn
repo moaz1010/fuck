@@ -32,4 +32,9 @@ unique_name_in_owner = true
 wait_time = 0.1
 one_shot = true
 
+[node name="JumpBuffer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
 [connection signal="child_entered_tree" from="Weapons" to="Weapons" method="_on_child_entered_tree"]
