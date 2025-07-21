@@ -64,19 +64,27 @@ texture = ExtResource("4_276nr")
 [node name="inGameUI" type="Control"]
 z_index = 3
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+size_flags_vertical = 8
 
 [node name="PopUpMenu" type="MarginContainer" parent="." node_paths=PackedStringArray("menu_screen", "open_menu_screen")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -188.0
+offset_right = 200.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 script = ExtResource("1_fqvwy")
 menu_screen = NodePath("baseMenuScreenContainer")
 open_menu_screen = NodePath("baseMenuOpenButtonContainer")
@@ -179,6 +187,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_5gssk")
 [node name="slot2" type="Button" parent="PopUpMenu/baseMenuScreenContainer/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/itemButtonContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_styles/hover = SubResource("StyleBoxTexture_y1m1a")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_y1m1a")
 theme_override_styles/normal = SubResource("StyleBoxTexture_5gssk")
