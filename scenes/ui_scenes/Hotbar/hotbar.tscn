@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dil1jenjppn13"]
+[gd_scene load_steps=3 format=3 uid="uid://dil1jenjppn13"]
 
 [ext_resource type="Texture2D" uid="uid://or0jyty5v8tk" path="res://assests/weapons/flashlight (1).png" id="1_u2cx2"]
 [ext_resource type="Texture2D" uid="uid://43ed4aohw6yx" path="res://assests/weapons/Gun (2).png" id="2_811hb"]
-
-[sub_resource type="Resource" id="Resource_bwqdd"]
-metadata/__load_path__ = "res://UI/hotbar.gd"
-
-[sub_resource type="Resource" id="Resource_nlopr"]
-metadata/__load_path__ = "res://UI/item_button.gd"
 
 [node name="hotbar" type="Control"]
 layout_mode = 3
@@ -16,7 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("Resource_bwqdd")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
@@ -38,7 +31,6 @@ layout_mode = 2
 focus_mode = 1
 icon = ExtResource("1_u2cx2")
 expand_icon = true
-script = SubResource("Resource_nlopr")
 
 [node name="ItemButton2" type="Button" parent="GridContainer"]
 layout_mode = 2

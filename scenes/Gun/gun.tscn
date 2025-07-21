@@ -7,7 +7,6 @@
 size = Vector2(24, 20)
 
 [node name="Gun" type="Node2D"]
-position = Vector2(2, -8)
 script = ExtResource("1_y2frm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

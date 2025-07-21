@@ -26,7 +26,6 @@ shape = SubResource("RectangleShape2D_bc3tc")
 script = ExtResource("8_frnkk")
 
 [node name="flashlight" parent="." instance=ExtResource("8_lt378")]
-position = Vector2(13, 1)
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 unique_name_in_owner = true
