@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxj6eylx01bxd" path="res://scenes/pop_up_menu.gd" id="1_fqvwy"]
 [ext_resource type="Texture2D" uid="uid://c04sm3iih0vxu" path="res://assests/UI stuff/Buttons/buttons_spritesheet.png" id="3_6qwj3"]
-[ext_resource type="Script" uid="uid://bkslvhvidnju0" path="res://scenes/stat_display.gd" id="3_ria60"]
+[ext_resource type="Script" path="res://scenes/stat_display.gd" id="3_ria60"]
 [ext_resource type="FontFile" uid="uid://cnycavhulrjxr" path="res://assests/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="4_6qwj3"]
 [ext_resource type="Texture2D" uid="uid://c046mmn1shdha" path="res://assests/UI stuff/Buttons/slot_hover_select.png" id="4_276nr"]
 [ext_resource type="Texture2D" uid="uid://cfc1atlyxhj5c" path="res://assests/UI stuff/Buttons/unfinished_spritesheet_buttons2.png" id="7_04xgm"]
@@ -109,46 +109,6 @@ region_rect = Rect2(176, 226, 14, 20)
 [sub_resource type="Animation" id="Animation_04xgm"]
 length = 0.001
 
-[sub_resource type="Animation" id="Animation_jlb72"]
-resource_name = "open_settingsMenuContainer"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("baseMenuScreenContainer:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.194697),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("baseMenuScreenContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.192788),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("settingsMenuContainer:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_huati"]
 resource_name = "close_settingsMenuContainer"
 length = 0.5
@@ -189,8 +149,48 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_jlb72"]
+resource_name = "open_settingsMenuContainer"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("baseMenuScreenContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.194697),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("baseMenuScreenContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.192788),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("settingsMenuContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_276nr"]
-resource_name = "open_baseMenuOpenButtonContainer"
+resource_name = "open_baseMenuScreenContainer"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -290,7 +290,7 @@ tracks/7/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_qinws"]
-resource_name = "close_baseMenuOpenButtonContainer"
+resource_name = "close_baseMenuScreenContainer"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -392,9 +392,9 @@ tracks/7/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yjjyl"]
 _data = {
 &"RESET": SubResource("Animation_04xgm"),
-&"close_baseMenuOpenButtonContainer": SubResource("Animation_qinws"),
+&"close_baseMenuScreenContainer": SubResource("Animation_qinws"),
 &"close_settingsMenuContainer": SubResource("Animation_huati"),
-&"open_baseMenuOpenButtonContainer": SubResource("Animation_276nr"),
+&"open_baseMenuScreenContainer": SubResource("Animation_276nr"),
 &"open_settingsMenuContainer": SubResource("Animation_jlb72")
 }
 
@@ -424,7 +424,7 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_fqvwy")
 menu_screen = NodePath("baseMenuScreenContainer")
-open_menu_screen = NodePath("baseMenuOpenButtonContainer")
+open_menu_screen = NodePath("baseMenuScreenContainer")
 settings_menu_screen = NodePath("settingsMenuContainer")
 open_menu_button = NodePath("baseMenuOpenButtonContainer/toggleMenuButton")
 close_menu_button = NodePath("baseMenuScreenContainer/baseMenuScreen/VBoxContainer/toggleMenuButton")
