@@ -24,7 +24,7 @@ func _ready() -> void:                   # grouping them in the _ready function
 	close_menu_buttons = [close_settings_menu_button]
 
 
-func _process(delta: float) -> void:                  # to update the button every press/hover for animation
+func _process(_delta: float) -> void:                  # to update the button every press/hover for animation
 	update_button_scale()
 
 func update_button_scale():                           # to actually animate button
@@ -45,8 +45,7 @@ func button_hov(button: Button, tween_amt, duration):   # to check wether the bu
 		tween(button, "scale", Vector2.ONE, duration)
 
 func tween(button, property, amount, duration):            # to get the animation properties
-	var tween = create_tween()
-	tween.tween_property(button, property, amount, duration)
+	create_tween().tween_property(button, property, amount, duration)
 
 func toggle_visibility(object):
 	var anim = $AnimationPlayer

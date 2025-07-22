@@ -12,6 +12,8 @@ var JUMP_HEIGHT := 160.0
 var MAX_SPEED := 300.0
 
 var direction : float = 0
+var dash_percentage : float
+
 var ACCELERATION : float
 var FRICTION : float
 var GRAVITY : float = 200
@@ -65,12 +67,13 @@ func _physics_process(delta: float) -> void:
 			increase = (MAX_SPEED - abs(velocity.x) + (FRICTION * delta))
 		increase = max(increase, 0)
 		
-		velocity.x += increase * direction
+		velocity.x += increase * direction * (1 - clamp(dash_percentage, 0, 1))
 
 
 	#Handle friction.
 	var friciton_direction : int = -(sign(velocity.x))
-	velocity.x += FRICTION * friciton_direction * delta
+	var decrease = FRICTION * friciton_direction * delta
+	velocity.x += decrease * (1 - clamp(dash_percentage, 0, 1))
 	
 	if friciton_direction == sign(velocity.x):
 		velocity.x = 0
@@ -81,3 +84,9 @@ func _physics_process(delta: float) -> void:
 func jump():
 	var percentage = min(abs(velocity.x) / MAX_SPEED, 1)
 	velocity.y = -lerp(JUMP_VELOCITY, MAX_JUMP_VELOCITY, percentage)
+
+func dash(dash_direction: Vector2, power: float):
+	var dash_vector = dash_direction * power
+	if dash_vector.y == 0: dash_vector.y = velocity.y
+	if dash_vector.x == 0: dash_vector.x = velocity.x
+	velocity = dash_vector

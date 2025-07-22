@@ -9,6 +9,6 @@ extends Sprite2D
 func _ready() -> void:
 	if weapon: texture = weapon.sprite  #sets the texture
 
-func _on_player_entered(body: Node2D) -> void:
+func _on_player_entered(_body: Node2D) -> void:
 	if weapon: Inventory.add_item(weapon) # to make the weopon dissappear on pick up 
 	queue_free()
