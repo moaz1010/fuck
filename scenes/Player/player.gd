@@ -11,8 +11,10 @@ extends MovingEntity   #yo can we like add comments next shit we add so that i c
 var was_on_floor: bool = true
 var wants_to_jump: bool = false
 var can_dash: bool = true
+var can_move: bool = true
 
 func _ready() -> void:
+	add_to_group("player")
 	super()
 	Inventory.added_weapon.connect(
 		#This is here because the "change_weapon" function takes a scene
@@ -43,8 +45,11 @@ func _input(_event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 
-	if is_on_floor() and dash_buffer.is_stopped(): can_dash = true
+	if !can_move:
+		return
 
+	if is_on_floor() and dash_buffer.is_stopped(): can_dash = true
+	
 	if not is_on_floor() and was_on_floor:
 		coyote_timer.start()
 	was_on_floor = is_on_floor()
