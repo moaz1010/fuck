@@ -4,6 +4,7 @@ extends MovingEntity   #yo can we like add comments next shit we add so that i c
 @onready var jump_buffer := %JumpBuffer
 @onready var weapon_shell := %WeaponShell
 @onready var dash_timer := %DashTimer
+@onready var dash_buffer := %DashBuffer
 
 @export var DASH_POWER := 400.0
 
@@ -36,12 +37,13 @@ func _input(_event: InputEvent) -> void:
 		
 		dash_timer.start()
 		dash(dash_direction, DASH_POWER)
+		dash_buffer.start()
 		can_dash = false
 
 
 func _process(_delta: float) -> void:
 
-	if is_on_floor(): can_dash = true
+	if is_on_floor() and dash_buffer.is_stopped(): can_dash = true
 
 	if not is_on_floor() and was_on_floor:
 		coyote_timer.start()
