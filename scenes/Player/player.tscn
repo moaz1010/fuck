@@ -42,15 +42,17 @@ one_shot = true
 
 [node name="DashTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 
 [node name="DashBuffer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 1.5
 one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inGameUI" parent="CanvasLayer" instance=ExtResource("6_hvfru")]
 z_index = 6
+
+[connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]

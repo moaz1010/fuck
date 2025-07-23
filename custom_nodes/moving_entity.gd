@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name MovingEntity
 
-@export var params : MovingEntityStats
 
 var SECONDS_TO_MAX_SPEED := .9 
 var SECONDS_TO_STOP_COMPLETELY := .4
@@ -23,17 +22,20 @@ var JUMP_VELOCITY := 400.0
 var MAX_JUMP_VELOCITY := 600.0
 
 
-func _ready() -> void:
+@export var params : MovingEntityStats:
+	set(resource):
+		params = resource
+		_setup_from_resource(resource)
 
-
-	if params != null:
-		SECONDS_TO_MAX_SPEED = params.SECONDS_TO_MAX_SPEED
-		SECONDS_TO_STOP_COMPLETELY = params.SECONDS_TO_STOP_COMPLETELY
-		HANG_TIME = params.HANG_TIME
-		FALL_TIME = params.FALL_TIME
-		MAX_SPEED = params.MAX_SPEED
-		MAX_SPEED_JUMP_INCREASE = params.MAX_SPEED_JUMP_INCREASE
-		JUMP_HEIGHT = params.JUMP_HEIGHT
+func _setup_from_resource(resource: MovingEntityStats) -> void:
+	if resource != null:
+		SECONDS_TO_MAX_SPEED = resource.SECONDS_TO_MAX_SPEED
+		SECONDS_TO_STOP_COMPLETELY = resource.SECONDS_TO_STOP_COMPLETELY
+		HANG_TIME = resource.HANG_TIME
+		FALL_TIME = resource.FALL_TIME
+		MAX_SPEED = resource.MAX_SPEED
+		MAX_SPEED_JUMP_INCREASE = resource.MAX_SPEED_JUMP_INCREASE
+		JUMP_HEIGHT = resource.JUMP_HEIGHT
 
 	ACCELERATION = MAX_SPEED / SECONDS_TO_MAX_SPEED
 	FRICTION = MAX_SPEED / SECONDS_TO_STOP_COMPLETELY
@@ -44,6 +46,8 @@ func _ready() -> void:
 	MAX_JUMP_VELOCITY = sqrt(2*GRAVITY*(JUMP_HEIGHT+MAX_SPEED_JUMP_INCREASE))
 	FALL_GRAVITY = (2 * JUMP_HEIGHT) / pow(FALL_TIME, 2)
 
+
+func _ready() -> void: _setup_from_resource(params)
 
 
 func _physics_process(delta: float) -> void:
