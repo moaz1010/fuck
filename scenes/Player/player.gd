@@ -6,7 +6,7 @@ extends MovingEntity   #yo can we like add comments next shit we add so that i c
 @onready var dash_timer := %DashTimer
 @onready var dash_buffer := %DashBuffer
 
-@export var DASH_POWER := 400.0
+@export var DASH_POWER := 420.0
 
 var was_on_floor: bool = true
 var wants_to_jump: bool = false
@@ -86,7 +86,7 @@ func _physics_process(delta: float) -> void:
 func change_weapon(scene: PackedScene) -> void:
 	var instance := scene.instantiate()
 	#This gets the root of the scene and shifts it a bit to the right.
-	instance.get_child(0).position.x += 11
+	instance.position.x += 11
 	#This removes all the nodes in the weapon shell to insure there are no 
 	#weapons equipped and that they don't overlap.
 	for child in weapon_shell.get_children(): child.queue_free()
@@ -94,3 +94,12 @@ func change_weapon(scene: PackedScene) -> void:
 
 
 func _on_jump_buffer_timeout() -> void: wants_to_jump = false
+
+
+func _on_weapon_shell_child_entered_tree(weapon: Node) -> void:
+	if weapon is Gun:
+		weapon.bullet_shot.connect(take_recoil)
+func take_recoil(power):
+	var recoil_direction = (
+		global_position - weapon_shell.get_child(0).global_position).normalized()
+	dash(recoil_direction, power)

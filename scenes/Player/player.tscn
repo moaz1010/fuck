@@ -29,6 +29,7 @@ z_index = 6
 script = ExtResource("8_frnkk")
 
 [node name="flashlight" parent="WeaponShell" instance=ExtResource("8_lt378")]
+position = Vector2(11, 0)
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -42,7 +43,7 @@ one_shot = true
 
 [node name="DashTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 6.0
 one_shot = true
 
 [node name="DashBuffer" type="Timer" parent="."]
@@ -55,4 +56,5 @@ one_shot = true
 [node name="inGameUI" parent="CanvasLayer" instance=ExtResource("6_hvfru")]
 z_index = 6
 
+[connection signal="child_entered_tree" from="WeaponShell" to="." method="_on_weapon_shell_child_entered_tree"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]

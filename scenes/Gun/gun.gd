@@ -1,9 +1,12 @@
 extends Node2D
+class_name Gun
 
 
 @onready var muzzle: Marker2D = $Marker2D
 @onready var cool_down_timer : Timer = %CooldownTimer
 const BULLET = preload("res://scenes/Bullet/bullet.tscn")
+@export var RECOIL: float = 300.0
+signal bullet_shot(recoil: float)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,6 +18,7 @@ func _process(_delta: float) -> void:
 
 
 	if Input.is_action_pressed("fire") and cool_down_timer.is_stopped():  # to shoot
+		bullet_shot.emit(RECOIL)
 		cool_down_timer.start()
 		var bullet_instance = BULLET.instantiate()
 		get_tree().root.add_child(bullet_instance)
