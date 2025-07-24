@@ -26,8 +26,7 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(damage: float):
 	health_component.health -= damage
-func push(push_direction: Vector2, power: float = 1):
-	velocity += push_direction * power
+
 
 func _on_enter_area_body_entered(body: Node2D) -> void:
 	if to_be_followed.is_empty():

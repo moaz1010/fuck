@@ -6,7 +6,7 @@ extends MovingEntity   #yo can we like add comments next shit we add so that i c
 @onready var dash_timer := %DashTimer
 @onready var dash_buffer := %DashBuffer
 
-@export var DASH_POWER := 420.0
+@export var DASH_POWER := 300.0
 
 var was_on_floor: bool = true
 var wants_to_jump: bool = false
@@ -19,6 +19,7 @@ var can_dash: bool = true:
 var can_move: bool = true
 
 func _ready() -> void:
+	dash_buffer.wait_time += dash_timer.wait_time
 	add_to_group("player")
 	super()
 	Inventory.added_weapon.connect(
@@ -46,11 +47,12 @@ func _input(_event: InputEvent) -> void:
 			"move_right", 
 			"move_up", 
 			"move_down"
-		)
+		).normalized()
 		#Only dash if the player isn't standing still.
 		if not dash_direction == Vector2.ZERO:
 			dash_timer.start()
 			dash(dash_direction, DASH_POWER)
+			is_dashing = true
 			dash_buffer.start()
 			can_dash = false
 
@@ -76,8 +78,6 @@ func _physics_process(delta: float) -> void:
 			wants_to_jump = false
 		coyote_timer.stop()
 
-	dash_percentage = dash_timer.time_left / dash_timer.wait_time
-
 	#This executes the _physics_process method in the MovingEntity class
 	#that handles all the movement shi.
 	super(delta)
@@ -102,4 +102,7 @@ func _on_weapon_shell_child_entered_tree(weapon: Node) -> void:
 func take_recoil(power):
 	var recoil_direction = (
 		global_position - weapon_shell.get_child(0).global_position).normalized()
-	dash(recoil_direction, power)
+	push(recoil_direction, power)
+
+
+func _on_dash_timer_timeout() -> void: is_dashing = false

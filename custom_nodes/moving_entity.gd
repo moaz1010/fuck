@@ -11,7 +11,8 @@ var JUMP_HEIGHT := 160.0
 var MAX_SPEED := 300.0
 
 var direction : float = 0
-var dash_percentage : float
+var is_dashing : bool = false
+var dash_vector : Vector2 = Vector2.ZERO
 
 var ACCELERATION : float
 var FRICTION : float
@@ -53,44 +54,56 @@ func _ready() -> void: _setup_from_resource(params)
 func _physics_process(delta: float) -> void:
 
 
-	# Add the gravity.
-	if velocity.y > 0:
-		velocity.y += FALL_GRAVITY * delta
-	else:
-		velocity.y += GRAVITY * delta
+	if not is_dashing:
+		# Add the gravity.
+		if velocity.y > 0:
+			velocity.y += FALL_GRAVITY * delta
+		else:
+			velocity.y += GRAVITY * delta
 
 
-	#Handle acceleration.
-	if direction:
-		var increase := (ACCELERATION + FRICTION) * delta
+		#Handle acceleration.
+		if direction:
+			var increase := (ACCELERATION + FRICTION) * delta
+			
+			#To make sure the character doesn't go beyond 
+			#max speed while allowing external forces
+			#to push it beyond max speed.
+			if abs(velocity.x + increase*direction) > MAX_SPEED:
+				increase = (MAX_SPEED - abs(velocity.x) + (FRICTION * delta))
+			increase = max(increase, 0)
+			
+			velocity.x += increase * direction
+
+
+		#Handle friction.
+		var friciton_direction : int = -(sign(velocity.x))
+		var decrease = FRICTION * friciton_direction * delta
+		velocity.x += decrease
 		
-		#To make sure the character doesn't go beyond 
-		#max speed while allowing external forces
-		#to push it beyond max speed.
-		if abs(velocity.x + increase*direction) > MAX_SPEED:
-			increase = (MAX_SPEED - abs(velocity.x) + (FRICTION * delta))
-		increase = max(increase, 0)
-		
-		velocity.x += increase * direction * (1 - clamp(dash_percentage, 0, 1))
+		if friciton_direction == sign(velocity.x):
+			velocity.x = 0
 
-
-	#Handle friction.
-	var friciton_direction : int = -(sign(velocity.x))
-	var decrease = FRICTION * friciton_direction * delta
-	velocity.x += decrease * (1 - clamp(dash_percentage, 0, 1))
-	
-	if friciton_direction == sign(velocity.x):
-		velocity.x = 0
-
-
+	if is_dashing: velocity = dash_vector
 	move_and_slide()
+	if is_dashing: 
+		var cutoff := 3.0
+		velocity = Vector2(
+			sign(dash_vector.x) * ACCELERATION * delta * cutoff, 
+			sign(dash_vector.y) * GRAVITY * delta * cutoff
+			)
 
 func jump():
-	var percentage = min(abs(velocity.x) / MAX_SPEED, 1)
-	velocity.y = -lerp(JUMP_VELOCITY, MAX_JUMP_VELOCITY, percentage)
+	if not is_dashing:
+		var percentage = min(abs(velocity.x) / MAX_SPEED, 1)
+		velocity.y = -lerp(JUMP_VELOCITY, MAX_JUMP_VELOCITY, percentage)
 
 func dash(dash_direction: Vector2, power: float):
-	var dash_vector = dash_direction * power
-	if dash_vector.y == 0: dash_vector.y = velocity.y
-	if dash_vector.x == 0: dash_vector.x = velocity.x
+	dash_vector = dash_direction * power
 	velocity = dash_vector
+
+func push(push_direction: Vector2, power: float = 1):
+	velocity += push_direction * power
+
+func insta_push(push_direction: Vector2, power: float = 1):
+	velocity = push_direction * power
