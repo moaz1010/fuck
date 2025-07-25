@@ -1,0 +1,207 @@
+[gd_scene load_steps=12 format=3 uid="uid://3rdyv8ntvdjl"]
+
+[ext_resource type="Script" uid="uid://bq6nrs7pkpiu5" path="res://scenes/ui_scenes/settings_menu.gd" id="1_7gtp0"]
+[ext_resource type="Texture2D" uid="uid://cfc1atlyxhj5c" path="res://assests/UI stuff/Buttons/unfinished_spritesheet_buttons2.png" id="1_ckc1e"]
+[ext_resource type="FontFile" uid="uid://cnycavhulrjxr" path="res://assests/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_jwfvh"]
+[ext_resource type="Texture2D" uid="uid://del8crji3hih5" path="res://assests/UI stuff/Buttons/added_exit_button_spritesheet.png" id="3_7gtp0"]
+[ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="5_ix44y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ckc1e"]
+texture = ExtResource("3_7gtp0")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(65, 65, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jwfvh"]
+texture = ExtResource("3_7gtp0")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(33, 66, 30, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7gtp0"]
+texture = ExtResource("3_7gtp0")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(1, 65, 30, 30)
+
+[sub_resource type="LabelSettings" id="LabelSettings_70w0i"]
+font_size = 17
+font_color = Color(0.921569, 0.898039, 0.807843, 1)
+outline_size = 4
+outline_color = Color(0.180392, 0.188235, 0.215686, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ix44y"]
+texture = ExtResource("1_ckc1e")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_left = 3.0
+expand_margin_top = 2.0
+expand_margin_right = 3.0
+expand_margin_bottom = 1.0
+region_rect = Rect2(130, 247, 16, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_70w0i"]
+texture = ExtResource("1_ckc1e")
+expand_margin_left = 5.0
+expand_margin_top = 9.0
+expand_margin_right = 5.0
+expand_margin_bottom = 6.0
+region_rect = Rect2(176, 226, 14, 20)
+
+[node name="settingsMenu" type="Control" node_paths=PackedStringArray("close_settings_menu_button")]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -50.0
+offset_right = 75.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_7gtp0")
+close_settings_menu_button = NodePath("settingsMenuContainer/title/topLineDisplayContainer/exitButtonContainer/toggleSettingsMenu")
+
+[node name="settingsMenuContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="settingsMenuContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_ckc1e")
+region_rect = Rect2(0, 224, 32, 32)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="title" type="VBoxContainer" parent="settingsMenuContainer"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Control" type="Control" parent="settingsMenuContainer/title"]
+layout_mode = 2
+
+[node name="topLineDisplayContainer" type="HBoxContainer" parent="settingsMenuContainer/title"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="settingsTextDisplayContainer" type="HBoxContainer" parent="settingsMenuContainer/title/topLineDisplayContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Control" type="Control" parent="settingsMenuContainer/title/topLineDisplayContainer/settingsTextDisplayContainer"]
+layout_mode = 2
+
+[node name="settingsDisplay" type="Label" parent="settingsMenuContainer/title/topLineDisplayContainer/settingsTextDisplayContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.921569, 0.898039, 0.807843, 1)
+theme_override_colors/font_outline_color = Color(0.180392, 0.188235, 0.215686, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_jwfvh")
+theme_override_font_sizes/font_size = 20
+text = "settings"
+
+[node name="exitButtonContainer" type="HBoxContainer" parent="settingsMenuContainer/title/topLineDisplayContainer"]
+layout_mode = 2
+
+[node name="toggleSettingsMenu" type="Button" parent="settingsMenuContainer/title/topLineDisplayContainer/exitButtonContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_ckc1e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jwfvh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7gtp0")
+
+[node name="barsContainer" type="VBoxContainer" parent="settingsMenuContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="seperator" type="Control" parent="settingsMenuContainer/barsContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="settingsMenuContainer/barsContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="settingsMenuContainer/barsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="seperator" type="Control" parent="settingsMenuContainer/barsContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="barDisplayTextContainer" type="HBoxContainer" parent="settingsMenuContainer/barsContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settingsMenuContainer/barsContainer/VBoxContainer/HBoxContainer/barDisplayTextContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="settingsMenuContainer/barsContainer/VBoxContainer/HBoxContainer/barDisplayTextContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.921569, 0.898039, 0.807843, 1)
+theme_override_colors/font_outline_color = Color(0.180392, 0.188235, 0.215686, 1)
+theme_override_fonts/font = ExtResource("5_ix44y")
+text = "Vol."
+label_settings = SubResource("LabelSettings_70w0i")
+
+[node name="Label2" type="Label" parent="settingsMenuContainer/barsContainer/VBoxContainer/HBoxContainer/barDisplayTextContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.921569, 0.898039, 0.807843, 1)
+theme_override_colors/font_outline_color = Color(0.180392, 0.188235, 0.215686, 1)
+theme_override_fonts/font = ExtResource("5_ix44y")
+text = "Bright."
+label_settings = SubResource("LabelSettings_70w0i")
+
+[node name="barScrollBarsContainer" type="HBoxContainer" parent="settingsMenuContainer/barsContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settingsMenuContainer/barsContainer/VBoxContainer/HBoxContainer/barScrollBarsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="brightnessBar" type="HScrollBar" parent="settingsMenuContainer/barsContainer/VBoxContainer/HBoxContainer/barScrollBarsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 10)
+layout_mode = 2
+theme_override_styles/scroll = SubResource("StyleBoxTexture_ix44y")
+theme_override_styles/scroll_focus = SubResource("StyleBoxTexture_ix44y")
+theme_override_styles/grabber = SubResource("StyleBoxTexture_70w0i")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_70w0i")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_70w0i")
+
+[node name="volumeBar" type="HScrollBar" parent="settingsMenuContainer/barsContainer/VBoxContainer/HBoxContainer/barScrollBarsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 10)
+layout_mode = 2
+theme_override_styles/scroll = SubResource("StyleBoxTexture_ix44y")
+theme_override_styles/scroll_focus = SubResource("StyleBoxTexture_ix44y")
+theme_override_styles/grabber = SubResource("StyleBoxTexture_70w0i")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_70w0i")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_70w0i")

@@ -2,15 +2,14 @@ extends MarginContainer
 
 @export var menu_screen: VBoxContainer          # exporting all menus in the main one 
 @export var open_menu_screen: VBoxContainer
-@export var settings_menu_screen: MarginContainer  
-
+const settings_menu_screen = preload("res://scenes/ui_scenes/PopupMenuScenes/inventory_ui.tscn")
 
 @export var open_menu_button: Button            # exporting all buttons in the main menu for animation
 @export var close_menu_button: Button
 @export var open_pause_button: Button
 @export var close_pause_button: Button 
 @export var open_settings_menu_button: Button
-@export var close_settings_menu_button: Button
+
 @export var open_are_you_sure_menu_button: Button
 @export var close_are_you_sure_menu_button: Button
 
@@ -21,7 +20,7 @@ var toggle_popupmenu_buttons: Array
 func _ready() -> void:                   # grouping them in the _ready function
 	in_menu_buttons = [open_pause_button, open_settings_menu_button, open_are_you_sure_menu_button]
 	toggle_popupmenu_buttons = [open_menu_button, close_menu_button]
-	close_menu_buttons = [close_settings_menu_button]
+
 
 
 func _process(_delta: float) -> void:                  # to update the button every press/hover for animation
@@ -69,4 +68,4 @@ func _on_toggle_menu_button_pressed() -> void:
 
 
 func _on_toggle_settings_menu_pressed() -> void:
-	toggle_visibility(settings_menu_screen)
+	pass
