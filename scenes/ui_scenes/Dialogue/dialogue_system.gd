@@ -101,10 +101,68 @@ func _choice_resource(i: DialogueChoice) -> void:
 			CONNECT_ONE_SHOT)
 			if function_resource.hide_dialogue_box:
 				DialogueButtonVar.connect("pressed", hide, CONNECT_ONE_SHOT)
-			
+				
+			DialogueButtonVar.connect("pressed",
+			_choice_button_pressed.bind(get_node(function_resource.target_path), function_resource.wait_for_signal_to_continue), 
+			CONNECT_ONE_SHOT)
+		else:
+			DialogueButtonVar.connect("pressed", _choice_button_pressed.bind(null, ""), CONNECT_ONE_SHOT)
+		$HBoxContainer/VBoxContainer/button_container.add_child(DialogueButtonVar)
+	$HBoxContainer/VBoxContainer/button_container.get_child(0).grab_focus()
 func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue: String):
-	pass
+	$HBoxContainer/VBoxContainer/button_container.visible = false
+	for i in $HBoxContainer/VBoxContainer/button_container.get_children():
+		i.queue_free()
+		# i will add sound here later on :penguin;
+		
+		if wait_for_signal_to_continue:
+			var signal_name = wait_for_signal_to_continue
+			if target_node.has_signal(signal_name):
+				var signal_state = {"done": false}
+				var callable = func(_args): signal_state.done = true
+				target_node.connect(signal_name, callable, CONNECT_ONE_SHOT)
+				while not signal_state.done:
+					await get_tree().process_frame
+					
+	current_dialogue_item += 1
+	next_item = true
 	
 	
 func _text_resource(i: DialogueText) -> void:
-	pass
+	$AudioStreamPlayer2D.stream = i.text_sound
+	$AudioStreamPlayer2D.volume_db = i.text_volume_db
+	var camera: Camera2D = get_viewport().get_camera_2d()
+	if camera and i.camera_position != Vector2(999.999, 999.999):
+		var camera_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
+		camera_tween.tween_property(camera, "global_position", i.camera_position, i.camera_transition_time)
+		
+	if !i.speaker_img:
+		$HBoxContainer/SpeakerParent.visible = false 
+	else:
+		$HBoxContainer/SpeakerParent.visible = true 
+		SpeakerSprite.texture = i.speaker_img
+		SpeakerSprite.hframes = i.speaker_img_Hframes
+		SpeakerSprite.frame = 0
+	
+	DialogueLabel.visible_characters = 0
+	DialogueLabel.text = i.text
+	var text_witout_square_brackets: String = _text_witout_square_brackets(i.text)
+	
+
+func _text_without_square_brackets(text: String) -> String:
+	var result = ""
+	var inside_bracket: bool = false
+	
+	for i in text:
+		if i == "[":
+			inside_bracket = true
+			continue
+			
+		if i == "]":
+			inside_bracket = false
+			continue
+			
+		if !inside_bracket:
+			result += i 
+			
+	return result
