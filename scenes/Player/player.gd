@@ -8,6 +8,7 @@ extends MovingEntity   #yo can we like add comments next shit we add so that i c
 
 @export var DASH_POWER := 300.0
 
+var look_dir:String = "right"
 var was_on_floor: bool = true
 var wants_to_jump: bool = false
 var can_dash: bool = true:

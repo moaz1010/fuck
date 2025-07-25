@@ -2,7 +2,7 @@ extends MarginContainer
 
 @export var menu_screen: VBoxContainer          # exporting all menus in the main one 
 @export var open_menu_screen: VBoxContainer
-const settings_menu_screen = preload("res://scenes/ui_scenes/PopupMenuScenes/inventory_ui.tscn")
+
 
 @export var open_menu_button: Button            # exporting all buttons in the main menu for animation
 @export var close_menu_button: Button

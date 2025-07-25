@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxs160b1fh1ll"]
+
+[ext_resource type="Script" uid="uid://bfdrcgunssi7l" path="res://scenes/ui_scenes/Dialogue/dialogue_area_2d.gd" id="1_xvqxb"]
+
+[node name="DialogueArea2D" type="Area2D"]
+script = ExtResource("1_xvqxb")
+required_player_look_dir = "right"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

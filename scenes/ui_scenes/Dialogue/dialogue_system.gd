@@ -146,7 +146,39 @@ func _text_resource(i: DialogueText) -> void:
 	
 	DialogueLabel.visible_characters = 0
 	DialogueLabel.text = i.text
-	var text_witout_square_brackets: String = _text_witout_square_brackets(i.text)
+	var text_without_square_brackets: String = _text_without_square_brackets(i.text)
+	var total_charachters: int = text_without_square_brackets.length()
+	var charachter_timer:float = 0.0 
+	while DialogueLabel.visible_characters < total_charachters:
+		if Input.is_action_just_pressed("ui_cancel"):
+			DialogueLabel.visible_characters = total_charachters
+			break
+			
+		charachter_timer += get_process_delta_time()
+		if charachter_timer >= (1.0/i.text_speed) or text_without_square_brackets[DialogueLabel.visible_characters] == " ":
+			var charachter: String = text_without_square_brackets[DialogueLabel.visible_characters]
+			DialogueLabel.visible_characters += 1
+			if charachter != " ":
+				$AudioStreamPlayer2D.pitch_scale = min(i.text_volume_pitch_min, i.text_volume_pitch_max)
+				$AudioStreamPlayer2D.play()
+				if i.speaker_img_Hframes != 1:
+					if SpeakerSprite.frame < i.speaker_img_Hframe:
+						SpeakerSprite.frame += 1
+					else:
+						SpeakerSprite.frame = 0
+			charachter_timer = 0.0
+			
+		await get_tree().process_frame
+		
+	SpeakerSprite.frame = min(i.speaker_img_rest_frame, i.speaker_img_Hframes-1)
+	
+	while true:
+		await get_tree().process_frame
+		if DialogueLabel.visible_characters == total_charachters:
+			if Input.is_action_just_pressed("ui_accept"):
+				current_dialogue_item += 1
+				next_item = true 
+				
 	
 
 func _text_without_square_brackets(text: String) -> String:
