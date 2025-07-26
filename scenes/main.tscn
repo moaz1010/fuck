@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=19 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
+[ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
 [ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://scenes/tilemaps/tiles.tscn" id="1_yx00i"]
 [ext_resource type="Texture2D" uid="uid://dlax476o1ugtj" path="res://assests/World tiles/background.png" id="2_25x5a"]
 [ext_resource type="Texture2D" uid="uid://lftotrfcgqqu" path="res://assests/World tiles/tiles_atlas.png" id="3_godeq"]
@@ -9,13 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cluhf5gby2umq" path="res://scenes/enemies/enemy.tscn" id="9_cohwm"]
 [ext_resource type="Texture2D" uid="uid://de0oti5xrulrf" path="res://assests/characgter sprites/jolin_npc_idle_spritesheet.png" id="9_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://bau7qqu6a6rxi" path="res://scenes/Gun/gun.tscn" id="9_l8pkp"]
-[ext_resource type="PackedScene" uid="uid://cxs160b1fh1ll" path="res://scenes/ui_scenes/Dialogue/dialogue_area_2d.tscn" id="9_trceg"]
-[ext_resource type="Script" uid="uid://cw45vld5e7g5j" path="res://DialogueExportResource.gd" id="10_a8y0u"]
-[ext_resource type="Script" uid="uid://dwsc22sg1ebuf" path="res://scenes/ui_scenes/Dialogue/Resources/DialogueFunctionResource.gd" id="11_jkv2x"]
-[ext_resource type="Script" uid="uid://x1hlxgcgh3wa" path="res://scenes/ui_scenes/Dialogue/Resources/DialogueChoiceResource.gd" id="12_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://d1momdh7x1rwi" path="res://assests/characgter sprites/joline_speaker_sprite.png" id="14_muem4"]
-[ext_resource type="Script" uid="uid://dbr76fh8hq70y" path="res://scenes/ui_scenes/Dialogue/Resources/DialogueTextResource.gd" id="15_dp3eg"]
-[ext_resource type="AudioStream" uid="uid://ddlcdwhdg6jy6" path="res://assests/talk.wav" id="16_0ld40"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsyfl"]
 texture = ExtResource("2_25x5a")
@@ -406,24 +400,6 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_4xsyv")
 
-[sub_resource type="Animation" id="Animation_gqmmt"]
-resource_name = "idle"
-length = 1.00001
-loop_mode = 1
-step = 0.333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.135679, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 5, 5]
-}
-
 [sub_resource type="Animation" id="Animation_yc10j"]
 length = 0.001
 tracks/0/type = "value"
@@ -451,6 +427,24 @@ tracks/1/keys = {
 "values": [Vector2i(2, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_gqmmt"]
+resource_name = "idle"
+length = 1.00001
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.135679, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 5, 5]
+}
+
 [sub_resource type="Animation" id="Animation_jscy8"]
 resource_name = "trying"
 step = 0.333333
@@ -474,53 +468,9 @@ _data = {
 &"trying": SubResource("Animation_jscy8")
 }
 
-[sub_resource type="Resource" id="Resource_y6deb"]
-script = ExtResource("11_jkv2x")
-target_path = NodePath("../Sprite2D/AnimationPlayer")
-function_name = "trying"
-function_arguments = ["interact"]
-hide_dialogue_box = true
-wait_for_signal_to_continue = "animation_finished"
-metadata/_custom_type_script = "uid://dwsc22sg1ebuf"
-
-[sub_resource type="Resource" id="Resource_og1vs"]
-script = ExtResource("11_jkv2x")
-target_path = NodePath("../Sprite2D/AnimationPlayer")
-function_name = "trying"
-function_arguments = ["trying"]
-hide_dialogue_box = true
-wait_for_signal_to_continue = "animation_finished"
-metadata/_custom_type_script = "uid://dwsc22sg1ebuf"
-
-[sub_resource type="Resource" id="Resource_2wyq8"]
-script = ExtResource("12_jbj1t")
-speaker_img = ExtResource("14_muem4")
-speaker_img_Hframes = 1
-speaker_img_select_frame = 0
-text = "(Hello Traveler how can i help you?)"
-choice_text = Array[String](["Who Are You?", "Why is this place like this"])
-choice_function_call = Array[ExtResource("11_jkv2x")]([SubResource("Resource_og1vs"), null])
-metadata/_custom_type_script = "uid://x1hlxgcgh3wa"
-
-[sub_resource type="Resource" id="Resource_vxglm"]
-script = ExtResource("15_dp3eg")
-speaker_name = "Jolin"
-speaker_img = ExtResource("14_muem4")
-speaker_img_Hframes = 1
-speaker_img_rest_frame = 0
-text = "Well i dont know what you chose so i cant help you "
-text_speed = 18.0
-text_sound = ExtResource("16_0ld40")
-text_volume_db = -8
-text_volume_pitch_min = 0.85
-text_volume_pitch_max = 1.15
-camera_position = Vector2(999.999, 999.999)
-camera_transition = 1.0
-metadata/_custom_type_script = "uid://dbr76fh8hq70y"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqmmt"]
-
 [node name="Main" type="Node"]
+
+[node name="DialogueSystem" parent="." instance=ExtResource("1_choun")]
 
 [node name="World" type="Node2D" parent="."]
 
@@ -569,11 +519,3 @@ libraries = {
 &"": SubResource("AnimationLibrary_pm3ni")
 }
 autoplay = "idle"
-
-[node name="DialogueArea2D" parent="World" instance=ExtResource("9_trceg")]
-position = Vector2(86, 74)
-collision_layer = 2
-dialogue = Array[ExtResource("10_a8y0u")]([SubResource("Resource_y6deb"), SubResource("Resource_2wyq8"), SubResource("Resource_vxglm")])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/DialogueArea2D"]
-shape = SubResource("RectangleShape2D_gqmmt")

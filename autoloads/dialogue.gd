@@ -10,8 +10,8 @@ var current_sections : Array[DialogueResource]
 var current_section_index : int
 
 func get_current_section():
-	if current_section_index < 0 or current_section_index > current_sections.size():
-		assert("Trying to access an item that doesn't exist inside dialouge array.")
+	assert(current_section_index >= 0 and current_section_index < current_sections.size(), 
+	"Trying to access an item that doesn't exist inside dialouge array.")
 	return current_sections[current_section_index]
 
 func enter_dialogue(sections: Array[DialogueResource]):
