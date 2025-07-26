@@ -5,7 +5,7 @@ extends MovingEntity   #yo can we like add comments next shit we add so that i c
 @onready var weapon_shell := %WeaponShell
 @onready var dash_timer := %DashTimer
 @onready var dash_buffer := %DashBuffer
-
+@onready var health = %HealthComponent
 @export var DASH_POWER := 300.0
 
 var look_dir:String = "right"

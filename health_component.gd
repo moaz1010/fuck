@@ -9,15 +9,20 @@ var previous_health: float = 0
 @export var idle_healing: float = 0
 
 @export var max_health: float = 10.0
+var min_health := 0.0
 var health: float = max_health:
 	set(value):
 		
-		if value > max_health: health = max_health
-		else: health = value
+		if value > max_health: 
+			health = max_health
+		else: 
+			health = value
 		
-		if value <= 0:
+		if value <= min_health:
 			died.emit()
-		else: health_changed.emit(health)
+		else:
+			health_changed.emit(health)
+
 
 
 func _process(delta: float) -> void:

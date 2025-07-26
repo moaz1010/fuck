@@ -431,7 +431,7 @@ tracks/1/keys = {
 resource_name = "idle"
 length = 1.00001
 loop_mode = 1
-step = 0.333333
+step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -439,10 +439,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.135679, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.493102, 0.583333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 5, 5]
+"values": [0, 1, 2, 3, 4, 5, 1, 2]
 }
 
 [sub_resource type="Animation" id="Animation_jscy8"]

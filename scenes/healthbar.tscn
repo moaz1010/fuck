@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8kcgyl7fta3i"]
+
+[ext_resource type="Texture2D" uid="uid://del8crji3hih5" path="res://assests/UI stuff/Buttons/added_exit_button_spritesheet.png" id="1_vjxg4"]
+[ext_resource type="Script" uid="uid://oac670uhudpx" path="res://progress_bar.gd" id="2_ulkio"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y8nn8"]
+texture = ExtResource("1_vjxg4")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+region_rect = Rect2(143, 224, 9, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_25yk6"]
+texture = ExtResource("1_vjxg4")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(143, 236, 9, 11)
+
+[node name="ProgressBar" type="ProgressBar"]
+custom_minimum_size = Vector2(30, 5)
+offset_right = 30.0
+offset_bottom = 6.0
+theme_override_styles/background = SubResource("StyleBoxTexture_y8nn8")
+theme_override_styles/fill = SubResource("StyleBoxTexture_25yk6")
+show_percentage = false
+script = ExtResource("2_ulkio")
