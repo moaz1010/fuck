@@ -5,7 +5,10 @@ extends MovingEntity   #yo can we like add comments next shit we add so that i c
 @onready var weapon_shell := %WeaponShell
 @onready var dash_timer := %DashTimer
 @onready var dash_buffer := %DashBuffer
+
 @onready var health = %HealthComponent
+@onready var progress_bar := %ProgressBar
+
 @export var DASH_POWER := 300.0
 
 var look_dir:String = "right"
@@ -22,6 +25,8 @@ var can_move: bool = true
 func _ready() -> void:
 	dash_buffer.wait_time += dash_timer.wait_time
 	add_to_group("player")
+	progress_bar.min_value = health.min_health
+	progress_bar.max_value = health.max_health
 	super()
 	Inventory.added_weapon.connect(
 		#This is here because the "change_weapon" function takes a scene
@@ -107,3 +112,7 @@ func take_recoil(power):
 
 
 func _on_dash_timer_timeout() -> void: is_dashing = false
+
+
+func _on_health_changed(new_health: float) -> void:
+	progress_bar.value = new_health

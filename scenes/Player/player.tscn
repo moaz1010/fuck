@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene load_steps=10 format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
+[ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_dl1wr"]
 [ext_resource type="Texture2D" uid="uid://cjxp1hh8fkfmo" path="res://assests/Player stuff/player (1).png" id="3_uklsp"]
 [ext_resource type="Script" uid="uid://8rms6rae8mtb" path="res://health_component.gd" id="6_a06cl"]
 [ext_resource type="PackedScene" uid="uid://yh4p6e0hjg0q" path="res://scenes/ui_scenes/PopupMenuScenes/in_game_ui.tscn" id="6_hvfru"]
@@ -14,6 +15,16 @@ size = Vector2(9, 16)
 [node name="player" type="CharacterBody2D"]
 collision_mask = 26
 script = ExtResource("1_4vkt4")
+params = ExtResource("2_dl1wr")
+
+[node name="ProgressBar" parent="." instance=ExtResource("7_a06cl")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(20, 0)
+offset_left = -15.0
+offset_top = -18.0
+offset_right = 15.0
+offset_bottom = -12.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -1)
@@ -62,13 +73,7 @@ script = ExtResource("6_a06cl")
 idle_healing = 0.5
 max_health = 100.0
 
-[node name="ProgressBar" parent="HealthComponent" instance=ExtResource("7_a06cl")]
-custom_minimum_size = Vector2(20, 0)
-offset_left = -15.0
-offset_top = -18.0
-offset_right = 15.0
-offset_bottom = -12.0
-
 [connection signal="child_entered_tree" from="WeaponShell" to="." method="_on_weapon_shell_child_entered_tree"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_changed"]
