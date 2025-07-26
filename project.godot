@@ -18,6 +18,7 @@ config/icon="res://scenes/icon.svg"
 [autoload]
 
 Inventory="*res://autoloads/inventory.gd"
+Dialogue="*res://autoloads/dialogue.gd"
 
 [display]
 
