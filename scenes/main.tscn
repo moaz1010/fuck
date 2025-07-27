@@ -470,8 +470,6 @@ _data = {
 
 [node name="Main" type="Node"]
 
-[node name="DialogueSystem" parent="." instance=ExtResource("1_choun")]
-
 [node name="World" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="World"]
@@ -519,3 +517,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_pm3ni")
 }
 autoplay = "idle"
+
+[node name="DialogueBox" parent="World" instance=ExtResource("1_choun")]
+visible = true

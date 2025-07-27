@@ -26,7 +26,7 @@ func enter_dialogue(sections: Array[DialogueResource]):
 func continue_dialogue():
 	if not is_in_dialogue: return
 	current_section_index += 1
-	if current_section_index > current_sections.size(): 
+	if current_section_index >= current_sections.size(): 
 		exit_dialogue()
 		return
 	continued_dialogue.emit(get_current_section())

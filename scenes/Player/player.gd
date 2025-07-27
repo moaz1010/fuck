@@ -35,9 +35,11 @@ func _ready() -> void:
 		func(resource: InvWeaponResource): 
 			change_weapon.call_deferred(resource.weapon_scene)
 	)
+	Dialogue.entered_dialogue.connect(func(): can_move = false)
+	Dialogue.exited_dialogue.connect(func(): can_move = true)
+	
 
-func _input(_event: InputEvent) -> void:
-
+func _unhandled_input(_event: InputEvent) -> void:
 	#The character moves based on this variable, so when it is positive it
 	#moves right, and when it is negative it moves left.
 	direction = Input.get_axis("move_left", "move_right")
@@ -65,9 +67,6 @@ func _input(_event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 
-	if !can_move:
-		return
-
 	if is_on_floor() and dash_buffer.is_stopped(): can_dash = true
 
 	if not is_on_floor() and was_on_floor:
@@ -86,7 +85,7 @@ func _physics_process(delta: float) -> void:
 
 	#This executes the _physics_process method in the MovingEntity class
 	#that handles all the movement shi.
-	super(delta)
+	if can_move: super(delta)
 
 
 func change_weapon(scene: PackedScene) -> void:

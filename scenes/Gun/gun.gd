@@ -8,15 +8,8 @@ const BULLET = preload("res://scenes/Bullet/bullet.tscn")
 @export var RECOIL: float = 200.0
 signal bullet_shot(recoil: float)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-
-
-func _process(_delta: float) -> void:
-
-
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("fire") and cool_down_timer.is_stopped():  # to shoot
 		bullet_shot.emit(RECOIL)
 		cool_down_timer.start()

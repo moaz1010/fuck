@@ -16,10 +16,19 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [node name="DialogueBox" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
 visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_vt4lp")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -32,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ncicg")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,11 +49,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SpeakerParent" type="Control" parent="Panel/HBoxContainer"]
+[node name="SpeakerParent" type="Control" parent="Control/Panel/HBoxContainer"]
 custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/SpeakerParent"]
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/HBoxContainer/SpeakerParent"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,11 +62,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -65,6 +75,6 @@ bbcode_enabled = true
 scroll_active = false
 visible_characters_behavior = 1
 
-[node name="button_container" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="button_container" type="HBoxContainer" parent="Control/Panel/HBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
