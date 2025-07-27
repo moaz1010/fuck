@@ -519,4 +519,3 @@ libraries = {
 autoplay = "idle"
 
 [node name="DialogueBox" parent="World" instance=ExtResource("1_choun")]
-visible = true
