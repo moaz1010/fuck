@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=4 format=3 uid="uid://y3s385ljg1qb"]
+
+[ext_resource type="Script" uid="uid://bfdmdrh7jwasq" path="res://Recources/choice_resource.gd" id="1_ptvw6"]
+[ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="2_abgri"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ptvw6"]
+
+[resource]
+script = ExtResource("2_abgri")
+text = "zam"
+speaker_sprite = SubResource("PlaceholderTexture2D_ptvw6")
+choices = Array[ExtResource("1_ptvw6")]([])
+metadata/_custom_type_script = "uid://b1650whroytf0"

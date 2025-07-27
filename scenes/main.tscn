@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=25 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://cluhf5gby2umq" path="res://scenes/enemies/enemy.tscn" id="9_cohwm"]
 [ext_resource type="Texture2D" uid="uid://de0oti5xrulrf" path="res://assests/characgter sprites/jolin_npc_idle_spritesheet.png" id="9_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://bau7qqu6a6rxi" path="res://scenes/Gun/gun.tscn" id="9_l8pkp"]
+[ext_resource type="Script" uid="uid://bjjyo1d6kc2ei" path="res://custom_nodes/dialogue_area.gd" id="11_ya4ey"]
+[ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="12_jkv2x"]
+[ext_resource type="Resource" uid="uid://y3s385ljg1qb" path="res://Recources/Dialogues/test/test1.tres" id="13_jbj1t"]
+[ext_resource type="Resource" uid="uid://c25t7kjsoa3m6" path="res://Recources/Dialogues/test/test2.tres" id="14_muem4"]
+[ext_resource type="Resource" uid="uid://fqgdp7s10vdv" path="res://Recources/Dialogues/test/test3.tres" id="15_dp3eg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsyfl"]
 texture = ExtResource("2_25x5a")
@@ -468,6 +473,9 @@ _data = {
 &"trying": SubResource("Animation_jscy8")
 }
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jkv2x"]
+a = Vector2(0, -12)
+
 [node name="Main" type="Node"]
 
 [node name="World" type="Node2D" parent="."]
@@ -519,3 +527,13 @@ libraries = {
 autoplay = "idle"
 
 [node name="DialogueBox" parent="World" instance=ExtResource("1_choun")]
+
+[node name="DialogueArea" type="Area2D" parent="World"]
+position = Vector2(78, 71)
+collision_layer = 0
+script = ExtResource("11_ya4ey")
+dialogue = Array[ExtResource("12_jkv2x")]([ExtResource("13_jbj1t"), ExtResource("14_muem4"), ExtResource("15_dp3eg")])
+metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/DialogueArea"]
+shape = SubResource("SegmentShape2D_jkv2x")
