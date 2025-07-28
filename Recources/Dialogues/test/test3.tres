@@ -1,12 +1,26 @@
-[gd_resource type="Resource" script_class="DialogueResource" load_steps=4 format=3 uid="uid://fqgdp7s10vdv"]
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=6 format=3 uid="uid://fqgdp7s10vdv"]
 
 [ext_resource type="Script" uid="uid://bfdmdrh7jwasq" path="res://Recources/choice_resource.gd" id="1_frfyk"]
 [ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="2_w4mgx"]
-[ext_resource type="Texture2D" uid="uid://bkik7ii3mgtsn" path="res://assests/art/character_exclamation.png" id="3_w4mgx"]
+[ext_resource type="Texture2D" uid="uid://d1momdh7x1rwi" path="res://assests/characgter sprites/joline_speaker_sprite.png" id="3_w4mgx"]
+
+[sub_resource type="Resource" id="Resource_w4mgx"]
+script = ExtResource("1_frfyk")
+text = "yes"
+callable = null
+next_dialogue = Array[ExtResource("2_w4mgx")]([])
+metadata/_custom_type_script = "uid://bfdmdrh7jwasq"
+
+[sub_resource type="Resource" id="Resource_6g4ar"]
+script = ExtResource("1_frfyk")
+text = "ho"
+callable = null
+next_dialogue = Array[ExtResource("2_w4mgx")]([])
+metadata/_custom_type_script = "uid://bfdmdrh7jwasq"
 
 [resource]
 script = ExtResource("2_w4mgx")
-text = "niiiiii"
+text = "Alright Looks like i will be teaching you how to play this game "
 speaker_sprite = ExtResource("3_w4mgx")
-choices = Array[ExtResource("1_frfyk")]([])
+choices = Array[ExtResource("1_frfyk")]([SubResource("Resource_w4mgx"), SubResource("Resource_6g4ar")])
 metadata/_custom_type_script = "uid://b1650whroytf0"
