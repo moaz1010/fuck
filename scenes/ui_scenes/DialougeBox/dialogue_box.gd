@@ -2,6 +2,7 @@ extends Control
 
 @onready var text_label := %RichTextLabel
 @onready var speaker_texture := %TextureRect
+@onready var audio_stream_player := %AudioStreamPlayer
 
 var typing_buffer : SceneTreeTimer
 
@@ -31,6 +32,8 @@ func _input(_event: InputEvent) -> void:
 		Dialogue.continue_dialogue()
 
 func _on_continued_dialogue(section: DialogueResource) -> void:
+	if section.talking_sound:
+		audio_stream_player.stream = section.talking_sound
 	if section.text:
 		_type_text(section.text)
 	if section.speaker_sprite:
@@ -53,4 +56,5 @@ func _type_text(text: String):
 		await typing_buffer.timeout
 		if _desired_text != text: return
 		current_text += text[i]
+		if audio_stream_player.stream: audio_stream_player.play()
 		text_label.text = current_text

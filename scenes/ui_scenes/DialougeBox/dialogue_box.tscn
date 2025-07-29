@@ -80,3 +80,6 @@ visible_characters_behavior = 1
 [node name="button_container" type="HBoxContainer" parent="Control/Panel/HBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
