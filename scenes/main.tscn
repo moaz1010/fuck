@@ -536,7 +536,8 @@ offset_bottom = -25.0
 position = Vector2(78, 71)
 collision_layer = 0
 script = ExtResource("11_ya4ey")
-dialogue = Array[ExtResource("12_jkv2x")]([ExtResource("13_jbj1t"), ExtResource("14_muem4"), ExtResource("15_dp3eg")])
+first_time_dialogue = Array[ExtResource("12_jkv2x")]([ExtResource("13_jbj1t"), ExtResource("14_muem4"), ExtResource("15_dp3eg")])
+repeat_dialogue = Array[ExtResource("12_jkv2x")]([ExtResource("15_dp3eg")])
 metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/DialogueArea"]

@@ -8,7 +8,7 @@ var typing_buffer : SceneTreeTimer
 
 @export var type_speed : float
 
-var _desired_text : String
+var _current_text_id : int = 0
 
 var is_active: bool = false:
 	set(value):
@@ -48,13 +48,14 @@ func _reset_box():
 	text_label.text = ""
 
 func _type_text(text: String):
-	_desired_text = text
+	_current_text_id += 1
+	var id := _current_text_id
 	var current_text := ""
 	if typing_buffer: typing_buffer.set_time_left(0)
 	for i in text.length():
 		typing_buffer = get_tree().create_timer(type_speed)
 		await typing_buffer.timeout
-		if _desired_text != text: return
+		if _current_text_id != id: return
 		current_text += text[i]
 		if audio_stream_player.stream: audio_stream_player.play()
 		text_label.text = current_text

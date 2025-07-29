@@ -19,6 +19,9 @@ func get_current_section() -> DialogueResource:
 func enter_dialogue(sections: Array[DialogueResource]):
 	current_sections = sections
 	current_section_index = 0
+	if sections.is_empty(): 
+		if is_in_dialogue: exited_dialogue.emit()
+		return
 	if not is_in_dialogue: entered_dialogue.emit()
 	is_in_dialogue = true
 	continued_dialogue.emit(get_current_section())

@@ -89,6 +89,9 @@ func _physics_process(delta: float) -> void:
 	#This executes the _physics_process method in the MovingEntity class
 	#that handles all the movement shi.
 	if can_move: super(delta)
+	else: 
+		direction = 0
+		velocity = Vector2.ZERO
 
 
 func change_weapon(scene: PackedScene) -> void:
