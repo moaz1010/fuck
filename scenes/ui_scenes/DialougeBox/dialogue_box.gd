@@ -7,7 +7,7 @@ extends Control
 var typing_buffer : SceneTreeTimer
 
 @export var type_speed : float
-@export var pitch_difference_factor : float
+@export var pitch_difference_modifier : float
 
 var _current_text_id : int = 0
 
@@ -33,6 +33,7 @@ func _input(_event: InputEvent) -> void:
 		Dialogue.continue_dialogue()
 
 func _on_continued_dialogue(section: DialogueResource) -> void:
+	_current_text_id += 1
 	if section.talking_sound:
 		audio_stream_player.stream = section.talking_sound
 	if section.text:
@@ -61,7 +62,7 @@ func _type_text(text: String):
 		await typing_buffer.timeout
 		if _current_text_id != id: return
 		
-		audio_stream_player.pitch_scale = 1 + randf_range(-pitch_difference_factor, pitch_difference_factor)
+		audio_stream_player.pitch_scale = pow(pitch_difference_modifier, randf_range(-1, 1))
 		if audio_stream_player.stream: audio_stream_player.play()
 		
 		current_text += text[i]
