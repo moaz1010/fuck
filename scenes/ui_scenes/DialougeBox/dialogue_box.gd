@@ -30,10 +30,10 @@ func _input(_event: InputEvent) -> void:
 	if is_active: 
 		accept_event()
 	if Input.is_action_just_pressed("ui_accept"):
+		_current_text_id += 1
 		Dialogue.continue_dialogue()
 
 func _on_continued_dialogue(section: DialogueResource) -> void:
-	_current_text_id += 1
 	if section.talking_sound:
 		audio_stream_player.stream = section.talking_sound
 	if section.text:
@@ -64,6 +64,7 @@ func _type_text(text: String):
 		
 		audio_stream_player.pitch_scale = pow(pitch_difference_modifier, randf_range(-1, 1))
 		if audio_stream_player.stream: audio_stream_player.play()
+		print("shit")
 		
 		current_text += text[i]
 		text_label.text = current_text
