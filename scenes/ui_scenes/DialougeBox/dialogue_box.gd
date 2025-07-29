@@ -7,6 +7,7 @@ extends Control
 var typing_buffer : SceneTreeTimer
 
 @export var type_speed : float
+@export var pitch_difference_factor : float
 
 var _current_text_id : int = 0
 
@@ -50,12 +51,18 @@ func _reset_box():
 func _type_text(text: String):
 	_current_text_id += 1
 	var id := _current_text_id
+	
 	var current_text := ""
 	if typing_buffer: typing_buffer.set_time_left(0)
+	
 	for i in text.length():
+		
 		typing_buffer = get_tree().create_timer(type_speed)
 		await typing_buffer.timeout
 		if _current_text_id != id: return
-		current_text += text[i]
+		
+		audio_stream_player.pitch_scale = 1 + randf_range(-pitch_difference_factor, pitch_difference_factor)
 		if audio_stream_player.stream: audio_stream_player.play()
+		
+		current_text += text[i]
 		text_label.text = current_text
