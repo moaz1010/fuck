@@ -6,7 +6,7 @@ extends Control
 
 var typing_buffer : SceneTreeTimer
 
-@export var type_speed : float
+@export var default_type_speed : float
 @export var pitch_difference_modifier : float
 
 var _current_text_id : int = 0
@@ -37,7 +37,10 @@ func _on_continued_dialogue(section: DialogueResource) -> void:
 	if section.talking_sound:
 		audio_stream_player.stream = section.talking_sound
 	if section.text:
-		_type_text(section.text)
+		var current_talking_speed := default_type_speed
+		if section.talking_speed_in_milliseconds:
+			current_talking_speed = section.talking_speed_in_milliseconds
+		_type_text(section.text, current_talking_speed)
 	if section.speaker_sprite:
 		speaker_texture.texture = section.speaker_sprite
 
@@ -49,7 +52,7 @@ func _reset_box():
 	is_active = false
 	text_label.text = ""
 
-func _type_text(text: String):
+func _type_text(text: String, type_speed: float = default_type_speed):
 	_current_text_id += 1
 	var id := _current_text_id
 	
@@ -58,7 +61,7 @@ func _type_text(text: String):
 	
 	for i in text.length():
 		
-		typing_buffer = get_tree().create_timer(type_speed)
+		typing_buffer = get_tree().create_timer(type_speed / 1000)
 		await typing_buffer.timeout
 		if _current_text_id != id: return
 		

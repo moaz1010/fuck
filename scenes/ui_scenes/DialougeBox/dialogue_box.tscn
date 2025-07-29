@@ -24,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_bottom = 10
 script = ExtResource("1_vt4lp")
-type_speed = 0.02
+default_type_speed = 20.0
 pitch_difference_modifier = 2.0
 
 [node name="Control" type="Control" parent="."]

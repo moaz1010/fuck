@@ -11,4 +11,5 @@ text = "Hello... Whatever you are..."
 speaker_sprite = ExtResource("3_abgri")
 choices = Array[ExtResource("1_ptvw6")]([])
 talking_sound = ExtResource("4_c1yur")
+talking_speed_in_milliseconds = 0.0
 metadata/_custom_type_script = "uid://b1650whroytf0"
