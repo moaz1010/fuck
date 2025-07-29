@@ -526,7 +526,11 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="DialogueBox" parent="World" instance=ExtResource("1_choun")]
+[node name="CanvasLayer" type="CanvasLayer" parent="World"]
+
+[node name="DialogueBox" parent="World/CanvasLayer" instance=ExtResource("1_choun")]
+offset_top = -25.0
+offset_bottom = -25.0
 
 [node name="DialogueArea" type="Area2D" parent="World"]
 position = Vector2(78, 71)

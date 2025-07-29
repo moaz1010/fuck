@@ -15,17 +15,19 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[node name="DialogueBox" type="CanvasLayer"]
-
-[node name="Control" type="Control" parent="."]
+[node name="DialogueBox" type="MarginContainer"]
 visible = false
-layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_bottom = 10
 script = ExtResource("1_vt4lp")
+type_speed = 0.02
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 1

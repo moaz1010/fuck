@@ -3,6 +3,12 @@ extends Control
 @onready var text_label := %RichTextLabel
 @onready var speaker_texture := %TextureRect
 
+var typing_buffer : SceneTreeTimer
+
+@export var type_speed : float
+
+var _desired_text : String
+
 var is_active: bool = false:
 	set(value):
 		is_active = value
@@ -26,12 +32,25 @@ func _input(_event: InputEvent) -> void:
 
 func _on_continued_dialogue(section: DialogueResource) -> void:
 	if section.text:
-		text_label.text = section.text
+		_type_text(section.text)
 	if section.speaker_sprite:
 		speaker_texture.texture = section.speaker_sprite
 
 func _initialize_box() -> void:
 	is_active = true
+	text_label.text = ""
 
 func _reset_box():
 	is_active = false
+	text_label.text = ""
+
+func _type_text(text: String):
+	_desired_text = text
+	var current_text := ""
+	if typing_buffer: typing_buffer.set_time_left(0)
+	for i in text.length():
+		typing_buffer = get_tree().create_timer(type_speed)
+		await typing_buffer.timeout
+		if _desired_text != text: return
+		current_text += text[i]
+		text_label.text = current_text
