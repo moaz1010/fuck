@@ -13,6 +13,7 @@ var MAX_SPEED := 300.0
 var direction : float = 0
 var is_dashing : bool = false
 var dash_vector : Vector2 = Vector2.ZERO
+var previous_push_velocity : Vector2
 
 var ACCELERATION : float
 var FRICTION : float
@@ -22,6 +23,7 @@ var MAX_SPEED_JUMP_INCREASE := .1
 var JUMP_VELOCITY := 400.0
 var MAX_JUMP_VELOCITY := 600.0
 
+var velocity_increase: Vector2 = Vector2.ZERO
 
 @export var params : MovingEntityStats:
 	set(resource):
@@ -85,6 +87,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0
 
 	if is_dashing: velocity = dash_vector
+	velocity += velocity_increase
 	move_and_slide()
 	if is_dashing: 
 		var cutoff := 3.0
@@ -92,11 +95,13 @@ func _physics_process(delta: float) -> void:
 			sign(dash_vector.x) * ACCELERATION * delta * cutoff, 
 			sign(dash_vector.y) * GRAVITY * delta * cutoff
 			)
+	velocity_increase = Vector2.ZERO
 
 func jump():
 	if not is_dashing:
 		var percentage = min(abs(velocity.x) / MAX_SPEED, 1)
-		velocity.y = -lerp(JUMP_VELOCITY, MAX_JUMP_VELOCITY, percentage)
+		var increase = lerp(JUMP_VELOCITY, MAX_JUMP_VELOCITY, percentage)
+		velocity.y = -increase
 
 func dash(dash_direction: Vector2, power: float):
 	dash_vector = dash_direction * power
@@ -104,6 +109,7 @@ func dash(dash_direction: Vector2, power: float):
 
 func push(push_direction: Vector2, power: float = 1):
 	velocity += push_direction * power
+	previous_push_velocity = push_direction * power
 
 func insta_push(push_direction: Vector2, power: float = 1):
 	velocity = push_direction * power

@@ -5,6 +5,7 @@ extends MovingEntity   #yo can we like add comments next shit we add so that i c
 @onready var weapon_shell := %WeaponShell
 @onready var dash_timer := %DashTimer
 @onready var dash_buffer := %DashBuffer
+@onready var push_buffer := %PushBuffer
 
 @onready var health = %HealthComponent
 @onready var progress_bar := %ProgressBar
@@ -79,6 +80,8 @@ func _physics_process(delta: float) -> void:
 	if wants_to_jump:
 		if is_on_floor() or !coyote_timer.is_stopped(): 
 			jump()
+			if not push_buffer.is_stopped():
+				velocity_increase.y += previous_push_velocity.y
 			was_on_floor = false
 			wants_to_jump = false
 		coyote_timer.stop()
@@ -115,3 +118,7 @@ func _on_dash_timer_timeout() -> void: is_dashing = false
 
 func _on_health_changed(new_health: float) -> void:
 	progress_bar.value = new_health
+
+func push(push_direction: Vector2, power: float = 1):
+	super(push_direction, power)
+	push_buffer.start()
