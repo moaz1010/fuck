@@ -11,4 +11,5 @@ text = "Looks like you are new here"
 speaker_sprite = ExtResource("3_2h55m")
 choices = Array[ExtResource("1_i181d")]([])
 talking_sound = ExtResource("4_u5k8u")
+talking_speed_in_milliseconds = 30.0
 metadata/_custom_type_script = "uid://b1650whroytf0"
