@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=29 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="12_jkv2x"]
 [ext_resource type="Resource" uid="uid://y3s385ljg1qb" path="res://Recources/Dialogues/test/test1.tres" id="13_jbj1t"]
 [ext_resource type="Resource" uid="uid://c25t7kjsoa3m6" path="res://Recources/Dialogues/test/test2.tres" id="14_muem4"]
+[ext_resource type="Texture2D" uid="uid://43ed4aohw6yx" path="res://assests/weapons/Gun (2).png" id="15_0ld40"]
 [ext_resource type="Resource" uid="uid://fqgdp7s10vdv" path="res://Recources/Dialogues/test/test3.tres" id="15_dp3eg"]
 [ext_resource type="Script" uid="uid://bfdmdrh7jwasq" path="res://Recources/choice_resource.gd" id="16_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://d1momdh7x1rwi" path="res://assests/characgter sprites/joline_speaker_sprite.png" id="17_0ld40"]
@@ -567,6 +568,7 @@ update_scale = false
 
 [node name="AbstractItem" parent="World" instance=ExtResource("5_obu5w")]
 position = Vector2(272, 46)
+texture = ExtResource("15_0ld40")
 weapon = ExtResource("6_tipki")
 
 [node name="Gun" parent="World" instance=ExtResource("9_l8pkp")]

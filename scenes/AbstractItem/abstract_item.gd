@@ -1,3 +1,4 @@
+@tool
 extends Sprite2D
  
 @onready var collision = $Area2D/CollisionShape2D

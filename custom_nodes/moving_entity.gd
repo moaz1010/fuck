@@ -9,6 +9,7 @@ var FALL_TIME := .25
 var JUMP_HEIGHT := 160.0
 
 var MAX_SPEED := 300.0
+var TERMINAL_VELOCITY := 1000.0
 
 var direction : float = 0
 var is_dashing : bool = false
@@ -88,6 +89,7 @@ func _physics_process(delta: float) -> void:
 
 	if is_dashing: velocity = dash_vector
 	velocity += velocity_increase
+	velocity.y = clamp(velocity.y, -TERMINAL_VELOCITY, TERMINAL_VELOCITY)
 	move_and_slide()
 	if is_dashing: 
 		var cutoff := 3.0
