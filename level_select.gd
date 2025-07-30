@@ -1,0 +1,34 @@
+extends Control
+
+
+@onready var grids_container = $levelMenu/Control/gridsContainer
+
+var num_grids = 1
+var current_grid = 1
+var grid_width = 164
+
+func _ready() -> void:
+	num_grids = grids_container.get_child_count()
+	grid_width = grids_container.custom_minimum_size.x
+	setup_level_box()
+	
+func setup_level_box():
+	for grid in grids_container.get_children():
+		for box in grid.get_children():
+			box.level_num = box.get_index() + 1 + grid.get_child_count() + grid.get_index()
+			box.locked = false
+
+func _on_back_button_pressed() -> void:
+	if current_grid > 1:
+		current_grid -= 1
+	animate_grids_positon(grids_container.position.x + grid_width)
+
+func _on_next_button_pressed() -> void:
+	if current_grid < num_grids:
+		current_grid += 1
+	animate_grids_positon(grids_container.position.x - grid_width)
+
+func animate_grids_positon(finalValue):
+	create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).tween_property(
+		grids_container, "position:x", finalValue, 0.5
+	)

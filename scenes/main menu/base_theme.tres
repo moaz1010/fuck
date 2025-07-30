@@ -1,19 +1,11 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cwhmbggqhmtve"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cwhmbggqhmtve"]
 
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="1_kta41"]
+[ext_resource type="Texture2D" uid="uid://c046mmn1shdha" path="res://assests/UI stuff/Buttons/slot_hover_select.png" id="2_w61qp"]
 [ext_resource type="Texture2D" uid="uid://del8crji3hih5" path="res://assests/UI stuff/Buttons/added_exit_button_spritesheet.png" id="2_yflgl"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vifqf"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kta41"]
+texture = ExtResource("2_w61qp")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okfgx"]
 content_margin_left = 4.0
@@ -47,14 +39,14 @@ region_rect = Rect2(65, 193, 30, 29)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vin4k"]
 texture = ExtResource("2_yflgl")
 texture_margin_left = 3.0
-texture_margin_top = 2.0
+texture_margin_top = 3.0
 texture_margin_right = 3.0
-texture_margin_bottom = 2.0
+texture_margin_bottom = 5.0
 expand_margin_left = 3.0
 expand_margin_top = 2.0
 expand_margin_right = 3.0
 expand_margin_bottom = 2.0
-region_rect = Rect2(1, 194, 30, 26)
+region_rect = Rect2(1, 193, 30, 30)
 
 [resource]
 /colors/button = Color(0, 0, 0, 1)
@@ -77,8 +69,12 @@ Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_kta41")
-Button/styles/disabled = SubResource("StyleBoxFlat_vifqf")
+Button/styles/disabled = SubResource("StyleBoxTexture_kta41")
 Button/styles/focus = SubResource("StyleBoxFlat_okfgx")
 Button/styles/hover = SubResource("StyleBoxTexture_t60cf")
 Button/styles/normal = SubResource("StyleBoxTexture_vin4k")
 Button/styles/pressed = SubResource("StyleBoxTexture_t60cf")
+Label/colors/font_color = Color(0.921569, 0.898039, 0.807843, 1)
+Label/colors/font_outline_color = Color(0.180392, 0.188235, 0.215686, 1)
+Label/colors/font_shadow_color = Color(0.180392, 0.188235, 0.215686, 1)
+Label/fonts/font = ExtResource("1_kta41")
