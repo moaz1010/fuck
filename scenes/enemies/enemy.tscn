@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cluhf5gby2umq"]
+[gd_scene load_steps=22 format=3 uid="uid://cluhf5gby2umq"]
 
 [ext_resource type="Script" uid="uid://bwlcxg7604y0c" path="res://enemy.gd" id="1_qpkw3"]
-[ext_resource type="Texture2D" uid="uid://bwk5inh1kf5t8" path="res://assests/World tiles/art_atlas.png" id="2_0eyyq"]
 [ext_resource type="Script" uid="uid://k08spd0lvwti" path="res://Recources/moving_entity_params.gd" id="2_p0f6a"]
 [ext_resource type="Shader" uid="uid://cmd1x28vgunaa" path="res://shaders/flash.gdshader" id="2_p4q80"]
 [ext_resource type="Script" uid="uid://8rms6rae8mtb" path="res://health_component.gd" id="3_tt18s"]
+[ext_resource type="Texture2D" uid="uid://tomus6473e50" path="res://assests/Enemy/enemybobmove.png" id="4_lu5c6"]
+[ext_resource type="Texture2D" uid="uid://clm3q6n17ykdl" path="res://assests/Enemy/bob_main_sprite.png" id="4_nb6gf"]
 
 [sub_resource type="Resource" id="Resource_b6ihv"]
 script = ExtResource("2_p0f6a")
@@ -23,6 +24,99 @@ size = Vector2(11, 12)
 shader = ExtResource("2_p4q80")
 shader_parameter/is_on = false
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tihwb"]
+atlas = ExtResource("4_nb6gf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb6gf"]
+atlas = ExtResource("4_lu5c6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt03m"]
+atlas = ExtResource("4_lu5c6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7575"]
+atlas = ExtResource("4_lu5c6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qch6t"]
+atlas = ExtResource("4_lu5c6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5th1"]
+atlas = ExtResource("4_lu5c6")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tihwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tihwb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb6gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt03m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7575")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qch6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5th1")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_p7w77"]
+resource_name = "run"
+length = 0.625013
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_k4gvh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_twn6s"]
+_data = {
+&"RESET": SubResource("Animation_k4gvh"),
+&"run": SubResource("Animation_p7w77")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_cad3a"]
 radius = 80.0
 
@@ -39,11 +133,14 @@ params = SubResource("Resource_b6ihv")
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_7ecae")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_i60lk")
-texture = ExtResource("2_0eyyq")
-region_enabled = true
-region_rect = Rect2(0, 0, 15.992, 16.1444)
+sprite_frames = SubResource("SpriteFrames_tihwb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_twn6s")
+}
 
 [node name="enter_area" type="Area2D" parent="."]
 collision_layer = 0
