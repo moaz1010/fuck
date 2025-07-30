@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		
 	super(delta)
 
+
 func take_damage(damage: float):
 	health_component.health -= damage
 
