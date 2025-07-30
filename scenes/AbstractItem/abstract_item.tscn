@@ -1,16 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk72f5fho25b4"]
+[gd_scene load_steps=2 format=3 uid="uid://dk72f5fho25b4"]
 
 [ext_resource type="Script" uid="uid://bjdrarrcbnu14" path="res://scenes/AbstractItem/abstract_item.gd" id="1_73f7w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oai80"]
-
-[node name="AbstractItem" type="Sprite2D"]
+[node name="AbstractItem" type="Area2D"]
+collision_layer = 0
 script = ExtResource("1_73f7w")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_oai80")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_player_entered"]
+[connection signal="body_entered" from="." to="." method="_on_player_entered"]
