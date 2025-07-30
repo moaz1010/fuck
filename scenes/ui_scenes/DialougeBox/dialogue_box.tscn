@@ -16,7 +16,6 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [node name="DialogueBox" type="MarginContainer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -84,3 +83,7 @@ layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+
+[node name="SkippingBuffer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

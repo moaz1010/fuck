@@ -2,7 +2,9 @@ extends Control
 
 @onready var text_label := %RichTextLabel
 @onready var speaker_texture := %TextureRect
+
 @onready var audio_stream_player := %AudioStreamPlayer
+@onready var skipping_buffer := %SkippingBuffer
 
 var typing_buffer : SceneTreeTimer
 
@@ -30,6 +32,8 @@ func _input(_event: InputEvent) -> void:
 	if is_active: 
 		accept_event()
 	if Input.is_action_just_pressed("ui_accept"):
+		if  not skipping_buffer.is_stopped(): return
+		skipping_buffer.start()
 		_current_text_id += 1
 		Dialogue.continue_dialogue()
 
@@ -67,7 +71,6 @@ func _type_text(text: String, type_speed: float = default_type_speed):
 		
 		audio_stream_player.pitch_scale = pow(pitch_difference_modifier, randf_range(-1, 1))
 		if audio_stream_player.stream: audio_stream_player.play()
-		print("shit")
 		
 		current_text += text[i]
 		text_label.text = current_text
