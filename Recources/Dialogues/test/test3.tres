@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://bfdmdrh7jwasq"
 
 [resource]
 script = ExtResource("2_w4mgx")
-text = "Alright Looks like i will be teaching you how to play this game "
+text = "Well Don't Worry I Also Want To Get Out Of Here"
 speaker_sprite = ExtResource("3_w4mgx")
 choices = Array[ExtResource("1_frfyk")]([SubResource("Resource_w4mgx"), SubResource("Resource_6g4ar")])
 talking_sound = ExtResource("4_6g4ar")

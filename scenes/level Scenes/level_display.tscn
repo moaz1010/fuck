@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://8icvp6hmfujc"]
+
+[ext_resource type="Theme" uid="uid://cwhmbggqhmtve" path="res://scenes/main menu/base_theme.tres" id="1_u6yc0"]
+[ext_resource type="Script" uid="uid://dli13cigncnaa" path="res://scenes/level Scenes/level_display.gd" id="2_w4n0w"]
+
+[node name="levelDisplay" type="Button"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 6.0
+offset_bottom = 4.0
+theme = ExtResource("1_u6yc0")
+disabled = true
+script = ExtResource("2_w4n0w")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -2.0
+offset_right = 8.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_u6yc0")
+theme_override_colors/font_color = Color(0.921569, 0.898039, 0.807843, 1)
+theme_override_colors/font_shadow_color = Color(0.180392, 0.188235, 0.215686, 1)
+theme_override_colors/font_outline_color = Color(0.180392, 0.188235, 0.215686, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

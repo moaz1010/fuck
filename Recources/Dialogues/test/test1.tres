@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_abgri")
-text = "Hello... Whatever you are..."
+text = "Hello... Watever You Are...."
 speaker_sprite = ExtResource("3_abgri")
 choices = Array[ExtResource("1_ptvw6")]([])
 talking_sound = ExtResource("4_c1yur")

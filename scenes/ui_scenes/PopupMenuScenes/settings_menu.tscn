@@ -204,3 +204,5 @@ theme_override_styles/scroll_focus = SubResource("StyleBoxTexture_ix44y")
 theme_override_styles/grabber = SubResource("StyleBoxTexture_70w0i")
 theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_70w0i")
 theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_70w0i")
+
+[connection signal="pressed" from="settingsMenuContainer/title/topLineDisplayContainer/exitButtonContainer/toggleSettingsMenu" to="." method="_on_toggle_settings_menu_pressed"]

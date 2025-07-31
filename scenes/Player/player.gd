@@ -1,4 +1,4 @@
-extends MovingEntity   #yo can we like add comments next shit we add so that i can better understand the logic :pleading face:
+extends MovingEntity   # thank you
 
 @onready var coyote_timer := %CoyoteTimer
 @onready var jump_buffer := %JumpBuffer
@@ -12,7 +12,18 @@ extends MovingEntity   #yo can we like add comments next shit we add so that i c
 
 @export var DASH_POWER := 300.0
 
-var look_dir:String = "right"
+
+var current_look_dir := "right"
+
+var can_slash := true
+@export var slash_time := 0.2
+@export var sword_return_time := 0.5
+@export var weapon_damage := 1.0
+
+
+var checkpoint_position: Vector2            # for the checkPoint System
+var is_dead: bool = false
+
 var was_on_floor: bool = true
 var wants_to_jump: bool = false
 var can_dash: bool = true:
@@ -38,6 +49,8 @@ func _ready() -> void:
 	)
 	Dialogue.entered_dialogue.connect(func(): can_move = false)
 	Dialogue.exited_dialogue.connect(func(): can_move = true)
+	
+	checkpoint_position = global_position     # to save the position of checkpoint
 	
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -67,14 +80,35 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-
+	
 	if is_on_floor() and dash_buffer.is_stopped(): can_dash = true
-
+	
 	if not is_on_floor() and was_on_floor:
 		coyote_timer.start()
-
+	
 	was_on_floor = is_on_floor()
+	
+	# to get the approriate animation for where the player looks
+	
+	if current_look_dir == "right" and get_global_mouse_position().x < global_position.x:
+		$Sprite2D/AnimationPlayer.play("look_left")
+		current_look_dir = "left"
+	elif current_look_dir == "left" and get_global_mouse_position().x > global_position.x:
+		$Sprite2D/AnimationPlayer.play("look_right")
+		current_look_dir = "right"
+		
+		# the attack itself
+		
+	if Input.is_action_pressed("fire") and can_slash:
+		$WeaponShell/Sprite2D/AnimationPlayer.speed_scale = $WeaponShell/Sprite2D/AnimationPlayer.get_animation("slash").length / slash_time
+		$WeaponShell/Sprite2D/AnimationPlayer.play("slash")
+		can_slash = false
+		
+	
+	
 
+func spawn_slash():
+	pass
 
 func _physics_process(delta: float) -> void:
 	if wants_to_jump:
@@ -100,7 +134,7 @@ func change_weapon(scene: PackedScene) -> void:
 	instance.position.x += 11
 	#This removes all the nodes in the weapon shell to insure there are no 
 	#weapons equipped and that they don't overlap.
-	for child in weapon_shell.get_children(): child.queue_free()
+	for child in weapon_shell.get_children(): child.visible = false
 	weapon_shell.add_child(instance)
 
 
@@ -125,3 +159,16 @@ func _on_health_changed(new_health: float) -> void:
 func push(push_direction: Vector2, power: float = 1):
 	super(push_direction, power)
 	push_buffer.start()
+
+
+func _on_checkpoint_activated(pos: Vector2) -> void:
+	checkpoint_position = pos
+	print("Checkpoint reached at: ", pos)
+
+
+func _on_animation_player_2_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "slash":
+		$WeaponShell/Sprite2D/AnimationPlayer2.speed_scale = $WeaponShell/Sprite2D/AnimationPlayer2.get_animation("sword_return").length / sword_return_time
+		$WeaponShell/Sprite2D/AnimationPlayer2.play("sword_return")
+	else:
+		can_slash = true
