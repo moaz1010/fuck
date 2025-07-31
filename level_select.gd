@@ -5,7 +5,8 @@ extends Control
 
 var num_grids = 1
 var current_grid = 1
-var grid_width = 164
+var grid_width = 165
+var level_num: int = 0
 
 func _ready() -> void:
 	num_grids = grids_container.get_child_count()

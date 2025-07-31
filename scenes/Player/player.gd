@@ -12,6 +12,10 @@ extends MovingEntity   #yo can we like add comments next shit we add so that i c
 
 @export var DASH_POWER := 300.0
 
+
+var checkpoint_position: Vector2            # for the checkPoint System
+var is_dead: bool = false
+
 var look_dir:String = "right"
 var was_on_floor: bool = true
 var wants_to_jump: bool = false
@@ -38,6 +42,8 @@ func _ready() -> void:
 	)
 	Dialogue.entered_dialogue.connect(func(): can_move = false)
 	Dialogue.exited_dialogue.connect(func(): can_move = true)
+	
+	checkpoint_position = global_position     # to save the position of checkpoint
 	
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -125,3 +131,8 @@ func _on_health_changed(new_health: float) -> void:
 func push(push_direction: Vector2, power: float = 1):
 	super(push_direction, power)
 	push_buffer.start()
+
+
+func _on_checkpoint_activated(pos: Vector2) -> void:
+	checkpoint_position = pos
+	print("Checkpoint reached at: ", pos)
