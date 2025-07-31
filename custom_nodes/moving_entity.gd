@@ -36,7 +36,7 @@ func _setup_from_resource(resource: MovingEntityStats) -> void:
 		SECONDS_TO_MAX_SPEED = resource.SECONDS_TO_MAX_SPEED
 		SECONDS_TO_STOP_COMPLETELY = resource.SECONDS_TO_STOP_COMPLETELY
 		HANG_TIME = resource.HANG_TIME
-		FALL_TIME = resource.FALL_TIME
+		FALL_TIME = resource.FALL_TIME 
 		MAX_SPEED = resource.MAX_SPEED
 		MAX_SPEED_JUMP_INCREASE = resource.MAX_SPEED_JUMP_INCREASE
 		JUMP_HEIGHT = resource.JUMP_HEIGHT
