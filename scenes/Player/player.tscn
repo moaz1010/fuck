@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene load_steps=19 format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_dl1wr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cnj5rk8ut3a6k" path="res://scenes/sword.tscn" id="7_dl1wr"]
 [ext_resource type="Script" uid="uid://qv40eyiboqjs" path="res://idk/Weapons.gd" id="8_frnkk"]
 [ext_resource type="PackedScene" uid="uid://bav15wkkjdn8d" path="res://scenes/Flashlight/flashlight.tscn" id="8_lt378"]
+[ext_resource type="Script" uid="uid://4l1mnwyibv11" path="res://scenes/sword.gd" id="8_wwtew"]
 
 [sub_resource type="Animation" id="Animation_uxo23"]
 length = 0.001
@@ -248,6 +249,7 @@ visible = false
 position = Vector2(11, 0)
 
 [node name="Sprite2D" parent="WeaponShell" instance=ExtResource("7_dl1wr")]
+script = ExtResource("8_wwtew")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="WeaponShell/Sprite2D"]
 libraries = {

@@ -15,11 +15,6 @@ extends MovingEntity   # thank you
 
 var current_look_dir := "right"
 
-var can_slash := true
-@export var slash_time := 0.2
-@export var sword_return_time := 0.5
-@export var weapon_damage := 1.0
-
 
 var checkpoint_position: Vector2            # for the checkPoint System
 var is_dead: bool = false
@@ -97,12 +92,6 @@ func _process(_delta: float) -> void:
 		$Sprite2D/AnimationPlayer.play("look_right")
 		current_look_dir = "right"
 		
-		# the attack itself
-		
-	if Input.is_action_pressed("fire") and can_slash:
-		$WeaponShell/Sprite2D/AnimationPlayer.speed_scale = $WeaponShell/Sprite2D/AnimationPlayer.get_animation("slash").length / slash_time
-		$WeaponShell/Sprite2D/AnimationPlayer.play("slash")
-		can_slash = false
 		
 	
 	
@@ -165,11 +154,3 @@ func push(push_direction: Vector2, power: float = 1):
 func _on_checkpoint_activated(pos: Vector2) -> void:
 	checkpoint_position = pos
 	print("Checkpoint reached at: ", pos)
-
-
-func _on_animation_player_2_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "slash":
-		$WeaponShell/Sprite2D/AnimationPlayer2.speed_scale = $WeaponShell/Sprite2D/AnimationPlayer2.get_animation("sword_return").length / sword_return_time
-		$WeaponShell/Sprite2D/AnimationPlayer2.play("sword_return")
-	else:
-		can_slash = true
