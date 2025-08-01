@@ -134,7 +134,8 @@ func change_weapon(scene: PackedScene) -> void:
 	instance.position.x += 11
 	#This removes all the nodes in the weapon shell to insure there are no 
 	#weapons equipped and that they don't overlap.
-	for child in weapon_shell.get_children(): child.visible = false
+	for child in weapon_shell.get_children(): 
+		weapon_shell.remove_child(child)
 	weapon_shell.add_child(instance)
 
 
