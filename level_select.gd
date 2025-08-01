@@ -14,8 +14,10 @@ func _ready() -> void:
 	setup_level_box()
 	
 func setup_level_box():
+	var count := 0
 	for box in get_tree().get_nodes_in_group("level_button"):
-		box.level_num = box.get_index() + 1
+		box.level_num = count + 1
+		count += 1
 		box.locked = false
 
 func _on_back_button_pressed() -> void:
