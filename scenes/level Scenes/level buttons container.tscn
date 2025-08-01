@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://8icvp6hmfujc" path="res://scenes/level Scenes/level_display.tscn" id="1_yu64u"]
 
 [node name="GridContainer" type="GridContainer"]
-custom_minimum_size = Vector2(165, 110)
+custom_minimum_size = Vector2(170, 110)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -15,20 +15,21 @@ offset_right = 82.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 20
+theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 3
 columns = 2
 
 [node name="levelButtonsContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="leftLevelButtonsContaier" type="VBoxContainer" parent="levelButtonsContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 15
 
 [node name="topLevelButtonsContainer" type="HBoxContainer" parent="levelButtonsContainer/leftLevelButtonsContaier"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 15
 
 [node name="levelDisplay3" parent="levelButtonsContainer/leftLevelButtonsContaier/topLevelButtonsContainer" instance=ExtResource("1_yu64u")]
 layout_mode = 2
@@ -38,7 +39,7 @@ layout_mode = 2
 
 [node name="bottomLevelButtonsContainer" type="HBoxContainer" parent="levelButtonsContainer/leftLevelButtonsContaier"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 15
 
 [node name="levelDisplay" parent="levelButtonsContainer/leftLevelButtonsContaier/bottomLevelButtonsContainer" instance=ExtResource("1_yu64u")]
 layout_mode = 2

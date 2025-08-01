@@ -1,15 +1,15 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cwhmbggqhmtve"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cwhmbggqhmtve"]
 
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="1_kta41"]
-[ext_resource type="Texture2D" uid="uid://c046mmn1shdha" path="res://assests/UI stuff/Buttons/slot_hover_select.png" id="2_w61qp"]
 [ext_resource type="Texture2D" uid="uid://del8crji3hih5" path="res://assests/UI stuff/Buttons/added_exit_button_spritesheet.png" id="2_yflgl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kta41"]
-texture = ExtResource("2_w61qp")
+texture = ExtResource("2_yflgl")
 texture_margin_left = 6.0
 texture_margin_top = 6.0
 texture_margin_right = 6.0
 texture_margin_bottom = 6.0
+region_rect = Rect2(0, 224, 32, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okfgx"]
 content_margin_left = 4.0

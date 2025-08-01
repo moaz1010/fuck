@@ -1,11 +1,11 @@
 extends Control
 
 
-@onready var grids_container = $levelMenu/Control/gridsContainer
+@onready var grids_container = $levelMenu/Control/VBoxContainer/gridsContainer
 
 var num_grids = 1
 var current_grid = 1
-var grid_width = 165
+var grid_width = 170
 var level_num: int = 0
 
 func _ready() -> void:

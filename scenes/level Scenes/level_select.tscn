@@ -90,36 +90,45 @@ grow_vertical = 2
 theme = ExtResource("4_f46ru")
 
 [node name="Control" type="Control" parent="levelMenu"]
-clip_contents = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 73.0
-offset_top = 43.0
-offset_right = -60.0
-offset_bottom = -34.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = 5.0
+offset_right = -71.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="gridsContainer" type="HBoxContainer" parent="levelMenu/Control"]
-custom_minimum_size = Vector2(165, 110)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -55.0
-offset_right = 500.0
-offset_bottom = 55.0
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="levelMenu/Control"]
+layout_mode = 2
+offset_left = -24.0
+offset_top = -62.0
+offset_right = -24.0
+offset_bottom = 58.0
 
-[node name="GridContainer" parent="levelMenu/Control/gridsContainer" instance=ExtResource("5_6ygf1")]
+[node name="Control" type="Control" parent="levelMenu/Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="GridContainer2" parent="levelMenu/Control/gridsContainer" instance=ExtResource("5_6ygf1")]
+[node name="gridsContainer" type="HBoxContainer" parent="levelMenu/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(170, 120)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="seperator" type="Control" parent="levelMenu/Control/VBoxContainer/gridsContainer"]
 layout_mode = 2
 
-[node name="GridContainer3" parent="levelMenu/Control/gridsContainer" instance=ExtResource("5_6ygf1")]
+[node name="GridContainer" parent="levelMenu/Control/VBoxContainer/gridsContainer" instance=ExtResource("5_6ygf1")]
+layout_mode = 2
+
+[node name="GridContainer2" parent="levelMenu/Control/VBoxContainer/gridsContainer" instance=ExtResource("5_6ygf1")]
+layout_mode = 2
+
+[node name="GridContainer3" parent="levelMenu/Control/VBoxContainer/gridsContainer" instance=ExtResource("5_6ygf1")]
 layout_mode = 2
 
 [node name="nextButton" type="Button" parent="levelMenu"]
