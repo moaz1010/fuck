@@ -27,6 +27,10 @@ window/size/viewport_height=640
 window/stretch/aspect="expand"
 window/stretch/scale=2.0
 
+[global_group]
+
+level_button="Buttons that select a level"
+
 [input]
 
 ui_cancel={

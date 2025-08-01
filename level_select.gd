@@ -14,10 +14,9 @@ func _ready() -> void:
 	setup_level_box()
 	
 func setup_level_box():
-	for grid in grids_container.get_children():
-		for box in grid.get_children():
-			box.level_num = box.get_index() + 1 + grid.get_child_count() + grid.get_index()
-			box.locked = false
+	for box in get_tree().get_nodes_in_group("level_button"):
+		box.level_num = box.get_index() + 1
+		box.locked = false
 
 func _on_back_button_pressed() -> void:
 	if current_grid > 1:

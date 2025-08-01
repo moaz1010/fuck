@@ -3,15 +3,23 @@ extends Button
 
 signal level_selected
 
-@export var level_num = 1
+@onready var label = %Label
+
+@export var level_num = 1:
+	set(value):
+		level_num = value
+		if label: label.text = str(value)
+		
 @export var locked = true:
 	set(value):
 		locked = value
-		level_locked() if locked else level_unlocked()
-		
+		if value: level_locked()
+		else: level_unlocked()
+
 func level_locked() -> void:
 	level_state(true)
-	
+
+func _ready() -> void: label.text = str(level_num)
 
 func level_unlocked() -> void:
 	level_state(false)
