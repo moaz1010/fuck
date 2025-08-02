@@ -148,6 +148,8 @@ position = Vector2(11, 0)
 
 [node name="Sprite2D" parent="WeaponShell" instance=ExtResource("7_dl1wr")]
 
+[node name="swordSlash" parent="WeaponShell/Sprite2D" instance=ExtResource("8_wwtew")]
+
 [node name="CoyoteTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.05
