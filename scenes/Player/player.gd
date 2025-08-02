@@ -99,7 +99,7 @@ func _process(_delta: float) -> void:
 		
 		
 	if Input.is_action_just_pressed("fire"):
-
+		$WeaponShell/Sprite2D/AnimationPlayer2.speed_scale = $WeaponShell/Sprite2D/AnimationPlayer2.get_animation("slash").length / slash_time
 		$WeaponShell/Sprite2D/AnimationPlayer2.play("slash")
 		can_slash = false
 	
