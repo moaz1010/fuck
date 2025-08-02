@@ -15,6 +15,11 @@ extends MovingEntity   # thank you
 
 var current_look_dir := "right"
 
+var can_slash := true
+@export var slash_time := 0.2
+@export var sword_return_time := 0.5
+@export var weapon_damage := 1.0
+
 
 var checkpoint_position: Vector2            # for the checkPoint System
 var is_dead: bool = false
@@ -76,7 +81,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	
-	if is_on_floor() and dash_buffer.is_stopped(): can_dash = true
+	if is_on_floor() and dash_buffer.is_stopped(): 
+		can_dash = true
 	
 	if not is_on_floor() and was_on_floor:
 		coyote_timer.start()
@@ -84,7 +90,6 @@ func _process(_delta: float) -> void:
 	was_on_floor = is_on_floor()
 	
 	# to get the approriate animation for where the player looks
-	
 	if current_look_dir == "right" and get_global_mouse_position().x < global_position.x:
 		$Sprite2D/AnimationPlayer.play("look_left")
 		current_look_dir = "left"
@@ -93,11 +98,29 @@ func _process(_delta: float) -> void:
 		current_look_dir = "right"
 		
 		
-	
+	if Input.is_action_just_pressed("fire"):
+		$WeaponShell/Sprite2D/AnimationPlayer2.speed_scale = $WeaponShell/Sprite2D/AnimationPlayer2.get_animation("slash").length / slash_time
+		$WeaponShell/Sprite2D/AnimationPlayer2.play("slash")
+		can_slash = false
 	
 
+
+func _on_animation_player_2_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "slash":
+		$WeaponShell/Sprite2D/AnimationPlayer2.speed_scale = $WeaponShell/Sprite2D/AnimationPlayer2.get_animation("sword_return").length / sword_return_time
+		$WeaponShell/Sprite2D/AnimationPlayer2.play("sword_return")
+	else:
+		can_slash = true
+
+const sword_slash_preload = preload("res://scenes/sword_slash.tscn")
 func spawn_slash():
-	pass
+	var sword_slash_var = sword_slash_preload.instantiate()
+	sword_slash_var.global_position = global_position
+	sword_slash_var.get_node("WeaponShell/Sprite2D/AnimationPlayer2").speed_scale = sword_slash_var.get_node("WeaponShell/Sprite2D/AnimationPlayer2").get_animation("slash").length / slash_time
+	sword_slash_var.get_node("WeaponShell/Sprite2D").flip_v = false if get_global_mouse_position().x > global_position.x else true
+	sword_slash_var.weapon_damage = weapon_damage
+	get_parent().add_child(sword_slash_var)
+
 
 func _physics_process(delta: float) -> void:
 	if wants_to_jump:
@@ -140,7 +163,8 @@ func take_recoil(power):
 	push(recoil_direction, power)
 
 
-func _on_dash_timer_timeout() -> void: is_dashing = false
+func _on_dash_timer_timeout() -> void: 
+	is_dashing = false
 
 
 func _on_health_changed(new_health: float) -> void:

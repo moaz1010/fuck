@@ -113,22 +113,26 @@ offset_bottom = 58.0
 [node name="Control" type="Control" parent="levelMenu/Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="gridsContainer" type="HBoxContainer" parent="levelMenu/Control/VBoxContainer"]
+[node name="gridsContainer" type="HBoxContainer" parent="levelMenu/Control"]
 clip_contents = true
 custom_minimum_size = Vector2(170, 120)
 layout_mode = 2
+offset_left = -24.0
+offset_top = -58.0
+offset_right = 516.0
+offset_bottom = 62.0
 theme_override_constants/separation = 5
 
-[node name="seperator" type="Control" parent="levelMenu/Control/VBoxContainer/gridsContainer"]
+[node name="seperator" type="Control" parent="levelMenu/Control/gridsContainer"]
 layout_mode = 2
 
-[node name="GridContainer" parent="levelMenu/Control/VBoxContainer/gridsContainer" instance=ExtResource("5_6ygf1")]
+[node name="GridContainer" parent="levelMenu/Control/gridsContainer" instance=ExtResource("5_6ygf1")]
 layout_mode = 2
 
-[node name="GridContainer2" parent="levelMenu/Control/VBoxContainer/gridsContainer" instance=ExtResource("5_6ygf1")]
+[node name="GridContainer2" parent="levelMenu/Control/gridsContainer" instance=ExtResource("5_6ygf1")]
 layout_mode = 2
 
-[node name="GridContainer3" parent="levelMenu/Control/VBoxContainer/gridsContainer" instance=ExtResource("5_6ygf1")]
+[node name="GridContainer3" parent="levelMenu/Control/gridsContainer" instance=ExtResource("5_6ygf1")]
 layout_mode = 2
 
 [node name="nextButton" type="Button" parent="levelMenu"]

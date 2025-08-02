@@ -6,6 +6,9 @@ var player_direction : Vector2
 
 @onready var health_component := %HealthComponent
 
+func _ready() -> void:
+	add_to_group("enemy")
+
 func _get_direction(body: Node2D) -> Vector2:
 	return (body.global_position-global_position).normalized()
 
