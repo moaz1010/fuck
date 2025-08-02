@@ -28,10 +28,6 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 
 
-func take_damage(damage: float):
-	health_component.health -= damage
-
-
 func _on_enter_area_body_entered(body: Node2D) -> void:
 	if to_be_followed.is_empty():
 		push(Vector2.LEFT * sign(_get_direction(body).x), 130)
