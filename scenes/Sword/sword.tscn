@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cnj5rk8ut3a6k"]
 
-[ext_resource type="Texture2D" uid="uid://defyk5o3qwjyi" path="res://assests/weapons/wand.png" id="1_d5vwp"]
+[ext_resource type="Texture2D" uid="uid://dqdcfd1b8snbb" path="res://assests/weapons/simple_sword.png" id="1_nejxs"]
 [ext_resource type="Script" uid="uid://4l1mnwyibv11" path="res://scenes/Sword/sword.gd" id="2_nejxs"]
 
 [sub_resource type="Animation" id="Animation_s4ec8"]
@@ -96,7 +96,7 @@ _data = {
 }
 
 [node name="Sprite2D" type="Sprite2D"]
-texture = ExtResource("1_d5vwp")
+texture = ExtResource("1_nejxs")
 offset = Vector2(-8, -8)
 script = ExtResource("2_nejxs")
 
