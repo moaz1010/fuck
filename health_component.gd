@@ -9,7 +9,7 @@ var previous_health: float = 0
 @export var idle_healing: float = 0
 
 @export var max_health: float
-var min_health := 0.0
+@export var min_health := 0.0
 @onready var health: float = max_health:
 	set(value):
 		

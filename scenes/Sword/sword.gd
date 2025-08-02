@@ -12,10 +12,6 @@ func _input(_event: InputEvent) -> void:
 			animation_player.speed_scale = animation_player.get_animation("slash").length / slash_time
 			animation_player.play("slash")
 			can_slash = false
-			
-		if Input.is_action_just_pressed("fire"):
-			animation_player.play("slash")
-			can_slash = false
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "slash":
