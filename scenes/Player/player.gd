@@ -15,10 +15,6 @@ extends MovingEntity   # thank you
 
 var current_look_dir := "right"
 
-var can_slash := true
-@export var slash_time := 0.2
-@export var sword_return_time := 0.5
-@export var weapon_damage := 1.0
 
 
 var checkpoint_position: Vector2            # for the checkPoint System
@@ -96,30 +92,6 @@ func _process(_delta: float) -> void:
 	elif current_look_dir == "left" and get_global_mouse_position().x > global_position.x:
 		$Sprite2D/AnimationPlayer.play("look_right")
 		current_look_dir = "right"
-		
-		
-	if Input.is_action_just_pressed("fire"):
-
-		$WeaponShell/Sprite2D/AnimationPlayer2.play("slash")
-		can_slash = false
-	
-
-
-func _on_animation_player_2_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "slash":
-		$WeaponShell/Sprite2D/AnimationPlayer2.speed_scale = $WeaponShell/Sprite2D/AnimationPlayer2.get_animation("sword_return").length / sword_return_time
-		$WeaponShell/Sprite2D/AnimationPlayer2.play("sword_return")
-	else:
-		can_slash = true
-
-const sword_slash_preload = preload("res://scenes/sword_slash.tscn")
-func spawn_slash():
-	var sword_slash_var = sword_slash_preload.instantiate()
-	sword_slash_var.global_position = global_position
-	sword_slash_var.get_node("WeaponShell/Sprite2D/AnimationPlayer2").speed_scale = sword_slash_var.get_node("WeaponShell/Sprite2D/AnimationPlayer2").get_animation("slash").length / slash_time
-	sword_slash_var.get_node("WeaponShell/Sprite2D").flip_v = false if get_global_mouse_position().x > global_position.x else true
-	sword_slash_var.weapon_damage = weapon_damage
-	get_parent().add_child(sword_slash_var)
 
 
 func _physics_process(delta: float) -> void:
@@ -157,6 +129,7 @@ func _on_jump_buffer_timeout() -> void: wants_to_jump = false
 func _on_weapon_shell_child_entered_tree(weapon: Node) -> void:
 	if weapon is Gun:
 		weapon.bullet_shot.connect(take_recoil)
+
 func take_recoil(power):
 	var recoil_direction = (
 		global_position - weapon_shell.get_child(0).global_position).normalized()

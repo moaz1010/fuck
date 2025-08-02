@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var grids_container = $levelMenu/Control/VBoxContainer/gridsContainer
+@onready var grids_container = $levelMenu/Control/gridsContainer
 
 var num_grids = 1
 var current_grid = 1

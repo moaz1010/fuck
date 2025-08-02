@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnj5rk8ut3a6k"]
+[gd_scene load_steps=7 format=3 uid="uid://cnj5rk8ut3a6k"]
 
-[ext_resource type="Texture2D" uid="uid://defyk5o3qwjyi" path="res://assests/weapons/wand.png" id="1_ycbs3"]
+[ext_resource type="Texture2D" uid="uid://defyk5o3qwjyi" path="res://assests/weapons/wand.png" id="1_d5vwp"]
+[ext_resource type="Script" uid="uid://4l1mnwyibv11" path="res://scenes/Sword/sword.gd" id="2_nejxs"]
 
 [sub_resource type="Animation" id="Animation_s4ec8"]
 length = 0.001
@@ -59,7 +60,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_k5whp"]
-resource_name = "sword_return\\"
+resource_name = "sword_return"
 length = 0.65
 step = 0.05
 tracks/0/type = "value"
@@ -91,15 +92,17 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_s4ec8"),
 &"slash": SubResource("Animation_n355p"),
-&"sword_return\\": SubResource("Animation_k5whp")
+&"sword_return": SubResource("Animation_k5whp")
 }
 
 [node name="Sprite2D" type="Sprite2D"]
-position = Vector2(4, -8)
-texture = ExtResource("1_ycbs3")
+texture = ExtResource("1_d5vwp")
 offset = Vector2(-8, -8)
+script = ExtResource("2_nejxs")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_1yp6w")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
