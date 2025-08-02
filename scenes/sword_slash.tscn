@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b61x643ih2fju"]
+[gd_scene load_steps=7 format=3 uid="uid://b61x643ih2fju"]
 
 [ext_resource type="Script" uid="uid://ch715p8gljuis" path="res://scenes/sword_slash.gd" id="1_e3omh"]
-[ext_resource type="PackedScene" uid="uid://cnj5rk8ut3a6k" path="res://scenes/Sword/sword.tscn" id="2_5cnmm"]
 [ext_resource type="Texture2D" uid="uid://bvgyf4iaqi1pn" path="res://assests/weapons/slash.png" id="2_nenib"]
-[ext_resource type="Texture2D" uid="uid://defyk5o3qwjyi" path="res://assests/weapons/wand.png" id="3_5cnmm"]
 
 [sub_resource type="Animation" id="Animation_yfsmo"]
 length = 0.001
@@ -132,20 +130,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, true]
 }
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../Sprite2D2")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.05),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"spawn_slash"
-}]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sepdu"]
 _data = {
@@ -158,9 +142,6 @@ size = Vector2(50, 16)
 
 [node name="sword_slash" type="Node2D"]
 script = ExtResource("1_e3omh")
-
-[node name="Sprite2D2" parent="." instance=ExtResource("2_5cnmm")]
-texture = ExtResource("3_5cnmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
