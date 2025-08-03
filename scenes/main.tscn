@@ -778,6 +778,7 @@ size = Vector2(21, 15)
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 position = Vector2(-27, 55)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="tilemaps" type="Node" parent="World"]

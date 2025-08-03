@@ -25,7 +25,6 @@ Dialogue="*res://autoloads/dialogue.gd"
 window/size/viewport_width=948
 window/size/viewport_height=640
 window/stretch/aspect="expand"
-window/stretch/scale=2.0
 
 [global_group]
 
