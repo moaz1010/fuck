@@ -2,7 +2,13 @@ extends Area2D
 class_name HitBox
 
 @export var damage : float
-@export var one_shot : bool
+
+enum Types {
+	ONE_SHOT,
+	PROLONGED,
+	LASTING_ONE_SHOT
+}
+@export var type: Types
 
 func custom_behaviour():
 	pass
