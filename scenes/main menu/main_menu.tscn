@@ -6,6 +6,21 @@
 [ext_resource type="Theme" uid="uid://dqy6tx8ddkj1m" path="res://scenes/main menu/main_menu.tres" id="3_pri0a"]
 [ext_resource type="Theme" uid="uid://cwhmbggqhmtve" path="res://scenes/main menu/base_theme.tres" id="4_ajd3f"]
 
+[sub_resource type="Animation" id="Animation_t60cf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_ajd3f"]
 resource_name = "move"
 length = 0.5
@@ -22,21 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.925, 1.175)]
-}
-
-[sub_resource type="Animation" id="Animation_t60cf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vin4k"]
