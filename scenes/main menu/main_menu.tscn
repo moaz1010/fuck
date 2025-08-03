@@ -1,9 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://m7eeverxv5hn"]
+[gd_scene load_steps=9 format=3 uid="uid://m7eeverxv5hn"]
 
 [ext_resource type="Script" uid="uid://swop6jnsy3re" path="res://scenes/main menu/main_menu.gd" id="1_s7te6"]
 [ext_resource type="Texture2D" uid="uid://dlax476o1ugtj" path="res://assests/World tiles/background.png" id="2_pri0a"]
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="3_okfgx"]
+[ext_resource type="Theme" uid="uid://dqy6tx8ddkj1m" path="res://scenes/main menu/main_menu.tres" id="3_pri0a"]
 [ext_resource type="Theme" uid="uid://cwhmbggqhmtve" path="res://scenes/main menu/base_theme.tres" id="4_ajd3f"]
+
+[sub_resource type="Animation" id="Animation_ajd3f"]
+resource_name = "move"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.925, 1.175)]
+}
+
+[sub_resource type="Animation" id="Animation_t60cf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vin4k"]
+_data = {
+&"RESET": SubResource("Animation_t60cf"),
+&"move": SubResource("Animation_ajd3f")
+}
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_s7te6")
@@ -40,7 +80,7 @@ offset_right = 30.0
 offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 5
 
 [node name="Label" type="Label" parent="Control/allDisplayContainer"]
 layout_mode = 2
@@ -55,6 +95,24 @@ text = "Path To Light?"
 [node name="Button Container" type="VBoxContainer" parent="Control/allDisplayContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
+
+[node name="Label2" type="Label" parent="Control/allDisplayContainer/Button Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_pri0a")
+theme_override_colors/font_color = Color(0.180392, 0.188235, 0.215686, 1)
+theme_override_colors/font_shadow_color = Color(0.921569, 0.898039, 0.807843, 1)
+theme_override_colors/font_outline_color = Color(0.921569, 0.898039, 0.807843, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_okfgx")
+theme_override_font_sizes/font_size = 30
+text = "Now In Beta!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/allDisplayContainer/Button Container/Label2"]
+libraries = {
+&"": SubResource("AnimationLibrary_vin4k")
+}
+autoplay = "move"
 
 [node name="Play" type="Button" parent="Control/allDisplayContainer/Button Container"]
 custom_minimum_size = Vector2(50, 12)
