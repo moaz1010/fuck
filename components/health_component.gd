@@ -20,8 +20,7 @@ var previous_health: float = 0
 		
 		if value <= min_health:
 			died.emit()
-		else:
-			health_changed.emit(health)
+		health_changed.emit(health)
 
 
 func _process(delta: float) -> void:
