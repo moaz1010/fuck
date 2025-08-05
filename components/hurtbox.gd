@@ -42,9 +42,13 @@ func _on_area_entered(area: Area2D):
 			_consider_hitbox(area)
 
 func _consider_hitbox(hitbox: HitBox, delta: float = 1):
+
+	if hitbox.one_target:
+		if hitbox.areas_hit > 0:
+			hitbox.queue_free()
+			return
 	
-	if hitbox.is_queued_for_deletion(): return
-	
+	hitbox.areas_hit += 1
 	var type := hitbox.type
 	
 	if health_component:

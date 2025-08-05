@@ -8,6 +8,8 @@ enum Types {
 	PROLONGED
 }
 @export var type: Types
+@export var one_target: bool = false
+var areas_hit: int = 0
 
 func custom_behaviour():
 	pass
