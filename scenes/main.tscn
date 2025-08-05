@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=63 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://d1momdh7x1rwi" path="res://assests/characgter sprites/joline_speaker_sprite.png" id="17_0ld40"]
 [ext_resource type="AudioStream" uid="uid://ddlcdwhdg6jy6" path="res://assests/talk.wav" id="18_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://cluhf5gby2umq" path="res://scenes/enemies/enemy.tscn" id="19_0ld40"]
-[ext_resource type="PackedScene" uid="uid://be06jm1tnhyhd" path="res://scenes/killzone.tscn" id="21_jscy8"]
 [ext_resource type="PackedScene" uid="uid://3uxxq1fbpla8" path="res://scenes/spike.tscn" id="22_jscy8"]
 [ext_resource type="PackedScene" uid="uid://coqskwuuujx68" path="res://scenes/checkpoint.tscn" id="22_pm3ni"]
 
@@ -1033,9 +1032,6 @@ position = Vector2(3063, 255)
 
 [node name="enemy3" parent="World/enemies" instance=ExtResource("19_0ld40")]
 position = Vector2(3026, 258)
-
-[node name="killzone" parent="World" instance=ExtResource("21_jscy8")]
-position = Vector2(156, 71)
 
 [node name="checkpoint" parent="World" instance=ExtResource("22_pm3ni")]
 position = Vector2(-129, 70)
