@@ -77,6 +77,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	
+
+	
 	if is_on_floor() and dash_buffer.is_stopped(): 
 		can_dash = true
 	
@@ -151,3 +153,8 @@ func push(push_direction: Vector2, power: float = 1):
 func _on_checkpoint_activated(pos: Vector2) -> void:
 	checkpoint_position = pos
 	print("Checkpoint reached at: ", pos)
+
+
+func _on_health_component_died() -> void:
+	pass # yo make the death scene get instantiatd if the player dies
+	

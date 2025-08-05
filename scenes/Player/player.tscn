@@ -193,4 +193,5 @@ shape = SubResource("RectangleShape2D_uxo23")
 [connection signal="child_entered_tree" from="WeaponShell" to="." method="_on_weapon_shell_child_entered_tree"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_changed"]
