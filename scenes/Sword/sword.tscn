@@ -4,9 +4,6 @@
 [ext_resource type="Script" uid="uid://23o3anl36fh2" path="res://components/hitbox.gd" id="1_wafhc"]
 [ext_resource type="Script" uid="uid://4l1mnwyibv11" path="res://scenes/Sword/sword.gd" id="2_nejxs"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3td86"]
-size = Vector2(34, 20)
-
 [sub_resource type="Animation" id="Animation_s4ec8"]
 length = 0.001
 tracks/0/type = "value"
@@ -36,14 +33,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("..:monitorable")
+tracks/2/path = NodePath("../HitBox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_n355p"]
@@ -77,14 +74,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("..:monitorable")
+tracks/2/path = NodePath("../HitBox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_k5whp"]
@@ -123,29 +120,34 @@ _data = {
 &"sword_return": SubResource("Animation_k5whp")
 }
 
-[node name="HitBox" type="Area2D"]
-collision_layer = 4
-collision_mask = 0
-monitoring = false
-monitorable = false
-script = ExtResource("1_wafhc")
-damage = 10.0
-type = 2
-metadata/_custom_type_script = "uid://23o3anl36fh2"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3td86"]
+size = Vector2(35, 20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -2)
-shape = SubResource("RectangleShape2D_3td86")
+[node name="Node2D" type="Node2D"]
+script = ExtResource("2_nejxs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-7, 5)
 texture = ExtResource("1_nejxs")
 offset = Vector2(-8, -8)
-script = ExtResource("2_nejxs")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
 libraries = {
 &"": SubResource("AnimationLibrary_1yp6w")
 }
 
-[connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="Sprite2D" method="_on_animation_player_animation_finished"]
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_wafhc")
+damage = 10.0
+metadata/_custom_type_script = "uid://23o3anl36fh2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_3td86")
+disabled = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

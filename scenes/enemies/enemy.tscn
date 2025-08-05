@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cluhf5gby2umq"]
+[gd_scene load_steps=21 format=3 uid="uid://cluhf5gby2umq"]
 
 [ext_resource type="Script" uid="uid://bwlcxg7604y0c" path="res://enemy.gd" id="1_qpkw3"]
 [ext_resource type="Script" uid="uid://k08spd0lvwti" path="res://Recources/moving_entity_params.gd" id="2_p0f6a"]
@@ -77,32 +77,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_k4gvh"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_p7w77"]
-resource_name = "run"
-length = 0.625013
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_twn6s"]
-_data = {
-&"RESET": SubResource("Animation_k4gvh"),
-&"run": SubResource("Animation_p7w77")
-}
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb6gf"]
 radius = 3.5
 height = 7.0
@@ -127,11 +101,6 @@ material = SubResource("ShaderMaterial_i60lk")
 sprite_frames = SubResource("SpriteFrames_tihwb")
 animation = &"move"
 frame_progress = 0.550613
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_twn6s")
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)

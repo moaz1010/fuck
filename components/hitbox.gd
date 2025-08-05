@@ -5,8 +5,7 @@ class_name HitBox
 
 enum Types {
 	ONE_SHOT,
-	PROLONGED,
-	LASTING_ONE_SHOT
+	PROLONGED
 }
 @export var type: Types
 

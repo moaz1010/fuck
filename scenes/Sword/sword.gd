@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 var can_slash := true
 @export var slash_time := 0.2
