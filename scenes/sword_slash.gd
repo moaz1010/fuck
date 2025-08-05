@@ -1,13 +1,9 @@
 extends Node2D
+class_name SwordSlash
 var weapon_damage := 1.0
 
-func _ready() -> void:           # to rotate the sword towards the mouse
-	look_at(get_global_mouse_position())
+func slash() -> void:
 	$Sprite2D/AnimationPlayer.play("slash")
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "slash":
-		queue_free()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

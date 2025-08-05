@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene load_steps=16 format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_dl1wr"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cnj5rk8ut3a6k" path="res://scenes/Sword/sword.tscn" id="7_dl1wr"]
 [ext_resource type="Script" uid="uid://qv40eyiboqjs" path="res://idk/Weapons.gd" id="8_frnkk"]
 [ext_resource type="PackedScene" uid="uid://bav15wkkjdn8d" path="res://scenes/Flashlight/flashlight.tscn" id="8_lt378"]
-[ext_resource type="Texture2D" uid="uid://defyk5o3qwjyi" path="res://assests/weapons/wand.png" id="8_uxo23"]
 [ext_resource type="Script" uid="uid://c3aifbheqy0ru" path="res://components/hurtbox.gd" id="9_wwtew"]
 
 [sub_resource type="Animation" id="Animation_uxo23"]
@@ -148,7 +147,7 @@ visible = false
 position = Vector2(11, 0)
 
 [node name="Sprite2D" parent="WeaponShell" instance=ExtResource("7_dl1wr")]
-texture = ExtResource("8_uxo23")
+position = Vector2(11, 0)
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 unique_name_in_owner = true

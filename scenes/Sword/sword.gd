@@ -19,12 +19,3 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		animation_player.play("sword_return")
 	else:
 		can_slash = true
-
-const sword_slash_preload = preload("res://scenes/sword_slash.tscn")
-func spawn_slash():
-	var sword_slash_var = sword_slash_preload.instantiate()
-	sword_slash_var.global_position = global_position
-	sword_slash_var.get_node("WeaponShell/Sprite2D/AnimationPlayer2").speed_scale = sword_slash_var.get_node("WeaponShell/Sprite2D/AnimationPlayer2").get_animation("slash").length / slash_time
-	sword_slash_var.get_node("WeaponShell/Sprite2D").flip_v = false if get_global_mouse_position().x > global_position.x else true
-	sword_slash_var.weapon_damage = weapon_damage
-	get_parent().add_child(sword_slash_var)
