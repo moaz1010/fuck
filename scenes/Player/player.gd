@@ -48,7 +48,10 @@ func _ready() -> void:
 	Dialogue.entered_dialogue.connect(func(): can_move = false)
 	Dialogue.exited_dialogue.connect(func(): can_move = true)
 	
-	checkpoint_position = global_position     # to save the position of checkpoint
+	
+	if CheckpointAutoload.checkpoint_pos != Vector2(-999, -999):  # to make the player respawn a
+		global_position = CheckpointAutoload.global_position      # the checkpoint
+	
 	
 
 func _unhandled_input(_event: InputEvent) -> void:

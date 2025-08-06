@@ -19,6 +19,7 @@ config/icon="res://scenes/icon.svg"
 
 Inventory="*res://autoloads/inventory.gd"
 Dialogue="*res://autoloads/dialogue.gd"
+CheckpointAutoload="*res://autoloads/checkpoint_autoload.gd"
 
 [display]
 
