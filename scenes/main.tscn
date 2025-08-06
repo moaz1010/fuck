@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=63 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
@@ -21,7 +21,6 @@
 [ext_resource type="AudioStream" uid="uid://ddlcdwhdg6jy6" path="res://assests/talk.wav" id="18_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://cluhf5gby2umq" path="res://scenes/enemies/enemy.tscn" id="19_0ld40"]
 [ext_resource type="PackedScene" uid="uid://3uxxq1fbpla8" path="res://scenes/spike.tscn" id="22_jscy8"]
-[ext_resource type="PackedScene" uid="uid://coqskwuuujx68" path="res://scenes/checkpoint.tscn" id="22_pm3ni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsyfl"]
 texture = ExtResource("2_25x5a")
@@ -780,7 +779,6 @@ size = Vector2(21, 15)
 position = Vector2(-27, 55)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
-script = ExtResource("1_jscy8")
 
 [node name="tilemaps" type="Node" parent="World"]
 
@@ -1005,6 +1003,7 @@ position = Vector2(-27, 55)
 remote_path = NodePath("../../Camera2D")
 update_rotation = false
 update_scale = false
+script = ExtResource("1_jscy8")
 
 [node name="AbstractItem" parent="World" instance=ExtResource("5_obu5w")]
 position = Vector2(272, 46)
@@ -1037,7 +1036,3 @@ position = Vector2(3026, 258)
 
 [node name="spike" parent="World" instance=ExtResource("22_jscy8")]
 position = Vector2(112, 64)
-
-[node name="checkpoint2" parent="World" instance=ExtResource("22_pm3ni")]
-position = Vector2(29, 71)
-script = null
