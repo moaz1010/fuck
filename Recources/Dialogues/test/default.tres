@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogueSection" load_steps=6 format=3 uid="uid://cmygvxrnwwjns"]
+
+[ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="1_icihm"]
+[ext_resource type="Resource" uid="uid://y3s385ljg1qb" path="res://Recources/Dialogues/test/test1.tres" id="2_7rfui"]
+[ext_resource type="Script" uid="uid://bk7m6itj0ytlq" path="res://Recources/dialogue_section.gd" id="2_rxp4p"]
+[ext_resource type="Resource" uid="uid://c25t7kjsoa3m6" path="res://Recources/Dialogues/test/test2.tres" id="3_bvdt3"]
+[ext_resource type="Resource" uid="uid://fqgdp7s10vdv" path="res://Recources/Dialogues/test/test3.tres" id="4_golsv"]
+
+[resource]
+script = ExtResource("2_rxp4p")
+dialogues = Array[ExtResource("1_icihm")]([ExtResource("2_7rfui"), ExtResource("3_bvdt3"), ExtResource("4_golsv")])
+metadata/_custom_type_script = "uid://bk7m6itj0ytlq"

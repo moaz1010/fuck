@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=33 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
@@ -7,20 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://dlax476o1ugtj" path="res://assests/World tiles/background.png" id="2_25x5a"]
 [ext_resource type="Texture2D" uid="uid://lftotrfcgqqu" path="res://assests/World tiles/tiles_atlas.png" id="3_godeq"]
 [ext_resource type="PackedScene" uid="uid://dk72f5fho25b4" path="res://scenes/AbstractItem/abstract_item.tscn" id="5_obu5w"]
+[ext_resource type="Resource" uid="uid://cmygvxrnwwjns" path="res://Recources/Dialogues/test/default.tres" id="6_gqmmt"]
+[ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="6_jbj1t"]
 [ext_resource type="Resource" uid="uid://cwrt2v03kuyoc" path="res://Recources/InvWeapons/gun.tres" id="6_tipki"]
+[ext_resource type="Resource" uid="uid://1m6cl2vpj1v4" path="res://Recources/Dialogues/dead_end_sign/default.tres" id="8_dp3eg"]
+[ext_resource type="Resource" uid="uid://dsvh8k42qadvk" path="res://Recources/Dialogues/dead_end_sign/reached_dead_end.tres" id="9_0ld40"]
+[ext_resource type="Script" uid="uid://d1w3u6bvd10a1" path="res://Recources/flagged_dialogue_resource.gd" id="9_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://de0oti5xrulrf" path="res://assests/characgter sprites/jolin_npc_idle_spritesheet.png" id="9_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://bau7qqu6a6rxi" path="res://scenes/Gun/gun.tscn" id="9_l8pkp"]
 [ext_resource type="Script" uid="uid://bjjyo1d6kc2ei" path="res://custom_nodes/dialogue_area.gd" id="11_ya4ey"]
-[ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="12_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://duth01mi4vgju" path="res://assests/characgter sprites/sign.png" id="13_gqmmt"]
-[ext_resource type="Resource" uid="uid://y3s385ljg1qb" path="res://Recources/Dialogues/test/test1.tres" id="13_jbj1t"]
-[ext_resource type="Resource" uid="uid://c25t7kjsoa3m6" path="res://Recources/Dialogues/test/test2.tres" id="14_muem4"]
-[ext_resource type="Resource" uid="uid://fqgdp7s10vdv" path="res://Recources/Dialogues/test/test3.tres" id="15_dp3eg"]
-[ext_resource type="Script" uid="uid://bfdmdrh7jwasq" path="res://Recources/choice_resource.gd" id="16_dp3eg"]
-[ext_resource type="Texture2D" uid="uid://d1momdh7x1rwi" path="res://assests/characgter sprites/joline_speaker_sprite.png" id="17_0ld40"]
-[ext_resource type="AudioStream" uid="uid://ddlcdwhdg6jy6" path="res://assests/talk.wav" id="18_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://cluhf5gby2umq" path="res://scenes/enemies/enemy.tscn" id="19_0ld40"]
 [ext_resource type="PackedScene" uid="uid://3uxxq1fbpla8" path="res://scenes/spike.tscn" id="22_jscy8"]
+[ext_resource type="Script" uid="uid://g8gv2pig833v" path="res://scenes/area_2d.gd" id="22_pm3ni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsyfl"]
 texture = ExtResource("2_25x5a")
@@ -496,277 +495,14 @@ _data = {
 &"trying": SubResource("Animation_jscy8")
 }
 
-[sub_resource type="Resource" id="Resource_vxglm"]
-script = ExtResource("12_jkv2x")
-text = "So I'll Be Teaching You All You Need To Know"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_2f3dj"]
-script = ExtResource("12_jkv2x")
-text = "Meet Me Ahead ;)"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_yc10j"]
-script = ExtResource("12_jkv2x")
-text = "What"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 100.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_yq6so"]
-script = ExtResource("12_jkv2x")
-text = "I Told You To Meet Me Ahead"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jkv2x"]
 a = Vector2(0, -11)
 
-[sub_resource type="Resource" id="Resource_0ld40"]
-script = ExtResource("12_jkv2x")
-text = "So First You Need To Know The Basics"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_gqmmt"]
-script = ExtResource("12_jkv2x")
-text = "Firstly"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 40.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_jscy8"]
-script = ExtResource("12_jkv2x")
-text = "You Already Know How To Move Around Don't You?"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_pm3ni"]
-script = ExtResource("12_jkv2x")
-text = "Well Show Me What You Got In This simple Obstacle :3"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_y6deb"]
-script = ExtResource("12_jkv2x")
-text = "Don't  Worry If You Fall It's Not The End Of The Road :D"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_og1vs"]
-script = ExtResource("12_jkv2x")
-text = "What..?"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 50.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_2wyq8"]
-script = ExtResource("12_jkv2x")
-text = "It Can't Be That Hard"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_fv21b"]
-script = ExtResource("12_jkv2x")
-text = "Nice Work :3"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 40.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_tel4y"]
-script = ExtResource("12_jkv2x")
-text = "Now Meet Me Ahead Of The Stairs"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_speed_in_milliseconds = 0.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_qkpxi"]
-script = ExtResource("12_jkv2x")
-text = "Once Again... What?"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 40.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_5q0nq"]
-script = ExtResource("12_jkv2x")
-text = "Now I Will Tell You How To Dash"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_dgi5k"]
-script = ExtResource("12_jkv2x")
-text = "To Dash You Can Either Left Click Or Press Shift"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_j8jky"]
-script = ExtResource("12_jkv2x")
-text = "The Dash's Direction Is Determined By The Key You Are Pressing"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_vchkt"]
-script = ExtResource("12_jkv2x")
-text = "And Not Determined By Your Direction"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_5poiv"]
-script = ExtResource("12_jkv2x")
-text = "Try It Out Here :3"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_kmb1v"]
-script = ExtResource("12_jkv2x")
-text = "You Know The Drill... What?"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 40.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_fuf3a"]
-script = ExtResource("12_jkv2x")
-text = "Now Let's Get You Your First Weapon Shall We?"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_pibwh"]
-script = ExtResource("12_jkv2x")
-text = "You Have To Know How To Defend Yourself In This... Whatever This World Is"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_c6pm6"]
-script = ExtResource("12_jkv2x")
-text = "Whar..?"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_5he1u"]
-script = ExtResource("12_jkv2x")
-text = "( Yes You Read That Right )"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_txyw0"]
-script = ExtResource("12_jkv2x")
-text = "Your First Weapon Is A FlashLight"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_vc5cj"]
-script = ExtResource("12_jkv2x")
-text = "Don't Worry, Unlike The Real World This Thing Can Kill Enemies"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_nvyfr"]
-script = ExtResource("12_jkv2x")
-text = "Here Try It Out On These Enemies Down There"
-speaker_sprite = ExtResource("17_0ld40")
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 30.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_2cjbq"]
-script = ExtResource("12_jkv2x")
-text = "Nothing Beyond This Point"
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 20.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
-
-[sub_resource type="Resource" id="Resource_chjal"]
-script = ExtResource("12_jkv2x")
-text = "Told You Dumbass"
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 20.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jscy8"]
+size = Vector2(31, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjqg0"]
 size = Vector2(23, 22)
-
-[sub_resource type="Resource" id="Resource_cjqg0"]
-script = ExtResource("12_jkv2x")
-text = "Notice That This A Dead End"
-choices = Array[ExtResource("16_dp3eg")]([])
-talking_sound = ExtResource("18_gqmmt")
-talking_speed_in_milliseconds = 20.0
-metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yc10j"]
 size = Vector2(21, 15)
@@ -816,8 +552,8 @@ autoplay = "idle"
 position = Vector2(78, 71)
 collision_layer = 0
 script = ExtResource("11_ya4ey")
-first_time_dialogue = Array[ExtResource("12_jkv2x")]([ExtResource("13_jbj1t"), ExtResource("14_muem4"), ExtResource("15_dp3eg"), SubResource("Resource_vxglm"), SubResource("Resource_2f3dj")])
-repeat_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_yc10j"), SubResource("Resource_yq6so")])
+defalut_dialogue = ExtResource("6_gqmmt")
+is_instant = null
 metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/jolinStartDialogueArea"]
@@ -843,8 +579,9 @@ autoplay = "idle"
 position = Vector2(78, 71)
 collision_layer = 0
 script = ExtResource("11_ya4ey")
-first_time_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_0ld40"), SubResource("Resource_gqmmt"), SubResource("Resource_jscy8"), SubResource("Resource_pm3ni"), SubResource("Resource_y6deb")])
-repeat_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_og1vs"), SubResource("Resource_2wyq8")])
+defalut_dialogue = Array[ExtResource("6_jbj1t")]([])
+dialogue_sections = null
+is_instant = null
 metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/jolinStartDialogueArea2"]
@@ -870,8 +607,9 @@ autoplay = "idle"
 position = Vector2(650, 72)
 collision_layer = 0
 script = ExtResource("11_ya4ey")
-first_time_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_fv21b"), SubResource("Resource_tel4y")])
-repeat_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_qkpxi")])
+defalut_dialogue = Array[ExtResource("6_jbj1t")]([])
+dialogue_sections = null
+is_instant = null
 metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/jolinStartDialogueArea3"]
@@ -897,8 +635,9 @@ autoplay = "idle"
 position = Vector2(1084, -14)
 collision_layer = 0
 script = ExtResource("11_ya4ey")
-first_time_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_5q0nq"), SubResource("Resource_dgi5k"), SubResource("Resource_j8jky"), SubResource("Resource_vchkt"), SubResource("Resource_5poiv")])
-repeat_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_kmb1v")])
+defalut_dialogue = Array[ExtResource("6_jbj1t")]([])
+dialogue_sections = null
+is_instant = null
 metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/jolinStartDialogueArea4"]
@@ -924,8 +663,9 @@ autoplay = "idle"
 position = Vector2(1825, 70)
 collision_layer = 0
 script = ExtResource("11_ya4ey")
-first_time_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_fuf3a"), SubResource("Resource_pibwh")])
-repeat_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_c6pm6"), SubResource("Resource_5he1u")])
+defalut_dialogue = Array[ExtResource("6_jbj1t")]([])
+dialogue_sections = null
+is_instant = null
 metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/jolinStartDialogueArea5"]
@@ -951,7 +691,9 @@ autoplay = "idle"
 position = Vector2(2447, 182)
 collision_layer = 0
 script = ExtResource("11_ya4ey")
-first_time_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_txyw0"), SubResource("Resource_vc5cj"), SubResource("Resource_nvyfr")])
+defalut_dialogue = Array[ExtResource("6_jbj1t")]([])
+dialogue_sections = null
+is_instant = null
 metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/jolinStartDialogueArea6"]
@@ -966,15 +708,26 @@ position = Vector2(2178, 210)
 texture = ExtResource("13_gqmmt")
 flip_h = true
 
-[node name="signDialogueArea6" type="Area2D" parent="World/charachters/signs"]
-position = Vector2(1825, 70)
+[node name="Area2D" type="Area2D" parent="World/charachters/signs/Sign"]
+position = Vector2(149, 114)
+collision_layer = 0
+monitorable = false
+script = ExtResource("22_pm3ni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/signs/Sign/Area2D"]
+position = Vector2(5.5, 7.5)
+shape = SubResource("RectangleShape2D_jscy8")
+
+[node name="signDialogueArea6" type="Area2D" parent="World/charachters/signs/Sign"]
+position = Vector2(-353, -140)
 collision_layer = 0
 script = ExtResource("11_ya4ey")
-first_time_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_2cjbq")])
-repeat_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_chjal")])
+defalut_dialogue = ExtResource("8_dp3eg")
+dialogue_sections = Array[ExtResource("9_gqmmt")]([ExtResource("9_0ld40")])
+is_instant = true
 metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/signs/signDialogueArea6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/signs/Sign/signDialogueArea6"]
 position = Vector2(353, 145)
 shape = SubResource("RectangleShape2D_cjqg0")
 
@@ -988,7 +741,9 @@ flip_h = true
 position = Vector2(1825, 70)
 collision_layer = 0
 script = ExtResource("11_ya4ey")
-first_time_dialogue = Array[ExtResource("12_jkv2x")]([SubResource("Resource_cjqg0")])
+defalut_dialogue = Array[ExtResource("6_jbj1t")]([])
+dialogue_sections = null
+is_instant = null
 metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/signs/signDialogueArea7"]
@@ -1036,3 +791,5 @@ position = Vector2(3026, 258)
 
 [node name="spike" parent="World" instance=ExtResource("22_jscy8")]
 position = Vector2(112, 64)
+
+[connection signal="body_entered" from="World/charachters/signs/Sign/Area2D" to="World/charachters/signs/Sign/Area2D" method="_on_body_entered"]
