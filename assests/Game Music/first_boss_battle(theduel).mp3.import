@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bufgmkx5w1qyd"
+path="res://.godot/imported/first_boss_battle(theduel).mp3-b05e8c5f3c76d296a901a21a7d990d2e.mp3str"
+
+[deps]
+
+source_file="res://assests/Game Music/first_boss_battle(theduel).mp3"
+dest_files=["res://.godot/imported/first_boss_battle(theduel).mp3-b05e8c5f3c76d296a901a21a7d990d2e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

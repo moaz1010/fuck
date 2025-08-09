@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3dynt3m6d8rr"
+path="res://.godot/imported/the_end(newdawn).mp3-94004a52890c1dac570b8fd5ab763ae6.mp3str"
+
+[deps]
+
+source_file="res://assests/Game Music/the_end(newdawn).mp3"
+dest_files=["res://.godot/imported/the_end(newdawn).mp3-94004a52890c1dac570b8fd5ab763ae6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

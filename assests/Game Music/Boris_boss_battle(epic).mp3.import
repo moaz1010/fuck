@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4u23wj4p6erw"
+path="res://.godot/imported/Boris_boss_battle(epic).mp3-76be7c5ef3c56f621b98b803afd94aa7.mp3str"
+
+[deps]
+
+source_file="res://assests/Game Music/Boris_boss_battle(epic).mp3"
+dest_files=["res://.godot/imported/Boris_boss_battle(epic).mp3-76be7c5ef3c56f621b98b803afd94aa7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

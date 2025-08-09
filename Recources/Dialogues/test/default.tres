@@ -1,12 +1,34 @@
-[gd_resource type="Resource" script_class="DialogueSection" load_steps=6 format=3 uid="uid://cmygvxrnwwjns"]
+[gd_resource type="Resource" script_class="DialogueSection" load_steps=12 format=3 uid="uid://cmygvxrnwwjns"]
 
 [ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="1_icihm"]
 [ext_resource type="Resource" uid="uid://y3s385ljg1qb" path="res://Recources/Dialogues/test/test1.tres" id="2_7rfui"]
 [ext_resource type="Script" uid="uid://bk7m6itj0ytlq" path="res://Recources/dialogue_section.gd" id="2_rxp4p"]
 [ext_resource type="Resource" uid="uid://c25t7kjsoa3m6" path="res://Recources/Dialogues/test/test2.tres" id="3_bvdt3"]
 [ext_resource type="Resource" uid="uid://fqgdp7s10vdv" path="res://Recources/Dialogues/test/test3.tres" id="4_golsv"]
+[ext_resource type="Script" uid="uid://bfdmdrh7jwasq" path="res://Recources/choice_resource.gd" id="5_hq42f"]
+[ext_resource type="Texture2D" uid="uid://d1momdh7x1rwi" path="res://assests/characgter sprites/joline_speaker_sprite.png" id="6_mx5ws"]
+[ext_resource type="AudioStream" uid="uid://ddlcdwhdg6jy6" path="res://assests/talk.wav" id="7_ijcjn"]
+[ext_resource type="AudioStream" uid="uid://doikd6ib7rxya" path="res://assests/sounds/select.wav" id="8_epbn2"]
+
+[sub_resource type="Resource" id="Resource_2uupy"]
+script = ExtResource("1_icihm")
+text = "Which May Or May Not Be Called \"Undertale\"....It's Just A Feeling Though"
+speaker_sprite = ExtResource("6_mx5ws")
+choices = Array[ExtResource("5_hq42f")]([])
+talking_sound = ExtResource("7_ijcjn")
+talking_speed_in_milliseconds = 30.0
+metadata/_custom_type_script = "uid://b1650whroytf0"
+
+[sub_resource type="Resource" id="Resource_uc7wy"]
+script = ExtResource("1_icihm")
+text = "Well Don't Worry I Also Want To Get Out Of Here"
+speaker_sprite = ExtResource("6_mx5ws")
+choices = Array[ExtResource("5_hq42f")]([])
+talking_sound = ExtResource("8_epbn2")
+talking_speed_in_milliseconds = 40.0
+metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [resource]
 script = ExtResource("2_rxp4p")
-dialogues = Array[ExtResource("1_icihm")]([ExtResource("2_7rfui"), ExtResource("3_bvdt3"), ExtResource("4_golsv")])
+dialogues = Array[ExtResource("1_icihm")]([ExtResource("2_7rfui"), ExtResource("3_bvdt3"), ExtResource("4_golsv"), SubResource("Resource_2uupy"), SubResource("Resource_uc7wy")])
 metadata/_custom_type_script = "uid://bk7m6itj0ytlq"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://co4hr6vytcgle"
+path="res://.godot/imported/highoctane.mp3-d53a192bad2bb3c0e2d37d6382770e31.mp3str"
+
+[deps]
+
+source_file="res://assests/Game Music/highoctane.mp3"
+dest_files=["res://.godot/imported/highoctane.mp3-d53a192bad2bb3c0e2d37d6382770e31.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
