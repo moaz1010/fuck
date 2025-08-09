@@ -1,7 +1,7 @@
 extends Resource
 class_name DialogueResource
 
-@export var text : String
+@export_multiline var text : String
 
 @export var speaker_sprite : Texture2D
 
