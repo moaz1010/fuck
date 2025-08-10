@@ -6,8 +6,6 @@ extends Control
 @onready var audio_stream_player := %AudioStreamPlayer
 @onready var skipping_buffer := %SkippingBuffer
 
-var typing_buffer : SceneTreeTimer
-
 var is_typing: bool = false
 
 @export var default_type_speed : float
@@ -15,6 +13,8 @@ var is_typing: bool = false
 
 var _current_text_id : int = 0
 var current_section: DialogueResource
+
+var wants_to_skip : bool = false
 
 var is_active: bool = false:
 	set(value):
@@ -37,17 +37,12 @@ func _input(_event: InputEvent) -> void:
 		accept_event()
 	if Input.is_action_just_pressed("ui_accept"):
 		if is_typing:
-			_current_text_id += 1
-			text_label.text = current_section.text
+			wants_to_skip = true
 			return
 		if not skipping_buffer.is_stopped(): 
 			return
-		skipping_buffer.start()
 		_current_text_id += 1
-		if is_typing:
-			_current_text_id += 1
-			text_label.text = current_section.text
-			return
+		wants_to_skip = false
 		Dialogue.continue_dialogue()
 
 func _on_continued_dialogue(section: DialogueResource) -> void:
@@ -69,28 +64,42 @@ func _initialize_box() -> void:
 func _reset_box():
 	is_active = false
 	text_label.text = ""
+	audio_stream_player.stream = null
 
 func _type_text(text: String, type_speed: float = default_type_speed):
+	const PUNCTUATION = ['.', ',', '!', '?', ';', ':']
+	
 	_current_text_id += 1
 	var id := _current_text_id
 	
+	text_label.visible_characters = 0
+	text_label.text = text
+	
 	is_typing = true
 	
-	var current_text := ""
-	if typing_buffer: typing_buffer.set_time_left(0)
+	var typing_buffer : SceneTreeTimer = null
 	
-	for i in text.length():
+	for i in text:
 		
-		typing_buffer = get_tree().create_timer(type_speed / 1000)
-		await typing_buffer.timeout
+		print(wants_to_skip)
+		if typing_buffer: await typing_buffer.timeout
 		if _current_text_id != id: 
 			is_typing = false
 			return
+			
+		if i in PUNCTUATION: 
+			typing_buffer = get_tree().create_timer(type_speed / 100)
+			wants_to_skip = false
+		elif wants_to_skip: 
+			typing_buffer = null
+		else:
+			typing_buffer = get_tree().create_timer(type_speed / 1000)
 		
 		audio_stream_player.pitch_scale = pow(pitch_difference_modifier, randf_range(-1, 1))
 		if audio_stream_player.stream: audio_stream_player.play()
 		
-		current_text += text[i]
-		text_label.text = current_text
+		text_label.visible_characters += 1
 	
+	wants_to_skip = false
+	skipping_buffer.start()
 	is_typing = false

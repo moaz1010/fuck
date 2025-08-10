@@ -31,11 +31,14 @@ layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 0.85
-anchor_right = 0.75
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ncicg")
@@ -67,6 +70,7 @@ theme_override_fonts/normal_font = ExtResource("2_csukm")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 scroll_active = false
+drag_and_drop_selection_enabled = false
 visible_characters_behavior = 1
 
 [node name="button_container" type="HBoxContainer" parent="Control/Panel/HBoxContainer/VBoxContainer"]
@@ -78,4 +82,5 @@ unique_name_in_owner = true
 
 [node name="SkippingBuffer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 0.5
 one_shot = true

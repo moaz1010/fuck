@@ -10,7 +10,6 @@ class_name DialogueArea
 var player_is_in_area: bool = false:
 	set(value):
 		player_is_in_area = value
-		print(value)
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if player_is_in_area and Input.is_action_just_pressed("accept_dialogue"):
@@ -37,4 +36,4 @@ func _trigger() -> void:
 			if Flags.get_flag(section.flag):
 				final_section = section
 	if not final_section: final_section = defalut_dialogue
-	Dialogue.enter_dialogue(final_section.dialogues)
+	if final_section: Dialogue.enter_dialogue(final_section.dialogues)
