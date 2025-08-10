@@ -33,7 +33,9 @@ func _trigger() -> void:
 	var final_section : DialogueSection = null
 	if FlaggedDialogueSection:
 		for section in dialogue_sections:
-			if Flags.get_flag(section.flag):
+			for flag in section.flags:
+				if not Flags.get_flag(flag):
+					break
 				final_section = section
 	if not final_section: final_section = defalut_dialogue
 	if final_section: Dialogue.enter_dialogue(final_section.dialogues)

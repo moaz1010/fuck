@@ -4,12 +4,10 @@ signal entered_dialogue
 signal exited_dialogue
 
 signal continued_dialogue(section: DialogueResource)
-signal selected_choice(choice: Choice)
 
 var is_in_dialogue = false
 var current_sections : Array[DialogueResource]
 var current_section_index : int
-var past_choices: Array[String] = []
 
 func get_current_section() -> DialogueResource:
 	assert(current_section_index >= 0 and current_section_index < current_sections.size(), 
@@ -36,12 +34,14 @@ func continue_dialogue():
 
 func choose(index: int):
 	var choices := get_current_section().choices
+	
 	assert(index >= 0 and index < choices.size(), 
 	"Trying to choose a choice that doesn't exist")
-	past_choices.append(choices[index])
-	selected_choice.emit(choices[index])
+	
 	if choices[index].next_dialogue:
 		enter_dialogue(choices[index].next_dialogue)
+	if choices[index].flag:
+		Flags.activate_flag(choices[index].flag)
 
 func exit_dialogue():
 	current_sections = []

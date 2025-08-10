@@ -15,6 +15,6 @@ metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [resource]
 script = ExtResource("1_k7335")
-flag = 0
+flags = Array[int]([0])
 dialogues = Array[ExtResource("1_hwxfa")]([SubResource("Resource_kobx8")])
 metadata/_custom_type_script = "uid://d1w3u6bvd10a1"
