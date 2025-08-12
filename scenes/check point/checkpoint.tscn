@@ -59,7 +59,7 @@ size = Vector2(15, 15)
 [node name="checkPoint" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_7w6y8")
 autoplay = "default"
-frame_progress = 0.0181247
+frame_progress = 0.834472
 script = ExtResource("2_mgs81")
 
 [node name="Area2D" type="Area2D" parent="."]

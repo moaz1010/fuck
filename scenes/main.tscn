@@ -762,14 +762,6 @@ update_rotation = false
 update_scale = false
 script = ExtResource("1_jscy8")
 
-[node name="AbstractItem" parent="World" instance=ExtResource("5_obu5w")]
-position = Vector2(272, 46)
-weapon = ExtResource("6_tipki")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/AbstractItem"]
-position = Vector2(-1.5, 1.5)
-shape = SubResource("RectangleShape2D_yc10j")
-
 [node name="Gun" parent="World" instance=ExtResource("9_l8pkp")]
 position = Vector2(202, 37)
 
@@ -793,5 +785,13 @@ position = Vector2(3026, 258)
 
 [node name="spike" parent="World" instance=ExtResource("22_jscy8")]
 position = Vector2(112, 64)
+
+[node name="AbstractItem" parent="World" instance=ExtResource("5_obu5w")]
+position = Vector2(272, 46)
+weapon = ExtResource("6_tipki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/AbstractItem"]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_yc10j")
 
 [connection signal="body_entered" from="World/charachters/signs/Sign/Area2D" to="World/charachters/signs/Sign/Area2D" method="_on_body_entered"]
