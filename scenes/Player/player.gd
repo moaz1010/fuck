@@ -71,6 +71,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			"move_up", 
 			"move_down"
 		).normalized()
+		$RemoteTransform2D.screen_shake(0,0.5)
 		#Only dash if the player isn't standing still.
 		if not dash_direction == Vector2.ZERO:
 			dash_timer.start()
