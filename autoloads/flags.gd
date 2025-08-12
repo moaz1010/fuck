@@ -6,6 +6,7 @@ enum flags_enum {
 	REACHED_DEAD_END
 }
 
+
 var _flags : Dictionary[int, bool] = {}
 
 func _init() -> void:
