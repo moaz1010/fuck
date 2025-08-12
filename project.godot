@@ -21,6 +21,7 @@ Inventory="*res://autoloads/inventory.gd"
 Dialogue="*res://autoloads/dialogue.gd"
 CheckpointAutoload="*res://autoloads/checkpoint_autoload.gd"
 Flags="*res://autoloads/flags.gd"
+Camera="*res://autoloads/camera.gd"
 
 [display]
 
