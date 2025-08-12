@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=39 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
@@ -15,7 +15,6 @@
 [ext_resource type="Resource" uid="uid://dsvh8k42qadvk" path="res://Recources/Dialogues/dead_end_sign/reached_dead_end.tres" id="9_0ld40"]
 [ext_resource type="Script" uid="uid://d1w3u6bvd10a1" path="res://Recources/flagged_dialogue_resource.gd" id="9_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://de0oti5xrulrf" path="res://assests/characgter sprites/jolin_npc_idle_spritesheet.png" id="9_jbj1t"]
-[ext_resource type="PackedScene" uid="uid://bau7qqu6a6rxi" path="res://scenes/Gun/gun.tscn" id="9_l8pkp"]
 [ext_resource type="Script" uid="uid://bjjyo1d6kc2ei" path="res://custom_nodes/dialogue_area.gd" id="11_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://duth01mi4vgju" path="res://assests/characgter sprites/sign.png" id="13_gqmmt"]
 [ext_resource type="Script" uid="uid://bfdmdrh7jwasq" path="res://Recources/choice_resource.gd" id="13_jscy8"]
@@ -763,9 +762,6 @@ remote_path = NodePath("../../Camera2D")
 update_rotation = false
 update_scale = false
 script = ExtResource("1_jscy8")
-
-[node name="Gun" parent="World" instance=ExtResource("9_l8pkp")]
-position = Vector2(202, 37)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="World"]
 
