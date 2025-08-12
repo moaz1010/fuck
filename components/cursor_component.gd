@@ -16,4 +16,7 @@ var hotspot_position : Vector2 = Vector2.ZERO
 func _ready() -> void:
 	if hotspot == Hotspots.CENTER:
 		hotspot_position = image.get_size()/2
+	change_cursor()
+
+func change_cursor() -> void:
 	Input.set_custom_mouse_cursor(image, shape, hotspot_position)

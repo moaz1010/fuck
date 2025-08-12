@@ -28,6 +28,7 @@ Camera="*res://autoloads/camera.gd"
 window/size/viewport_width=948
 window/size/viewport_height=640
 window/stretch/aspect="expand"
+mouse_cursor/custom_image="uid://vy378dn0vw0l"
 
 [global_group]
 

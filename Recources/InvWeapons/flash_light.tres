@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvWeaponResource" load_steps=4 format=3 uid="uid://bgpoef4ytku2l"]
+
+[ext_resource type="Script" uid="uid://74mlu6t1v0aw" path="res://Recources/weapons.gd" id="1_req8n"]
+[ext_resource type="Texture2D" uid="uid://or0jyty5v8tk" path="res://assests/weapons/flashlight (1).png" id="2_a6yfu"]
+[ext_resource type="PackedScene" uid="uid://bav15wkkjdn8d" path="res://scenes/Flashlight/flashlight.tscn" id="3_yyf7u"]
+
+[resource]
+script = ExtResource("1_req8n")
+weapon_scene = ExtResource("3_yyf7u")
+sprite = ExtResource("2_a6yfu")
+metadata/_custom_type_script = "uid://74mlu6t1v0aw"

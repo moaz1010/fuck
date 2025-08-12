@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnj5rk8ut3a6k"]
+[gd_scene load_steps=11 format=3 uid="uid://cnj5rk8ut3a6k"]
 
 [ext_resource type="Texture2D" uid="uid://dqdcfd1b8snbb" path="res://assests/weapons/simple_sword.png" id="1_nejxs"]
 [ext_resource type="Script" uid="uid://23o3anl36fh2" path="res://components/hitbox.gd" id="1_wafhc"]
 [ext_resource type="Script" uid="uid://4l1mnwyibv11" path="res://scenes/Sword/sword.gd" id="2_nejxs"]
+[ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="4_mr6qy"]
+[ext_resource type="Texture2D" uid="uid://cahg4edanpcm" path="res://assests/cursors/normal_sword_cursor.png" id="5_2s5la"]
 
 [sub_resource type="Animation" id="Animation_s4ec8"]
 length = 0.001
@@ -149,5 +151,10 @@ metadata/_custom_type_script = "uid://23o3anl36fh2"
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_3td86")
 disabled = true
+
+[node name="CursorComponent" type="Node" parent="."]
+script = ExtResource("4_mr6qy")
+image = ExtResource("5_2s5la")
+metadata/_custom_type_script = "uid://ki65px3upm1g"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
