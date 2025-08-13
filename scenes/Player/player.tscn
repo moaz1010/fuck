@@ -142,7 +142,7 @@ z_index = 6
 script = ExtResource("8_frnkk")
 
 [node name="Sprite2D" parent="WeaponShell" instance=ExtResource("7_dl1wr")]
-position = Vector2(11, 0)
+position = Vector2(7, 1)
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 unique_name_in_owner = true
