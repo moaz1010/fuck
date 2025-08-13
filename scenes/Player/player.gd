@@ -71,7 +71,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			"move_up", 
 			"move_down"
 		).normalized()
-		Camera.screen_shake_triggered.emit(5,0.15)
+		
 		#Only dash if the player isn't standing still.
 		if not dash_direction == Vector2.ZERO:
 			dash_timer.start()
@@ -79,6 +79,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			is_dashing = true
 			dash_buffer.start()
 			can_dash = false
+			Camera.screen_shake_triggered.emit(5,0.15)
 
 
 func _process(_delta: float) -> void:
