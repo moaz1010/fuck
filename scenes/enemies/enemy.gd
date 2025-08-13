@@ -22,8 +22,10 @@ func _physics_process(delta: float) -> void:
 	
 	if direction > 0:
 		$Sprite2D.flip_h = false
+		$Sprite2D.play("move")
 	elif direction < 0:
 		$Sprite2D.flip_h = true
+		$Sprite2D.play("move")
 		
 	super(delta)
 

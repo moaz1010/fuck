@@ -3,7 +3,9 @@ extends Node
 signal activated_flag(flag: flags_enum)
 
 enum flags_enum {
-	REACHED_DEAD_END
+	REACHED_DEAD_END,
+	ENTERED_ENEMY_SPAWN_AREA
+	
 }
 
 
