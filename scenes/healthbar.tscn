@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8kcgyl7fta3i"]
 
 [ext_resource type="Texture2D" uid="uid://del8crji3hih5" path="res://assests/UI stuff/Buttons/added_exit_button_spritesheet.png" id="1_vjxg4"]
-[ext_resource type="Script" uid="uid://oac670uhudpx" path="res://progress_bar.gd" id="2_ulkio"]
+[ext_resource type="Script" uid="uid://oac670uhudpx" path="res://scenes/Player/progress_bar.gd" id="2_ulkio"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y8nn8"]
 texture = ExtResource("1_vjxg4")

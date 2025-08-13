@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://cluhf5gby2umq"]
 
-[ext_resource type="Script" uid="uid://bwlcxg7604y0c" path="res://enemy.gd" id="1_qpkw3"]
+[ext_resource type="Script" uid="uid://bwlcxg7604y0c" path="res://scenes/enemies/enemy.gd" id="1_qpkw3"]
 [ext_resource type="Script" uid="uid://k08spd0lvwti" path="res://Recources/moving_entity_params.gd" id="2_p0f6a"]
 [ext_resource type="Shader" uid="uid://cmd1x28vgunaa" path="res://shaders/flash.gdshader" id="2_p4q80"]
 [ext_resource type="Script" uid="uid://8rms6rae8mtb" path="res://components/health_component.gd" id="3_tt18s"]
@@ -74,7 +74,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb6gf"]
@@ -100,7 +100,7 @@ params = SubResource("Resource_b6ihv")
 material = SubResource("ShaderMaterial_i60lk")
 sprite_frames = SubResource("SpriteFrames_tihwb")
 animation = &"move"
-frame_progress = 0.550613
+frame_progress = 0.291705
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
