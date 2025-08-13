@@ -88,7 +88,7 @@ radius = 80.0
 radius = 150.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7575"]
-size = Vector2(11, 11)
+size = Vector2(11, 9.5)
 
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -132,7 +132,7 @@ health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://c3aifbheqy0ru"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0.5, -0.5)
+position = Vector2(0, -0.75)
 shape = SubResource("RectangleShape2D_n7575")
 
 [connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]

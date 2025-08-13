@@ -34,11 +34,11 @@ func _process(delta: float) -> void:
 				_consider_hitbox(area, delta)
 
 func _on_area_entered(area: Area2D):
-	print("zam")
+	#print("zam")
 	if area is HitBox:
-		print("holup")
+		#print("holup")
 		if area.type == HitBox.Types.ONE_SHOT:
-			print("yay")
+			#print("yay")
 			_consider_hitbox(area)
 
 func _consider_hitbox(hitbox: HitBox, delta: float = 1):

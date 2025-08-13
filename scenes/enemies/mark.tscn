@@ -1,9 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://xktn33ib77xh"]
+[gd_scene load_steps=16 format=3 uid="uid://xktn33ib77xh"]
 
 [ext_resource type="Script" uid="uid://cv3w6nfrdu8j0" path="res://scenes/enemies/mark(enemy).gd" id="1_cvpbx"]
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="2_2p4db"]
 [ext_resource type="Texture2D" uid="uid://dbu83asiaic8m" path="res://assests/Enemy/mark_spritesheet.png" id="2_mejq2"]
 [ext_resource type="PackedScene" uid="uid://dd8mue6ordreo" path="res://scenes/enemies/enemy_spawner.tscn" id="3_2p4db"]
+[ext_resource type="Script" uid="uid://c3aifbheqy0ru" path="res://components/hurtbox.gd" id="4_sqaxy"]
+[ext_resource type="Script" uid="uid://8rms6rae8mtb" path="res://components/health_component.gd" id="6_hx3hb"]
+[ext_resource type="PackedScene" uid="uid://c8kcgyl7fta3i" path="res://scenes/healthbar.tscn" id="7_i55li"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aw7h3"]
 size = Vector2(8, 11)
@@ -115,15 +118,19 @@ frame = 11
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_aw7h3")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("4_sqaxy")
+metadata/_custom_type_script = "uid://c3aifbheqy0ru"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_sqaxy")
 
 [node name="enemySpawner" parent="." instance=ExtResource("3_2p4db")]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="intiateEnemySpaenArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="intiateEnemySpaenArea"]
 shape = SubResource("CircleShape2D_hx3hb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -131,5 +138,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_832tx")
 }
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="HealthComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_hx3hb")
+idle_healing = 5.0
+max_health = 40.0
+metadata/_custom_type_script = "uid://8rms6rae8mtb"
+
+[node name="ProgressBar" parent="." instance=ExtResource("7_i55li")]
+unique_name_in_owner = true
+visible = false
+offset_left = -15.0
+offset_top = -19.0
+offset_right = 15.0
+offset_bottom = -13.0
+
+[connection signal="body_entered" from="intiateEnemySpaenArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="intiateEnemySpaenArea" to="." method="_on_area_2d_body_exited"]
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_changed"]
