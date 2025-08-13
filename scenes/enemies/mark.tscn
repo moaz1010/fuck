@@ -1,0 +1,135 @@
+[gd_scene load_steps=13 format=3 uid="uid://xktn33ib77xh"]
+
+[ext_resource type="Script" uid="uid://cv3w6nfrdu8j0" path="res://scenes/enemies/mark(enemy).gd" id="1_cvpbx"]
+[ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="2_2p4db"]
+[ext_resource type="Texture2D" uid="uid://dbu83asiaic8m" path="res://assests/Enemy/mark_spritesheet.png" id="2_mejq2"]
+[ext_resource type="PackedScene" uid="uid://dd8mue6ordreo" path="res://scenes/enemies/enemy_spawner.tscn" id="3_2p4db"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw7h3"]
+size = Vector2(8, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sqaxy"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hx3hb"]
+radius = 76.0066
+
+[sub_resource type="Animation" id="Animation_xtv2j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(3, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_p3tp6"]
+resource_name = "alerted"
+length = 0.133337
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_6fmdo"]
+resource_name = "getting_hit"
+length = 0.40002
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(3, 2), Vector2i(0, 3), Vector2i(1, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_i55li"]
+resource_name = "idle"
+length = 2.00003
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1, 1.33333, 1.66667, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_832tx"]
+_data = {
+&"RESET": SubResource("Animation_xtv2j"),
+&"alerted": SubResource("Animation_p3tp6"),
+&"getting_hit": SubResource("Animation_6fmdo"),
+&"idle": SubResource("Animation_i55li")
+}
+
+[node name="mark" type="StaticBody2D"]
+script = ExtResource("1_cvpbx")
+player = ExtResource("2_2p4db")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 0.94)
+texture = ExtResource("2_mejq2")
+hframes = 4
+vframes = 4
+frame = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_aw7h3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_sqaxy")
+
+[node name="enemySpawner" parent="." instance=ExtResource("3_2p4db")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_hx3hb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_832tx")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

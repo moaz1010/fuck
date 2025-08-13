@@ -13,7 +13,6 @@ func _get_direction(body: Node2D) -> Vector2:
 	return (body.global_position-global_position).normalized()
 
 func _physics_process(delta: float) -> void:
-	
 	if not to_be_followed.is_empty(): 
 		player_direction = _get_direction(to_be_followed[0])
 		direction = sign(player_direction.x)
@@ -31,10 +30,11 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_enter_area_body_entered(body: Node2D) -> void:
-	if to_be_followed.is_empty():
-		push(Vector2.LEFT * sign(_get_direction(body).x), 130)
-	if to_be_followed.has(body): return
-	to_be_followed.append(body)
+	if body.is_in_group("player"):
+		if to_be_followed.is_empty():
+			push(Vector2.LEFT * sign(_get_direction(body).x), 130)
+		if to_be_followed.has(body): return
+		to_be_followed.append(body)
 
 
 #func _on_exit_area_body_entered(body: Node2D) -> void:
@@ -43,8 +43,9 @@ func _on_enter_area_body_entered(body: Node2D) -> void:
 
 
 func _on_exit_area_body_exited(body: Node2D) -> void:
-	var index = to_be_followed.find(body)
-	if index >= 0: to_be_followed.remove_at(index)
+	if body.is_in_group("player"):
+		var index = to_be_followed.find(body)
+		if index >= 0: to_be_followed.remove_at(index)
 
 
 func _on_death() -> void:
