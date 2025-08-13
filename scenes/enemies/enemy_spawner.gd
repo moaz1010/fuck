@@ -7,7 +7,7 @@ func _ready():
 	Flags.activated_flag.connect(_on_flag_activated)
 
 func _on_flag_activated(flag):
-	if flag == flag.ENTERED_ENEMY_SPAWN_AREA:
+	if flag == Flags.flags_enum.ENTERED_ENEMY_SPAWN_AREA:
 		$Timer.start()
 	
 	
@@ -20,4 +20,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	var enemy = enemy_prefab.instantiate()
-		
+	add_child(enemy)
