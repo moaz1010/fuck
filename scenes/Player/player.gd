@@ -17,11 +17,10 @@ const death_screen_preload = preload("res://scenes/ui_scenes/death screen/death_
 
 var current_look_dir := "right"
 
+var checkpoint_position: Vector2     
+var previous_push_velocity: Vector2 = Vector2.ZERO       # for the checkPoint System
 
-
-var checkpoint_position: Vector2            # for the checkPoint System
 var is_dead: bool = false
-
 var was_on_floor: bool = true
 var wants_to_jump: bool = false
 var can_dash: bool = true:
@@ -29,7 +28,6 @@ var can_dash: bool = true:
 		can_dash = value
 		if not value: modulate = Color(.5, .5, 1.0)
 		else: modulate = Color.WHITE
-
 var can_move: bool = true
 
 func _ready() -> void:
@@ -154,6 +152,7 @@ func _on_health_changed(new_health: float) -> void:
 
 func push(push_direction: Vector2, power: float = 1):
 	super(push_direction, power)
+	previous_push_velocity = push_direction * power
 	push_buffer.start()
 
 

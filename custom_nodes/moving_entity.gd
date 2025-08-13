@@ -14,7 +14,6 @@ var TERMINAL_VELOCITY := 1000.0
 var direction : float = 0
 var is_dashing : bool = false
 var dash_vector : Vector2 = Vector2.ZERO
-var previous_push_velocity : Vector2
 
 var ACCELERATION : float
 var FRICTION : float
@@ -111,7 +110,6 @@ func dash(dash_direction: Vector2, power: float):
 
 func push(push_direction: Vector2, power: float = 1):
 	velocity += push_direction * power
-	previous_push_velocity = push_direction * power
 
 func insta_push(push_direction: Vector2, power: float = 1):
 	velocity = push_direction * power
