@@ -67,7 +67,7 @@ func _reset_box():
 	audio_stream_player.stream = null
 
 func _type_text(text: String, type_speed: float = default_type_speed):
-	const PUNCTUATION = ['.', ',', '!', '?', ';', ':']
+	const PUNCTUATION: Array[String] = ['.', ',', '!', '?', ';', ':']
 	
 	_current_text_id += 1
 	var id := _current_text_id
@@ -79,15 +79,17 @@ func _type_text(text: String, type_speed: float = default_type_speed):
 	
 	var typing_buffer : SceneTreeTimer = null
 	
-	for i in text:
-		
-		print(wants_to_skip)
-		if typing_buffer: await typing_buffer.timeout
+	for i in text.length():
+		if typing_buffer and not wants_to_skip: await typing_buffer.timeout
 		if _current_text_id != id: 
 			is_typing = false
 			return
-			
-		if i in PUNCTUATION: 
+		
+		var next_letter_is_punctuation: bool = false
+		if i+1 < text.length():
+			if text[i+1] in PUNCTUATION: next_letter_is_punctuation = true
+		
+		if text[i] in PUNCTUATION and not next_letter_is_punctuation: 
 			typing_buffer = get_tree().create_timer(type_speed / 100)
 			wants_to_skip = false
 		elif wants_to_skip: 

@@ -83,5 +83,5 @@ unique_name_in_owner = true
 
 [node name="SkippingBuffer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.5
+wait_time = 0.1
 one_shot = true

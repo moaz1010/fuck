@@ -79,7 +79,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			is_dashing = true
 			dash_buffer.start()
 			can_dash = false
-			Camera.screen_shake_triggered.emit(5,0.15)
+			Camera.screen_shake(5,0.15)
 
 
 func _process(_delta: float) -> void:
