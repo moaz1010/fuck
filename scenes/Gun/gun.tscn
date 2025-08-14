@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ckddk7fwdwma1" path="res://scenes/Gun/gun.gd" id="1_y2frm"]
 [ext_resource type="Texture2D" uid="uid://43ed4aohw6yx" path="res://assests/weapons/Gun (2).png" id="2_b6iwu"]
 [ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="3_70h3e"]
-[ext_resource type="Texture2D" uid="uid://d355cgfpav72j" path="res://assests/cursors/freedom_gun_cursor.png" id="4_70h3e"]
+[ext_resource type="Texture2D" uid="uid://bvxi8y1000hf5" path="res://assests/cursors/gun_cursor.png" id="4_70h3e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3h82"]
 size = Vector2(24, 20)

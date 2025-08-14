@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://23o3anl36fh2" path="res://components/hitbox.gd" id="3_2hdwo"]
 [ext_resource type="Shader" uid="uid://dfn8gfmf075vq" path="res://shaders/filters/screen_flash.gdshader" id="3_6kyl5"]
 [ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="4_xr2dk"]
-[ext_resource type="Texture2D" uid="uid://bvxi8y1000hf5" path="res://assests/cursors/gun_cursor.png" id="5_2hdwo"]
+[ext_resource type="Texture2D" uid="uid://vy378dn0vw0l" path="res://assests/cursors/regular_cursor.png" id="6_2hdwo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xgl0u"]
 shader = ExtResource("3_6kyl5")
@@ -42,6 +42,6 @@ polygon = PackedVector2Array(-1, 0, 85, -23, 85, 23)
 
 [node name="CursorComponent" type="Node" parent="."]
 script = ExtResource("4_xr2dk")
-image = ExtResource("5_2hdwo")
+image = ExtResource("6_2hdwo")
 hotspot = 1
 metadata/_custom_type_script = "uid://ki65px3upm1g"
