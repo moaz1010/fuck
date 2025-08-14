@@ -11,10 +11,6 @@ var JUMP_HEIGHT := 160.0
 var MAX_SPEED := 300.0
 var TERMINAL_VELOCITY := 1000.0
 
-var direction : float = 0
-var is_dashing : bool = false
-var dash_vector : Vector2 = Vector2.ZERO
-
 var ACCELERATION : float
 var FRICTION : float
 var GRAVITY : float = 200
@@ -22,6 +18,11 @@ var FALL_GRAVITY : float = 300
 var MAX_SPEED_JUMP_INCREASE := .1
 var JUMP_VELOCITY := 400.0
 var MAX_JUMP_VELOCITY := 600.0
+
+var direction : float = 0
+
+var is_dashing : bool = false
+var dash_vector : Vector2 = Vector2.ZERO
 
 var velocity_increase: Vector2 = Vector2.ZERO
 
@@ -55,14 +56,12 @@ func _ready() -> void: _setup_from_resource(params)
 
 func _physics_process(delta: float) -> void:
 
-
 	if not is_dashing:
 		# Add the gravity.
 		if velocity.y > 0:
 			velocity.y += FALL_GRAVITY * delta
 		else:
 			velocity.y += GRAVITY * delta
-
 
 		#Handle acceleration.
 		if direction:
@@ -73,10 +72,16 @@ func _physics_process(delta: float) -> void:
 			#to push it beyond max speed.
 			if abs(velocity.x + increase*direction) > MAX_SPEED:
 				increase = (MAX_SPEED - abs(velocity.x) + (FRICTION * delta))
-			increase = max(increase, 0)
+				
+			var frames_of_overspeed : float = 10
+			if not is_on_floor(): frames_of_overspeed = 60
+			increase = max(
+				increase, 
+				FRICTION * delta * 
+				((frames_of_overspeed-1) / frames_of_overspeed)
+				)
 			
 			velocity.x += increase * direction
-
 
 		#Handle friction.
 		var friciton_direction : int = -(sign(velocity.x))
@@ -96,7 +101,7 @@ func _physics_process(delta: float) -> void:
 			sign(dash_vector.x) * ACCELERATION * delta * cutoff, 
 			sign(dash_vector.y) * GRAVITY * delta * cutoff
 			)
-	velocity_increase = Vector2.ZERO
+
 
 func jump():
 	if not is_dashing:

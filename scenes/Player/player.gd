@@ -117,6 +117,7 @@ func _physics_process(delta: float) -> void:
 	else: 
 		direction = 0
 		velocity = Vector2.ZERO
+	velocity_increase = Vector2.ZERO
 
 
 func change_weapon(scene: PackedScene) -> void:
