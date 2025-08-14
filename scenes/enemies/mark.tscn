@@ -118,8 +118,11 @@ frame = 11
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_aw7h3")
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("4_sqaxy")
+health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://c3aifbheqy0ru"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
@@ -152,7 +155,9 @@ offset_left = -15.0
 offset_top = -19.0
 offset_right = 15.0
 offset_bottom = -13.0
+max_value = 40.0
 
 [connection signal="body_entered" from="intiateEnemySpaenArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="intiateEnemySpaenArea" to="." method="_on_area_2d_body_exited"]
+[connection signal="died" from="HealthComponent" to="." method="_on_death"]
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_changed"]
