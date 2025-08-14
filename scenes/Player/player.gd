@@ -138,6 +138,7 @@ func _on_weapon_shell_child_entered_tree(weapon: Node) -> void:
 func take_recoil(power):
 	var recoil_direction = (
 		global_position - weapon_shell.get_child(0).global_position).normalized()
+	recoil_direction.y /= 1.5
 	push(recoil_direction, power)
 
 

@@ -11,7 +11,7 @@ signal bullet_shot(recoil: float)
 @onready var animation_player = $AnimationPlayer
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_just_pressed("fire") and cool_down_timer.is_stopped():
 		animation_player.play("shoot")
 
 func shoot():

@@ -11,7 +11,7 @@ size = Vector2(24, 20)
 [node name="Gun" type="Node2D"]
 z_index = 1
 script = ExtResource("1_y2frm")
-RECOIL = 50.0
+RECOIL = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7, 3)
@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_w3h82")
 
 [node name="CooldownTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
 
 [node name="CursorComponent" type="Node" parent="."]
