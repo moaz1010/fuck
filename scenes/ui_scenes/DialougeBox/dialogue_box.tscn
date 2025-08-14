@@ -1,19 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmy2a3ac54cy7"]
+[gd_scene load_steps=5 format=3 uid="uid://bmy2a3ac54cy7"]
 
 [ext_resource type="Script" uid="uid://bx07rcormc8l4" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.gd" id="1_vt4lp"]
+[ext_resource type="Texture2D" uid="uid://2ehrkf0p5i5j" path="res://assests/UI stuff/1Bit_UI_pack_byBatuhan_20250812/1-bit_UI_byBatuhanK.png" id="2_clkam"]
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="2_csukm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncicg"]
-bg_color = Color(0, 0, 0, 0.568627)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.921569, 0.898039, 0.807843, 1)
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekbn0"]
+texture = ExtResource("2_clkam")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+region_rect = Rect2(271, 119, 174, 83)
 
 [node name="DialogueBox" type="MarginContainer"]
 anchors_preset = 15
@@ -41,7 +38,7 @@ offset_top = -100.0
 offset_right = 250.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ncicg")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ekbn0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel"]
 layout_mode = 1

@@ -1,19 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dik3rdqi4620h"]
+[gd_scene load_steps=5 format=3 uid="uid://dik3rdqi4620h"]
 
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="1_b5lqt"]
 [ext_resource type="Script" uid="uid://fjs3p10c4lc" path="res://scenes/ui_scenes/Dialogue/dialogue_system.gd" id="1_ncicg"]
+[ext_resource type="Texture2D" uid="uid://2ehrkf0p5i5j" path="res://assests/UI stuff/1Bit_UI_pack_byBatuhan_20250812/1-bit_UI_byBatuhanK.png" id="2_rh3ak"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncicg"]
-bg_color = Color(0, 0, 0, 0.568627)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.921569, 0.898039, 0.807843, 1)
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_niffh"]
+texture = ExtResource("2_rh3ak")
+texture_margin_left = 14.0
+texture_margin_top = 19.0
+texture_margin_right = 14.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(271, 119, 173, 83)
 
 [node name="DialogueSystem" type="Node2D"]
 z_index = 4096
@@ -24,7 +21,7 @@ offset_left = -144.0
 offset_top = -28.0
 offset_right = 144.0
 offset_bottom = 28.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ncicg")
+theme_override_styles/panel = SubResource("StyleBoxTexture_niffh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = -144.0
