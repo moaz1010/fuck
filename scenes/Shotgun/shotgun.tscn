@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctr3krsk5b84h"]
+
+[ext_resource type="Script" uid="uid://dtlpl7vwynd40" path="res://scenes/Shotgun/shotgun.gd" id="1_sfy86"]
+[ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="2_iv2y2"]
+[ext_resource type="Texture2D" uid="uid://d355cgfpav72j" path="res://assests/cursors/freedom_gun_cursor.png" id="3_oxve3"]
+[ext_resource type="Texture2D" uid="uid://lmblqsgykr14" path="res://assests/weapons/shotgun.png" id="4_8anj5"]
+
+[sub_resource type="Animation" id="Animation_tjcs4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g0jno"]
+resource_name = "default"
+length = 0.0333367
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_urs5f"]
+resource_name = "shoot"
+length = 0.16667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1eqj1"]
+_data = {
+&"RESET": SubResource("Animation_tjcs4"),
+&"default": SubResource("Animation_g0jno"),
+&"shoot": SubResource("Animation_urs5f")
+}
+
+[node name="Shotgun" type="Node2D"]
+z_index = 1
+script = ExtResource("1_sfy86")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="CursorComponent" type="Node" parent="."]
+script = ExtResource("2_iv2y2")
+image = ExtResource("3_oxve3")
+hotspot = 1
+metadata/_custom_type_script = "uid://ki65px3upm1g"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_8anj5")
+hframes = 5
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1eqj1")
+}
+autoplay = "default"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

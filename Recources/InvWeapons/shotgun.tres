@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InvWeaponResource" load_steps=5 format=3 uid="uid://bc4r31dgj2y22"]
+
+[ext_resource type="Script" uid="uid://74mlu6t1v0aw" path="res://Recources/weapons.gd" id="1_qx65n"]
+[ext_resource type="PackedScene" uid="uid://ctr3krsk5b84h" path="res://scenes/Shotgun/shotgun.tscn" id="2_h1uvm"]
+
+[sub_resource type="Gradient" id="Gradient_c0hji"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ssh4m"]
+gradient = SubResource("Gradient_c0hji")
+
+[resource]
+script = ExtResource("1_qx65n")
+weapon_scene = ExtResource("2_h1uvm")
+sprite = SubResource("GradientTexture2D_ssh4m")
+metadata/_custom_type_script = "uid://74mlu6t1v0aw"

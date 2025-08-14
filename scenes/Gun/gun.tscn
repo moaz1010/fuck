@@ -11,6 +11,7 @@ size = Vector2(24, 20)
 [node name="Gun" type="Node2D"]
 z_index = 1
 script = ExtResource("1_y2frm")
+RECOIL = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7, 3)

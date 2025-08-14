@@ -1,9 +1,9 @@
-[gd_scene load_steps=42 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=44 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
 [ext_resource type="Script" uid="uid://bcuhd17r3ydo" path="res://scenes/camera_2d.gd" id="1_jscy8"]
-[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="1_y6deb"]
+[ext_resource type="Script" uid="uid://crx41j4i46iah" path="res://scripts/camera_2d.gd" id="1_y6deb"]
 [ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://scenes/tilemaps/tiles.tscn" id="1_yx00i"]
 [ext_resource type="Texture2D" uid="uid://dlax476o1ugtj" path="res://assests/World tiles/background.png" id="2_25x5a"]
 [ext_resource type="Texture2D" uid="uid://lftotrfcgqqu" path="res://assests/World tiles/tiles_atlas.png" id="3_godeq"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://3uxxq1fbpla8" path="res://scenes/spike.tscn" id="22_jscy8"]
 [ext_resource type="Script" uid="uid://g8gv2pig833v" path="res://scenes/area_2d.gd" id="22_pm3ni"]
 [ext_resource type="Resource" uid="uid://bgpoef4ytku2l" path="res://Recources/InvWeapons/flash_light.tres" id="24_y6deb"]
+[ext_resource type="Resource" uid="uid://bc4r31dgj2y22" path="res://Recources/InvWeapons/shotgun.tres" id="25_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://xktn33ib77xh" path="res://scenes/enemies/mark.tscn" id="25_og1vs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsyfl"]
@@ -531,6 +532,9 @@ size = Vector2(21, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og1vs"]
 size = Vector2(7, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxglm"]
+size = Vector2(64, 64)
+
 [node name="Main" type="Node"]
 
 [node name="World" type="Node2D" parent="."]
@@ -539,6 +543,7 @@ size = Vector2(7, 8)
 position = Vector2(-27, 55)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 script = ExtResource("1_y6deb")
 
 [node name="tilemaps" type="Node" parent="World"]
@@ -797,8 +802,6 @@ weapon = ExtResource("6_tipki")
 position = Vector2(-1.5, 1.5)
 shape = SubResource("RectangleShape2D_yc10j")
 
-[node name="Node" type="Node" parent="World"]
-
 [node name="AbstractItem2" parent="World" instance=ExtResource("5_obu5w")]
 position = Vector2(216, 47)
 weapon = ExtResource("24_y6deb")
@@ -806,6 +809,13 @@ weapon = ExtResource("24_y6deb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/AbstractItem2"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_og1vs")
+
+[node name="AbstractItem3" parent="World" instance=ExtResource("5_obu5w")]
+position = Vector2(129, 11)
+weapon = ExtResource("25_2wyq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/AbstractItem3"]
+shape = SubResource("RectangleShape2D_vxglm")
 
 [node name="mark" parent="World" instance=ExtResource("25_og1vs")]
 position = Vector2(306, 73)
