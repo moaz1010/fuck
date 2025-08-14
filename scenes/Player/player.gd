@@ -12,9 +12,6 @@ extends MovingEntity   # thank you
 
 @export var DASH_POWER := 300.0
 
-
-const death_screen_preload = preload("res://scenes/ui_scenes/death screen/death_screen.tscn")
-
 var current_look_dir := "right"
 
 var checkpoint_position: Vector2     
@@ -163,5 +160,5 @@ func _on_checkpoint_activated(pos: Vector2) -> void:
 
 
 func _on_health_component_died() -> void:
-	death_screen_preload.instantiate()
+	get_tree().change_scene_to_file.call_deferred("res://scenes/ui_scenes/death screen/death_screen.tscn")
 	
