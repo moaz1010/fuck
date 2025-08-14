@@ -5,7 +5,7 @@ class_name Shotgun
 @onready var muzzle: Marker2D = $Marker2D
 @onready var cool_down_timer : Timer = %CooldownTimer
 const BULLET = preload("res://scenes/Bullet/bullet.tscn")
-@export var RECOIL: float = 200.0
+@export var RECOIL: float = 400.0
 signal bullet_shot(recoil: float)
 
 @onready var animation_player = $AnimationPlayer
