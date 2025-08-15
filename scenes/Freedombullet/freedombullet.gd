@@ -15,10 +15,10 @@ func _process(delta: float) -> void:
 	sprites_node.rotate(ROTATION_SPEED*2*PI*delta)
 
 func _physics_process(delta: float) -> void:
-	velocity = Vector2.RIGHT*SPEED
+	velocity = Vector2.RIGHT*SPEED*delta
 	velocity = velocity.rotated(global_rotation)
-	move_and_slide()
-	if get_slide_collision_count():
+	var collision = move_and_collide(velocity)
+	if collision:
 		_split.call_deferred()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
@@ -38,3 +38,7 @@ func _split():
 		bullet_instance.global_position = sprite.global_position
 		bullet_instance.global_rotation = sprite.global_rotation
 	queue_free()
+
+
+func _on_split_timer_timeout() -> void:
+	_split.call_deferred()

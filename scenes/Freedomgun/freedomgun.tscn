@@ -17,7 +17,7 @@ position = Vector2(16, 0)
 
 [node name="CooldownTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.2
+wait_time = 0.5
 one_shot = true
 
 [node name="CursorComponent" type="Node" parent="."]
