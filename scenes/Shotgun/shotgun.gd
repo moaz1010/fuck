@@ -1,5 +1,4 @@
 extends Node2D
-class_name Shotgun
 
 
 @onready var muzzle: Marker2D = $Marker2D

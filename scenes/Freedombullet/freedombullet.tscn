@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbm0w8yivtwn7"]
+
+[ext_resource type="Script" uid="uid://yb2lgrps6nx4" path="res://scenes/Freedombullet/freedombullet.gd" id="1_bob6n"]
+[ext_resource type="Texture2D" uid="uid://cw54du65dbci6" path="res://assests/weapons/bullet.png" id="2_1wvu0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsnsv"]
+size = Vector2(4, 4)
+
+[node name="bullet" type="CharacterBody2D"]
+z_index = -1
+collision_layer = 4
+collision_mask = 18
+script = ExtResource("1_bob6n")
+
+[node name="Sprites" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
+texture = ExtResource("2_1wvu0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
+rotation = 1.25664
+texture = ExtResource("2_1wvu0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites"]
+rotation = 2.51327
+texture = ExtResource("2_1wvu0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites"]
+rotation = -2.51327
+texture = ExtResource("2_1wvu0")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites"]
+rotation = -1.25664
+texture = ExtResource("2_1wvu0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2.5, -7.15256e-07)
+scale = Vector2(0.75, 0.9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xsnsv")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

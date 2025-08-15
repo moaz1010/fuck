@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=46 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
@@ -26,6 +26,7 @@
 [ext_resource type="Resource" uid="uid://bgpoef4ytku2l" path="res://Recources/InvWeapons/flash_light.tres" id="24_y6deb"]
 [ext_resource type="Resource" uid="uid://bc4r31dgj2y22" path="res://Recources/InvWeapons/shotgun.tres" id="25_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://xktn33ib77xh" path="res://scenes/enemies/mark.tscn" id="25_og1vs"]
+[ext_resource type="Resource" uid="uid://pwvssfxgbqv1" path="res://Recources/InvWeapons/freedomgun.tres" id="26_vxglm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsyfl"]
 texture = ExtResource("2_25x5a")
@@ -535,6 +536,9 @@ size = Vector2(7, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxglm"]
 size = Vector2(36.5, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f3dj"]
+size = Vector2(39, 20)
+
 [node name="Main" type="Node"]
 
 [node name="World" type="Node2D" parent="."]
@@ -817,6 +821,13 @@ weapon = ExtResource("25_2wyq8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/AbstractItem3"]
 position = Vector2(-1.25, 2)
 shape = SubResource("RectangleShape2D_vxglm")
+
+[node name="AbstractItem4" parent="World" instance=ExtResource("5_obu5w")]
+weapon = ExtResource("26_vxglm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/AbstractItem4"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_2f3dj")
 
 [node name="mark" parent="World" instance=ExtResource("25_og1vs")]
 position = Vector2(306, 73)

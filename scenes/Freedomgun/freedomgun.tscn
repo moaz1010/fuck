@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://671p8nkpk4j5"]
+
+[ext_resource type="Script" uid="uid://dyhtcms81v85n" path="res://scenes/Freedomgun/freedomgun.gd" id="1_hn58u"]
+[ext_resource type="Texture2D" uid="uid://d2darsxguha7c" path="res://assests/weapons/freedom_gun.ong.png" id="2_sx2be"]
+[ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="3_hoykg"]
+[ext_resource type="Texture2D" uid="uid://d355cgfpav72j" path="res://assests/cursors/freedom_gun_cursor.png" id="4_v6c33"]
+
+[node name="Freedomgun" type="Node2D"]
+z_index = 1
+script = ExtResource("1_hn58u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sx2be")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="CursorComponent" type="Node" parent="."]
+script = ExtResource("3_hoykg")
+image = ExtResource("4_v6c33")
+hotspot = 1
+metadata/_custom_type_script = "uid://ki65px3upm1g"
