@@ -3,7 +3,7 @@ extends Node2D
 @onready var muzzle: Marker2D = $Marker2D
 @onready var cool_down_timer : Timer = %CooldownTimer
 const BULLET = preload("res://scenes/Freedombullet/freedombullet.tscn")
-@export var RECOIL: float = 200.0
+@export var RECOIL: float = 500.0
 signal bullet_shot(recoil: float)
 
 
