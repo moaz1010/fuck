@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://8ihjb88qd8bw"]
+[gd_scene load_steps=5 format=3 uid="uid://8ihjb88qd8bw"]
 
 [ext_resource type="Texture2D" uid="uid://cfc1atlyxhj5c" path="res://assests/UI stuff/Buttons/unfinished_spritesheet_buttons2.png" id="1_5gs0b"]
+[ext_resource type="Script" uid="uid://syvtcxgjruo3" path="res://scenes/ui_scenes/new folder/hotbar.gd" id="1_t8pqg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8pqg"]
 texture = ExtResource("1_5gs0b")
@@ -25,55 +26,70 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_t8pqg")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_right = 250.0
-offset_bottom = 69.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -69.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("1_5gs0b")
 region_rect = Rect2(33, 227, 30, 28)
 patch_margin_left = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 240.0
-offset_bottom = 60.0
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -30.0
+offset_right = 120.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 10
+alignment = 1
 
-[node name="Control" type="Control" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 10
+alignment = 1
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="slot 1" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="slot 1" type="Button" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
 
-[node name="slot 2" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="slot 2" type="Button" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
 
-[node name="slot3" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="slot3" type="Button" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
 
-[node name="slot4" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="slot4" type="Button" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")

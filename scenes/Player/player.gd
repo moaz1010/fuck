@@ -33,7 +33,7 @@ func _ready() -> void:
 	progress_bar.min_value = health.min_health
 	progress_bar.max_value = health.max_health
 	super()
-	Inventory.added_weapon.connect(
+	Inventory.weapon_switched.connect(
 		#This is here because the "change_weapon" function takes a scene
 		#but the signal sends a resource.
 		#It also calls calls the "change_weapon" function as deffered.
