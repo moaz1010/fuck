@@ -509,7 +509,7 @@ size = Vector2(22, 23)
 a = Vector2(0, -11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jscy8"]
-size = Vector2(234, 197)
+size = Vector2(106, 114.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjqg0"]
 size = Vector2(24.5, 27)
@@ -734,7 +734,7 @@ monitorable = false
 script = ExtResource("22_pm3ni")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/signs/Sign/Area2D"]
-position = Vector2(65, 56)
+position = Vector2(129, 97.25)
 shape = SubResource("RectangleShape2D_jscy8")
 
 [node name="signDialogueArea6" type="Area2D" parent="World/charachters/signs/Sign"]
