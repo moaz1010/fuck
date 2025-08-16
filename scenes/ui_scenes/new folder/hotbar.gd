@@ -26,3 +26,7 @@ func _update_slots() -> void:
 func _switch_weapon(button_index: int) -> void:
 	if Inventory.items.size() > button_index and button_index >= 0:
 		Inventory.current_weapon = Inventory.items[button_index]
+
+
+func _on_toggle_menu_button_pressed() -> void:
+	pass # Replace with function body.

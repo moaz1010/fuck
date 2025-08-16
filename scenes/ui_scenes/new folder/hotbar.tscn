@@ -1,7 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://8ihjb88qd8bw"]
+[gd_scene load_steps=14 format=3 uid="uid://8ihjb88qd8bw"]
 
 [ext_resource type="Texture2D" uid="uid://cfc1atlyxhj5c" path="res://assests/UI stuff/Buttons/unfinished_spritesheet_buttons2.png" id="1_5gs0b"]
 [ext_resource type="Script" uid="uid://syvtcxgjruo3" path="res://scenes/ui_scenes/new folder/hotbar.gd" id="1_t8pqg"]
+[ext_resource type="Texture2D" uid="uid://del8crji3hih5" path="res://assests/UI stuff/Buttons/added_exit_button_spritesheet.png" id="3_jbs2r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbs2r"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8pqg"]
 texture = ExtResource("1_5gs0b")
@@ -19,6 +26,94 @@ texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 region_rect = Rect2(33, 225, 30, 30)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2tmep"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1svrb"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4yaqv"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2tmep"]
+texture = ExtResource("3_jbs2r")
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(130, 247, 16, 8)
+
+[sub_resource type="Animation" id="Animation_pm5yq"]
+resource_name = "open_full_hotbar"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(258, 68), Vector2(250, 198)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NinePatchRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(345, 572), Vector2(345, 442)]
+}
+
+[sub_resource type="Animation" id="Animation_rpapq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(258, 68)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NinePatchRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(345, 572)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rcygm"]
+_data = {
+&"RESET": SubResource("Animation_rpapq"),
+&"open_full_hotbar": SubResource("Animation_pm5yq")
+}
+
 [node name="hotbar" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -35,63 +130,211 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -125.0
-offset_top = -69.0
-offset_right = 125.0
+offset_left = -129.0
+offset_top = -68.0
+offset_right = 129.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("1_5gs0b")
-region_rect = Rect2(33, 227, 30, 28)
+region_rect = Rect2(33, 225, 30, 30)
 patch_margin_left = 2
+patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -30.0
-offset_right = 120.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 5
+
+[node name="hotbarContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/hotbarContainer"]
+layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+[node name="Control2" type="Control" parent="NinePatchRect/VBoxContainer/hotbarContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/hotbarContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="slot 1" type="Button" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="NinePatchRect/VBoxContainer/hotbarContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="slot 1" type="Button" parent="NinePatchRect/VBoxContainer/hotbarContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jbs2r")
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
 
-[node name="slot 2" type="Button" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+[node name="slot 2" type="Button" parent="NinePatchRect/VBoxContainer/hotbarContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2tmep")
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
 
-[node name="slot3" type="Button" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+[node name="slot3" type="Button" parent="NinePatchRect/VBoxContainer/hotbarContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1svrb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
 
-[node name="slot4" type="Button" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+[node name="slot4" type="Button" parent="NinePatchRect/VBoxContainer/hotbarContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4yaqv")
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+
+[node name="otherSlotsContainerOne" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/otherSlotsContainerOne"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Control2" type="Control" parent="NinePatchRect/VBoxContainer/otherSlotsContainerOne/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/otherSlotsContainerOne/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Control" type="Control" parent="NinePatchRect/VBoxContainer/otherSlotsContainerOne/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="slot 1" type="Button" parent="NinePatchRect/VBoxContainer/otherSlotsContainerOne/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jbs2r")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+
+[node name="slot 2" type="Button" parent="NinePatchRect/VBoxContainer/otherSlotsContainerOne/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2tmep")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+
+[node name="slot3" type="Button" parent="NinePatchRect/VBoxContainer/otherSlotsContainerOne/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1svrb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+
+[node name="slot4" type="Button" parent="NinePatchRect/VBoxContainer/otherSlotsContainerOne/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4yaqv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+
+[node name="otherSlotsContainerTwo" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/otherSlotsContainerTwo"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Control2" type="Control" parent="NinePatchRect/VBoxContainer/otherSlotsContainerTwo/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/otherSlotsContainerTwo/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Control" type="Control" parent="NinePatchRect/VBoxContainer/otherSlotsContainerTwo/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="slot 1" type="Button" parent="NinePatchRect/VBoxContainer/otherSlotsContainerTwo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jbs2r")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+
+[node name="slot 2" type="Button" parent="NinePatchRect/VBoxContainer/otherSlotsContainerTwo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2tmep")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+
+[node name="slot3" type="Button" parent="NinePatchRect/VBoxContainer/otherSlotsContainerTwo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1svrb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+
+[node name="slot4" type="Button" parent="NinePatchRect/VBoxContainer/otherSlotsContainerTwo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4yaqv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+
+[node name="baseMenuOpenButtonContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_top = -12.0
+offset_right = 51.0
+offset_bottom = 2.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="toggleMenuButton" type="Button" parent="NinePatchRect/baseMenuOpenButtonContainer"]
+custom_minimum_size = Vector2(100, 4)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxTexture_2tmep")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2tmep")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2tmep")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2tmep")
+
+[node name="seperator" type="Control" parent="NinePatchRect/baseMenuOpenButtonContainer"]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rcygm")
+}
+
+[connection signal="pressed" from="NinePatchRect/baseMenuOpenButtonContainer/toggleMenuButton" to="." method="_on_toggle_menu_button_pressed"]
