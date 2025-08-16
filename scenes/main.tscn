@@ -795,6 +795,10 @@ position = Vector2(3063, 255)
 [node name="enemy3" parent="World/enemies" instance=ExtResource("19_0ld40")]
 position = Vector2(3026, 258)
 
+[node name="mark" parent="World/enemies" instance=ExtResource("25_og1vs")]
+position = Vector2(306, 73)
+collision_layer = 2
+
 [node name="spike" parent="World" instance=ExtResource("22_jscy8")]
 position = Vector2(112, 64)
 
@@ -828,9 +832,5 @@ weapon = ExtResource("26_vxglm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/AbstractItem4"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_2f3dj")
-
-[node name="mark" parent="World" instance=ExtResource("25_og1vs")]
-position = Vector2(306, 73)
-collision_layer = 2
 
 [connection signal="body_entered" from="World/charachters/signs/Sign/Area2D" to="World/charachters/signs/Sign/Area2D" method="_on_body_entered"]

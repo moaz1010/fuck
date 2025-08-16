@@ -11,6 +11,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("fire") and cool_down_timer.is_stopped():  # to shoot
 		shoot()
 		
+		
 func shoot():
 	bullet_shot.emit(RECOIL)
 	cool_down_timer.start()
