@@ -151,6 +151,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_t8pqg")
 open_and_close_button = NodePath("NinePatchRect/baseMenuOpenButtonContainer/toggleMenuButton")
 
@@ -159,8 +160,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -68.0
-offset_right = 258.0
+offset_top = -197.401
+offset_right = 250.0
+offset_bottom = 0.599182
 grow_vertical = 0
 texture = ExtResource("1_5gs0b")
 region_rect = Rect2(33, 225, 30, 30)
@@ -204,6 +206,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_jbs2r")
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+toggle_mode = true
 
 [node name="slot 2" type="Button" parent="NinePatchRect/VBoxContainer/hotbarContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
@@ -212,6 +215,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_2tmep")
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+toggle_mode = true
 
 [node name="slot3" type="Button" parent="NinePatchRect/VBoxContainer/hotbarContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
@@ -220,6 +224,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1svrb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+toggle_mode = true
 
 [node name="slot4" type="Button" parent="NinePatchRect/VBoxContainer/hotbarContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
@@ -228,6 +233,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_4yaqv")
 theme_override_styles/hover = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t8pqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbs2r")
+toggle_mode = true
 
 [node name="otherSlotsContainerOne" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2

@@ -1,11 +1,43 @@
 extends Control
 
 var slots : Array[Node]
+
 var is_open := false
+
+var selected_index: int = 0
+
 
 var open_buttons: Array
 
 @export var open_and_close_button: Button
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		# Scroll up
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			_scroll_hotbar(-1)
+		# Scroll down
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			_scroll_hotbar(1)
+
+
+func _scroll_hotbar(direction: int) -> void:
+	if slots.size() == 0:
+		return
+	
+	selected_index = (selected_index + direction) % slots.size()
+	if selected_index < 0:
+		selected_index = slots.size() - 1
+
+	_switch_weapon(selected_index)
+	print("Scroll detected:", direction, " -> new index:", selected_index)
+	_highlight_slot(selected_index)
+
+func _highlight_slot(index: int) -> void:
+	for i in range(slots.size()):
+		slots[i].button_pressed = (i == index)  # only selected slot stays pressed
+
+
 
 func _process(delta: float) -> void:
 	update_button_scale()
