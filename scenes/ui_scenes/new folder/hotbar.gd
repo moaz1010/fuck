@@ -1,8 +1,23 @@
 extends Control
 
 var slots : Array[Node]
+var is_open := false
+
+var open_buttons: Array
+
+@export var open_and_close_button: Button
+
+func _process(delta: float) -> void:
+	update_button_scale()
+	
+	if Input.is_action_just_pressed("open_hotbar") and !is_open:
+		$AnimationPlayer.play("open_full_hotbar")
+		is_open = true
+
+		
 
 func _ready() -> void:
+	open_buttons = [open_and_close_button]
 	slots = %HBoxContainer.get_children().filter(
 		func(child: Node) -> bool:
 		return child is Button
@@ -14,6 +29,8 @@ func _ready() -> void:
 	Inventory.added_weapon.connect(
 		func(_resource): _update_slots()
 		)
+		
+
 
 
 func _update_slots() -> void:
@@ -29,4 +46,25 @@ func _switch_weapon(button_index: int) -> void:
 
 
 func _on_toggle_menu_button_pressed() -> void:
-	pass # Replace with function body.
+	if !is_open:
+		$AnimationPlayer.play("open_full_hotbar")
+		is_open = true
+	else:
+		$AnimationPlayer.play("close_hotbar")
+		is_open = false
+		
+		
+		
+func update_button_scale():                           # to actually animate button
+	for button in open_buttons:
+		button_hov(button, 1.7, 0.2)
+
+func button_hov(button: Button, tween_amt, duration):   # to check wether the button is hovered or not
+	button.pivot_offset = button.size / 2
+	if button.is_hovered():
+		tween(button, "scale", Vector2.ONE * tween_amt, duration)
+	else:
+		tween(button, "scale", Vector2.ONE, duration)
+
+func tween(button, property, amount, duration):            # to get the animation properties
+	create_tween().tween_property(button, property, amount, duration)
