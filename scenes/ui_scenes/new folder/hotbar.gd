@@ -1,5 +1,5 @@
 extends Control
-
+ 
 var slots : Array[Node]
 
 var is_open := false
@@ -29,12 +29,14 @@ func _scroll_hotbar(direction: int) -> void:
 	if selected_index < 0:
 		selected_index = slots.size() - 1
 
-	_switch_weapon(selected_index)
-	print("Scroll detected:", direction, " -> new index:", selected_index)
-	_highlight_slot(selected_index)
+	slots[selected_index].button_pressed = true
+	slots[selected_index].pressed.emit()
+	#_switch_weapon(selected_index)
+	#print("Scroll detected:", direction, " -> new index:", selected_index)
+	#_highlight_slot(selected_index)
 
 func _highlight_slot(index: int) -> void:
-	for i in range(slots.size()):
+	for i in slots.size():
 		slots[i].button_pressed = (i == index)  # only selected slot stays pressed
 
 
