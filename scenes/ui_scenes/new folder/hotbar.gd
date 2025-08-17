@@ -44,9 +44,13 @@ func _highlight_slot(index: int) -> void:
 func _process(delta: float) -> void:
 	update_button_scale()
 	
-	if Input.is_action_just_pressed("open_hotbar") and !is_open:
-		$AnimationPlayer.play("open_full_hotbar")
-		is_open = true
+	if Input.is_action_just_pressed("open_hotbar"):
+		if !is_open:
+			$AnimationPlayer.play("open_full_hotbar")
+			is_open = true
+		else:
+			$AnimationPlayer.play("close_hotbar")
+			is_open = false
 
 		
 
