@@ -4,8 +4,8 @@ signal activated_flag(flag: flags_enum)
 
 enum flags_enum {
 	REACHED_DEAD_END,
-	ENTERED_ENEMY_SPAWN_AREA
-	
+	ENTERED_ENEMY_SPAWN_AREA,
+	REACHED_FIRST_PARKOUR
 }
 
 

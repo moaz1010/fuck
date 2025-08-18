@@ -146,6 +146,7 @@ _data = {
 }
 
 [node name="hotbar" type="Control" node_paths=PackedStringArray("open_and_close_button")]
+z_index = 400
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
