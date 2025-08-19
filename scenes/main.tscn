@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=60 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
@@ -505,12 +505,6 @@ _data = {
 &"trying": SubResource("Animation_jscy8")
 }
 
-[sub_resource type="Resource" id="Resource_5he1u"]
-script = ExtResource("9_gqmmt")
-flags = Array[int]([1])
-dialogues = Array[ExtResource("6_jbj1t")]([])
-metadata/_custom_type_script = "uid://d1w3u6bvd10a1"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pm3ni"]
 size = Vector2(37, 23)
 
@@ -682,7 +676,6 @@ position = Vector2(78, 71)
 collision_layer = 0
 script = ExtResource("11_ya4ey")
 defalut_dialogue = ExtResource("6_gqmmt")
-dialogue_sections = Array[ExtResource("9_gqmmt")]([SubResource("Resource_5he1u")])
 is_instant = true
 metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 
