@@ -73,12 +73,15 @@ func _physics_process(delta: float) -> void:
 			if abs(velocity.x + increase*direction) > MAX_SPEED:
 				increase = (MAX_SPEED - abs(velocity.x) + (FRICTION * delta))
 				
-			var frames_of_overspeed : float = 3
-			if not is_on_floor(): frames_of_overspeed = 15
+			var overspeed : float = 3
+			if not is_on_floor(): overspeed = 20
+			var overspeed_value = lerp(
+				1, 0,
+				abs(velocity.x) / (MAX_SPEED*overspeed)
+				)
 			increase = max(
 				increase, 
-				FRICTION * delta * 
-				((frames_of_overspeed-1) / frames_of_overspeed)
+				FRICTION * delta * overspeed_value
 				)
 			
 			velocity.x += increase * direction

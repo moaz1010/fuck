@@ -41,7 +41,7 @@ func _highlight_slot(index: int) -> void:
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_button_scale()
 	
 	if Input.is_action_just_pressed("open_hotbar"):
