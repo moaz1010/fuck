@@ -25,7 +25,6 @@ func _on_health_changed(new_health: float) -> void:
 	var value = (new_health+offset) / (health_component.max_health+offset)
 	modulate.b = clamp(value,0 , 1)
 	modulate.g = clamp(value, 0, 1)
-	progress_bar.value = new_health
 	$AnimationPlayer.play("getting_hit")
 
 

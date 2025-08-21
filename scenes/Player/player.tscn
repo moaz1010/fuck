@@ -116,12 +116,10 @@ params = ExtResource("2_dl1wr")
 [node name="ProgressBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_a06cl")]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(20, 0)
-offset_left = -25.0
-offset_top = -21.0
-offset_right = 25.0
-offset_bottom = -15.0
-size_flags_horizontal = 0
+offset_left = 13.0
+offset_top = -24.0
+offset_right = 46.0
+offset_bottom = -18.0
 health_component = NodePath("../HealthComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

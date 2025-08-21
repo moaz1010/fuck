@@ -148,14 +148,13 @@ idle_healing = 5.0
 max_health = 40.0
 metadata/_custom_type_script = "uid://8rms6rae8mtb"
 
-[node name="ProgressBar" parent="." instance=ExtResource("7_i55li")]
+[node name="ProgressBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_i55li")]
 unique_name_in_owner = true
 visible = false
-offset_left = -15.0
 offset_top = -19.0
-offset_right = 15.0
 offset_bottom = -13.0
 max_value = 40.0
+health_component = NodePath("../HealthComponent")
 
 [connection signal="body_entered" from="intiateEnemySpaenArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="intiateEnemySpaenArea" to="." method="_on_area_2d_body_exited"]

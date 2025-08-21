@@ -4,7 +4,11 @@ extends ProgressBar
 
 func _ready():
 	if health_component:
+		max_value = health_component.max_health
+		min_value = health_component.min_health
+		size.x = health_component.max_health / 2
 		health_component.health_changed.connect(_on_health_changed)
+	position.x = size.x / -2
 
 func _process(_delta: float) -> void:
 	if value != max_value:
