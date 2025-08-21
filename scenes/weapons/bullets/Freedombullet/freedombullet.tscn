@@ -36,10 +36,6 @@ texture = ExtResource("2_1wvu0")
 rotation = -1.25664
 texture = ExtResource("2_1wvu0")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(2.5, -7.15256e-07)
-scale = Vector2(0.75, 0.9)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xsnsv")
 
@@ -48,5 +44,4 @@ wait_time = 0.5
 one_shot = true
 autostart = true
 
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="SplitTimer" to="." method="_on_split_timer_timeout"]

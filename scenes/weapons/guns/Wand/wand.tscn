@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://daow4t3e5aian"]
+
+[ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="1_qea06"]
+[ext_resource type="Texture2D" uid="uid://brylkws58i7ch" path="res://assests/cursors/wand_cursor.png" id="2_yy30c"]
+[ext_resource type="Texture2D" uid="uid://defyk5o3qwjyi" path="res://assests/weapons/wand.png" id="3_all8n"]
+[ext_resource type="Script" uid="uid://ci4ql2lao8u1" path="res://scenes/weapons/guns/Wand/shoot_component.gd" id="4_rxrd4"]
+[ext_resource type="PackedScene" uid="uid://bwfgijgurapvi" path="res://scenes/weapons/bullets/WandBullet/wand_bullet.tscn" id="5_2nngg"]
+
+[node name="Wand" type="Node2D"]
+
+[node name="CursorComponent" type="Node" parent="."]
+script = ExtResource("1_qea06")
+image = ExtResource("2_yy30c")
+metadata/_custom_type_script = "uid://ki65px3upm1g"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_all8n")
+
+[node name="ShootComponent" type="Marker2D" parent="."]
+position = Vector2(0, -12)
+script = ExtResource("4_rxrd4")
+cool_down = 0.75
+BULLET = ExtResource("5_2nngg")
+RECOIL = 0.0
+metadata/_custom_type_script = "uid://bnudhv1u7r48o"

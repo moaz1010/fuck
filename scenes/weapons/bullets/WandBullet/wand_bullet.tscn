@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwfgijgurapvi"]
+
+[ext_resource type="Script" uid="uid://dgpnpdksrsmgv" path="res://scenes/weapons/bullets/WandBullet/wand_bullet.gd" id="1_qjnw3"]
+[ext_resource type="Texture2D" uid="uid://scgy64rongsr" path="res://assests/weapons/wand_bullet.png" id="2_p7xja"]
+[ext_resource type="PackedScene" uid="uid://dim8gbmpig1pf" path="res://scenes/weapons/bullets/WandBullet/explosion.tscn" id="2_x4ggl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsnsv"]
+size = Vector2(9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4ggl"]
+atlas = ExtResource("2_p7xja")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kckrr"]
+atlas = ExtResource("2_p7xja")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w0fu"]
+atlas = ExtResource("2_p7xja")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq0i2"]
+atlas = ExtResource("2_p7xja")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m4xm0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4ggl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kckrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w0fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq0i2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="WandBullet" type="CharacterBody2D"]
+z_index = -1
+collision_layer = 4
+collision_mask = 18
+script = ExtResource("1_qjnw3")
+explosion = ExtResource("2_x4ggl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -0.5)
+shape = SubResource("RectangleShape2D_xsnsv")
+
+[node name="SplitTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m4xm0")
+autoplay = "default"
+frame_progress = 0.679009
+
+[connection signal="timeout" from="SplitTimer" to="." method="_on_split_timer_timeout"]

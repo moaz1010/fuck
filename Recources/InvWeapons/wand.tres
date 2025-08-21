@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvWeaponResource" load_steps=4 format=3 uid="uid://xje32kvfw54w"]
+
+[ext_resource type="Script" uid="uid://74mlu6t1v0aw" path="res://Recources/weapons.gd" id="1_qyvbw"]
+[ext_resource type="Texture2D" uid="uid://defyk5o3qwjyi" path="res://assests/weapons/wand.png" id="2_ugo6k"]
+[ext_resource type="PackedScene" uid="uid://daow4t3e5aian" path="res://scenes/weapons/guns/Wand/wand.tscn" id="3_n68k6"]
+
+[resource]
+script = ExtResource("1_qyvbw")
+weapon_scene = ExtResource("3_n68k6")
+sprite = ExtResource("2_ugo6k")
+metadata/_custom_type_script = "uid://74mlu6t1v0aw"
