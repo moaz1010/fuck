@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8kcgyl7fta3i"]
 
-[ext_resource type="Texture2D" uid="uid://2ehrkf0p5i5j" path="res://assests/UI stuff/1Bit_UI_pack_byBatuhan_20250812/1-bit_UI_byBatuhanK.png" id="1_vjxg4"]
-[ext_resource type="Script" uid="uid://oac670uhudpx" path="res://scenes/Player/progress_bar.gd" id="2_ulkio"]
+[ext_resource type="Texture2D" uid="uid://2ehrkf0p5i5j" path="res://assests/UI stuff/1Bit_UI_pack_byBatuhan_20250812/1-bit_UI_byBatuhanK.png" id="1_slqgb"]
+[ext_resource type="Script" uid="uid://oac670uhudpx" path="res://scenes/ui_scenes/HealthBar/progress_bar.gd" id="2_ki2qt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y8nn8"]
-texture = ExtResource("1_vjxg4")
+texture = ExtResource("1_slqgb")
 texture_margin_left = 3.0
 texture_margin_top = 3.0
 texture_margin_right = 3.0
@@ -16,7 +16,7 @@ expand_margin_bottom = 3.0
 region_rect = Rect2(90, 170, 106, 10)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_25yk6"]
-texture = ExtResource("1_vjxg4")
+texture = ExtResource("1_slqgb")
 texture_margin_left = 3.0
 texture_margin_top = 3.0
 texture_margin_right = 3.0
@@ -35,4 +35,4 @@ offset_bottom = 6.0
 theme_override_styles/background = SubResource("StyleBoxTexture_y8nn8")
 theme_override_styles/fill = SubResource("StyleBoxTexture_25yk6")
 show_percentage = false
-script = ExtResource("2_ulkio")
+script = ExtResource("2_ki2qt")

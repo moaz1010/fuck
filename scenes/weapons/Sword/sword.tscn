@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dqdcfd1b8snbb" path="res://assests/weapons/simple_sword.png" id="1_nejxs"]
 [ext_resource type="Script" uid="uid://23o3anl36fh2" path="res://components/hitbox.gd" id="1_wafhc"]
-[ext_resource type="Script" uid="uid://4l1mnwyibv11" path="res://scenes/Sword/sword.gd" id="2_nejxs"]
+[ext_resource type="Script" uid="uid://4l1mnwyibv11" path="res://scenes/weapons/Sword/sword.gd" id="2_nejxs"]
 [ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="4_mr6qy"]
 [ext_resource type="Texture2D" uid="uid://cahg4edanpcm" path="res://assests/cursors/normal_sword_cursor.png" id="5_2s5la"]
-[ext_resource type="Script" uid="uid://ci7nnsyeq6wxf" path="res://scenes/Sword/sword_slash.gd" id="6_s1yx7"]
+[ext_resource type="Script" uid="uid://ci7nnsyeq6wxf" path="res://scenes/weapons/Sword/sword_slash.gd" id="6_s1yx7"]
 [ext_resource type="Texture2D" uid="uid://bvgyf4iaqi1pn" path="res://assests/weapons/slash.png" id="7_b8l35"]
 
 [sub_resource type="Animation" id="Animation_s4ec8"]

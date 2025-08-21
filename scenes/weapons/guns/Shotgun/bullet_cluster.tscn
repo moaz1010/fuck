@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ltspr23bhcx"]
+
+[ext_resource type="PackedScene" uid="uid://c4hyckipw7job" path="res://scenes/weapons/bullets/Bullet/bullet.tscn" id="1_0ckcp"]
+
+[node name="BulletCluster" type="Node2D"]
+
+[node name="bullet" parent="." instance=ExtResource("1_0ckcp")]
+
+[node name="bullet2" parent="." instance=ExtResource("1_0ckcp")]
+rotation = 0.174533
+
+[node name="bullet3" parent="." instance=ExtResource("1_0ckcp")]
+rotation = -0.174533

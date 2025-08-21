@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://74mlu6t1v0aw" path="res://Recources/weapons.gd" id="1_b76j5"]
 [ext_resource type="Texture2D" uid="uid://d2darsxguha7c" path="res://assests/weapons/freedom_gun.ong.png" id="2_kvua3"]
-[ext_resource type="PackedScene" uid="uid://671p8nkpk4j5" path="res://scenes/Freedomgun/freedomgun.tscn" id="3_jkslk"]
+[ext_resource type="PackedScene" uid="uid://671p8nkpk4j5" path="res://scenes/weapons/guns/Freedomgun/freedomgun.tscn" id="3_jkslk"]
 
 [resource]
 script = ExtResource("1_b76j5")

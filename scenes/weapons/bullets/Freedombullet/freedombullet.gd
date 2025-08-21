@@ -3,7 +3,7 @@ extends CharacterBody2D
 var SPEED: int = 300
 var ROTATION_SPEED: float = 3
 
-var BULLET := preload("res://scenes/Bullet/bullet.tscn")
+@export var BULLET : PackedScene
 var sprites : Array[Sprite2D]
 @onready var sprites_node := %Sprites
 

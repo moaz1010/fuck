@@ -8,7 +8,7 @@ signal bullet_shot(recoil: float)
 var cool_down_timer : SceneTreeTimer
 var is_in_cooldown := false
 
-@export var BULLET : PackedScene = preload("res://scenes/Bullet/bullet.tscn")
+@export var BULLET : PackedScene
 
 @export var RECOIL: float = 200.0
 

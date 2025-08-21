@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=4 uid="uid://m7eeverxv5hn"]
 
-[ext_resource type="Script" uid="uid://swop6jnsy3re" path="res://scenes/main menu/main_menu.gd" id="1_s7te6"]
+[ext_resource type="Script" uid="uid://swop6jnsy3re" path="res://scenes/ui_scenes/main menu/main_menu.gd" id="1_s7te6"]
 [ext_resource type="Texture2D" uid="uid://dlax476o1ugtj" path="res://assests/World tiles/background.png" id="2_pri0a"]
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="3_okfgx"]
-[ext_resource type="Theme" uid="uid://dqy6tx8ddkj1m" path="res://scenes/main menu/main_menu.tres" id="3_pri0a"]
-[ext_resource type="Theme" uid="uid://cwhmbggqhmtve" path="res://scenes/main menu/base_theme.tres" id="4_ajd3f"]
+[ext_resource type="Theme" uid="uid://dqy6tx8ddkj1m" path="res://scenes/ui_scenes/main menu/main_menu.tres" id="3_pri0a"]
+[ext_resource type="Theme" uid="uid://cwhmbggqhmtve" path="res://scenes/ui_scenes/main menu/base_theme.tres" id="4_ajd3f"]
 [ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://scenes/tilemaps/tiles.tscn" id="6_ajd3f"]
 [ext_resource type="AudioStream" uid="uid://ca0gpqecrrb0i" path="res://assests/Game Music/nothingon.mp3" id="7_t60cf"]
 

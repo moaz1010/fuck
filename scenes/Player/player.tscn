@@ -4,8 +4,8 @@
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_dl1wr"]
 [ext_resource type="Texture2D" uid="uid://cjxp1hh8fkfmo" path="res://assests/Player stuff/player (1).png" id="3_uklsp"]
 [ext_resource type="Script" uid="uid://8rms6rae8mtb" path="res://components/health_component.gd" id="6_a06cl"]
-[ext_resource type="PackedScene" uid="uid://c8kcgyl7fta3i" path="res://scenes/healthbar.tscn" id="7_a06cl"]
-[ext_resource type="PackedScene" uid="uid://cnj5rk8ut3a6k" path="res://scenes/Sword/sword.tscn" id="7_dl1wr"]
+[ext_resource type="PackedScene" uid="uid://c8kcgyl7fta3i" path="res://scenes/ui_scenes/HealthBar/healthbar.tscn" id="7_a06cl"]
+[ext_resource type="PackedScene" uid="uid://cnj5rk8ut3a6k" path="res://scenes/weapons/Sword/sword.tscn" id="7_dl1wr"]
 [ext_resource type="Script" uid="uid://qv40eyiboqjs" path="res://idk/Weapons.gd" id="8_frnkk"]
 [ext_resource type="Script" uid="uid://c3aifbheqy0ru" path="res://components/hurtbox.gd" id="9_wwtew"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://74mlu6t1v0aw" path="res://Recources/weapons.gd" id="1_req8n"]
 [ext_resource type="Texture2D" uid="uid://or0jyty5v8tk" path="res://assests/weapons/flashlight (1).png" id="2_a6yfu"]
-[ext_resource type="PackedScene" uid="uid://bav15wkkjdn8d" path="res://scenes/Flashlight/flashlight.tscn" id="3_yyf7u"]
+[ext_resource type="PackedScene" uid="uid://bav15wkkjdn8d" path="res://scenes/weapons/Flashlight/flashlight.tscn" id="3_yyf7u"]
 
 [resource]
 script = ExtResource("1_req8n")

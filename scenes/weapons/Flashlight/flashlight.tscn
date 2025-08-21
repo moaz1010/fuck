@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bav15wkkjdn8d"]
 
-[ext_resource type="Script" uid="uid://dybww0ysl23jf" path="res://scenes/Flashlight/flashlight.gd" id="1_0bi7u"]
+[ext_resource type="Script" uid="uid://dybww0ysl23jf" path="res://scenes/weapons/Flashlight/flashlight.gd" id="1_0bi7u"]
 [ext_resource type="Texture2D" uid="uid://or0jyty5v8tk" path="res://assests/weapons/flashlight (1).png" id="2_bl8yu"]
 [ext_resource type="Script" uid="uid://23o3anl36fh2" path="res://components/hitbox.gd" id="3_2hdwo"]
 [ext_resource type="Shader" uid="uid://dfn8gfmf075vq" path="res://shaders/filters/screen_flash.gdshader" id="3_6kyl5"]

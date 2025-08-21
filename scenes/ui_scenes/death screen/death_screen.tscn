@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="1_hdeny"]
 [ext_resource type="Script" uid="uid://dfw2f3jn1xsoy" path="res://scenes/ui_scenes/death screen/death_screen.gd" id="1_ukam1"]
-[ext_resource type="Theme" uid="uid://dqy6tx8ddkj1m" path="res://scenes/main menu/main_menu.tres" id="2_jd4f5"]
+[ext_resource type="Theme" uid="uid://dqy6tx8ddkj1m" path="res://scenes/ui_scenes/main menu/main_menu.tres" id="2_jd4f5"]
 [ext_resource type="Texture2D" uid="uid://cfc1atlyxhj5c" path="res://assests/UI stuff/Buttons/unfinished_spritesheet_buttons2.png" id="4_aqttx"]
 
 [sub_resource type="Animation" id="Animation_aqttx"]

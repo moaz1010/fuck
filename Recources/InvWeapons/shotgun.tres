@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://74mlu6t1v0aw" path="res://Recources/weapons.gd" id="1_qx65n"]
 [ext_resource type="Texture2D" uid="uid://drhjvttspwbda" path="res://assests/weapons/shotgun_sprite.png" id="2_c0hji"]
-[ext_resource type="PackedScene" uid="uid://ctr3krsk5b84h" path="res://scenes/Shotgun/shotgun.tscn" id="2_h1uvm"]
+[ext_resource type="PackedScene" uid="uid://ctr3krsk5b84h" path="res://scenes/weapons/guns/Shotgun/shotgun.tscn" id="2_h1uvm"]
 
 [resource]
 script = ExtResource("1_qx65n")

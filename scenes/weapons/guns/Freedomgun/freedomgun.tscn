@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://671p8nkpk4j5"]
+
+[ext_resource type="Texture2D" uid="uid://sjwobdk0hjt1" path="res://assests/weapons/freedom_gun_spritesheet.png" id="1_cg2pb"]
+[ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="2_4vq32"]
+[ext_resource type="Texture2D" uid="uid://d355cgfpav72j" path="res://assests/cursors/freedom_gun_cursor.png" id="3_p6fa4"]
+[ext_resource type="Script" uid="uid://bnudhv1u7r48o" path="res://components/shoot_component.gd" id="4_672o2"]
+[ext_resource type="PackedScene" uid="uid://dbm0w8yivtwn7" path="res://scenes/weapons/bullets/Freedombullet/freedombullet.tscn" id="5_6rk1u"]
+
+[node name="Freedomgun" type="Node2D"]
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cg2pb")
+hframes = 5
+vframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 321, 60)
+
+[node name="CursorComponent" type="Node" parent="."]
+script = ExtResource("2_4vq32")
+image = ExtResource("3_p6fa4")
+hotspot = 1
+metadata/_custom_type_script = "uid://ki65px3upm1g"
+
+[node name="ShootComponent" type="Marker2D" parent="."]
+position = Vector2(15, 0)
+script = ExtResource("4_672o2")
+cool_down = 0.5
+BULLET = ExtResource("5_6rk1u")
+RECOIL = 500.0
+metadata/_custom_type_script = "uid://bnudhv1u7r48o"

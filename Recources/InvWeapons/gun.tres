@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://74mlu6t1v0aw" path="res://Recources/weapons.gd" id="1_pu6tb"]
 [ext_resource type="Texture2D" uid="uid://43ed4aohw6yx" path="res://assests/weapons/Gun (2).png" id="2_q2l10"]
-[ext_resource type="PackedScene" uid="uid://bau7qqu6a6rxi" path="res://scenes/Gun/gun.tscn" id="3_mbnrh"]
+[ext_resource type="PackedScene" uid="uid://bau7qqu6a6rxi" path="res://scenes/weapons/guns/Gun/gun.tscn" id="3_mbnrh"]
 
 [resource]
 script = ExtResource("1_pu6tb")
