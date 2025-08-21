@@ -1,39 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://bau7qqu6a6rxi"]
+[gd_scene load_steps=5 format=3 uid="uid://bau7qqu6a6rxi"]
 
-[ext_resource type="Script" uid="uid://ckddk7fwdwma1" path="res://scenes/Gun/gun.gd" id="1_y2frm"]
 [ext_resource type="Texture2D" uid="uid://43ed4aohw6yx" path="res://assests/weapons/Gun (2).png" id="2_b6iwu"]
 [ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="3_70h3e"]
 [ext_resource type="Texture2D" uid="uid://bvxi8y1000hf5" path="res://assests/cursors/gun_cursor.png" id="4_70h3e"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3h82"]
-size = Vector2(24, 20)
+[ext_resource type="Script" uid="uid://bnudhv1u7r48o" path="res://components/shoot_component.gd" id="4_qvtib"]
 
 [node name="Gun" type="Node2D"]
 z_index = 1
-script = ExtResource("1_y2frm")
-RECOIL = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7, 3)
 texture = ExtResource("2_b6iwu")
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(16, 0)
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(7, 3)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, 0)
-shape = SubResource("RectangleShape2D_w3h82")
-
-[node name="CooldownTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.2
-one_shot = true
 
 [node name="CursorComponent" type="Node" parent="."]
 script = ExtResource("3_70h3e")
 image = ExtResource("4_70h3e")
 hotspot = 1
 metadata/_custom_type_script = "uid://ki65px3upm1g"
+
+[node name="ShootComponent" type="Marker2D" parent="."]
+position = Vector2(16, 0)
+script = ExtResource("4_qvtib")
+cool_down = 0.2
+metadata/_custom_type_script = "uid://bnudhv1u7r48o"

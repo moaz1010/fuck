@@ -132,8 +132,11 @@ func _on_jump_buffer_timeout() -> void: wants_to_jump = false
 
 
 func _on_weapon_shell_child_entered_tree(weapon: Node) -> void:
-	if weapon.has_signal("bullet_shot"):
-		weapon.bullet_shot.connect(take_recoil)
+	
+	for child in weapon.get_children():
+		if child is ShootComponent: 
+			child.bullet_shot.connect(take_recoil)
+		
 
 func take_recoil(power):
 	var recoil_direction = (

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctr3krsk5b84h"]
+[gd_scene load_steps=10 format=3 uid="uid://ctr3krsk5b84h"]
 
-[ext_resource type="Script" uid="uid://dtlpl7vwynd40" path="res://scenes/Shotgun/shotgun.gd" id="1_sfy86"]
 [ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="2_iv2y2"]
 [ext_resource type="Texture2D" uid="uid://btgqfjontq6fy" path="res://assests/cursors/12_gauge_shotgun_cursor.png" id="3_sfy86"]
 [ext_resource type="Texture2D" uid="uid://lmblqsgykr14" path="res://assests/weapons/shotgun.png" id="4_8anj5"]
+[ext_resource type="Script" uid="uid://bnudhv1u7r48o" path="res://components/shoot_component.gd" id="4_iv2y2"]
+[ext_resource type="PackedScene" uid="uid://c8ltspr23bhcx" path="res://scenes/Shotgun/bullet_cluster.tscn" id="5_oxve3"]
 
 [sub_resource type="Animation" id="Animation_tjcs4"]
 length = 0.001
@@ -75,15 +76,6 @@ _data = {
 
 [node name="Shotgun" type="Node2D"]
 z_index = 1
-script = ExtResource("1_sfy86")
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(8, 0)
-
-[node name="CooldownTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.5
-one_shot = true
 
 [node name="CursorComponent" type="Node" parent="."]
 script = ExtResource("2_iv2y2")
@@ -101,5 +93,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_1eqj1")
 }
 autoplay = "default"
+
+[node name="ShootComponent" type="Marker2D" parent="."]
+position = Vector2(8, 0)
+script = ExtResource("4_iv2y2")
+cool_down = 0.5
+BULLET = ExtResource("5_oxve3")
+RECOIL = 400.0
+metadata/_custom_type_script = "uid://bnudhv1u7r48o"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
