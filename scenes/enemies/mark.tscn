@@ -119,7 +119,7 @@ position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_aw7h3")
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 4
 script = ExtResource("4_sqaxy")
 health_component = NodePath("../HealthComponent")

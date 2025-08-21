@@ -124,7 +124,7 @@ func change_weapon(scene: PackedScene) -> void:
 	#This removes all the nodes in the weapon shell to insure there are no 
 	#weapons equipped and that they don't overlap.
 	for child in weapon_shell.get_children(): 
-		weapon_shell.remove_child(child)
+		child.queue_free()
 	weapon_shell.add_child(instance)
 
 
@@ -148,9 +148,6 @@ func take_recoil(power):
 func _on_dash_timer_timeout() -> void: 
 	is_dashing = false
 
-
-func _on_health_changed(new_health: float) -> void:
-	progress_bar.value = new_health
 
 func push(push_direction: Vector2, power: float = 1):
 	super(push_direction, power)
