@@ -1,9 +1,9 @@
-[gd_scene load_steps=62 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=61 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
 [ext_resource type="Script" uid="uid://bcuhd17r3ydo" path="res://scenes/camera_2d.gd" id="1_jscy8"]
-[ext_resource type="Script" uid="uid://crx41j4i46iah" path="res://scripts/camera_2d.gd" id="1_y6deb"]
+[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="1_y6deb"]
 [ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://scenes/tilemaps/tiles.tscn" id="1_yx00i"]
 [ext_resource type="Texture2D" uid="uid://dlax476o1ugtj" path="res://assests/World tiles/background.png" id="2_25x5a"]
 [ext_resource type="Texture2D" uid="uid://lftotrfcgqqu" path="res://assests/World tiles/tiles_atlas.png" id="3_godeq"]
@@ -29,7 +29,6 @@
 [ext_resource type="Resource" uid="uid://bc4r31dgj2y22" path="res://Recources/InvWeapons/shotgun.tres" id="25_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://xktn33ib77xh" path="res://scenes/enemies/mark.tscn" id="25_og1vs"]
 [ext_resource type="Resource" uid="uid://pwvssfxgbqv1" path="res://Recources/InvWeapons/freedomgun.tres" id="26_vxglm"]
-[ext_resource type="PackedScene" uid="uid://8ihjb88qd8bw" path="res://scenes/ui_scenes/new folder/hotbar.tscn" id="28_2f3dj"]
 [ext_resource type="Resource" uid="uid://xje32kvfw54w" path="res://Recources/InvWeapons/wand.tres" id="29_tel4y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsyfl"]
@@ -945,11 +944,6 @@ shape = SubResource("RectangleShape2D_qkpxi")
 visible = false
 offset_top = -25.0
 offset_bottom = -25.0
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="hotbar" parent="CanvasLayer2" instance=ExtResource("28_2f3dj")]
 
 [connection signal="body_entered" from="World/charachters/JolinStart2/Area2D" to="World/charachters/JolinStart2/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="World/charachters/signs/Sign/Area2D" to="World/charachters/signs/Sign/Area2D" method="_on_body_entered"]

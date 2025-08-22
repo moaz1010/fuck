@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene load_steps=16 format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_dl1wr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c8kcgyl7fta3i" path="res://scenes/ui_scenes/HealthBar/healthbar.tscn" id="7_a06cl"]
 [ext_resource type="PackedScene" uid="uid://cnj5rk8ut3a6k" path="res://scenes/weapons/Sword/sword.tscn" id="7_dl1wr"]
 [ext_resource type="Script" uid="uid://qv40eyiboqjs" path="res://idk/Weapons.gd" id="8_frnkk"]
+[ext_resource type="PackedScene" uid="uid://8ihjb88qd8bw" path="res://scenes/ui_scenes/new folder/hotbar.tscn" id="9_uxo23"]
 [ext_resource type="Script" uid="uid://c3aifbheqy0ru" path="res://components/hurtbox.gd" id="9_wwtew"]
 
 [sub_resource type="Animation" id="Animation_uxo23"]
@@ -183,6 +184,17 @@ metadata/_custom_type_script = "uid://c3aifbheqy0ru"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_uxo23")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hotbar" parent="CanvasLayer" instance=ExtResource("9_uxo23")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [connection signal="child_entered_tree" from="WeaponShell" to="." method="_on_weapon_shell_child_entered_tree"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
