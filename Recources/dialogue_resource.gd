@@ -10,3 +10,5 @@ class_name DialogueResource
 @export var talking_sound : AudioStream
 
 @export var talking_speed_in_milliseconds : float
+
+@export var flag_to_activate : Flags.flags_enum = -1

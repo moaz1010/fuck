@@ -7,7 +7,10 @@ signal continued_dialogue(section: DialogueResource)
 
 var is_in_dialogue = false
 var current_sections : Array[DialogueResource]
-var current_section_index : int
+var current_section_index : int:
+	set(value):
+		current_section_index = value
+		_activate_section_flag()
 
 func get_current_section() -> DialogueResource:
 	assert(current_section_index >= 0 and current_section_index < current_sections.size(), 
@@ -48,3 +51,8 @@ func exit_dialogue():
 	current_section_index = -1
 	is_in_dialogue = false
 	exited_dialogue.emit()
+
+func _activate_section_flag():
+	if current_section_index >= 0 and current_section_index < current_sections.size():
+		var flag := get_current_section().flag_to_activate
+		if flag >= 0: Flags.activate_flag(flag)
