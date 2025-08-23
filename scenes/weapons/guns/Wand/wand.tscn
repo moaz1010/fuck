@@ -1,10 +1,102 @@
-[gd_scene load_steps=6 format=3 uid="uid://daow4t3e5aian"]
+[gd_scene load_steps=10 format=3 uid="uid://daow4t3e5aian"]
 
 [ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="1_qea06"]
 [ext_resource type="Texture2D" uid="uid://brylkws58i7ch" path="res://assests/cursors/wand_cursor.png" id="2_yy30c"]
 [ext_resource type="Texture2D" uid="uid://defyk5o3qwjyi" path="res://assests/weapons/wand.png" id="3_all8n"]
 [ext_resource type="Script" uid="uid://ci4ql2lao8u1" path="res://scenes/weapons/guns/Wand/shoot_component.gd" id="4_rxrd4"]
 [ext_resource type="PackedScene" uid="uid://bwfgijgurapvi" path="res://scenes/weapons/bullets/WandBullet/wand_bullet.tscn" id="5_2nngg"]
+
+[sub_resource type="Animation" id="Animation_qea06"]
+resource_name = "shoot"
+length = 0.3
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.1, 0.21, 0.26),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 3), Vector2(0, -4), Vector2(7, -4), Vector2(14, -4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.38498]
+}
+
+[sub_resource type="Animation" id="Animation_yy30c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_all8n"]
+resource_name = "swing_back"
+length = 0.65
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(14, -4), Vector2(7, -4), Vector2(0, -4), Vector2(0, 3), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.38498, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c3ef7"]
+_data = {
+&"RESET": SubResource("Animation_yy30c"),
+&"shoot": SubResource("Animation_qea06"),
+&"swing_back": SubResource("Animation_all8n")
+}
 
 [node name="Wand" type="Node2D"]
 
@@ -23,3 +115,8 @@ cool_down = 0.75
 BULLET = ExtResource("5_2nngg")
 RECOIL = 0.0
 metadata/_custom_type_script = "uid://bnudhv1u7r48o"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_c3ef7")
+}
