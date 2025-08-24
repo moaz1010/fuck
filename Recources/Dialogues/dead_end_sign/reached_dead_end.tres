@@ -11,6 +11,7 @@ text = "Told you dumbass."
 speaker_sprite = ExtResource("3_kvgc4")
 choices = Array[ExtResource("2_01t04")]([])
 talking_speed_in_milliseconds = 0.0
+flag_to_activate = -1
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [resource]

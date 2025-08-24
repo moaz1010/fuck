@@ -26,4 +26,5 @@ speaker_sprite = ExtResource("3_w4mgx")
 choices = Array[ExtResource("1_frfyk")]([SubResource("Resource_w4mgx"), SubResource("Resource_6g4ar")])
 talking_sound = ExtResource("4_6g4ar")
 talking_speed_in_milliseconds = 30.0
+flag_to_activate = -1
 metadata/_custom_type_script = "uid://b1650whroytf0"

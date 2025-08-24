@@ -11,6 +11,7 @@ text = "Nothing beyond this point."
 speaker_sprite = ExtResource("3_xlsek")
 choices = Array[ExtResource("2_yidqn")]([])
 talking_speed_in_milliseconds = 0.0
+flag_to_activate = -1
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [resource]
