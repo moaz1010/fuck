@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dq8wkox5qpldh"
+path="res://.godot/imported/fourth.mp3-1de11ed26de13d40eeb3c0d8c76bc691.mp3str"
+
+[deps]
+
+source_file="res://assests/Game Music/fourth.mp3"
+dest_files=["res://.godot/imported/fourth.mp3-1de11ed26de13d40eeb3c0d8c76bc691.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
