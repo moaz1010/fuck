@@ -5,7 +5,9 @@ signal activated_flag(flag: flags_enum)
 enum flags_enum {
 	REACHED_DEAD_END,
 	ENTERED_ENEMY_SPAWN_AREA,
-	REACHED_FIRST_PARKOUR
+	REACHED_FIRST_PARKOUR,
+	REACHED_BORIS_IN_CAGE,
+	GOT_BORIS_CAGE_KEY
 }
 
 

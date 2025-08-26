@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://jkw7jqno36fx"]
+[gd_scene load_steps=109 format=4 uid="uid://jkw7jqno36fx"]
 
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
@@ -28,10 +28,16 @@
 [ext_resource type="Texture2D" uid="uid://cl42y7jk51sl3" path="res://assests/characgter sprites/Narmar_speaker_portrait_Normal.png" id="18_kmb1v"]
 [ext_resource type="PackedScene" uid="uid://cluhf5gby2umq" path="res://scenes/enemies/enemy.tscn" id="19_0ld40"]
 [ext_resource type="Texture2D" uid="uid://4ntrdlejvyi8" path="res://assests/characgter sprites/Narmar_speaker_portrait_question.png" id="19_fuf3a"]
+[ext_resource type="Texture2D" uid="uid://llcf2w81fb67" path="res://assests/characgter sprites/Boris_idle.png" id="20_pibwh"]
+[ext_resource type="Texture2D" uid="uid://bf0xojpa0y3rx" path="res://assests/characgter sprites/boris_walk.png" id="21_c6pm6"]
+[ext_resource type="Texture2D" uid="uid://cjifd8bl3maxs" path="res://assests/characgter sprites/boris_speakersprite_wait_3.png" id="22_5he1u"]
 [ext_resource type="PackedScene" uid="uid://3uxxq1fbpla8" path="res://scenes/spike.tscn" id="22_jscy8"]
 [ext_resource type="Script" uid="uid://g8gv2pig833v" path="res://scenes/area_2d.gd" id="22_pm3ni"]
+[ext_resource type="Texture2D" uid="uid://2lmh5v3nabg5" path="res://assests/characgter sprites/boris_speakersprite_normal.png" id="23_5poiv"]
+[ext_resource type="Texture2D" uid="uid://d1v827slhromo" path="res://assests/characgter sprites/boris_speakersprite_alerted (1).png" id="24_2cjbq"]
 [ext_resource type="Resource" uid="uid://bgpoef4ytku2l" path="res://Recources/InvWeapons/flash_light.tres" id="24_y6deb"]
 [ext_resource type="Resource" uid="uid://bc4r31dgj2y22" path="res://Recources/InvWeapons/shotgun.tres" id="25_2wyq8"]
+[ext_resource type="Texture2D" uid="uid://cp1laxvokue0i" path="res://assests/characgter sprites/boris_speakersprite_question.png" id="25_chjal"]
 [ext_resource type="PackedScene" uid="uid://xktn33ib77xh" path="res://scenes/enemies/mark.tscn" id="25_og1vs"]
 [ext_resource type="Resource" uid="uid://pwvssfxgbqv1" path="res://Recources/InvWeapons/freedomgun.tres" id="26_vxglm"]
 [ext_resource type="Resource" uid="uid://xje32kvfw54w" path="res://Recources/InvWeapons/wand.tres" id="29_tel4y"]
@@ -478,72 +484,40 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_4xsyv")
 
-[sub_resource type="Animation" id="Animation_yc10j"]
+[sub_resource type="Animation" id="Animation_5poiv"]
+resource_name = "from_a_to_b"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(428, 945), Vector2(516, 945)]
+}
+
+[sub_resource type="Animation" id="Animation_2cjbq"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame_coords")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_gqmmt"]
-resource_name = "idle"
-length = 1.00001
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.493102, 0.583333, 0.666666, 0.75, 0.833333, 0.916666),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 1, 1, 2, 1, 2, 1]
-}
-
-[sub_resource type="Animation" id="Animation_jscy8"]
-resource_name = "trying"
-step = 0.333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(2, 0), Vector2i(0, 1), Vector2i(0, 1), Vector2i(2, 1)]
+"update": 0,
+"values": [Vector2(428, 945)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pm3ni"]
 _data = {
-&"RESET": SubResource("Animation_yc10j"),
-&"idle": SubResource("Animation_gqmmt"),
-&"trying": SubResource("Animation_jscy8")
+&"RESET": SubResource("Animation_2cjbq"),
+&"from_a_to_b": SubResource("Animation_5poiv")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pm3ni"]
@@ -712,6 +686,45 @@ script = ExtResource("14_pm3ni")
 dialogues = Array[ExtResource("6_jbj1t")]([SubResource("Resource_5he1u"), SubResource("Resource_5poiv"), SubResource("Resource_2cjbq"), SubResource("Resource_chjal"), SubResource("Resource_cjqg0"), SubResource("Resource_txyw0")])
 metadata/_custom_type_script = "uid://bk7m6itj0ytlq"
 
+[sub_resource type="Animation" id="Animation_chjal"]
+resource_name = "idle"
+length = 1.00002
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 3]
+}
+
+[sub_resource type="Animation" id="Animation_cjqg0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vchkt"]
+_data = {
+&"RESET": SubResource("Animation_cjqg0"),
+&"idle": SubResource("Animation_chjal")
+}
+
 [sub_resource type="Resource" id="Resource_vc5cj"]
 script = ExtResource("6_jbj1t")
 text = "Hey Kiddo"
@@ -781,7 +794,158 @@ dialogues = Array[ExtResource("6_jbj1t")]([SubResource("Resource_vc5cj"), SubRes
 metadata/_custom_type_script = "uid://bk7m6itj0ytlq"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ids8r"]
-size = Vector2(47, 37)
+size = Vector2(39.5, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chjal"]
+atlas = ExtResource("20_pibwh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjqg0"]
+atlas = ExtResource("20_pibwh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vchkt"]
+atlas = ExtResource("20_pibwh")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txyw0"]
+atlas = ExtResource("20_pibwh")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc5cj"]
+atlas = ExtResource("21_c6pm6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvyfr"]
+atlas = ExtResource("21_c6pm6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty1g6"]
+atlas = ExtResource("21_c6pm6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2jfr"]
+atlas = ExtResource("21_c6pm6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjg73"]
+atlas = ExtResource("21_c6pm6")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu4jf"]
+atlas = ExtResource("21_c6pm6")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o7ddy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chjal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjqg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vchkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txyw0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc5cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvyfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty1g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2jfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjg73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu4jf")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_ids8r"]
+script = ExtResource("6_jbj1t")
+text = " Thine Moment will Such A Noble Knight Arise From Tis \"Cage\"?"
+speaker_sprite = ExtResource("22_5he1u")
+choices = Array[ExtResource("13_jscy8")]([])
+talking_speed_in_milliseconds = 30.0
+flag_to_activate = -1
+metadata/_custom_type_script = "uid://b1650whroytf0"
+
+[sub_resource type="Resource" id="Resource_1v6qk"]
+script = ExtResource("6_jbj1t")
+text = "I Haveth Been Slashing And Poking At thee Barrier"
+speaker_sprite = ExtResource("23_5poiv")
+choices = Array[ExtResource("13_jscy8")]([])
+talking_speed_in_milliseconds = 30.0
+flag_to_activate = -1
+metadata/_custom_type_script = "uid://b1650whroytf0"
+
+[sub_resource type="Resource" id="Resource_augu2"]
+script = ExtResource("6_jbj1t")
+text = "Finally A...."
+speaker_sprite = ExtResource("24_2cjbq")
+choices = Array[ExtResource("13_jscy8")]([])
+talking_speed_in_milliseconds = 30.0
+flag_to_activate = -1
+metadata/_custom_type_script = "uid://b1650whroytf0"
+
+[sub_resource type="Resource" id="Resource_tm6hj"]
+script = ExtResource("6_jbj1t")
+text = "What Aret Thou?"
+speaker_sprite = ExtResource("25_chjal")
+choices = Array[ExtResource("13_jscy8")]([])
+talking_speed_in_milliseconds = 30.0
+flag_to_activate = -1
+metadata/_custom_type_script = "uid://b1650whroytf0"
+
+[sub_resource type="Resource" id="Resource_kf5aa"]
+script = ExtResource("6_jbj1t")
+text = "It Doesn't Concern..."
+speaker_sprite = ExtResource("22_5he1u")
+choices = Array[ExtResource("13_jscy8")]([])
+talking_speed_in_milliseconds = 30.0
+flag_to_activate = -1
+metadata/_custom_type_script = "uid://b1650whroytf0"
+
+[sub_resource type="Resource" id="Resource_t5ykj"]
+script = ExtResource("6_jbj1t")
+text = "Traveler Thou Haveth To Get Thee Key Up There"
+speaker_sprite = ExtResource("24_2cjbq")
+choices = Array[ExtResource("13_jscy8")]([])
+talking_speed_in_milliseconds = 30.0
+flag_to_activate = -1
+metadata/_custom_type_script = "uid://b1650whroytf0"
+
+[sub_resource type="Resource" id="Resource_e755i"]
+script = ExtResource("6_jbj1t")
+text = "And I Will Grant Thou Permision Into My Sacred Castle"
+speaker_sprite = ExtResource("23_5poiv")
+choices = Array[ExtResource("13_jscy8")]([])
+talking_speed_in_milliseconds = 30.0
+flag_to_activate = -1
+metadata/_custom_type_script = "uid://b1650whroytf0"
+
+[sub_resource type="Resource" id="Resource_dnhof"]
+script = ExtResource("14_pm3ni")
+dialogues = Array[ExtResource("6_jbj1t")]([SubResource("Resource_ids8r"), SubResource("Resource_1v6qk"), SubResource("Resource_augu2"), SubResource("Resource_tm6hj"), SubResource("Resource_kf5aa"), SubResource("Resource_t5ykj"), SubResource("Resource_e755i")])
+metadata/_custom_type_script = "uid://bk7m6itj0ytlq"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjqg0"]
 size = Vector2(24.5, 27)
@@ -855,7 +1019,7 @@ tile_map_data = PackedByteArray("AAB1AOYAAQAIAAIAAAB1AOUAAQAIAAIAAAB1AOQAAQAIAAI
 
 [node name="JolinStart" type="Sprite2D" parent="World/charachters/jolin1"]
 z_index = 3
-position = Vector2(-219, 71)
+position = Vector2(428, 945)
 texture = ExtResource("9_jbj1t")
 hframes = 3
 vframes = 3
@@ -883,7 +1047,7 @@ shape = SubResource("RectangleShape2D_pm3ni")
 
 [node name="JolinStart2" type="Sprite2D" parent="World/charachters/jolin2"]
 z_index = 3
-position = Vector2(516, 71)
+position = Vector2(428, 945)
 texture = ExtResource("9_jbj1t")
 flip_h = true
 hframes = 3
@@ -922,7 +1086,7 @@ shape = SubResource("RectangleShape2D_5he1u")
 
 [node name="JolinStart3" type="Sprite2D" parent="World/charachters/jolin3"]
 z_index = 3
-position = Vector2(1088, 72)
+position = Vector2(428, 945)
 texture = ExtResource("9_jbj1t")
 flip_h = true
 hframes = 3
@@ -949,7 +1113,7 @@ shape = SubResource("SegmentShape2D_jkv2x")
 
 [node name="JolinStart4" type="Sprite2D" parent="World/charachters/jolin4"]
 z_index = 3
-position = Vector2(1522, -10)
+position = Vector2(428, 945)
 texture = ExtResource("9_jbj1t")
 flip_h = true
 hframes = 3
@@ -976,7 +1140,7 @@ shape = SubResource("SegmentShape2D_jkv2x")
 
 [node name="JolinStart5" type="Sprite2D" parent="World/charachters/jolin5"]
 z_index = 3
-position = Vector2(2263, 70)
+position = Vector2(428, 945)
 texture = ExtResource("9_jbj1t")
 flip_h = true
 hframes = 3
@@ -1003,7 +1167,7 @@ shape = SubResource("SegmentShape2D_jkv2x")
 
 [node name="JolinStart6" type="Sprite2D" parent="World/charachters/jolin6"]
 z_index = 3
-position = Vector2(2897, 198)
+position = Vector2(428, 945)
 texture = ExtResource("9_jbj1t")
 flip_h = true
 hframes = 3
@@ -1030,7 +1194,7 @@ shape = SubResource("SegmentShape2D_jkv2x")
 
 [node name="JolinStart6" type="Sprite2D" parent="World/charachters/jolin7"]
 z_index = 3
-position = Vector2(3925, 246)
+position = Vector2(428, 945)
 texture = ExtResource("9_jbj1t")
 flip_h = true
 hframes = 3
@@ -1065,31 +1229,60 @@ metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 position = Vector2(426, 4)
 shape = SubResource("SegmentShape2D_jkv2x")
 
-[node name="jolin8" type="Node" parent="World/charachters"]
+[node name="narmar1" type="Node" parent="World/charachters"]
 
-[node name="JolinStart6" type="Sprite2D" parent="World/charachters/jolin8"]
+[node name="narmar" type="Sprite2D" parent="World/charachters/narmar1"]
 z_index = 3
-position = Vector2(4071, 608)
+position = Vector2(4064, 608)
 texture = ExtResource("17_j8jky")
 flip_h = true
+hframes = 3
+vframes = 2
 region_enabled = true
-region_rect = Rect2(0, 0, 31, 32)
+region_rect = Rect2(0, 0, 96, 64)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/charachters/jolin8/JolinStart6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/charachters/narmar1/narmar"]
 libraries = {
-&"": SubResource("AnimationLibrary_pm3ni")
+&"": SubResource("AnimationLibrary_vchkt")
 }
 autoplay = "idle"
 
-[node name="jolinStartDialogueArea7" type="Area2D" parent="World/charachters/jolin8"]
+[node name="jolinStartDialogueArea7" type="Area2D" parent="World/charachters/narmar1"]
 position = Vector2(3632, 614)
 collision_layer = 0
 script = ExtResource("11_ya4ey")
 defalut_dialogue = SubResource("Resource_0loja")
 metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/jolin8/jolinStartDialogueArea7"]
-position = Vector2(433.5, -8.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/narmar1/jolinStartDialogueArea7"]
+position = Vector2(430, -6)
+shape = SubResource("RectangleShape2D_ids8r")
+
+[node name="boris1" type="Node" parent="World/charachters"]
+
+[node name="boris" type="AnimatedSprite2D" parent="World/charachters/boris1"]
+z_index = 2
+position = Vector2(428, 945)
+sprite_frames = SubResource("SpriteFrames_o7ddy")
+animation = &"new_animation"
+autoplay = "default"
+frame = 1
+frame_progress = 0.0864954
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/charachters/boris1/boris"]
+libraries = {
+&"": SubResource("AnimationLibrary_pm3ni")
+}
+
+[node name="borisStartDialogue" type="Area2D" parent="World/charachters/boris1"]
+position = Vector2(19, 952)
+collision_layer = 0
+script = ExtResource("11_ya4ey")
+defalut_dialogue = SubResource("Resource_dnhof")
+metadata/_custom_type_script = "uid://bjjyo1d6kc2ei"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/charachters/boris1/borisStartDialogue"]
+position = Vector2(532.25, -7)
 shape = SubResource("RectangleShape2D_ids8r")
 
 [node name="signs" type="Node" parent="World/charachters"]
