@@ -15,7 +15,7 @@ var is_in_cooldown := false
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("fire") and not is_in_cooldown:  # to shoot
-		shoot()
+		shoot.call_deferred()
 		
 func shoot():
 	bullet_shot.emit(RECOIL)

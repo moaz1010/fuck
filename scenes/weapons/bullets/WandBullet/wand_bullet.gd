@@ -1,18 +1,11 @@
-extends CharacterBody2D
+extends Area2D
 
 var SPEED: int = 300
 
 @export var explosion : PackedScene
 
-func _physics_process(delta: float) -> void:
-	velocity = Vector2.RIGHT*SPEED*delta
-	velocity = velocity.rotated(global_rotation)
-	var collision = move_and_collide(velocity)
-	if collision:
-		_split.call_deferred()
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	queue_free()
+func _process(delta: float) -> void:
+	position += transform.x * SPEED * delta
 
 func _on_body_entered(_body: Node2D) -> void:
 	_split.call_deferred()

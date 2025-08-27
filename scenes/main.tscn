@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="1_76nyf"]
 [ext_resource type="PackedScene" uid="uid://bmy2a3ac54cy7" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.tscn" id="1_choun"]
 [ext_resource type="Script" uid="uid://bcuhd17r3ydo" path="res://scenes/camera_2d.gd" id="1_jscy8"]
-[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="1_y6deb"]
+[ext_resource type="Script" uid="uid://crx41j4i46iah" path="res://scripts/camera_2d.gd" id="1_y6deb"]
 [ext_resource type="PackedScene" uid="uid://b0x01ew66hs6e" path="res://scenes/tilemaps/tiles.tscn" id="1_yx00i"]
 [ext_resource type="Texture2D" uid="uid://dlax476o1ugtj" path="res://assests/World tiles/background.png" id="2_25x5a"]
 [ext_resource type="Texture2D" uid="uid://lftotrfcgqqu" path="res://assests/World tiles/tiles_atlas.png" id="3_godeq"]
@@ -484,21 +484,6 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_4xsyv")
 
-[sub_resource type="Animation" id="Animation_5poiv"]
-resource_name = "from_a_to_b"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.98),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(428, 945), Vector2(516, 945)]
-}
-
 [sub_resource type="Animation" id="Animation_2cjbq"]
 length = 0.001
 tracks/0/type = "value"
@@ -512,6 +497,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(428, 945)]
+}
+
+[sub_resource type="Animation" id="Animation_5poiv"]
+resource_name = "from_a_to_b"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(428, 945), Vector2(516, 945)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pm3ni"]
@@ -686,6 +686,21 @@ script = ExtResource("14_pm3ni")
 dialogues = Array[ExtResource("6_jbj1t")]([SubResource("Resource_5he1u"), SubResource("Resource_5poiv"), SubResource("Resource_2cjbq"), SubResource("Resource_chjal"), SubResource("Resource_cjqg0"), SubResource("Resource_txyw0")])
 metadata/_custom_type_script = "uid://bk7m6itj0ytlq"
 
+[sub_resource type="Animation" id="Animation_cjqg0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_chjal"]
 resource_name = "idle"
 length = 1.00002
@@ -702,21 +717,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 0, 3]
-}
-
-[sub_resource type="Animation" id="Animation_cjqg0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vchkt"]

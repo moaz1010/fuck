@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 var SPEED: int = 300
 var ROTATION_SPEED: float = 3
@@ -13,20 +13,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	sprites_node.rotate(ROTATION_SPEED*2*PI*delta)
-
-func _physics_process(delta: float) -> void:
-	velocity = Vector2.RIGHT*SPEED*delta
-	velocity = velocity.rotated(global_rotation)
-	var collision = move_and_collide(velocity)
-	if collision:
-		_split.call_deferred()
+	position += transform.x * SPEED * delta
 
 func _on_body_entered(_body: Node2D) -> void:
 	_split.call_deferred()
 
-
-func _on_area_entered(_area: Area2D) -> void:
-	_split.call_deferred()
 
 func _split():
 	for sprite in sprites:

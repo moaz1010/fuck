@@ -43,7 +43,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="WandBullet" type="CharacterBody2D"]
+[node name="WandBullet" type="Area2D"]
 z_index = -1
 collision_layer = 4
 collision_mask = 18
@@ -63,4 +63,5 @@ sprite_frames = SubResource("SpriteFrames_m4xm0")
 autoplay = "default"
 frame_progress = 0.679009
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="SplitTimer" to="." method="_on_split_timer_timeout"]
