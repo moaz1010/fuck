@@ -3,8 +3,8 @@ extends Node2D
 
 
 func _process(delta: float) -> void:
-	if $AnimationPlayer.is_playing():
-		position.y += 2
+	if $AnimationPlayer.animation_finished:
+		position.y += 1
 
 func _on_enter_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
