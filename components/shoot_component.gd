@@ -15,7 +15,7 @@ var is_in_cooldown := false
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("fire") and not is_in_cooldown:  # to shoot
-		shoot.call_deferred()
+		shoot()
 		
 func shoot():
 	bullet_shot.emit(RECOIL)
@@ -26,6 +26,6 @@ func shoot():
 	
 	var bullet_instance = BULLET.instantiate()
 	
-	get_tree().root.add_child(bullet_instance)
+	get_tree().root.add_child.call_deferred(bullet_instance)
 	bullet_instance.global_position = global_position
 	bullet_instance.global_rotation = global_rotation
