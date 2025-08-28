@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cwhmbggqhmtve"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cwhmbggqhmtve"]
 
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="1_kta41"]
 [ext_resource type="Texture2D" uid="uid://del8crji3hih5" path="res://assests/UI stuff/Buttons/added_exit_button_spritesheet.png" id="2_yflgl"]
@@ -28,7 +28,7 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t60cf"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oseui"]
 texture = ExtResource("2_yflgl")
 texture_margin_left = 7.0
 texture_margin_top = 7.0
@@ -51,6 +51,18 @@ expand_margin_top = 2.0
 expand_margin_right = 3.0
 expand_margin_bottom = 2.0
 region_rect = Rect2(0, 224, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ma5dt"]
+texture = ExtResource("2_yflgl")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+expand_margin_left = 2.0
+expand_margin_top = 3.0
+expand_margin_right = 2.0
+expand_margin_bottom = 3.0
+region_rect = Rect2(65, 193, 30, 29)
 
 [resource]
 /colors/button = Color(0, 0, 0, 1)
@@ -75,9 +87,9 @@ Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_kta41")
 Button/styles/disabled = SubResource("StyleBoxTexture_kta41")
 Button/styles/focus = SubResource("StyleBoxFlat_okfgx")
-Button/styles/hover = SubResource("StyleBoxTexture_t60cf")
+Button/styles/hover = SubResource("StyleBoxTexture_oseui")
 Button/styles/normal = SubResource("StyleBoxTexture_vin4k")
-Button/styles/pressed = SubResource("StyleBoxTexture_t60cf")
+Button/styles/pressed = SubResource("StyleBoxTexture_ma5dt")
 Label/colors/font_color = Color(0.921569, 0.898039, 0.807843, 1)
 Label/colors/font_outline_color = Color(0.180392, 0.188235, 0.215686, 1)
 Label/colors/font_shadow_color = Color(0.180392, 0.188235, 0.215686, 1)
