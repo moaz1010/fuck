@@ -45,7 +45,7 @@ _data = {
 }
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_hmmvo"]
-length = 100.0
+length = 112.0
 
 [node name="boulder" type="CharacterBody2D"]
 collision_layer = 16
