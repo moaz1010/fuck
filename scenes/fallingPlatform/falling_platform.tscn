@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://c14awds2gaxte"]
+
+[ext_resource type="Texture2D" uid="uid://poep0e44ulch" path="res://assests/World tiles/maybe_inusrial_tileset.png" id="1_cemwe"]
+[ext_resource type="Script" uid="uid://uhxnkb6vrtr0" path="res://scenes/fallingPlatform/falling_platform.gd" id="2_gub54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c1b1"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6omuw"]
+size = Vector2(48, 5)
+
+[node name="fallingPlatform" type="Sprite2D"]
+texture = ExtResource("1_cemwe")
+region_enabled = true
+region_rect = Rect2(240, 256, 48, 16)
+script = ExtResource("2_gub54")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_4c1b1")
+
+[node name="activationArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="activationArea"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_6omuw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="body_entered" from="activationArea" to="." method="_on_activation_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
