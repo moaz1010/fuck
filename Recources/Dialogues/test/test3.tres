@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=8 format=3 uid="uid://fqgdp7s10vdv"]
 
 [ext_resource type="Script" uid="uid://bfdmdrh7jwasq" path="res://Recources/choice_resource.gd" id="1_frfyk"]
-[ext_resource type="Resource" uid="uid://c5w1avsvk08uc" path="res://Recources/Dialogues/test/no.tres" id="2_diqa3"]
+[ext_resource type="Resource" uid="uid://ewbmpm5d2fu8" path="res://Recources/Dialogues/test/no.tres" id="2_diqa3"]
 [ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="2_w4mgx"]
 [ext_resource type="Texture2D" uid="uid://d1momdh7x1rwi" path="res://assests/characgter sprites/joline_speaker_sprite.png" id="3_w4mgx"]
 [ext_resource type="AudioStream" uid="uid://ddlcdwhdg6jy6" path="res://assests/talk.wav" id="4_6g4ar"]

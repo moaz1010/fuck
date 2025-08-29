@@ -9,14 +9,12 @@
 script = ExtResource("1_ptvw6")
 text = "fish"
 flag = 0
-next_dialogue = Array[ExtResource("2_abgri")]([])
 metadata/_custom_type_script = "uid://bfdmdrh7jwasq"
 
 [sub_resource type="Resource" id="Resource_0o2h6"]
 script = ExtResource("1_ptvw6")
 text = "no fisher"
 flag = 0
-next_dialogue = Array[ExtResource("2_abgri")]([])
 metadata/_custom_type_script = "uid://bfdmdrh7jwasq"
 
 [resource]
