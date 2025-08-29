@@ -2,6 +2,7 @@ extends Control
 
 @onready var text_label := %RichTextLabel
 @onready var speaker_texture := %TextureRect
+@onready var button_container := %button_container
 
 @onready var audio_stream_player := %AudioStreamPlayer
 @onready var skipping_buffer := %SkippingBuffer
@@ -32,8 +33,8 @@ func _ready() -> void:
 	Dialogue.continued_dialogue.connect(_on_continued_dialogue)
 	Dialogue.exited_dialogue.connect(_reset_box)
 
-func _input(_event: InputEvent) -> void:
-	if is_active: 
+func _input(event: InputEvent) -> void:
+	if is_active and not event is InputEventMouseButton: 
 		accept_event()
 	if Input.is_action_just_pressed("ui_accept"):
 		if is_typing:
@@ -47,6 +48,7 @@ func _input(_event: InputEvent) -> void:
 
 func _on_continued_dialogue(section: DialogueResource) -> void:
 	current_section = section
+	_initialize_choices(section)
 	if section.talking_sound:
 		audio_stream_player.stream = section.talking_sound
 	if section.text:
@@ -65,6 +67,19 @@ func _reset_box():
 	is_active = false
 	text_label.text = ""
 	audio_stream_player.stream = null
+
+func _initialize_choices(section: DialogueResource):
+	for child in button_container.get_children():
+		child.queue_free()
+	var choices := section.choices
+	for index in choices.size():
+		var button := Button.new()
+		button.text = choices[index].text
+		button.pressed.connect(
+			_on_choice_pressed.bind(index))
+		button_container.add_child(button)
+func _on_choice_pressed(index: int):
+	Dialogue.choose(index)
 
 func _type_text(text: String, type_speed: float = default_type_speed):
 	const PUNCTUATION: Array[String] = ['.', ',', '!', '?', ';', ':']

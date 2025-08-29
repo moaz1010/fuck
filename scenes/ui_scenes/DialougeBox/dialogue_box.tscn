@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmy2a3ac54cy7"]
+[gd_scene load_steps=6 format=3 uid="uid://bmy2a3ac54cy7"]
 
 [ext_resource type="Script" uid="uid://bx07rcormc8l4" path="res://scenes/ui_scenes/DialougeBox/dialogue_box.gd" id="1_vt4lp"]
 [ext_resource type="Texture2D" uid="uid://2ehrkf0p5i5j" path="res://assests/UI stuff/1Bit_UI_pack_byBatuhan_20250812/1-bit_UI_byBatuhanK.png" id="2_clkam"]
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="2_csukm"]
+[ext_resource type="Theme" uid="uid://cwhmbggqhmtve" path="res://scenes/ui_scenes/main menu/base_theme.tres" id="4_ekbn0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekbn0"]
 texture = ExtResource("2_clkam")
@@ -83,7 +84,12 @@ drag_and_drop_selection_enabled = false
 visible_characters_behavior = 1
 
 [node name="button_container" type="HBoxContainer" parent="Control/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
-visible = false
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_ekbn0")
+theme_override_constants/separation = 16
+
+[node name="Button" type="Button" parent="Control/Panel/MarginContainer/HBoxContainer/VBoxContainer/button_container"]
 layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

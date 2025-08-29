@@ -41,9 +41,8 @@ func choose(index: int):
 	assert(index >= 0 and index < choices.size(), 
 	"Trying to choose a choice that doesn't exist")
 	
-	if choices[index].next_dialogue:
-		enter_dialogue(choices[index].next_dialogue)
-	if choices[index].flag:
+	enter_dialogue(choices[index].next_dialogue.dialogues)
+	if choices[index].flag >= 0:
 		Flags.activate_flag(choices[index].flag)
 
 func exit_dialogue():
