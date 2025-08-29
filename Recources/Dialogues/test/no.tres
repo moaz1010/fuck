@@ -1,26 +1,33 @@
-[gd_resource type="Resource" script_class="DialogueSection" load_steps=6 format=3 uid="uid://c5w1avsvk08uc"]
+[gd_resource type="Resource" script_class="Choice" load_steps=7 format=3 uid="uid://dh44v25b1ukcy"]
 
 [ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="1_b2iko"]
-[ext_resource type="Script" uid="uid://bk7m6itj0ytlq" path="res://Recources/dialogue_section.gd" id="2_asxt4"]
 [ext_resource type="Script" uid="uid://bfdmdrh7jwasq" path="res://Recources/choice_resource.gd" id="2_bvrcp"]
+[ext_resource type="Texture2D" uid="uid://d1momdh7x1rwi" path="res://assests/characgter sprites/joline_speaker_sprite.png" id="3_bvrcp"]
+[ext_resource type="AudioStream" uid="uid://ddlcdwhdg6jy6" path="res://assests/talk.wav" id="4_wykex"]
 
-[sub_resource type="Resource" id="Resource_wykex"]
+[sub_resource type="Resource" id="Resource_sf1x7"]
 script = ExtResource("1_b2iko")
 text = "tf u mean no?"
+speaker_sprite = ExtResource("3_bvrcp")
 choices = Array[ExtResource("2_bvrcp")]([])
+talking_sound = ExtResource("4_wykex")
 talking_speed_in_milliseconds = 0.0
 flag_to_activate = -1
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
-[sub_resource type="Resource" id="Resource_sf1x7"]
+[sub_resource type="Resource" id="Resource_a03cu"]
 script = ExtResource("1_b2iko")
 text = "oh well..."
+speaker_sprite = ExtResource("3_bvrcp")
 choices = Array[ExtResource("2_bvrcp")]([])
+talking_sound = ExtResource("4_wykex")
 talking_speed_in_milliseconds = 0.0
 flag_to_activate = -1
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [resource]
-script = ExtResource("2_asxt4")
-dialogues = Array[ExtResource("1_b2iko")]([SubResource("Resource_wykex"), SubResource("Resource_sf1x7")])
-metadata/_custom_type_script = "uid://bk7m6itj0ytlq"
+script = ExtResource("2_bvrcp")
+text = "no"
+flag = -1
+next_dialogue = Array[ExtResource("1_b2iko")]([SubResource("Resource_sf1x7"), SubResource("Resource_a03cu")])
+metadata/_custom_type_script = "uid://bfdmdrh7jwasq"

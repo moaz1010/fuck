@@ -18,11 +18,11 @@ func get_current_section() -> DialogueResource:
 	return current_sections[current_section_index]
 
 func enter_dialogue(sections: Array[DialogueResource]):
+	if sections.is_empty(): 
+		if is_in_dialogue: exit_dialogue()
+		return
 	current_sections = sections
 	current_section_index = 0
-	if sections.is_empty(): 
-		if is_in_dialogue: exited_dialogue.emit()
-		return
 	if not is_in_dialogue: entered_dialogue.emit()
 	is_in_dialogue = true
 	continued_dialogue.emit(get_current_section())
@@ -41,7 +41,7 @@ func choose(index: int):
 	assert(index >= 0 and index < choices.size(), 
 	"Trying to choose a choice that doesn't exist")
 	
-	enter_dialogue(choices[index].next_dialogue.dialogues)
+	enter_dialogue(choices[index].next_dialogue)
 	if choices[index].flag >= 0:
 		Flags.activate_flag(choices[index].flag)
 

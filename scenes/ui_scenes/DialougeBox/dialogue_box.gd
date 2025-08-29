@@ -104,11 +104,10 @@ func _type_text(text: String, type_speed: float = default_type_speed):
 		if i+1 < text.length():
 			if text[i+1] in PUNCTUATION: next_letter_is_punctuation = true
 		
-		if text[i] in PUNCTUATION and not next_letter_is_punctuation: 
-			typing_buffer = get_tree().create_timer(type_speed / 100)
-			wants_to_skip = false
-		elif wants_to_skip: 
+		if wants_to_skip: 
 			typing_buffer = null
+		elif text[i] in PUNCTUATION and not next_letter_is_punctuation: 
+			typing_buffer = get_tree().create_timer(type_speed / 100)
 		else:
 			typing_buffer = get_tree().create_timer(type_speed / 1000)
 		
