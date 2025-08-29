@@ -1,15 +1,29 @@
-[gd_resource type="Resource" script_class="DialogueResource" load_steps=5 format=3 uid="uid://y3s385ljg1qb"]
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=7 format=3 uid="uid://y3s385ljg1qb"]
 
 [ext_resource type="Script" uid="uid://bfdmdrh7jwasq" path="res://Recources/choice_resource.gd" id="1_ptvw6"]
 [ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="2_abgri"]
 [ext_resource type="Texture2D" uid="uid://d1momdh7x1rwi" path="res://assests/characgter sprites/joline_speaker_sprite.png" id="3_abgri"]
 [ext_resource type="AudioStream" uid="uid://ddlcdwhdg6jy6" path="res://assests/talk.wav" id="4_c1yur"]
 
+[sub_resource type="Resource" id="Resource_c1yur"]
+script = ExtResource("1_ptvw6")
+text = "fish"
+flag = 0
+next_dialogue = Array[ExtResource("2_abgri")]([])
+metadata/_custom_type_script = "uid://bfdmdrh7jwasq"
+
+[sub_resource type="Resource" id="Resource_0o2h6"]
+script = ExtResource("1_ptvw6")
+text = "no fisher"
+flag = 0
+next_dialogue = Array[ExtResource("2_abgri")]([])
+metadata/_custom_type_script = "uid://bfdmdrh7jwasq"
+
 [resource]
 script = ExtResource("2_abgri")
 text = "Hello... Watever You Are...."
 speaker_sprite = ExtResource("3_abgri")
-choices = Array[ExtResource("1_ptvw6")]([])
+choices = Array[ExtResource("1_ptvw6")]([SubResource("Resource_c1yur"), SubResource("Resource_0o2h6")])
 talking_sound = ExtResource("4_c1yur")
 talking_speed_in_milliseconds = 30.0
 flag_to_activate = -1
