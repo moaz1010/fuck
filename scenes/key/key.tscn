@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://girhg2qa7v3i"]
+
+[ext_resource type="Texture2D" uid="uid://poep0e44ulch" path="res://assests/World tiles/maybe_inusrial_tileset.png" id="1_xertp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfgsg"]
+size = Vector2(14, 10)
+
+[node name="Key" type="Sprite2D"]
+texture = ExtResource("1_xertp")
+region_enabled = true
+region_rect = Rect2(257, 67, 14, 10)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kfgsg")

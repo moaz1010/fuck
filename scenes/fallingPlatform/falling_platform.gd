@@ -22,5 +22,14 @@ func _disable_area():
 	$StaticBody2D/CollisionShape2D.disabled = true
 
 
-func _on_timer_timeout() -> void:         # i wanted to make the platform appear again after
-	has_fallen = false                    # the timer finished but idk how to
+func _on_timer_timeout() -> void:     
+	if has_fallen:                        
+						 
+		$StaticBody2D/CollisionShape2D.disabled = false
+		var opacity_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
+		var pos_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
+		
+		opacity_tween.tween_property(self, "modulate:a", 255.0, 0.5)
+		pos_tween.tween_property(self, "global_position", global_position - Vector2(0,12), 0.5)
+		
+		has_fallen = false   
