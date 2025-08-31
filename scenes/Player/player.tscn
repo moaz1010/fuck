@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene load_steps=17 format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_dl1wr"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://qv40eyiboqjs" path="res://idk/Weapons.gd" id="8_frnkk"]
 [ext_resource type="PackedScene" uid="uid://8ihjb88qd8bw" path="res://scenes/ui_scenes/new folder/hotbar.tscn" id="9_uxo23"]
 [ext_resource type="Script" uid="uid://c3aifbheqy0ru" path="res://components/hurtbox.gd" id="9_wwtew"]
+[ext_resource type="Script" uid="uid://baqxdsy0uuf2s" path="res://components/platfromer_component.gd" id="10_uxo23"]
 
 [sub_resource type="Animation" id="Animation_uxo23"]
 length = 0.001
@@ -112,7 +113,12 @@ size = Vector2(8, 10)
 [node name="player" type="CharacterBody2D"]
 collision_mask = 26
 script = ExtResource("1_4vkt4")
+
+[node name="PlatformerComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("10_uxo23")
 params = ExtResource("2_dl1wr")
+metadata/_custom_type_script = "uid://baqxdsy0uuf2s"
 
 [node name="ProgressBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_a06cl")]
 unique_name_in_owner = true

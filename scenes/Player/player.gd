@@ -1,4 +1,4 @@
-extends MovingEntity   # thank you
+extends CharacterBody2D   # :penguin:
 
 @onready var coyote_timer := %CoyoteTimer
 @onready var jump_buffer := %JumpBuffer
@@ -9,7 +9,7 @@ extends MovingEntity   # thank you
 
 @onready var health = %HealthComponent
 @onready var progress_bar := %ProgressBar
-
+@onready var platformer_component := %PlatformerComponent
 @export var DASH_POWER := 300.0
 
 var current_look_dir := "right"
@@ -32,7 +32,6 @@ func _ready() -> void:
 	add_to_group("player")
 	progress_bar.min_value = health.min_health
 	progress_bar.max_value = health.max_health
-	super()
 	Inventory.weapon_switched.connect(
 		#This is here because the "change_weapon" function takes a scene
 		#but the signal sends a resource.
@@ -52,7 +51,7 @@ func _ready() -> void:
 func _unhandled_input(_event: InputEvent) -> void:
 	#The character moves based on this variable, so when it is positive it
 	#moves right, and when it is negative it moves left. / but why though ?
-	direction = Input.get_axis("move_left", "move_right")
+	platformer_component.direction = Input.get_axis("move_left", "move_right")
 
 	if Input.is_action_just_pressed("move_up"):
 		wants_to_jump = true
@@ -70,8 +69,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 		#Only dash if the player isn't standing still.
 		if not dash_direction == Vector2.ZERO:
 			dash_timer.start()
-			dash(dash_direction, DASH_POWER)
-			is_dashing = true
+			#dash(dash_direction, DASH_POWER)
+			#is_dashing = true
 			dash_buffer.start()
 			can_dash = false
 			Camera.screen_shake(5,0.15)
@@ -101,20 +100,19 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if wants_to_jump:
 		if is_on_floor() or !coyote_timer.is_stopped(): 
-			jump()
+			platformer_component.jump()
 			if not push_buffer.is_stopped():
-				velocity_increase.y += previous_push_velocity.y
+				platformer_component.velocity_increase.y += previous_push_velocity.y
 			was_on_floor = false
 			wants_to_jump = false
 		coyote_timer.stop()
 
 	#This executes the _physics_process method in the MovingEntity class
 	#that handles all the movement shi.
-	if can_move: super(delta)
-	else: 
-		direction = 0
-		velocity = Vector2.ZERO
-	velocity_increase = Vector2.ZERO
+	if can_move: 
+		velocity = platformer_component.calculate(delta)
+		move_and_slide()
+		platformer_component.velocity = velocity
 
 
 func change_weapon(scene: PackedScene) -> void:
@@ -146,11 +144,12 @@ func take_recoil(power):
 
 
 func _on_dash_timer_timeout() -> void: 
-	is_dashing = false
+	#is_dashing = false
+	pass
 
 
 func push(push_direction: Vector2, power: float = 1):
-	super(push_direction, power)
+	platformer_component.push(push_direction, power)
 	previous_push_velocity = push_direction * power
 	push_buffer.start()
 
