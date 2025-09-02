@@ -10,16 +10,20 @@ extends CharacterBody2D   # :penguin:
 @onready var health = %HealthComponent
 @onready var progress_bar := %ProgressBar
 @onready var platformer_component := %PlatformerComponent
+
 @export var DASH_POWER := 300.0
+@export_range(0, 1.0, .02) var dash_cutoff_harshness := .2
 
 var current_look_dir := "right"
 
 var checkpoint_position: Vector2     
+var dash_velocity : Vector2 = Vector2.ZERO
 var previous_push_velocity: Vector2 = Vector2.ZERO       # for the checkPoint System
 
 var is_dead: bool = false
 var was_able_to_jump: bool = true
 var wants_to_jump: bool = false
+var is_dashing: bool = false
 var can_dash: bool = true:
 	set(value):
 		can_dash = value
@@ -69,10 +73,9 @@ func _unhandled_input(_event: InputEvent) -> void:
 		
 		#Only dash if the player isn't standing still.
 		if not dash_direction == Vector2.ZERO:
+			dash_velocity = dash_direction * DASH_POWER
 			dash_timer.start()
-			platformer_component.insta_push(dash_direction, 1000)
-			#dash(dash_direction, DASH_POWER)
-			#is_dashing = true
+			is_dashing = true
 			dash_buffer.start()
 			can_dash = false
 			Camera.screen_shake(5,0.15)
@@ -107,9 +110,12 @@ func _physics_process(delta: float) -> void:
 			wants_to_jump = false
 		coyote_timer.stop()
 
-	#This executes the _physics_process method in the MovingEntity class
 	#that handles all the movement shi.
-	if can_move: 
+	if is_dashing:
+		velocity = dash_velocity
+		platformer_component.velocity = dash_velocity / max(dash_cutoff_harshness * DASH_POWER, 1)
+		move_and_slide()
+	elif can_move: 
 		var is_considered_on_wall : bool = false
 		if is_on_wall():
 			for i in get_slide_collision_count():
@@ -151,8 +157,7 @@ func take_recoil(power):
 
 
 func _on_dash_timer_timeout() -> void: 
-	#is_dashing = false
-	pass
+	is_dashing = false
 
 
 func push(push_direction: Vector2, power: float = 1):

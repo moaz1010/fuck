@@ -113,6 +113,8 @@ size = Vector2(8, 10)
 [node name="player" type="CharacterBody2D"]
 collision_mask = 26
 script = ExtResource("1_4vkt4")
+DASH_POWER = 500.0
+dash_cutoff_harshness = 0.22
 
 [node name="PlatformerComponent" type="Node" parent="."]
 unique_name_in_owner = true
@@ -162,7 +164,7 @@ one_shot = true
 
 [node name="DashTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.25
+wait_time = 0.2
 one_shot = true
 
 [node name="DashBuffer" type="Timer" parent="."]
