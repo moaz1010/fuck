@@ -34,8 +34,8 @@ var JUMP_HEIGHT := 160.0:
 var MAX_SPEED := 300.0:
 	set(value):
 		MAX_SPEED = value
-		SECONDS_TO_MAX_SPEED = MAX_SPEED / ACCELERATION
-		SECONDS_TO_STOP_COMPLETELY = MAX_SPEED / FRICTION
+		ACCELERATION = MAX_SPEED / SECONDS_TO_MAX_SPEED
+		FRICTION = MAX_SPEED / SECONDS_TO_STOP_COMPLETELY
 
 var TERMINAL_VELOCITY := 1000.0
 
@@ -48,6 +48,9 @@ var JUMP_VELOCITY := 400.0
 var MAX_JUMP_VELOCITY := 600.0
 
 var direction : float = 0
+
+var should_control_itself : bool = true
+var lock_movement : bool = false
 
 var velocity_increase: Vector2 = Vector2.ZERO
 
@@ -70,29 +73,33 @@ func _setup_from_resource(resource: MovingEntityStats) -> void:
 func _ready() -> void: _setup_from_resource(params)
 
 
-func calculate(delta: float) -> Vector2:
+func calculate(delta: float, is_on_floor: bool) -> Vector2:
 
 	_apply_gravity(delta)
 
 	_apply_acceleration(delta)
 
-	_apply_friction(delta)
+	_apply_friction(delta, is_on_floor)
 
 	velocity += velocity_increase
+	velocity_increase = Vector2.ZERO
 	velocity.y = clamp(velocity.y, -TERMINAL_VELOCITY, TERMINAL_VELOCITY)
 	
 	return velocity
 
 
 func jump():
+	if lock_movement: return
 	var percentage = min(abs(velocity.x) / MAX_SPEED, 1)
 	var increase = lerp(JUMP_VELOCITY, MAX_JUMP_VELOCITY, percentage)
 	velocity.y = -increase
 
 func push(push_direction: Vector2, power: float = 1):
+	should_control_itself = false
 	velocity += push_direction * power
 
 func insta_push(push_direction: Vector2, power: float = 1):
+	should_control_itself = false
 	velocity = push_direction * power
 
 
@@ -104,8 +111,10 @@ func _apply_gravity(delta: float):
 			velocity.y += GRAVITY * delta
 
 func _apply_acceleration(delta: float):
+	if lock_movement: return
 	#Handle acceleration.
 	if direction:
+		should_control_itself = true
 		var increase := (ACCELERATION + FRICTION) * delta
 		
 		#To make sure the character doesn't go beyond 
@@ -119,11 +128,13 @@ func _apply_acceleration(delta: float):
 		velocity.x += increase * direction
 
 
-func _apply_friction(delta: float):
+func _apply_friction(delta: float, is_on_floor: bool = true):
 	#Handle friction.
 	var friciton_direction : int = -(sign(velocity.x))
-	var decrease = FRICTION * friciton_direction * delta
-	velocity.x += decrease
+	var decrease = FRICTION * friciton_direction
+	if not should_control_itself: decrease /= 2.0
+	if not is_on_floor: decrease /= 3.0
+	velocity.x += decrease * delta
 	
 	if friciton_direction == sign(velocity.x):
 		velocity.x = 0

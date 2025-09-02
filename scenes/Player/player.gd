@@ -51,6 +51,7 @@ func _ready() -> void:
 func _unhandled_input(_event: InputEvent) -> void:
 	#The character moves based on this variable, so when it is positive it
 	#moves right, and when it is negative it moves left. / but why though ?
+	platformer_component.lock_movement = Input.is_action_pressed("lock_movement")
 	platformer_component.direction = Input.get_axis("move_left", "move_right")
 
 	if Input.is_action_just_pressed("move_up"):
@@ -69,6 +70,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		#Only dash if the player isn't standing still.
 		if not dash_direction == Vector2.ZERO:
 			dash_timer.start()
+			platformer_component.insta_push(dash_direction, 1000)
 			#dash(dash_direction, DASH_POWER)
 			#is_dashing = true
 			dash_buffer.start()
@@ -110,7 +112,7 @@ func _physics_process(delta: float) -> void:
 	#This executes the _physics_process method in the MovingEntity class
 	#that handles all the movement shi.
 	if can_move: 
-		velocity = platformer_component.calculate(delta)
+		velocity = platformer_component.calculate(delta, is_on_floor())
 		move_and_slide()
 		platformer_component.velocity = velocity
 
