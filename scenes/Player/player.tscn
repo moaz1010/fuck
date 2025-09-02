@@ -138,10 +138,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_7tfl1")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = SubResource("CapsuleShape2D_dl1wr")
-
 [node name="WeaponShell" type="Node2D" parent="."]
 unique_name_in_owner = true
 z_index = 6
@@ -149,6 +145,10 @@ script = ExtResource("8_frnkk")
 
 [node name="Sprite2D" parent="WeaponShell" instance=ExtResource("7_dl1wr")]
 position = Vector2(7, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("CapsuleShape2D_dl1wr")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 unique_name_in_owner = true

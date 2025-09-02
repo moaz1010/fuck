@@ -73,9 +73,9 @@ func _setup_from_resource(resource: MovingEntityStats) -> void:
 func _ready() -> void: _setup_from_resource(params)
 
 
-func calculate(delta: float, is_on_floor: bool) -> Vector2:
+func calculate(delta: float, is_on_floor: bool = true, is_on_wall: bool = false) -> Vector2:
 
-	_apply_gravity(delta)
+	_apply_gravity(delta, is_on_wall)
 
 	_apply_acceleration(delta)
 
@@ -104,11 +104,13 @@ func insta_push(push_direction: Vector2, power: float = 1):
 
 
 
-func _apply_gravity(delta: float):
+func _apply_gravity(delta: float, is_on_wall: bool = false):
 		if velocity.y > 0:
 			velocity.y += FALL_GRAVITY * delta
 		else:
 			velocity.y += GRAVITY * delta
+
+		if is_on_wall: velocity.y = min(velocity.y, 10)
 
 func _apply_acceleration(delta: float):
 	if lock_movement: return
@@ -132,8 +134,9 @@ func _apply_friction(delta: float, is_on_floor: bool = true):
 	#Handle friction.
 	var friciton_direction : int = -(sign(velocity.x))
 	var decrease = FRICTION * friciton_direction
-	if not should_control_itself: decrease /= 2.0
-	if not is_on_floor: decrease /= 3.0
+	if not should_control_itself: 
+		decrease /= 2.0
+		if not is_on_floor: decrease /= 4.0
 	velocity.x += decrease * delta
 	
 	if friciton_direction == sign(velocity.x):

@@ -18,7 +18,7 @@ var checkpoint_position: Vector2
 var previous_push_velocity: Vector2 = Vector2.ZERO       # for the checkPoint System
 
 var is_dead: bool = false
-var was_on_floor: bool = true
+var was_able_to_jump: bool = true
 var wants_to_jump: bool = false
 var can_dash: bool = true:
 	set(value):
@@ -79,16 +79,14 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-	
 
-	
 	if is_on_floor() and dash_buffer.is_stopped(): 
 		can_dash = true
 	
-	if not is_on_floor() and was_on_floor:
+	if not (is_on_floor() or is_on_wall()) and was_able_to_jump:
 		coyote_timer.start()
 	
-	was_on_floor = is_on_floor()
+	was_able_to_jump = is_on_floor() or is_on_wall()
 	
 	# to get the approriate animation for where the player looks
 	if current_look_dir == "right" and get_global_mouse_position().x < global_position.x:
@@ -101,18 +99,25 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if wants_to_jump:
-		if is_on_floor() or !coyote_timer.is_stopped(): 
+		if is_on_floor() or is_on_wall() or !coyote_timer.is_stopped(): 
 			platformer_component.jump()
 			if not push_buffer.is_stopped():
 				platformer_component.velocity_increase.y += previous_push_velocity.y
-			was_on_floor = false
+			was_able_to_jump = false
 			wants_to_jump = false
 		coyote_timer.stop()
 
 	#This executes the _physics_process method in the MovingEntity class
 	#that handles all the movement shi.
 	if can_move: 
-		velocity = platformer_component.calculate(delta, is_on_floor())
+		var is_considered_on_wall : bool = false
+		if is_on_wall():
+			for i in get_slide_collision_count():
+				var collision = get_slide_collision(i)
+				if collision.get_normal().x == -Input.get_axis("move_left", "move_right"):
+					is_considered_on_wall = true
+					
+		velocity = platformer_component.calculate(delta, is_on_floor(), is_considered_on_wall)
 		move_and_slide()
 		platformer_component.velocity = velocity
 
