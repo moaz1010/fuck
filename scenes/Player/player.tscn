@@ -174,7 +174,7 @@ one_shot = true
 
 [node name="PushBuffer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.05
+wait_time = 0.1
 one_shot = true
 
 [node name="HealthComponent" type="Node" parent="."]

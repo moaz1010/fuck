@@ -48,16 +48,17 @@ func _input(event: InputEvent) -> void:
 
 func _on_continued_dialogue(section: DialogueResource) -> void:
 	current_section = section
-	_initialize_choices(section)
-	if section.talking_sound:
-		audio_stream_player.stream = section.talking_sound
-	if section.text:
+	current_section = _initialize_character(current_section)
+	_initialize_choices(current_section)
+	if current_section.talking_sound:
+		audio_stream_player.stream = current_section.talking_sound
+	if current_section.text:
 		var current_talking_speed := default_type_speed
-		if section.talking_speed_in_milliseconds:
-			current_talking_speed = section.talking_speed_in_milliseconds
-		_type_text(section.text, current_talking_speed)
-	if section.speaker_sprite:
-		speaker_texture.texture = section.speaker_sprite
+		if current_section.talking_speed_in_milliseconds:
+			current_talking_speed = current_section.talking_speed_in_milliseconds
+		_type_text(current_section.text, current_talking_speed)
+	if current_section.speaker_sprite:
+		speaker_texture.texture = current_section.speaker_sprite
 
 func _initialize_box() -> void:
 	is_active = true
@@ -119,3 +120,14 @@ func _type_text(text: String, type_speed: float = default_type_speed):
 	wants_to_skip = false
 	skipping_buffer.start()
 	is_typing = false
+
+func _initialize_character(section: DialogueResource) -> DialogueResource:
+	var result = section
+	if not result.speaker_sprite:
+		result.speaker_sprite = section.character.speaker_sprite
+	if not result.talking_sound:
+		result.talking_sound = section.character.talking_sound
+	if not result.talking_speed_in_milliseconds:
+		result.talking_speed_in_milliseconds = section.character.talking_speed_in_milliseconds
+	
+	return result
