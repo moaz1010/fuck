@@ -164,6 +164,7 @@ func push(push_direction: Vector2, power: float = 1):
 	platformer_component.push(push_direction, power)
 	previous_push_velocity = push_direction * power
 	push_buffer.start()
+	platformer_component.lock_control = true
 
 
 func _on_checkpoint_activated(pos: Vector2) -> void:
@@ -174,3 +175,7 @@ func _on_checkpoint_activated(pos: Vector2) -> void:
 func _on_health_component_died() -> void:
 	get_tree().change_scene_to_file.call_deferred("res://scenes/ui_scenes/death screen/death_screen.tscn")
 	
+
+
+func _on_push_buffer_timeout() -> void:
+	platformer_component.lock_control = false
