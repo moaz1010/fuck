@@ -1,6 +1,8 @@
 extends Node
 class_name PlatformerComponent
 
+signal stopped_controlling_itself
+
 var velocity : Vector2 = Vector2.ZERO
 
 var SECONDS_TO_MAX_SPEED := .9:
@@ -37,6 +39,7 @@ var MAX_SPEED := 300.0:
 		ACCELERATION = MAX_SPEED / SECONDS_TO_MAX_SPEED
 		FRICTION = MAX_SPEED / SECONDS_TO_STOP_COMPLETELY
 
+var WALL_JUMP_HORIZONTAL_POWER : float = 300.0
 var TERMINAL_VELOCITY := 1000.0
 
 var ACCELERATION : float
@@ -56,6 +59,7 @@ var should_control_itself : bool = true:
 	set(value):
 		if not lock_control: 
 			should_control_itself = value
+			stopped_controlling_itself.emit()
 
 var velocity_increase: Vector2 = Vector2.ZERO
 
@@ -71,6 +75,7 @@ func _setup_from_resource(resource: MovingEntityStats) -> void:
 		HANG_TIME = resource.HANG_TIME
 		FALL_TIME = resource.FALL_TIME 
 		MAX_SPEED = resource.MAX_SPEED
+		WALL_JUMP_HORIZONTAL_POWER = resource.WALL_JUMP_HORIZONTAL_POWER
 		MAX_SPEED_JUMP_INCREASE = resource.MAX_SPEED_JUMP_INCREASE
 		JUMP_HEIGHT = resource.JUMP_HEIGHT
 
@@ -98,6 +103,11 @@ func jump():
 	var percentage = min(abs(velocity.x) / MAX_SPEED, 1)
 	var increase = lerp(JUMP_VELOCITY, MAX_JUMP_VELOCITY, percentage)
 	velocity.y = -increase
+	
+func wall_jump(wall_direction: float):
+	jump()
+	should_control_itself = false
+	velocity.x = wall_direction * WALL_JUMP_HORIZONTAL_POWER
 
 func push(push_direction: Vector2, power: float = 1):
 	should_control_itself = false

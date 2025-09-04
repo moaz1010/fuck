@@ -22,6 +22,7 @@ var previous_push_velocity: Vector2 = Vector2.ZERO       # for the checkPoint Sy
 
 var is_dead: bool = false
 var was_able_to_jump: bool = true
+var previous_wall_only_direction : float = 0
 var wants_to_jump: bool = false
 var is_dashing: bool = false
 var can_dash: bool = true:
@@ -86,10 +87,15 @@ func _process(_delta: float) -> void:
 	if is_on_floor() and dash_buffer.is_stopped(): 
 		can_dash = true
 	
-	if not (is_on_floor() or is_on_wall()) and was_able_to_jump:
-		coyote_timer.start()
+	if is_on_floor() or is_considered_on_wall():
+		was_able_to_jump = true
+		if not is_on_floor(): 
+			previous_wall_only_direction = get_wall_direction()
+		else: previous_wall_only_direction = 0
+	else:
+		if was_able_to_jump: coyote_timer.start()
+		was_able_to_jump = false
 	
-	was_able_to_jump = is_on_floor() or is_on_wall()
 	
 	# to get the approriate animation for where the player looks
 	if current_look_dir == "right" and get_global_mouse_position().x < global_position.x:
@@ -101,9 +107,14 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	print(platformer_component.should_control_itself)
 	if wants_to_jump:
-		if is_on_floor() or is_on_wall() or !coyote_timer.is_stopped(): 
-			platformer_component.jump()
+		if is_on_floor() or is_considered_on_wall() or !coyote_timer.is_stopped(): 
+			if !coyote_timer.is_stopped() and previous_wall_only_direction:
+				platformer_component.wall_jump(previous_wall_only_direction)
+			elif is_considered_on_wall() and not is_on_floor():
+				platformer_component.wall_jump(get_wall_direction())
+			else: platformer_component.jump()
 			if not push_buffer.is_stopped():
 				platformer_component.velocity_increase.y += previous_push_velocity.y
 			was_able_to_jump = false
@@ -115,15 +126,8 @@ func _physics_process(delta: float) -> void:
 		velocity = dash_velocity
 		platformer_component.velocity = dash_velocity / max(dash_cutoff_harshness * DASH_POWER, 1)
 		move_and_slide()
-	elif can_move: 
-		var is_considered_on_wall : bool = false
-		if is_on_wall():
-			for i in get_slide_collision_count():
-				var collision = get_slide_collision(i)
-				if collision.get_normal().x == -Input.get_axis("move_left", "move_right"):
-					is_considered_on_wall = true
-					
-		velocity = platformer_component.calculate(delta, is_on_floor(), is_considered_on_wall)
+	elif can_move:
+		velocity = platformer_component.calculate(delta, is_on_floor(), is_considered_on_wall())
 		move_and_slide()
 		platformer_component.velocity = velocity
 
@@ -163,8 +167,6 @@ func _on_dash_timer_timeout() -> void:
 func push(push_direction: Vector2, power: float = 1):
 	platformer_component.push(push_direction, power)
 	previous_push_velocity = push_direction * power
-	push_buffer.start()
-	platformer_component.lock_control = true
 
 
 func _on_checkpoint_activated(pos: Vector2) -> void:
@@ -176,6 +178,27 @@ func _on_health_component_died() -> void:
 	get_tree().change_scene_to_file.call_deferred("res://scenes/ui_scenes/death screen/death_screen.tscn")
 	
 
-
 func _on_push_buffer_timeout() -> void:
 	platformer_component.lock_control = false
+	print('lol')
+
+func is_considered_on_wall() -> bool:
+	var wall_direction := get_wall_direction()
+	if wall_direction == 0: return false
+	if wall_direction == -Input.get_axis("move_left", "move_right"):
+		return true
+	return false
+
+func get_wall_direction() -> float:
+	var result : float = 0
+	if is_on_wall():
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			result = collision.get_normal().x
+	return result
+
+
+func _on_platformer_component_stopped_controlling_itself() -> void:
+	if platformer_component.should_control_itself: return
+	push_buffer.start()
+	platformer_component.lock_control = true
