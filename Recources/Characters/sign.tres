@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=3 format=3 uid="uid://cnfbxkquo0j6y"]
+
+[ext_resource type="Script" uid="uid://dnuxmn7pb0jjh" path="res://Recources/character_resource.gd" id="1_bugls"]
+[ext_resource type="Texture2D" uid="uid://duth01mi4vgju" path="res://assests/characgter sprites/sign.png" id="2_1bu3w"]
+
+[resource]
+script = ExtResource("1_bugls")
+speaker_sprite = ExtResource("2_1bu3w")
+talking_speed_in_milliseconds = 0.0
+metadata/_custom_type_script = "uid://dnuxmn7pb0jjh"

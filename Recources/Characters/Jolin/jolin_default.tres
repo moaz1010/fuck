@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://vaxmja12qjn6"]
+
+[ext_resource type="Script" uid="uid://dnuxmn7pb0jjh" path="res://Recources/character_resource.gd" id="1_vuhtb"]
+[ext_resource type="Texture2D" uid="uid://d1momdh7x1rwi" path="res://assests/characgter sprites/joline_speaker_sprite.png" id="2_yglq5"]
+[ext_resource type="AudioStream" uid="uid://ddlcdwhdg6jy6" path="res://assests/talk.wav" id="3_g1tci"]
+
+[resource]
+script = ExtResource("1_vuhtb")
+speaker_sprite = ExtResource("2_yglq5")
+talking_sound = ExtResource("3_g1tci")
+talking_speed_in_milliseconds = 30.0
+metadata/_custom_type_script = "uid://dnuxmn7pb0jjh"

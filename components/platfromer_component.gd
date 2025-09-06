@@ -49,8 +49,13 @@ var MAX_JUMP_VELOCITY := 600.0
 
 var direction : float = 0
 
-var should_control_itself : bool = true
 var lock_movement : bool = false
+var lock_control : bool = false
+
+var should_control_itself : bool = true:
+	set(value):
+		if not lock_control: 
+			should_control_itself = value
 
 var velocity_increase: Vector2 = Vector2.ZERO
 
