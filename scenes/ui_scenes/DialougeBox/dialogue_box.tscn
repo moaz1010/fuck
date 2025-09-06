@@ -86,6 +86,7 @@ visible_characters_behavior = 1
 [node name="button_container" type="HBoxContainer" parent="Control/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("4_ekbn0")
 theme_override_constants/separation = 16
 
