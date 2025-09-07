@@ -11,6 +11,8 @@ extends CharacterBody2D   # :penguin:
 @onready var progress_bar := %ProgressBar
 @onready var platformer_component := %PlatformerComponent
 
+@onready var animation_player := %AnimationPlayer
+
 @export var DASH_POWER := 300.0
 @export_range(0, 1.0, .02) var dash_cutoff_harshness := .2
 
@@ -99,15 +101,14 @@ func _process(_delta: float) -> void:
 	
 	# to get the approriate animation for where the player looks
 	if current_look_dir == "right" and get_global_mouse_position().x < global_position.x:
-		$Sprite2D/AnimationPlayer.play("look_left")
+		animation_player.play("look_left")
 		current_look_dir = "left"
 	elif current_look_dir == "left" and get_global_mouse_position().x > global_position.x:
-		$Sprite2D/AnimationPlayer.play("look_right")
+		animation_player.play("look_right")
 		current_look_dir = "right"
 
 
 func _physics_process(delta: float) -> void:
-	print(platformer_component.should_control_itself)
 	if wants_to_jump:
 		if is_on_floor() or is_considered_on_wall() or !coyote_timer.is_stopped(): 
 			if !coyote_timer.is_stopped() and previous_wall_only_direction:
