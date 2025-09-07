@@ -1,0 +1,294 @@
+[gd_scene load_steps=19 format=3 uid="uid://dsm02n73ad3fq"]
+
+[ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
+[ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_dl1wr"]
+[ext_resource type="Texture2D" uid="uid://cjxp1hh8fkfmo" path="res://assests/Player stuff/player (1).png" id="3_uklsp"]
+[ext_resource type="Script" uid="uid://8rms6rae8mtb" path="res://components/health_component.gd" id="6_a06cl"]
+[ext_resource type="PackedScene" uid="uid://c8kcgyl7fta3i" path="res://scenes/ui_scenes/HealthBar/healthbar.tscn" id="7_a06cl"]
+[ext_resource type="PackedScene" uid="uid://cnj5rk8ut3a6k" path="res://scenes/weapons/Sword/sword.tscn" id="7_dl1wr"]
+[ext_resource type="Script" uid="uid://qv40eyiboqjs" path="res://idk/Weapons.gd" id="8_frnkk"]
+[ext_resource type="PackedScene" uid="uid://8ihjb88qd8bw" path="res://scenes/ui_scenes/new folder/hotbar.tscn" id="9_uxo23"]
+[ext_resource type="Script" uid="uid://c3aifbheqy0ru" path="res://components/hurtbox.gd" id="9_wwtew"]
+[ext_resource type="Script" uid="uid://baqxdsy0uuf2s" path="res://components/platfromer_component.gd" id="10_uxo23"]
+
+[sub_resource type="Animation" id="Animation_uxo23"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_wwtew"]
+resource_name = "look_left"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, -2), Vector2(-1, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_n7rn1"]
+resource_name = "look_right"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, -2), Vector2(1, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_7tfl1"]
+resource_name = "blink"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jxtnq"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.4, 0.733333, 0.8, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2, -3), Vector2(3, -5), Vector2(3, -5), Vector2(3, -3), Vector2(3, -3), Vector2(2, -3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7tfl1"]
+_data = {
+&"RESET": SubResource("Animation_uxo23"),
+&"blink": SubResource("Animation_7tfl1"),
+&"idle": SubResource("Animation_jxtnq"),
+&"look_left": SubResource("Animation_wwtew"),
+&"look_right": SubResource("Animation_n7rn1")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dl1wr"]
+radius = 5.0
+height = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxo23"]
+size = Vector2(8, 10)
+
+[node name="player" type="CharacterBody2D"]
+collision_mask = 26
+script = ExtResource("1_4vkt4")
+DASH_POWER = 500.0
+dash_cutoff_harshness = 0.22
+
+[node name="PlatformerComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("10_uxo23")
+params = ExtResource("2_dl1wr")
+metadata/_custom_type_script = "uid://baqxdsy0uuf2s"
+
+[node name="ProgressBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_a06cl")]
+unique_name_in_owner = true
+offset_left = -5.0
+offset_top = -21.0
+offset_right = 5.0
+offset_bottom = -15.0
+health_component = NodePath("../HealthComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -2)
+texture = ExtResource("3_uklsp")
+region_enabled = true
+region_rect = Rect2(9, 9, 13, 17)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_7tfl1")
+}
+
+[node name="WeaponShell" type="Node2D" parent="."]
+unique_name_in_owner = true
+z_index = 6
+script = ExtResource("8_frnkk")
+
+[node name="Sprite2D" parent="WeaponShell" instance=ExtResource("7_dl1wr")]
+position = Vector2(7, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("CapsuleShape2D_dl1wr")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.05
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="DashTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="DashBuffer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.067
+one_shot = true
+
+[node name="PushBuffer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
+[node name="HealthComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_a06cl")
+idle_healing = 0.5
+max_health = 100.0
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("9_wwtew")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://c3aifbheqy0ru"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_uxo23")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hotbar" parent="CanvasLayer" instance=ExtResource("9_uxo23")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+<<<<<<< HEAD
+[connection signal="stopped_controlling_itself" from="PlatformerComponent" to="." method="_on_platformer_component_stopped_controlling_itself"]
+=======
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(2, -3)
+scale = Vector2(1, 0.1)
+texture = ExtResource("3_uklsp")
+region_enabled = true
+region_rect = Rect2(0, 0, 5, 2)
+
+>>>>>>> fd9b1987742e1646104cfd6108b5b0a456357b5a
+[connection signal="child_entered_tree" from="WeaponShell" to="." method="_on_weapon_shell_child_entered_tree"]
+[connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="PushBuffer" to="." method="_on_push_buffer_timeout"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
