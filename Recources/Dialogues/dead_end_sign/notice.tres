@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DialogueSection" load_steps=6 format=3 uid="uid://bxfaxi4gnxsxq"]
+
+[ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="1_qaxra"]
+[ext_resource type="Script" uid="uid://bfdmdrh7jwasq" path="res://Recources/choice_resource.gd" id="2_22q1j"]
+[ext_resource type="Resource" uid="uid://cnfbxkquo0j6y" path="res://Recources/Characters/sign.tres" id="2_p8s74"]
+[ext_resource type="Script" uid="uid://bk7m6itj0ytlq" path="res://Recources/dialogue_section.gd" id="4_vcyc7"]
+
+[sub_resource type="Resource" id="Resource_yerw1"]
+script = ExtResource("1_qaxra")
+text = "Notice That This Is A Dead End."
+choices = Array[ExtResource("2_22q1j")]([])
+flag_to_activate = 0
+character = ExtResource("2_p8s74")
+talking_speed_in_milliseconds = 0.0
+metadata/_custom_type_script = "uid://b1650whroytf0"
+
+[resource]
+script = ExtResource("4_vcyc7")
+dialogues = Array[ExtResource("1_qaxra")]([SubResource("Resource_yerw1")])
+metadata/_custom_type_script = "uid://bk7m6itj0ytlq"

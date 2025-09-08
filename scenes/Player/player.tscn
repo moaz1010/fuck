@@ -16,7 +16,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Body:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +28,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Body:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -40,26 +40,58 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D2:position")
+tracks/2/path = NodePath("Body/Eyes:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2, -3)]
+"values": [Vector2(1, -1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D2:scale")
+tracks/3/path = NodePath("Body/Eyes:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.001),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 0.1)]
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7tfl1"]
+resource_name = "blink"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Eyes:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jxtnq"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Eyes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.4, 0.733333, 0.8, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -1), Vector2(2, -3), Vector2(2, -3), Vector2(2, -1), Vector2(2, -1), Vector2(1, -1)]
 }
 
 [sub_resource type="Animation" id="Animation_wwtew"]
@@ -69,7 +101,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Body:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -81,7 +113,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Body:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -98,7 +130,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Body:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -110,7 +142,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Body:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -118,50 +150,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-1, -2), Vector2(1, -2)]
-}
-
-[sub_resource type="Animation" id="Animation_7tfl1"]
-resource_name = "blink"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, -3)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D2:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.233333, 0.566667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_jxtnq"]
-resource_name = "idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.4, 0.733333, 0.8, 0.966667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(2, -3), Vector2(3, -5), Vector2(3, -5), Vector2(3, -3), Vector2(3, -3), Vector2(2, -3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7tfl1"]
@@ -200,17 +188,23 @@ offset_right = 5.0
 offset_bottom = -15.0
 health_component = NodePath("../HealthComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_7tfl1")
+}
+
+[node name="Body" type="Sprite2D" parent="."]
 position = Vector2(1, -2)
 texture = ExtResource("3_uklsp")
 region_enabled = true
 region_rect = Rect2(9, 9, 13, 17)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_7tfl1")
-}
+[node name="Eyes" type="Sprite2D" parent="Body"]
+position = Vector2(1, -1)
+texture = ExtResource("3_uklsp")
+region_enabled = true
+region_rect = Rect2(0, 0, 5, 2)
 
 [node name="WeaponShell" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -275,13 +269,6 @@ grow_horizontal = 1
 grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(2, -3)
-scale = Vector2(1, 0.1)
-texture = ExtResource("3_uklsp")
-region_enabled = true
-region_rect = Rect2(0, 0, 5, 2)
 
 [connection signal="child_entered_tree" from="WeaponShell" to="." method="_on_weapon_shell_child_entered_tree"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]

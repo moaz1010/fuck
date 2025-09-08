@@ -8,6 +8,7 @@ class_name MovingEntityStats
 @export var FALL_TIME : float
 
 @export var MAX_SPEED : float
+@export var WALL_JUMP_HORIZONTAL_POWER : float
 
 @export var MAX_SPEED_JUMP_INCREASE : float
 @export var JUMP_HEIGHT : float
