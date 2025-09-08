@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bm4wdqw1gghbc" path="res://assests/Enemy/Skeleton Attack.png" id="2_4gow0"]
 [ext_resource type="Texture2D" uid="uid://b66j5jmuob6k6" path="res://assests/Enemy/Skeleton Hit.png" id="3_o5a6y"]
 [ext_resource type="Texture2D" uid="uid://dasu8fk58c47b" path="res://assests/Enemy/Skeleton Dead.png" id="4_u3ukx"]
-[ext_resource type="Script" uid="uid://23o3anl36fh2" path="res://components/hitbox.gd" id="5_yjfx6"]
-[ext_resource type="Script" uid="uid://c3aifbheqy0ru" path="res://components/hurtbox.gd" id="6_y101p"]
-[ext_resource type="Script" uid="uid://8rms6rae8mtb" path="res://components/health_component.gd" id="7_jyd5v"]
+[ext_resource type="Script" uid="uid://23o3anl36fh2" path="res://components/damage_detection/hitbox.gd" id="5_yjfx6"]
+[ext_resource type="Script" uid="uid://c3aifbheqy0ru" path="res://components/damage_detection/hurtbox.gd" id="6_y101p"]
+[ext_resource type="Script" uid="uid://8rms6rae8mtb" path="res://components/damage_detection/health_component.gd" id="7_jyd5v"]
 [ext_resource type="PackedScene" uid="uid://c8kcgyl7fta3i" path="res://scenes/ui_scenes/HealthBar/healthbar.tscn" id="8_dn6rc"]
 
 [sub_resource type="Animation" id="Animation_y101p"]

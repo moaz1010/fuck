@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwplqywyobo2x" path="res://scenes/boulder/boulder.gd" id="1_hmmvo"]
 [ext_resource type="Texture2D" uid="uid://poep0e44ulch" path="res://assests/World tiles/maybe_inusrial_tileset.png" id="2_vqm6d"]
-[ext_resource type="Script" uid="uid://23o3anl36fh2" path="res://components/hitbox.gd" id="3_vqm6d"]
+[ext_resource type="Script" uid="uid://23o3anl36fh2" path="res://components/damage_detection/hitbox.gd" id="3_vqm6d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmmvo"]
 size = Vector2(44, 44)

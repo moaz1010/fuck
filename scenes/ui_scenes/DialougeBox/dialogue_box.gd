@@ -72,6 +72,7 @@ func _reset_box():
 func _initialize_choices(section: DialogueResource):
 	for child in button_container.get_children():
 		child.queue_free()
+	if not section.choices: return
 	var choices := section.choices
 	for index in choices.size():
 		var button := Button.new()
@@ -122,6 +123,7 @@ func _type_text(text: String, type_speed: float = default_type_speed):
 	is_typing = false
 
 func _initialize_character(section: DialogueResource) -> DialogueResource:
+	if not section.character: return section
 	var result = section
 	if not result.speaker_sprite:
 		result.speaker_sprite = section.character.speaker_sprite

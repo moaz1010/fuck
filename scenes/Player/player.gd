@@ -10,6 +10,7 @@ extends CharacterBody2D   # :penguin:
 @onready var health = %HealthComponent
 @onready var progress_bar := %ProgressBar
 @onready var platformer_component := %PlatformerComponent
+@onready var camera_shake_component := %CameraShakeComponent
 
 @onready var animation_player := %AnimationPlayer
 
@@ -81,7 +82,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			is_dashing = true
 			dash_buffer.start()
 			can_dash = false
-			Camera.screen_shake(5,0.15)
+			camera_shake_component.screen_shake(5,0.15)
 
 
 func _process(_delta: float) -> void:
