@@ -112,8 +112,8 @@ texture = ExtResource("1_okmje")
 8:6/0/terrains_peering_bit/top_right_corner = 0
 
 [sub_resource type="TileSet" id="TileSet_exoe3"]
-physics_layer_0/collision_layer = 255
-physics_layer_0/collision_mask = 255
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 1"
 terrain_set_0/terrain_0/color = Color(0.5, 0.4375, 0.25, 1)

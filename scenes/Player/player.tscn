@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene load_steps=21 format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_dl1wr"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://8ihjb88qd8bw" path="res://scenes/ui_scenes/new folder/hotbar.tscn" id="9_uxo23"]
 [ext_resource type="Script" uid="uid://c3aifbheqy0ru" path="res://components/hurtbox.gd" id="9_wwtew"]
 [ext_resource type="Script" uid="uid://baqxdsy0uuf2s" path="res://components/platfromer_component.gd" id="10_uxo23"]
+[ext_resource type="Script" uid="uid://crx41j4i46iah" path="res://scripts/camera_2d.gd" id="11_7tfl1"]
+[ext_resource type="Script" uid="uid://bcuhd17r3ydo" path="res://scenes/camera_2d.gd" id="12_jxtnq"]
 
 [sub_resource type="Animation" id="Animation_uxo23"]
 length = 0.001
@@ -269,6 +271,18 @@ grow_horizontal = 1
 grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("11_7tfl1")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../Camera2D")
+update_rotation = false
+update_scale = false
+script = ExtResource("12_jxtnq")
 
 [connection signal="child_entered_tree" from="WeaponShell" to="." method="_on_weapon_shell_child_entered_tree"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]

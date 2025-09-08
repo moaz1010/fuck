@@ -32,10 +32,10 @@ func _should_be_loaded(chunk: Chunk, surround: int = 1) -> bool:
 func _update_chunk(chunk: Chunk, surround: int = 1) -> void:
 	if _should_be_loaded(chunk, surround):
 		if not chunk.is_inside_tree():
-			add_child(chunk)
+			add_child.call_deferred(chunk)
 			print("add", chunk)
 	elif chunk.is_inside_tree():
-			remove_child(chunk)
+			remove_child.call_deferred(chunk)
 			print("remove", chunk)
 
 func get_surrounding_chunks(index: int, surround:int = 1) -> Array[Chunk]:
