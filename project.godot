@@ -17,10 +17,11 @@ config/icon="res://scenes/icon.svg"
 
 [autoload]
 
-Inventory="*res://autoloads/inventory.gd"
-Dialogue="*res://autoloads/dialogue.gd"
-CheckpointAutoload="*res://autoloads/checkpoint_autoload.gd"
+Globals="*res://autoloads/globals.gd"
 Flags="*res://autoloads/flags.gd"
+Dialogue="*res://autoloads/dialogue.gd"
+Inventory="*res://autoloads/inventory.gd"
+CheckpointAutoload="*res://autoloads/checkpoint_autoload.gd"
 ChunkBoundries="*res://autoloads/chunk_boundries.gd"
 
 [display]
@@ -117,3 +118,4 @@ lock_movement={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.180392, 0.188235, 0.215686, 1)
