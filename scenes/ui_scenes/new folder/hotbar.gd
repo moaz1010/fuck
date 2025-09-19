@@ -15,10 +15,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		# Scroll up
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			_scroll_hotbar(-1)
+			_scroll_hotbar(1)
 		# Scroll down
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			_scroll_hotbar(1)
+			_scroll_hotbar(-1)
 
 
 func _scroll_hotbar(direction: int) -> void:

@@ -147,6 +147,7 @@ _data = {
 
 [node name="hotbar" type="Control" node_paths=PackedStringArray("open_and_close_button")]
 z_index = 400
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -163,7 +164,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -68.0
-offset_right = 249.0
+offset_right = 258.0
 grow_vertical = 0
 texture = ExtResource("1_5gs0b")
 region_rect = Rect2(33, 225, 30, 30)

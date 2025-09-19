@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene load_steps=21 format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_dl1wr"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c8kcgyl7fta3i" path="res://scenes/ui_scenes/HealthBar/healthbar.tscn" id="7_a06cl"]
 [ext_resource type="PackedScene" uid="uid://cnj5rk8ut3a6k" path="res://scenes/weapons/Sword/sword.tscn" id="7_dl1wr"]
 [ext_resource type="Script" uid="uid://qv40eyiboqjs" path="res://idk/Weapons.gd" id="8_frnkk"]
-[ext_resource type="PackedScene" uid="uid://8ihjb88qd8bw" path="res://scenes/ui_scenes/new folder/hotbar.tscn" id="9_uxo23"]
 [ext_resource type="Script" uid="uid://c3aifbheqy0ru" path="res://components/damage_detection/hurtbox.gd" id="9_wwtew"]
 [ext_resource type="Script" uid="uid://baqxdsy0uuf2s" path="res://components/platfromer_component.gd" id="10_uxo23"]
 [ext_resource type="Script" uid="uid://crx41j4i46iah" path="res://scripts/camera_2d.gd" id="11_7tfl1"]
@@ -165,11 +164,11 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dl1wr"]
-radius = 5.0
-height = 15.0
+radius = 4.0
+height = 13.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxo23"]
-size = Vector2(8, 10)
+size = Vector2(7, 12)
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 26
@@ -218,7 +217,7 @@ script = ExtResource("8_frnkk")
 position = Vector2(7, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(0.5, -2)
 shape = SubResource("CapsuleShape2D_dl1wr")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
@@ -260,18 +259,8 @@ health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://c3aifbheqy0ru"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0.5, -2)
 shape = SubResource("RectangleShape2D_uxo23")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="hotbar" parent="CanvasLayer" instance=ExtResource("9_uxo23")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_right = 0.0
-grow_horizontal = 1
-grow_vertical = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
