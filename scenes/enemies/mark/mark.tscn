@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://xktn33ib77xh"]
 
-[ext_resource type="Script" uid="uid://cv3w6nfrdu8j0" path="res://scenes/enemies/mark(enemy).gd" id="1_cvpbx"]
+[ext_resource type="Script" uid="uid://cv3w6nfrdu8j0" path="res://scenes/enemies/mark/mark(enemy).gd" id="1_cvpbx"]
 [ext_resource type="PackedScene" uid="uid://dsm02n73ad3fq" path="res://scenes/Player/player.tscn" id="2_2p4db"]
 [ext_resource type="Texture2D" uid="uid://dbu83asiaic8m" path="res://assests/Enemy/mark_spritesheet.png" id="2_mejq2"]
-[ext_resource type="PackedScene" uid="uid://dd8mue6ordreo" path="res://scenes/enemies/enemy_spawner.tscn" id="3_2p4db"]
+[ext_resource type="PackedScene" uid="uid://dd8mue6ordreo" path="res://scenes/enemies/enemySpawner/enemy_spawner.tscn" id="3_2p4db"]
 [ext_resource type="Script" uid="uid://c3aifbheqy0ru" path="res://components/damage_detection/hurtbox.gd" id="4_sqaxy"]
 [ext_resource type="Script" uid="uid://8rms6rae8mtb" path="res://components/damage_detection/health_component.gd" id="6_hx3hb"]
 [ext_resource type="PackedScene" uid="uid://c8kcgyl7fta3i" path="res://scenes/ui_scenes/HealthBar/healthbar.tscn" id="7_i55li"]

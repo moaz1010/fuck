@@ -7,15 +7,11 @@
 [sub_resource type="Resource" id="Resource_wkqdq"]
 script = ExtResource("1_38r3c")
 text = "I'm glad you agree."
-choices = Array[ExtResource("2_npt43")]([])
-flag_to_activate = -1
 character = ExtResource("2_803hh")
-talking_speed_in_milliseconds = 0.0
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [resource]
 script = ExtResource("2_npt43")
 text = "yes"
-flag = -1
 next_dialogue = Array[ExtResource("1_38r3c")]([SubResource("Resource_wkqdq")])
 metadata/_custom_type_script = "uid://bfdmdrh7jwasq"

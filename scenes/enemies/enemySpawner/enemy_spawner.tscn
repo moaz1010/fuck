@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dd8mue6ordreo"]
 
-[ext_resource type="Script" uid="uid://tslf6mlcifrm" path="res://scenes/enemies/enemy_spawner.gd" id="1_nsgdp"]
-[ext_resource type="PackedScene" uid="uid://cluhf5gby2umq" path="res://scenes/enemies/enemy.tscn" id="2_lmrsb"]
+[ext_resource type="Script" uid="uid://tslf6mlcifrm" path="res://scenes/enemies/enemySpawner/enemy_spawner.gd" id="1_nsgdp"]
+[ext_resource type="PackedScene" uid="uid://cluhf5gby2umq" path="res://scenes/enemies/firstEnemy/enemy.tscn" id="2_lmrsb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lmrsb"]
 radius = 76.0066

@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://cluhf5gby2umq"]
 
-[ext_resource type="Script" uid="uid://bwlcxg7604y0c" path="res://scenes/enemies/enemy.gd" id="1_qpkw3"]
+[ext_resource type="Script" uid="uid://bwlcxg7604y0c" path="res://scenes/enemies/firstEnemy/enemy.gd" id="1_qpkw3"]
 [ext_resource type="Script" uid="uid://k08spd0lvwti" path="res://Recources/moving_entity_params.gd" id="2_p0f6a"]
 [ext_resource type="Shader" uid="uid://cmd1x28vgunaa" path="res://shaders/flash.gdshader" id="2_p4q80"]
 [ext_resource type="Script" uid="uid://8rms6rae8mtb" path="res://components/damage_detection/health_component.gd" id="3_tt18s"]

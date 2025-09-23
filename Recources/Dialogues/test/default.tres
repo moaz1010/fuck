@@ -10,64 +10,44 @@
 [sub_resource type="Resource" id="Resource_golsv"]
 script = ExtResource("1_icihm")
 text = "Hello... Watever You Are...."
-choices = Array[ExtResource("5_hq42f")]([])
-flag_to_activate = -1
 character = ExtResource("2_nk5rk")
-talking_speed_in_milliseconds = 0.0
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [sub_resource type="Resource" id="Resource_hq42f"]
 script = ExtResource("1_icihm")
 text = "You Fell?..."
-choices = Array[ExtResource("5_hq42f")]([])
-flag_to_activate = -1
 character = ExtResource("2_nk5rk")
-talking_speed_in_milliseconds = 0.0
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [sub_resource type="Resource" id="Resource_mx5ws"]
 script = ExtResource("1_icihm")
 text = "Well That Sounds Very Original "
-choices = Array[ExtResource("5_hq42f")]([])
-flag_to_activate = -1
 character = ExtResource("2_nk5rk")
-talking_speed_in_milliseconds = 0.0
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [sub_resource type="Resource" id="Resource_ijcjn"]
 script = ExtResource("1_icihm")
 text = "And Not Stolen From Another Indie Game....."
-choices = Array[ExtResource("5_hq42f")]([])
-flag_to_activate = -1
 character = ExtResource("2_nk5rk")
-talking_speed_in_milliseconds = 0.0
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [sub_resource type="Resource" id="Resource_2uupy"]
 script = ExtResource("1_icihm")
 text = "Which May Or May Not Be Called \"Undertale\".."
 choices = Array[ExtResource("5_hq42f")]([ExtResource("5_golsv"), ExtResource("5_bvdt3")])
-flag_to_activate = -1
 character = ExtResource("2_nk5rk")
-talking_speed_in_milliseconds = 0.0
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [sub_resource type="Resource" id="Resource_nk5rk"]
 script = ExtResource("1_icihm")
 text = "..It's Just A Feeling Though"
-choices = Array[ExtResource("5_hq42f")]([])
-flag_to_activate = -1
 character = ExtResource("2_nk5rk")
-talking_speed_in_milliseconds = 0.0
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [sub_resource type="Resource" id="Resource_uc7wy"]
 script = ExtResource("1_icihm")
 text = "Well Don't Worry I Also Want To Get Out Of Here"
-choices = Array[ExtResource("5_hq42f")]([])
-flag_to_activate = -1
 character = ExtResource("2_nk5rk")
-talking_speed_in_milliseconds = 0.0
 metadata/_custom_type_script = "uid://b1650whroytf0"
 
 [resource]
