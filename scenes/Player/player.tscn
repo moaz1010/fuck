@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene load_steps=20 format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_dl1wr"]
@@ -18,7 +18,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Body:scale")
+tracks/0/path = NodePath("sprites/head:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -30,7 +30,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Body:position")
+tracks/1/path = NodePath("sprites/head:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -42,7 +42,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Body/Eyes:position")
+tracks/2/path = NodePath("sprites/mask:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -54,7 +54,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Body/Eyes:scale")
+tracks/3/path = NodePath("sprites/mask:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -64,29 +64,12 @@ tracks/3/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_7tfl1"]
-resource_name = "blink"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body/Eyes:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.233333, 0.566667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_jxtnq"]
 resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Body/Eyes:position")
+tracks/0/path = NodePath("sprites/mask:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -103,7 +86,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Body:scale")
+tracks/0/path = NodePath("sprites/head:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -115,7 +98,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Body:position")
+tracks/1/path = NodePath("sprites/head:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -132,7 +115,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Body:scale")
+tracks/0/path = NodePath("sprites/head:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -144,7 +127,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Body:position")
+tracks/1/path = NodePath("sprites/head:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -157,7 +140,6 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7tfl1"]
 _data = {
 &"RESET": SubResource("Animation_uxo23"),
-&"blink": SubResource("Animation_7tfl1"),
 &"idle": SubResource("Animation_jxtnq"),
 &"look_left": SubResource("Animation_wwtew"),
 &"look_right": SubResource("Animation_n7rn1")
@@ -196,20 +178,41 @@ libraries = {
 &"": SubResource("AnimationLibrary_7tfl1")
 }
 
-[node name="Body" type="Sprite2D" parent="."]
-position = Vector2(1, -2)
-texture = ExtResource("3_uklsp")
-region_enabled = true
-region_rect = Rect2(9, 9, 13, 17)
+[node name="sprites" type="Node" parent="."]
 
-[node name="Eyes" type="Sprite2D" parent="Body"]
-position = Vector2(1, -1)
+[node name="feet" type="Sprite2D" parent="sprites"]
+position = Vector2(1, 4)
+rotation = -3.1415925
+scale = Vector2(1, -1)
 texture = ExtResource("3_uklsp")
 region_enabled = true
-region_rect = Rect2(0, 0, 5, 2)
+region_rect = Rect2(18, 28, 12, 4)
+
+[node name="body" type="Sprite2D" parent="sprites"]
+position = Vector2(1, 3)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+texture = ExtResource("3_uklsp")
+region_enabled = true
+region_rect = Rect2(17, 11, 11, 5)
+
+[node name="head" type="Sprite2D" parent="sprites"]
+position = Vector2(1, -2)
+rotation = -3.1415927
+texture = ExtResource("3_uklsp")
+region_enabled = true
+region_rect = Rect2(1, 4, 12, 12)
+
+[node name="mask" type="Sprite2D" parent="sprites"]
+position = Vector2(1, -1)
+rotation = -3.1415925
+texture = ExtResource("3_uklsp")
+region_enabled = true
+region_rect = Rect2(1, 21, 10, 8)
 
 [node name="WeaponShell" type="Node2D" parent="."]
 unique_name_in_owner = true
+visible = false
 z_index = 6
 script = ExtResource("8_frnkk")
 
