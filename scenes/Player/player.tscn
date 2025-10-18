@@ -181,7 +181,7 @@ libraries = {
 [node name="sprites" type="Node" parent="."]
 
 [node name="feet" type="Sprite2D" parent="sprites"]
-position = Vector2(1, 4)
+position = Vector2(0, 3)
 rotation = -3.1415925
 scale = Vector2(1, -1)
 texture = ExtResource("3_uklsp")
@@ -189,23 +189,20 @@ region_enabled = true
 region_rect = Rect2(18, 28, 12, 4)
 
 [node name="body" type="Sprite2D" parent="sprites"]
-position = Vector2(1, 3)
-rotation = -3.1415925
-scale = Vector2(1, -1)
+position = Vector2(-1, 2)
 texture = ExtResource("3_uklsp")
+offset = Vector2(0.5, 0.5)
 region_enabled = true
 region_rect = Rect2(17, 11, 11, 5)
 
 [node name="head" type="Sprite2D" parent="sprites"]
 position = Vector2(1, -2)
-rotation = -3.1415927
 texture = ExtResource("3_uklsp")
 region_enabled = true
 region_rect = Rect2(1, 4, 12, 12)
 
 [node name="mask" type="Sprite2D" parent="sprites"]
 position = Vector2(1, -1)
-rotation = -3.1415925
 texture = ExtResource("3_uklsp")
 region_enabled = true
 region_rect = Rect2(1, 21, 10, 8)
