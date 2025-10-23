@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bne1qe66net3m"
+path="res://.godot/imported/enemy_hurt_4.wav-e6ac32d80c7633bd29bcdd9c9ef31a19.sample"
+
+[deps]
+
+source_file="res://assests/World tiles/1-bit dungeon brawler/Sfxs/enemy_hurt_4.wav"
+dest_files=["res://.godot/imported/enemy_hurt_4.wav-e6ac32d80c7633bd29bcdd9c9ef31a19.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bu2pbp26bp4t4"
+path="res://.godot/imported/enemy_death_3.wav-f592f4ebc77018860a4a620c50d21095.sample"
+
+[deps]
+
+source_file="res://assests/World tiles/1-bit dungeon brawler/Sfxs/enemy_death_3.wav"
+dest_files=["res://.godot/imported/enemy_death_3.wav-f592f4ebc77018860a4a620c50d21095.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

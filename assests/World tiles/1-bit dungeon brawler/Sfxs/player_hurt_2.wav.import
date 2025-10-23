@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhigq4wa5m6mq"
+path="res://.godot/imported/player_hurt_2.wav-74dcef893f67a5c5be5908a8c2a4d18a.sample"
+
+[deps]
+
+source_file="res://assests/World tiles/1-bit dungeon brawler/Sfxs/player_hurt_2.wav"
+dest_files=["res://.godot/imported/player_hurt_2.wav-74dcef893f67a5c5be5908a8c2a4d18a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
