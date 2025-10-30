@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://px68yiu7ugh0" path="res://scenes/key/key.gd" id="1_kfgsg"]
 [ext_resource type="Texture2D" uid="uid://poep0e44ulch" path="res://assests/World tiles/maybe_inusrial_tileset.png" id="1_xertp"]
 
+[sub_resource type="Animation" id="Animation_r14ls"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_53fhu"]
 resource_name = "hover"
 length = 2.0
@@ -20,20 +23,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, -2), Vector2(0, 2)]
 }
-
-[sub_resource type="Animation" id="Animation_r14ls"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("content:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("content/Area2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -2)]
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3l1ii"]
@@ -46,6 +46,7 @@ _data = {
 size = Vector2(14, 10)
 
 [node name="key" type="Node2D"]
+scale = Vector2(-1, 1)
 script = ExtResource("1_kfgsg")
 
 [node name="content" type="Node2D" parent="."]

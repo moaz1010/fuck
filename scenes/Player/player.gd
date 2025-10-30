@@ -44,6 +44,7 @@ func _ready() -> void:
 		#This is here because the "change_weapon" function takes a scene
 		#but the signal sends a resource.
 		#It also calls calls the "change_weapon" function as deffered.
+		#col 
 		func(resource: InvWeaponResource): 
 			change_weapon.call_deferred(resource.weapon_scene)
 	)
