@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cnj5rk8ut3a6k"]
 
-[ext_resource type="Texture2D" uid="uid://dqdcfd1b8snbb" path="res://assests/weapons/simple_sword.png" id="1_nejxs"]
 [ext_resource type="Script" uid="uid://23o3anl36fh2" path="res://components/damage_detection/hitbox.gd" id="1_wafhc"]
+[ext_resource type="Texture2D" uid="uid://cvwhu5a1xprva" path="res://assests/weapons/swordSlash_idk.png" id="2_kyvnr"]
 [ext_resource type="Script" uid="uid://4l1mnwyibv11" path="res://scenes/weapons/Sword/sword.gd" id="2_nejxs"]
 [ext_resource type="Script" uid="uid://ki65px3upm1g" path="res://components/cursor_component.gd" id="4_mr6qy"]
 [ext_resource type="Texture2D" uid="uid://cahg4edanpcm" path="res://assests/cursors/normal_sword_cursor.png" id="5_2s5la"]
@@ -10,42 +10,6 @@
 
 [sub_resource type="Animation" id="Animation_s4ec8"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../HitBox/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_n355p"]
 resource_name = "slash"
@@ -58,7 +22,7 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.14999999),
 "transitions": PackedFloat32Array(0.5, -2),
 "update": 0,
 "values": [0.0, 4.45059]
@@ -70,7 +34,7 @@ tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(0.5, 0.5),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.8, 0.95)]
@@ -241,9 +205,11 @@ _data = {
 script = ExtResource("2_nejxs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-7, 5)
-texture = ExtResource("1_nejxs")
+position = Vector2(-8, 6)
+texture = ExtResource("2_kyvnr")
 offset = Vector2(-8, -8)
+region_enabled = true
+region_rect = Rect2(8, 7, 16, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
@@ -262,7 +228,6 @@ metadata/_custom_type_script = "uid://23o3anl36fh2"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_3td86")
-disabled = true
 
 [node name="CursorComponent" type="Node" parent="."]
 script = ExtResource("4_mr6qy")

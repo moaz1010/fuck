@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ce4w8ow188ygv"]
+[gd_scene load_steps=11 format=3 uid="uid://ce4w8ow188ygv"]
 
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="1_hdeny"]
 [ext_resource type="Script" uid="uid://dfw2f3jn1xsoy" path="res://scenes/ui_scenes/death screen/death_screen.gd" id="1_ukam1"]
 [ext_resource type="Theme" uid="uid://dqy6tx8ddkj1m" path="res://scenes/ui_scenes/main menu/main_menu.tres" id="2_jd4f5"]
 [ext_resource type="Texture2D" uid="uid://cfc1atlyxhj5c" path="res://assests/UI stuff/Buttons/unfinished_spritesheet_buttons2.png" id="4_aqttx"]
-[ext_resource type="Texture2D" uid="uid://cosrartsxcyi4" path="res://assests/Not used/Super Package Retro Pixel Effects 32x32 pack 2 Free/31.png" id="4_ppsqo"]
 
 [sub_resource type="Animation" id="Animation_aqttx"]
 length = 0.001
@@ -242,9 +241,7 @@ theme_override_constants/separation = 100
 [node name="Label" type="Label" parent="CenterContainer/allDisplayContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.180392, 0.188235, 0.215686, 1)
-theme_override_colors/font_shadow_color = Color(0.921569, 0.898039, 0.807843, 1)
-theme_override_colors/font_outline_color = Color(0.921569, 0.898039, 0.807843, 1)
+theme_override_colors/font_color = Color(0.92156863, 0.8980392, 0.80784315, 1)
 theme_override_constants/shadow_outline_size = 10
 theme_override_fonts/font = ExtResource("1_hdeny")
 theme_override_font_sizes/font_size = 80
@@ -330,10 +327,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_ppsqo")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
-texture = ExtResource("4_ppsqo")
-region_enabled = true
-
 [node name="giveUpScreenContainer" type="CenterContainer" parent="."]
 visible = false
 anchors_preset = 15
@@ -352,7 +345,7 @@ color = Color(0, 0, 0, 0.862745)
 custom_minimum_size = Vector2(20, 300)
 layout_mode = 2
 texture = ExtResource("4_aqttx")
-region_rect = Rect2(0, 229, 32, 27)
+region_rect = Rect2(0, 224, 32, 32)
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
