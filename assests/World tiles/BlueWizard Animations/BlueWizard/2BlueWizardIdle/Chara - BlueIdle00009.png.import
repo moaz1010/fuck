@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sjwobdk0hjt1"
-path="res://.godot/imported/freedom_gun_spritesheet.png-15d3cbdf292f530db3c0b58e163cdf74.ctex"
+uid="uid://eo4srej1hjxq"
+path="res://.godot/imported/Chara - BlueIdle00009.png-d54fe04223542d10a9ee5f0b27d8a120.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/weapons/freedom_gun_spritesheet.png"
-dest_files=["res://.godot/imported/freedom_gun_spritesheet.png-15d3cbdf292f530db3c0b58e163cdf74.ctex"]
+source_file="res://assests/World tiles/BlueWizard Animations/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00009.png"
+dest_files=["res://.godot/imported/Chara - BlueIdle00009.png-d54fe04223542d10a9ee5f0b27d8a120.ctex"]
 
 [params]
 

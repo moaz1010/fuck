@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sjwobdk0hjt1"
-path="res://.godot/imported/freedom_gun_spritesheet.png-15d3cbdf292f530db3c0b58e163cdf74.ctex"
+uid="uid://bryj3n6khkfh6"
+path="res://.godot/imported/CharaWizardJump_00007.png-15d0e72e2e3e74a18cf38e78b08ca0e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/weapons/freedom_gun_spritesheet.png"
-dest_files=["res://.godot/imported/freedom_gun_spritesheet.png-15d3cbdf292f530db3c0b58e163cdf74.ctex"]
+source_file="res://assests/World tiles/BlueWizard Animations/BlueWizard/2BlueWizardJump/CharaWizardJump_00007.png"
+dest_files=["res://.godot/imported/CharaWizardJump_00007.png-15d0e72e2e3e74a18cf38e78b08ca0e9.ctex"]
 
 [params]
 

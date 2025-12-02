@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sjwobdk0hjt1"
-path="res://.godot/imported/freedom_gun_spritesheet.png-15d3cbdf292f530db3c0b58e163cdf74.ctex"
+uid="uid://cwp1qi5x7pwra"
+path="res://.godot/imported/Idle.png-08e32e7c1f63a59eb76ee5cc46314c05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/weapons/freedom_gun_spritesheet.png"
-dest_files=["res://.godot/imported/freedom_gun_spritesheet.png-15d3cbdf292f530db3c0b58e163cdf74.ctex"]
+source_file="res://assests/characgter sprites/CharacterAnimations/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-08e32e7c1f63a59eb76ee5cc46314c05.ctex"]
 
 [params]
 

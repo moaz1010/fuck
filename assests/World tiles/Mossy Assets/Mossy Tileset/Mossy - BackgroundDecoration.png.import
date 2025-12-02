@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sjwobdk0hjt1"
-path="res://.godot/imported/freedom_gun_spritesheet.png-15d3cbdf292f530db3c0b58e163cdf74.ctex"
+uid="uid://f4dfi8qw35l4"
+path="res://.godot/imported/Mossy - BackgroundDecoration.png-2d454f259a28b689f9fdfd3658fe879e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/weapons/freedom_gun_spritesheet.png"
-dest_files=["res://.godot/imported/freedom_gun_spritesheet.png-15d3cbdf292f530db3c0b58e163cdf74.ctex"]
+source_file="res://assests/World tiles/Mossy Assets/Mossy Tileset/Mossy - BackgroundDecoration.png"
+dest_files=["res://.godot/imported/Mossy - BackgroundDecoration.png-2d454f259a28b689f9fdfd3658fe879e.ctex"]
 
 [params]
 

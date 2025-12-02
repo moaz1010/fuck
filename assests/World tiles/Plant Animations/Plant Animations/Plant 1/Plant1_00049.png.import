@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sjwobdk0hjt1"
-path="res://.godot/imported/freedom_gun_spritesheet.png-15d3cbdf292f530db3c0b58e163cdf74.ctex"
+uid="uid://ck73apf5jam5j"
+path="res://.godot/imported/Plant1_00049.png-218501100301e4d86f3bc657b6788aaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/weapons/freedom_gun_spritesheet.png"
-dest_files=["res://.godot/imported/freedom_gun_spritesheet.png-15d3cbdf292f530db3c0b58e163cdf74.ctex"]
+source_file="res://assests/World tiles/Plant Animations/Plant Animations/Plant 1/Plant1_00049.png"
+dest_files=["res://.godot/imported/Plant1_00049.png-218501100301e4d86f3bc657b6788aaa.ctex"]
 
 [params]
 
