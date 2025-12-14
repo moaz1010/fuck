@@ -59,6 +59,12 @@ texture = ExtResource("1_ieacw")
 7:6/0 = 0
 8:6/0 = 0
 9:6/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+5:4/0 = 0
+4:4/0 = 0
+4:5/0 = 0
+5:5/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_qdeag"]
 terrain_set_0/mode = 0
@@ -66,5 +72,5 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_bapoq")
 
-[node name="TileMapLayer" type="TileMapLayer"]
+[node name="dungeonTiles" type="TileMapLayer"]
 tile_set = SubResource("TileSet_qdeag")

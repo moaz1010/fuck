@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvfmvhwpbali0"]
+
+[ext_resource type="Texture2D" uid="uid://clkfwewtvr64q" path="res://assests/World tiles/1-bit dungeon brawler/Spritesheet/transparent.png" id="1_jsjen"]
+[ext_resource type="Script" uid="uid://c2g3uj1e3ebbo" path="res://scenes/dungeonMinigame/dungeon_player.gd" id="1_vg4yo"]
+
+[node name="dungeonPLAYER" type="CharacterBody2D"]
+script = ExtResource("1_vg4yo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jsjen")
+region_enabled = true
+region_rect = Rect2(44, 16, 14, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="up" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
+target_position = Vector2(0, -8)
+hit_from_inside = true
+
+[node name="down" type="RayCast2D" parent="."]
+position = Vector2(0, 8)
+target_position = Vector2(0, 8)
+hit_from_inside = true
+
+[node name="left" type="RayCast2D" parent="."]
+position = Vector2(-8, 0)
+target_position = Vector2(-8, 0)
+hit_from_inside = true
+
+[node name="right" type="RayCast2D" parent="."]
+position = Vector2(8, 0)
+target_position = Vector2(8, 0)
+hit_from_inside = true

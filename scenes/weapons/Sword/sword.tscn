@@ -22,7 +22,7 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.14999999),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(0.5, -2),
 "update": 0,
 "values": [0.0, 4.45059]
@@ -206,6 +206,8 @@ script = ExtResource("2_nejxs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-8, 6)
+rotation = 4.45059
+scale = Vector2(0.8, 0.95)
 texture = ExtResource("2_kyvnr")
 offset = Vector2(-8, -8)
 region_enabled = true
@@ -228,6 +230,7 @@ metadata/_custom_type_script = "uid://23o3anl36fh2"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_3td86")
+disabled = true
 
 [node name="CursorComponent" type="Node" parent="."]
 script = ExtResource("4_mr6qy")
