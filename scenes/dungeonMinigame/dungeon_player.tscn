@@ -9,7 +9,7 @@ script = ExtResource("1_vg4yo")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jsjen")
 region_enabled = true
-region_rect = Rect2(76, 16, 13, 16)
+region_rect = Rect2(76, 16, 14, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
