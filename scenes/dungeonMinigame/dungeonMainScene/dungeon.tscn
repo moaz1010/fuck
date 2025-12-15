@@ -100,3 +100,7 @@ sources/0 = SubResource("TileSetAtlasSource_4n7pr")
 tile_set = SubResource("TileSet_ks1vq")
 
 [node name="dungeonTiles" parent="mainDungeon" instance=ExtResource("2_a2wa4")]
+
+[node name="entrance" type="Node2D" parent="mainDungeon"]
+
+[node name="dungeonTiles" parent="mainDungeon/entrance" instance=ExtResource("2_a2wa4")]

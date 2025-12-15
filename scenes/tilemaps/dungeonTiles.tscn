@@ -65,6 +65,8 @@ texture = ExtResource("1_ieacw")
 4:4/0 = 0
 4:5/0 = 0
 5:5/0 = 0
+0:0/0 = 0
+1:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_qdeag"]
 terrain_set_0/mode = 0
