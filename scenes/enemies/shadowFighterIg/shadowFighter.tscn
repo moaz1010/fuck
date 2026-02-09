@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://35wyg5w3ehik"]
+
+[ext_resource type="Texture2D" uid="uid://dwvq8l8bs03oh" path="res://assests/Enemy/Demon_sword/Sword/Sword.png" id="1_rppuf"]
+[ext_resource type="Script" path="res://components/follow_component.gd" id="2_fdluv"]
+[ext_resource type="Script" uid="uid://baqxdsy0uuf2s" path="res://components/platfromer_component.gd" id="3_cblhq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_up3ut"]
+size = Vector2(304, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gmy"]
+size = Vector2(84, 34)
+
+[node name="shadowFighter" type="CharacterBody2D" unique_id=213884114]
+
+[node name="inner" type="Node2D" parent="." unique_id=1890752973]
+
+[node name="mainSprite" type="Sprite2D" parent="inner" unique_id=1196926674]
+texture = ExtResource("1_rppuf")
+hframes = 20
+vframes = 8
+
+[node name="FollowComponent" type="Node2D" parent="inner" unique_id=1424046253 node_paths=PackedStringArray("platformer_component", "enter_area", "exit_area")]
+script = ExtResource("2_fdluv")
+platformer_component = NodePath("../../PlatformerComponent")
+enter_area = NodePath("EnterArea")
+exit_area = NodePath("ExitArea")
+
+[node name="EnterArea" type="Area2D" parent="inner/FollowComponent" unique_id=993442742]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inner/FollowComponent/EnterArea" unique_id=59644719]
+shape = SubResource("RectangleShape2D_up3ut")
+
+[node name="ExitArea" type="Area2D" parent="inner/FollowComponent" unique_id=452904504]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inner/FollowComponent/ExitArea" unique_id=919655941]
+shape = SubResource("RectangleShape2D_t2gmy")
+
+[node name="PlatformerComponent" type="Node" parent="." unique_id=2032344064]
+script = ExtResource("3_cblhq")
+metadata/_custom_type_script = "uid://baqxdsy0uuf2s"

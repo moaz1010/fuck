@@ -21,8 +21,7 @@ func _move(dir: Vector2):
 		sprite_node_position_tween.kill()
 	sprite_node_position_tween = create_tween()
 	sprite_node_position_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	sprite_node_position_tween.tween_property(sprite, "global_position", parent.global_position, 0.005).set_trans(Tween.TRANS_SINE)
-	print("moved")
+	sprite_node_position_tween.tween_property(sprite, "global_position", parent.global_position, 0.15).set_trans(Tween.TRANS_SINE)
 
 
 func _physics_process(delta):

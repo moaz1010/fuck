@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Choice" load_steps=5 format=3 uid="uid://dnabtr50daq56"]
+[gd_resource type="Resource" script_class="Choice" format=3 uid="uid://dnabtr50daq56"]
 
 [ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="1_38r3c"]
 [ext_resource type="Resource" uid="uid://vaxmja12qjn6" path="res://Recources/Characters/Jolin/jolin_default.tres" id="2_803hh"]

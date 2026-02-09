@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FlaggedDialogueSection" load_steps=6 format=3 uid="uid://dsvh8k42qadvk"]
+[gd_resource type="Resource" script_class="FlaggedDialogueSection" format=3 uid="uid://dsvh8k42qadvk"]
 
 [ext_resource type="Script" uid="uid://b1650whroytf0" path="res://Recources/dialogue_resource.gd" id="1_hwxfa"]
 [ext_resource type="Script" uid="uid://d1w3u6bvd10a1" path="res://Recources/flagged_dialogue_resource.gd" id="1_k7335"]

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dqy6tx8ddkj1m"]
+[gd_resource type="Theme" format=3 uid="uid://dqy6tx8ddkj1m"]
 
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="1_s0tdq"]
 [ext_resource type="Texture2D" uid="uid://del8crji3hih5" path="res://assests/UI stuff/Buttons/added_exit_button_spritesheet.png" id="2_k44a3"]
