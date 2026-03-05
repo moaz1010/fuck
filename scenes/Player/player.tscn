@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dsm02n73ad3fq"]
+[gd_scene format=3 uid="uid://dsm02n73ad3fq"]
 
 [ext_resource type="Script" uid="uid://c1ct174crq0o8" path="res://scenes/Player/player.gd" id="1_4vkt4"]
 [ext_resource type="Resource" uid="uid://hl3piymcr4vy" path="res://Recources/MovingEntityParams/player.tres" id="2_dl1wr"]
@@ -165,19 +165,19 @@ height = 14.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxo23"]
 size = Vector2(8, 13)
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" unique_id=879555118]
 collision_mask = 26
 script = ExtResource("1_4vkt4")
 DASH_POWER = 500.0
 dash_cutoff_harshness = 0.22
 
-[node name="PlatformerComponent" type="Node" parent="."]
+[node name="PlatformerComponent" type="Node" parent="." unique_id=1270764614]
 unique_name_in_owner = true
 script = ExtResource("10_uxo23")
 params = ExtResource("2_dl1wr")
 metadata/_custom_type_script = "uid://baqxdsy0uuf2s"
 
-[node name="ProgressBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_a06cl")]
+[node name="ProgressBar" parent="." unique_id=1549464285 node_paths=PackedStringArray("health_component") instance=ExtResource("7_a06cl")]
 unique_name_in_owner = true
 offset_left = -5.0
 offset_top = -21.0
@@ -185,22 +185,20 @@ offset_right = 5.0
 offset_bottom = -15.0
 health_component = NodePath("../HealthComponent")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=804055442]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_7tfl1")
-}
+libraries/ = SubResource("AnimationLibrary_7tfl1")
 
-[node name="sprites" type="Node2D" parent="."]
+[node name="sprites" type="Node2D" parent="." unique_id=1668803266]
 
-[node name="feet" type="Sprite2D" parent="sprites"]
+[node name="feet" type="Sprite2D" parent="sprites" unique_id=1184398786]
 position = Vector2(0, 3)
 rotation = -3.1415925
 texture = ExtResource("3_uklsp")
 region_enabled = true
 region_rect = Rect2(19, 28, 11, 4)
 
-[node name="body" type="Sprite2D" parent="sprites"]
+[node name="body" type="Sprite2D" parent="sprites" unique_id=122350126]
 position = Vector2(0, -4)
 scale = Vector2(-1, 1)
 texture = ExtResource("3_uklsp")
@@ -208,7 +206,7 @@ offset = Vector2(0.5, 0.5)
 region_enabled = true
 region_rect = Rect2(2, 8, 12, 18)
 
-[node name="mask" type="Sprite2D" parent="sprites"]
+[node name="mask" type="Sprite2D" parent="sprites" unique_id=37895644]
 position = Vector2(0, -6)
 scale = Vector2(-1, 1)
 texture = ExtResource("3_uklsp")
@@ -216,74 +214,73 @@ offset = Vector2(0.5, 0.5)
 region_enabled = true
 region_rect = Rect2(18, 8, 10, 8)
 
-[node name="WeaponShell" type="Node2D" parent="."]
+[node name="WeaponShell" type="Node2D" parent="." unique_id=358674190]
 unique_name_in_owner = true
-visible = false
 z_index = 6
 script = ExtResource("8_frnkk")
 
-[node name="Sprite2D" parent="WeaponShell" instance=ExtResource("7_dl1wr")]
-position = Vector2(7, 1)
+[node name="Sprite2D" parent="WeaponShell" unique_id=838485074 instance=ExtResource("7_dl1wr")]
+position = Vector2(5, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1377311783]
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_dl1wr")
 
-[node name="CoyoteTimer" type="Timer" parent="."]
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=1179209360]
 unique_name_in_owner = true
 wait_time = 0.05
 one_shot = true
 
-[node name="JumpBuffer" type="Timer" parent="."]
+[node name="JumpBuffer" type="Timer" parent="." unique_id=1181163046]
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
-[node name="DashTimer" type="Timer" parent="."]
+[node name="DashTimer" type="Timer" parent="." unique_id=1414361290]
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
-[node name="DashBuffer" type="Timer" parent="."]
+[node name="DashBuffer" type="Timer" parent="." unique_id=1334991720]
 unique_name_in_owner = true
 wait_time = 0.067
 one_shot = true
 
-[node name="PushBuffer" type="Timer" parent="."]
+[node name="PushBuffer" type="Timer" parent="." unique_id=1839484718]
 unique_name_in_owner = true
 wait_time = 0.1
 one_shot = true
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="HealthComponent" type="Node" parent="." unique_id=2087146063]
 unique_name_in_owner = true
 script = ExtResource("6_a06cl")
 idle_healing = 0.5
 max_health = 100.0
 
-[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+[node name="HurtBox" type="Area2D" parent="." unique_id=905654400 node_paths=PackedStringArray("health_component")]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("9_wwtew")
 health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://c3aifbheqy0ru"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1044024276]
 position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_uxo23")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=589512352]
 zoom = Vector2(2, 2)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("11_7tfl1")
 
-[node name="CameraShakeComponent" type="Node" parent="Camera2D"]
+[node name="CameraShakeComponent" type="Node" parent="Camera2D" unique_id=110023368]
 unique_name_in_owner = true
 script = ExtResource("12_t6q27")
 metadata/_custom_type_script = "uid://c1ypqa8wfohse"
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=1946039978]
 remote_path = NodePath("../Camera2D")
 update_rotation = false
 update_scale = false

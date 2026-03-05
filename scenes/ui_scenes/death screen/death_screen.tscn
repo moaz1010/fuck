@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ce4w8ow188ygv"]
+[gd_scene format=3 uid="uid://ce4w8ow188ygv"]
 
 [ext_resource type="FontFile" uid="uid://bbw1dppo2wuve" path="res://assests/Pixel_Operator/PixelOperator-Bold.ttf" id="1_hdeny"]
 [ext_resource type="Script" uid="uid://dfw2f3jn1xsoy" path="res://scenes/ui_scenes/death screen/death_screen.gd" id="1_ukam1"]
@@ -212,9 +212,9 @@ _data = {
 &"opened": SubResource("Animation_ppsqo")
 }
 
-[node name="deathScreen" type="CanvasLayer"]
+[node name="deathScreen" type="CanvasLayer" unique_id=598840898]
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1612647598]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -224,35 +224,36 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_ukam1")
 
-[node name="ColorRect" type="ColorRect" parent="CenterContainer"]
+[node name="ColorRect" type="ColorRect" parent="CenterContainer" unique_id=1687989549]
 custom_minimum_size = Vector2(960, 640)
 layout_mode = 2
 color = Color(0.0313726, 0.0313726, 0.0313726, 0.529412)
 
-[node name="ColorRect2" type="ColorRect" parent="CenterContainer"]
+[node name="ColorRect2" type="ColorRect" parent="CenterContainer" unique_id=1262010596]
 custom_minimum_size = Vector2(960, 640)
 layout_mode = 2
 color = Color(0, 0, 0, 0.5294118)
 
-[node name="allDisplayContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="allDisplayContainer" type="VBoxContainer" parent="CenterContainer" unique_id=147665048]
 layout_mode = 2
 theme_override_constants/separation = 100
 
-[node name="Label" type="Label" parent="CenterContainer/allDisplayContainer"]
+[node name="Label" type="Label" parent="CenterContainer/allDisplayContainer" unique_id=101069567]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.92156863, 0.8980392, 0.80784315, 1)
 theme_override_constants/shadow_outline_size = 10
 theme_override_fonts/font = ExtResource("1_hdeny")
 theme_override_font_sizes/font_size = 80
-text = "You Have Failed 
+text = "You Have Failed...
 To Reach The Light"
+horizontal_alignment = 1
 
-[node name="choiceContainer" type="VBoxContainer" parent="CenterContainer/allDisplayContainer"]
+[node name="choiceContainer" type="VBoxContainer" parent="CenterContainer/allDisplayContainer" unique_id=607892641]
 layout_mode = 2
 theme_override_constants/separation = 100
 
-[node name="Label2" type="Label" parent="CenterContainer/allDisplayContainer/choiceContainer"]
+[node name="Label2" type="Label" parent="CenterContainer/allDisplayContainer/choiceContainer" unique_id=985912992]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.180392, 0.188235, 0.215686, 1)
@@ -263,18 +264,18 @@ theme_override_fonts/font = ExtResource("1_hdeny")
 theme_override_font_sizes/font_size = 50
 text = "What Will You Choose Now?"
 
-[node name="choiceButtonContainer" type="HBoxContainer" parent="CenterContainer/allDisplayContainer/choiceContainer"]
+[node name="choiceButtonContainer" type="HBoxContainer" parent="CenterContainer/allDisplayContainer/choiceContainer" unique_id=401270370]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 50
 
-[node name="giveUpButton" type="Button" parent="CenterContainer/allDisplayContainer/choiceContainer/choiceButtonContainer"]
+[node name="giveUpButton" type="Button" parent="CenterContainer/allDisplayContainer/choiceContainer/choiceButtonContainer" unique_id=1695404550]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme = ExtResource("2_jd4f5")
 
-[node name="Label" type="Label" parent="CenterContainer/allDisplayContainer/choiceContainer/choiceButtonContainer/giveUpButton"]
+[node name="Label" type="Label" parent="CenterContainer/allDisplayContainer/choiceContainer/choiceButtonContainer/giveUpButton" unique_id=2090298931]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -295,12 +296,12 @@ theme_override_fonts/font = ExtResource("1_hdeny")
 theme_override_font_sizes/font_size = 50
 text = "Give Up ?"
 
-[node name="tryAgainButton" type="Button" parent="CenterContainer/allDisplayContainer/choiceContainer/choiceButtonContainer"]
+[node name="tryAgainButton" type="Button" parent="CenterContainer/allDisplayContainer/choiceContainer/choiceButtonContainer" unique_id=959676302]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme = ExtResource("2_jd4f5")
 
-[node name="Label" type="Label" parent="CenterContainer/allDisplayContainer/choiceContainer/choiceButtonContainer/tryAgainButton"]
+[node name="Label" type="Label" parent="CenterContainer/allDisplayContainer/choiceContainer/choiceButtonContainer/tryAgainButton" unique_id=801571377]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -321,13 +322,11 @@ theme_override_fonts/font = ExtResource("1_hdeny")
 theme_override_font_sizes/font_size = 50
 text = "Try Again"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer" unique_id=1006370780]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_ppsqo")
-}
+libraries/ = SubResource("AnimationLibrary_ppsqo")
 
-[node name="giveUpScreenContainer" type="CenterContainer" parent="."]
+[node name="giveUpScreenContainer" type="CenterContainer" parent="." unique_id=493640760]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -335,13 +334,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="giveUpScreenContainer"]
+[node name="ColorRect" type="ColorRect" parent="giveUpScreenContainer" unique_id=509826844]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(960, 640)
 layout_mode = 2
 color = Color(0, 0, 0, 0.862745)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="giveUpScreenContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="giveUpScreenContainer" unique_id=800203272]
 custom_minimum_size = Vector2(20, 300)
 layout_mode = 2
 texture = ExtResource("4_aqttx")
@@ -351,7 +350,7 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="allDisplayContainer" type="VBoxContainer" parent="giveUpScreenContainer/NinePatchRect"]
+[node name="allDisplayContainer" type="VBoxContainer" parent="giveUpScreenContainer/NinePatchRect" unique_id=1339475448]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -362,10 +361,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 
-[node name="Control" type="Control" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer"]
+[node name="Control" type="Control" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer" unique_id=650223849]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer"]
+[node name="Label" type="Label" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer" unique_id=531232273]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -377,11 +376,11 @@ theme_override_fonts/font = ExtResource("1_hdeny")
 theme_override_font_sizes/font_size = 60
 text = "Wrong Choice"
 
-[node name="choiceContainer" type="VBoxContainer" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer"]
+[node name="choiceContainer" type="VBoxContainer" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer" unique_id=1452860394]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Label2" type="Label" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer"]
+[node name="Label2" type="Label" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer" unique_id=2006739091]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -393,29 +392,29 @@ theme_override_fonts/font = ExtResource("1_hdeny")
 theme_override_font_sizes/font_size = 40
 text = "Choose Again"
 
-[node name="choiceButtonContainer" type="HBoxContainer" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer"]
+[node name="choiceButtonContainer" type="HBoxContainer" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer" unique_id=1862619251]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer" unique_id=290670661]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="Control" type="Control" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer" unique_id=390261098]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer" unique_id=1750400679]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="giveUpButton" type="Button" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer/HBoxContainer"]
+[node name="giveUpButton" type="Button" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer/HBoxContainer" unique_id=1154497538]
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
 theme = ExtResource("2_jd4f5")
 
-[node name="Label" type="Label" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer/HBoxContainer/giveUpButton"]
+[node name="Label" type="Label" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer/HBoxContainer/giveUpButton" unique_id=951126226]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -436,12 +435,12 @@ theme_override_fonts/font = ExtResource("1_hdeny")
 theme_override_font_sizes/font_size = 30
 text = "Give Up ?"
 
-[node name="tryAgainButton" type="Button" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer/HBoxContainer"]
+[node name="tryAgainButton" type="Button" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer/HBoxContainer" unique_id=813407791]
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
 theme = ExtResource("2_jd4f5")
 
-[node name="Label" type="Label" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer/HBoxContainer/tryAgainButton"]
+[node name="Label" type="Label" parent="giveUpScreenContainer/NinePatchRect/allDisplayContainer/choiceContainer/choiceButtonContainer/VBoxContainer/HBoxContainer/tryAgainButton" unique_id=685066646]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -462,10 +461,8 @@ theme_override_fonts/font = ExtResource("1_hdeny")
 theme_override_font_sizes/font_size = 30
 text = "Try Again"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="giveUpScreenContainer"]
-libraries = {
-&"": SubResource("AnimationLibrary_m5s63")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="giveUpScreenContainer" unique_id=1519308092]
+libraries/ = SubResource("AnimationLibrary_m5s63")
 
 [connection signal="pressed" from="CenterContainer/allDisplayContainer/choiceContainer/choiceButtonContainer/giveUpButton" to="CenterContainer" method="_on_give_up_button_pressed"]
 [connection signal="pressed" from="CenterContainer/allDisplayContainer/choiceContainer/choiceButtonContainer/tryAgainButton" to="CenterContainer" method="_on_try_again_button_pressed"]

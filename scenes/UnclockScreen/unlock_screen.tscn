@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dmwpgndfoahf4"]
+
+[ext_resource type="Texture2D" uid="uid://dpne6nj12l8d7" path="res://assests/UI stuff/ui_panels.png" id="1_s8a3a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36agj"]
+texture = ExtResource("1_s8a3a")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+region_rect = Rect2(132, 239, 96, 96)
+
+[node name="UnlockScreen" type="Node" unique_id=2083729387]
+
+[node name="Panel" type="Panel" parent="." unique_id=1678912320]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_36agj")
+
+[node name="MainContentContainer" type="VBoxContainer" parent="Panel" unique_id=681045401]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1

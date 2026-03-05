@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cnj5rk8ut3a6k"]
+[gd_scene format=3 uid="uid://cnj5rk8ut3a6k"]
 
 [ext_resource type="Script" uid="uid://23o3anl36fh2" path="res://components/damage_detection/hitbox.gd" id="1_wafhc"]
 [ext_resource type="Texture2D" uid="uid://cvwhu5a1xprva" path="res://assests/weapons/swordSlash_idk.png" id="2_kyvnr"]
@@ -10,6 +10,30 @@
 
 [sub_resource type="Animation" id="Animation_s4ec8"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, 6)]
+}
 
 [sub_resource type="Animation" id="Animation_n355p"]
 resource_name = "slash"
@@ -22,10 +46,10 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(0.5, -2),
 "update": 0,
-"values": [0.0, 4.45059]
+"values": [0.0, -6.283185307179586]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -51,6 +75,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.049999997, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, 6)]
+}
 
 [sub_resource type="Animation" id="Animation_k5whp"]
 resource_name = "sword_return"
@@ -63,7 +111,7 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.65),
+"times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(-2, -2, 0.5),
 "update": 0,
 "values": [4.45059, 4.45059, 0.0]
@@ -75,7 +123,7 @@ tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.65),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
 "values": [Vector2(0.8, 0.95), Vector2(1, 1)]
@@ -165,7 +213,7 @@ tracks/1/path = NodePath("Sprite2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(0.5, 2, 0.5),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.175, 0.825), Vector2(0.925, 1.075)]
@@ -177,7 +225,7 @@ tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.6, 0.65),
+"times": PackedFloat32Array(0, 0.1, 0.35, 0.6),
 "transitions": PackedFloat32Array(0.5, 2, 2, 0.5),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -189,7 +237,7 @@ tracks/3/path = NodePath("Sprite2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(0.5, 2),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(36, 0)]
@@ -201,25 +249,24 @@ _data = {
 &"slash": SubResource("Animation_srisc")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=577780066]
 script = ExtResource("2_nejxs")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2122994798]
 position = Vector2(-8, 6)
-rotation = 4.45059
-scale = Vector2(0.8, 0.95)
+rotation = -6.2831855
+scale = Vector2(0.85, 0.9625)
 texture = ExtResource("2_kyvnr")
 offset = Vector2(-8, -8)
-region_enabled = true
+hframes = 2
+vframes = 2
 region_rect = Rect2(8, 7, 16, 16)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1325113126]
 root_node = NodePath("../Sprite2D")
-libraries = {
-&"": SubResource("AnimationLibrary_1yp6w")
-}
+libraries/ = SubResource("AnimationLibrary_1yp6w")
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="." unique_id=2089871411]
 collision_layer = 4
 collision_mask = 0
 monitoring = false
@@ -227,30 +274,27 @@ script = ExtResource("1_wafhc")
 damage = 10.0
 metadata/_custom_type_script = "uid://23o3anl36fh2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=642441637]
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_3td86")
-disabled = true
 
-[node name="CursorComponent" type="Node" parent="."]
+[node name="CursorComponent" type="Node" parent="." unique_id=2087918114]
 script = ExtResource("4_mr6qy")
 image = ExtResource("5_2s5la")
 metadata/_custom_type_script = "uid://ki65px3upm1g"
 
-[node name="swordSlash" type="Node2D" parent="."]
+[node name="swordSlash" type="Node2D" parent="." unique_id=332820413]
 script = ExtResource("6_s1yx7")
 
-[node name="Sprite2D" type="Sprite2D" parent="swordSlash"]
+[node name="Sprite2D" type="Sprite2D" parent="swordSlash" unique_id=70327311]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(24, 0)
 texture = ExtResource("7_b8l35")
 offset = Vector2(-16, 0)
 hframes = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="swordSlash"]
-libraries = {
-&"": SubResource("AnimationLibrary_drtyn")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="swordSlash" unique_id=1997052844]
+libraries/ = SubResource("AnimationLibrary_drtyn")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="swordSlash/AnimationPlayer" to="swordSlash" method="_on_animation_player_animation_finished"]
