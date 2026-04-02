@@ -21,11 +21,17 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_36agj")
 
 [node name="MainContentContainer" type="VBoxContainer" parent="Panel" unique_id=681045401]
+custom_minimum_size = Vector2(960, 640)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MainContentContainer" unique_id=865934532]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

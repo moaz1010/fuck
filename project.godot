@@ -35,6 +35,19 @@ window/size/viewport_height=640
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://vy378dn0vw0l"
 
+[file_customization]
+
+folder_colors={
+"res://Recources/": "yellow",
+"res://assests/": "green",
+"res://autoloads/": "blue",
+"res://components/": "purple",
+"res://custom_nodes/": "pink",
+"res://scenes/": "orange",
+"res://scripts/": "teal",
+"res://shaders/": "gray"
+}
+
 [global_group]
 
 level_button="Buttons that select a level"
