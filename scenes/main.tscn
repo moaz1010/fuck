@@ -1054,6 +1054,13 @@ size = Vector2(39, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkpxi"]
 size = Vector2(10, 29)
 
+[sub_resource type="Environment" id="Environment_ty1g6"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.16
+glow_bloom = 1.0
+
 [node name="Main" type="Node" unique_id=214464994]
 
 [node name="World" type="Node2D" parent="." unique_id=1354328676]
@@ -1505,6 +1512,9 @@ offset_bottom = -25.0
 
 [node name="shadowFighter" parent="." unique_id=213884114 instance=ExtResource("49_ty1g6")]
 position = Vector2(192, 62)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=798008233]
+environment = SubResource("Environment_ty1g6")
 
 [connection signal="body_entered" from="World/charachters/jolin2/JolinStart2/Area2D" to="World/charachters/jolin2/JolinStart2/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="World/charachters/signs/sign1/Sign/Area2D" to="World/charachters/signs/sign1/Sign/Area2D" method="_on_body_entered"]
